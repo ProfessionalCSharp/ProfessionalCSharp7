@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.25909.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InheritanceWithConstructors", "InheritanceWithConstructors\InheritanceWithConstructors.csproj", "{9ECE18EA-254C-4612-A707-CADFDB72C7BE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingInterfaces", "UsingInterfaces\UsingInterfaces.csproj", "{F001FAAE-8D5A-42DD-A462-2DF34388824F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualMethods", "VirtualMethods\VirtualMethods.csproj", "{4201F568-F58B-49B3-B184-B0E4F14F8724}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ECE18EA-254C-4612-A707-CADFDB72C7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECE18EA-254C-4612-A707-CADFDB72C7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECE18EA-254C-4612-A707-CADFDB72C7BE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECE18EA-254C-4612-A707-CADFDB72C7BE}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F001FAAE-8D5A-42DD-A462-2DF34388824F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F001FAAE-8D5A-42DD-A462-2DF34388824F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F001FAAE-8D5A-42DD-A462-2DF34388824F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F001FAAE-8D5A-42DD-A462-2DF34388824F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4201F568-F58B-49B3-B184-B0E4F14F8724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4201F568-F58B-49B3-B184-B0E4F14F8724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4201F568-F58B-49B3-B184-B0E4F14F8724}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4201F568-F58B-49B3-B184-B0E4F14F8724}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

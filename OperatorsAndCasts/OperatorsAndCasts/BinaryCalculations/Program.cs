@@ -13,35 +13,42 @@ namespace BinaryCalculations
 
         private static void SignedNumbers()
         {
-            Console.WriteLine("signed numbers");
-            uint x1 = 0b1;
-            Console.WriteLine(x1.ToBinaryString());
-            Console.WriteLine($"number: {x1:X}");
-            x1 = x1 << 31;
-            Console.WriteLine("shift left 31 bits");
-            Console.WriteLine(x1);
-            Console.WriteLine(x1.ToBinaryString());
-            Console.WriteLine($"number: {x1:X}");
-            int x2 = (int)x1;
-            Console.WriteLine(x2);
-            Console.WriteLine(x2.ToBinaryString());
-            Console.WriteLine($"number: {x2:X}");
+            Console.WriteLine(nameof(SignedNumbers));
+
+            void DisplayNumber(string title, int x) =>
+                Console.WriteLine($"{title,-11} bin: {x.ToBinaryString().AddSeparators()}, dec: {x}, hex: {x:X}");
+
+            int maxNumber = int.MaxValue;
+            DisplayNumber("max int", maxNumber);
+            for (int i = 0; i < 3; i++)
+            {
+                maxNumber++;
+                DisplayNumber($"added {i + 1}", maxNumber);
+            }
             Console.WriteLine();
 
-            int x3 = 0b1000;
-            Console.WriteLine(x3);
-            int x4 = ~x3;
-            Console.WriteLine(x4);
-            uint x5 = 0b11111111_11111111_11111111_11111111;
-            Console.WriteLine($"x5: decimal: {x5} hex: {x5:X}");
-            int x6 = (int)x5;
-            Console.WriteLine($"x6: decimal: {x6} hex: {x6:X}");
-            x6--;
-            Console.WriteLine($"x6: decimal: {x6} hex: {x6:X}");
+            int zero = 0;
+            DisplayNumber("-1", zero);
+            for (int i = 0; i < 3; i++)
+            {
+                zero--;
+                DisplayNumber($"subtracted {i + 1}", zero);
+            }
+            Console.WriteLine();
+
+            int minNumber = int.MinValue;
+            DisplayNumber("min number", minNumber);
+            for (int i = 0; i < 3; i++)
+            {
+                minNumber++;
+                DisplayNumber($"added {i + 1}", minNumber);
+            }
+            Console.WriteLine();
         }
 
         static void SimpleCalculations()
         {
+            Console.WriteLine(nameof(SimpleCalculations));
             uint binary1 = 0b1111_0000_1100_0011_1110_0001_0001_1000;
             uint binary2 = 0b0000_1111_1100_0011_0101_1010_1110_0111;
             uint binaryAnd = binary1 & binary2;
@@ -52,6 +59,7 @@ namespace BinaryCalculations
             DisplayBits("XOR", binaryXOR, binary1, binary2);
             uint reverse1 = ~binary1;
             DisplayBits("NOT", reverse1, binary1);
+            Console.WriteLine();
         }
         static void DisplayBits(string title, uint result, uint left, uint? right = null)
         {
@@ -67,12 +75,14 @@ namespace BinaryCalculations
 
         static void ShiftingBits()
         {
+            Console.WriteLine(nameof(ShiftingBits));
             ushort s1 = 0b01;
             for (int i = 0; i < 16; i++)
             {
-                Console.WriteLine($"{s1} hex: {s1:X}");
+                Console.WriteLine($"{s1.ToBinaryString()} {s1} hex: {s1:X}");
                 s1 = (ushort)(s1 << 1);
             }
+            Console.WriteLine();
         }
     }
 }

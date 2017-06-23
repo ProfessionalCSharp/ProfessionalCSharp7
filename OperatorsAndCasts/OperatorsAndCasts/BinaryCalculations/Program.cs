@@ -56,10 +56,10 @@ namespace BinaryCalculations
         static void DisplayBits(string title, uint result, uint left, uint? right = null)
         {
             Console.WriteLine(title);
-            Console.WriteLine(left.ToBinaryString()); //.AddSeparators());
+            Console.WriteLine(left.ToBinaryString().AddSeparators());
             if (right.HasValue)
             {
-                Console.WriteLine(right.Value.ToBinaryString()); //.AddSeparators());
+                Console.WriteLine(right.Value.ToBinaryString().AddSeparators());
             }
             Console.WriteLine(result.ToBinaryString().AddSeparators());
             Console.WriteLine();

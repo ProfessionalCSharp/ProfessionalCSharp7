@@ -28,7 +28,7 @@ namespace BinaryCalculations
             Console.WriteLine();
 
             int zero = 0;
-            DisplayNumber("-1", zero);
+            DisplayNumber("zero", zero);
             for (int i = 0; i < 3; i++)
             {
                 zero--;

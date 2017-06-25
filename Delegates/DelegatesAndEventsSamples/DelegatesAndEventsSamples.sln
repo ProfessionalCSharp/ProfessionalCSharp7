@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26424.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleDelegates", "SimpleDelegates\SimpleDelegates.csproj", "{FB7D9461-3072-40E8-AC39-3125FCE8F73C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BubbleSorter", "BubbleSorter\BubbleSorter.csproj", "{0F1B742B-CF86-4E8D-B7C1-EEC99AB7D2F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaExpressions", "LambdaExpressions\LambdaExpressions.csproj", "{2A072C4B-5C3F-4E5F-A29D-BCC28C0E0411}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventsSample", "EventsSample\EventsSample.csproj", "{61922EB3-E31E-41DB-B99B-FF1B340080B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnonymousMethods", "AnonymousMethods\AnonymousMethods.csproj", "{01F4111A-87EB-4C79-839D-C0665300286E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetAStringDemo", "GetAStringDemo\GetAStringDemo.csproj", "{5743215F-666E-4DF4-9B45-4198DC981C6C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MulticastDelegates", "MulticastDelegates\MulticastDelegates.csproj", "{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB7D9461-3072-40E8-AC39-3125FCE8F73C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7D9461-3072-40E8-AC39-3125FCE8F73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7D9461-3072-40E8-AC39-3125FCE8F73C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7D9461-3072-40E8-AC39-3125FCE8F73C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{0F1B742B-CF86-4E8D-B7C1-EEC99AB7D2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1B742B-CF86-4E8D-B7C1-EEC99AB7D2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F1B742B-CF86-4E8D-B7C1-EEC99AB7D2F4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1B742B-CF86-4E8D-B7C1-EEC99AB7D2F4}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2A072C4B-5C3F-4E5F-A29D-BCC28C0E0411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A072C4B-5C3F-4E5F-A29D-BCC28C0E0411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A072C4B-5C3F-4E5F-A29D-BCC28C0E0411}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A072C4B-5C3F-4E5F-A29D-BCC28C0E0411}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{61922EB3-E31E-41DB-B99B-FF1B340080B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61922EB3-E31E-41DB-B99B-FF1B340080B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61922EB3-E31E-41DB-B99B-FF1B340080B2}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{61922EB3-E31E-41DB-B99B-FF1B340080B2}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{01F4111A-87EB-4C79-839D-C0665300286E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F4111A-87EB-4C79-839D-C0665300286E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F4111A-87EB-4C79-839D-C0665300286E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F4111A-87EB-4C79-839D-C0665300286E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5743215F-666E-4DF4-9B45-4198DC981C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5743215F-666E-4DF4-9B45-4198DC981C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5743215F-666E-4DF4-9B45-4198DC981C6C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5743215F-666E-4DF4-9B45-4198DC981C6C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

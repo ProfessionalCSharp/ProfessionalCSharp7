@@ -15,7 +15,6 @@ namespace Wrox.ProCSharp.Delegates
                 return param;
             };
             Console.WriteLine(anonDel("Start of string"));
-
         }
     }
 }

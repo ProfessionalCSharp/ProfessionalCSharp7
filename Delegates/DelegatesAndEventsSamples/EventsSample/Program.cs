@@ -1,24 +1,24 @@
 ﻿namespace Wrox.ProCSharp.Delegates
 {
-  class Program
-  {
-    static void Main()
+    class Program
     {
-      var dealer = new CarDealer();
+        static void Main()
+        {
+            var dealer = new CarDealer();
 
-      var daniel = new Consumer("Daniel");
-      dealer.NewCarInfo += daniel.NewCarIsHere;
+            var daniel = new Consumer("Daniel");
+            dealer.NewCarInfo += daniel.NewCarIsHere;
 
-      dealer.NewCar("Mercedes");
+            dealer.NewCar("Mercedes");
 
-      var sebastian = new Consumer("Sebastian");
-      dealer.NewCarInfo += sebastian.NewCarIsHere;
+            var sebastian = new Consumer("Sebastian");
+            dealer.NewCarInfo += sebastian.NewCarIsHere;
 
-      dealer.NewCar("Ferrari");
+            dealer.NewCar("Ferrari");
 
-      dealer.NewCarInfo -= sebastian.NewCarIsHere;
+            dealer.NewCarInfo -= sebastian.NewCarIsHere;
 
-      dealer.NewCar("Red Bull Racing");
+            dealer.NewCar("Red Bull Racing");
+        }
     }
-  }
 }

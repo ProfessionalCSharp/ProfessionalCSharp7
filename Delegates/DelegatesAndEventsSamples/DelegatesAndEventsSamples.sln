@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26424.2
+VisualStudioVersion = 15.0.26621.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleDelegates", "SimpleDelegates\SimpleDelegates.csproj", "{FB7D9461-3072-40E8-AC39-3125FCE8F73C}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetAStringDemo", "GetAStringDemo\GetAStringDemo.csproj", "{5743215F-666E-4DF4-9B45-4198DC981C6C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MulticastDelegates", "MulticastDelegates\MulticastDelegates.csproj", "{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MulticastDelegatesUsingInvocationList", "MulticastDelegatesUsingInvocationList\MulticastDelegatesUsingInvocationList.csproj", "{B69806C3-6F79-4E6E-AA51-49759DF85A88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,8 +53,15 @@ Global
 		{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{21337C8B-88CC-4407-AAA6-9EF75C6AFEA6}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{B69806C3-6F79-4E6E-AA51-49759DF85A88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69806C3-6F79-4E6E-AA51-49759DF85A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69806C3-6F79-4E6E-AA51-49759DF85A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69806C3-6F79-4E6E-AA51-49759DF85A88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {059CCE49-4CC3-4A83-BAF0-F3A5936962A5}
 	EndGlobalSection
 EndGlobal

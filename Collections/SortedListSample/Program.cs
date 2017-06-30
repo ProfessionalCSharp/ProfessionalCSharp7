@@ -11,8 +11,8 @@ namespace Wrox.ProCSharp.Collections
             books.Add("Professional WPF Programming", "978–0–470–04180–2");
             books.Add("Professional ASP.NET MVC 5", "978–1–118-79475–3");
 
-            books["Beginning Visual C# 2012 Programming"] = "978–1–118-31441-8";
-            books["Professional C# 5.0 and .NET 4.5.1"] = "978–1–118–83303–2";
+            books["Beginning C# 6 Programming"] = "978-1-119-09668-9";
+            books["Professional C# 6 and .NET Core 1.0"] = "978-1-119-09660-3";
 
             foreach (KeyValuePair<string, string> book in books)
             {
@@ -30,7 +30,7 @@ namespace Wrox.ProCSharp.Collections
             }
 
             {
-                string title = "Professional C# 7.0";
+                string title = "Professional C# 8";
                 if (!books.TryGetValue(title, out string isbn))
                 {
                     Console.WriteLine($"{title} not found");

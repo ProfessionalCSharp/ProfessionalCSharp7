@@ -7,28 +7,28 @@ namespace Wrox.ProCSharp.Collections
     {
         static void Main()
         {
-            var idTony = new EmployeeId("C3755");
-            var tony = new Employee(idTony, "Tony Stewart", 379025.00m);
+            var idJimmie = new EmployeeId("C48");
+            var jimmie = new Employee(idJimmie, "Jimmie Johnson", 150926.00m);
 
-            var idCarl = new EmployeeId("F3547");
-            var carl = new Employee(idCarl, "Carl Edwards", 403466.00m);
+            var idJoey = new EmployeeId("F22");
+            var joey = new Employee(idJoey, "Joey Logano", 45125.00m);
 
-            var idKevin = new EmployeeId("C3386");
-            var kevin = new Employee(idKevin, "Kevin Harwick", 415261.00m);
+            var idKyle = new EmployeeId("T18");
+            var kyle = new Employee(idKyle, "Kyle Bush", 78728.00m);
 
-            var idMatt = new EmployeeId("F3323");
-            var matt = new Employee(idMatt, "Matt Kenseth", 1589390.00m);
+            var idCarl = new EmployeeId("T19");
+            var carl = new Employee(idCarl, "Carl Edwards", 80473.00m);
 
-            var idBrad = new EmployeeId("D3234");
-            var brad = new Employee(idBrad, "Brad Keselowski", 322295.00m);
+            var idMatt = new EmployeeId("T20");
+            var matt = new Employee(idMatt, "Matt Kenseth", 113970.00m);
 
             var employees = new Dictionary<EmployeeId, Employee>(31)
             {
-                [idTony] = tony,
+                [idJimmie] = jimmie,
+                [idJoey] = joey,
+                [idKyle] = kyle,
                 [idCarl] = carl,
-                [idKevin] = kevin,
-                [idMatt] = matt,
-                [idBrad] = brad
+                [idMatt] = matt
             };
 
             foreach (var employee in employees.Values)

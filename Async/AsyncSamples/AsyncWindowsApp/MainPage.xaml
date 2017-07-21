@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="AsyncWindowsApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AsyncWindowsApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <StackPanel>
+            <Button Content="Start Async" Click="OnStartAsync" Margin="4" />
+            <Button Content="Start Async with Config" Click="OnStartAsyncConfigureAwait" Margin="4" />
+            <Button Content="Start Async with Thread Switch" Click="OnStartAsyncWithThreadSwitch" Margin="4" />
+            <Button Content="Use IAsyncOperation" Click="OnIAsyncOperation" Margin="4" />
+            <Button Content="Deadlock" Click="OnStartDeadlock" Margin="4" />
+            <TextBlock x:Name="text1" Margin="4" />
+        </StackPanel>
+
+    </Grid>
+</Page>

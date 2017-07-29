@@ -10,8 +10,6 @@ namespace RefLocalAndRefReturn
 
         public ref int GetNumber() => ref _anumber;
 
-        public void Show() => Console.WriteLine($"Data: {_anumber}");
-
-        
+        public void Show() => Console.WriteLine($"Data: {_anumber}"); 
     }
 }

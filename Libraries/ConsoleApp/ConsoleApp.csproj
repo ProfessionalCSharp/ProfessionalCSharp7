@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Authors>Christian Nagel</Authors>
+    <Company>CN innovation</Company>
+    <Product>Sample App</Product>
+    <Description>Sample App for Professional C#</Description>
+    <Copyright>Copyright (c) CN innovation</Copyright>
+    <PackageProjectUrl>https://github.com/ProfessionalCSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ProfessionalCSharp/ProfessionalCSharp7</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Wrox Press, Sample, Libraries</PackageTags>
+  </PropertyGroup>
+
+</Project>

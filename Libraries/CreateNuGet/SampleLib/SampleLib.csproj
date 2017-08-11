@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
+    <Authors>Christian Nagel</Authors>
+    <Company>CN innovation</Company>
+    <Product>Professional C#</Product>
+    <Description>This is a sample package for Professional C#</Description>
+    <Copyright>Copyright (c) Wrox Press</Copyright>
+    <PackageProjectUrl>https://github.com/ProfessionalCSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ProfessionalCSharp</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>CSharp; .NET Core; NuGet</PackageTags>
+    <PackageReleaseNotes>Sample for Professional C# 7</PackageReleaseNotes>
+    <Version>1.2.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <DefineConstants>NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net47'">
+    <DefineConstants>DOTNET47</DefineConstants>
+  </PropertyGroup>
+
+</Project>

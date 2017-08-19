@@ -7,13 +7,15 @@ namespace DIWithOptions
     {
         static void Main()
         {
-            RegisterServices();
-            var controller = Container.GetService<HomeController>();
-            string result = controller.Hello("Katharina");
-            Console.WriteLine(result);
+            using (var container = RegisterServices())
+            {
+                var controller = container.GetService<HomeController>();
+                string result = controller.Hello("Katharina");
+                Console.WriteLine(result);
+            }
         }
 
-        static void RegisterServices()
+        static ServiceProvider RegisterServices()
         {
             var services = new ServiceCollection();
             services.AddSingleton<IGreetingService, GreetingService>();
@@ -22,8 +24,7 @@ namespace DIWithOptions
                 options.From = "Christian";
             });
             services.AddTransient<HomeController>();
-            Container = services.BuildServiceProvider();
+            return services.BuildServiceProvider();
         }
-        public static IServiceProvider Container { get; private set; }
     }
 }

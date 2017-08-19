@@ -11,8 +11,8 @@ namespace DIWithConfiguration
         static void Main()
         {
             DefineConfiguration();
-            RegisterServices();
-            var controller = Container.GetService<HomeController>();
+            var container = RegisterServices();
+            var controller = container.GetService<HomeController>();
             string result = controller.Hello("Katharina");
             Console.WriteLine(result);
         }
@@ -25,16 +25,16 @@ namespace DIWithConfiguration
             Configuration = configBuilder.Build();
         }
 
-        static void RegisterServices()
+        public static IConfiguration Configuration { get; set; }
+
+        static ServiceProvider RegisterServices()
         {
             var services = new ServiceCollection();
             services.AddOptions();
             services.AddSingleton<IGreetingService, GreetingService>();
             services.AddGreetingService(Configuration.GetSection("GreetingService"));
             services.AddTransient<HomeController>();
-            Container = services.BuildServiceProvider();
+            return services.BuildServiceProvider();
         }
-        public static IConfiguration Configuration { get; set; }
-        public static IServiceProvider Container { get; private set; }
     }
 }

@@ -4,10 +4,8 @@ namespace DIWithOptions
 {
     public class GreetingService : IGreetingService
     {
-        public GreetingService(IOptions<GreetingServiceOptions> options)
-        {
+        public GreetingService(IOptions<GreetingServiceOptions> options) =>
             _from = options.Value.From;
-        }
 
         private string _from;
 

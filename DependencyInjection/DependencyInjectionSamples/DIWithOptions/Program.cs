@@ -18,7 +18,7 @@ namespace DIWithOptions
         static ServiceProvider RegisterServices()
         {
             var services = new ServiceCollection();
-            services.AddSingleton<IGreetingService, GreetingService>();
+            services.AddOptions();
             services.AddGreetingService(options =>
             {
                 options.From = "Christian";

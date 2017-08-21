@@ -45,16 +45,11 @@ namespace ParallelSamples
             Parallel.Invoke(Foo, Bar);
         }
 
-        private static void Foo()
-        {
+        private static void Foo() =>
             Console.WriteLine("foo");
-        }
 
-        private static void Bar()
-        {
+        private static void Bar() =>
             Console.WriteLine("bar");
-        }
-
 
         public static void ParallelForEach()
         {
@@ -65,7 +60,6 @@ namespace ParallelSamples
               {
                   Console.WriteLine(s);
               });
-
         }
 
         public static void ParallelFor()
@@ -135,9 +129,7 @@ namespace ParallelSamples
         }
 
 
-        public static void Log(string prefix)
-        {
+        public static void Log(string prefix) =>
             Console.WriteLine($"{prefix} task: {Task.CurrentId}, thread: {Thread.CurrentThread.ManagedThreadId}");
-        }
     }
 }

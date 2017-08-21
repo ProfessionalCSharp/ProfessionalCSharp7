@@ -18,7 +18,7 @@ namespace WithDIContainer
         static ServiceProvider RegisterServices()
         {
             var services = new ServiceCollection();
-          //  services.AddSingleton<IGreetingService, GreetingService>();
+            services.AddSingleton<IGreetingService, GreetingService>();
             services.AddTransient<HomeController>();
             return services.BuildServiceProvider();
         }

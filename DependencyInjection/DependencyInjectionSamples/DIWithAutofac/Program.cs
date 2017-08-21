@@ -14,14 +14,13 @@ namespace DIWithAutofac
             {
                 var controller = container.Resolve<HomeController>();
                 string result = controller.Hello("Katharina");
+               
                 Console.WriteLine(result);
             }
         }
 
         static IContainer RegisterServices()
         {
-
-
             var services = new ServiceCollection();
             services.AddSingleton<IGreetingService, GreetingService>();
             services.AddTransient<HomeController>();
@@ -29,7 +28,6 @@ namespace DIWithAutofac
             var builder = new ContainerBuilder();
             builder.Populate(services);
             return builder.Build();
-            // return services.BuildServiceProvider();
         }
     }
 }

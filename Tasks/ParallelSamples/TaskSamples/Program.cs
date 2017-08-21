@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -6,50 +7,38 @@ namespace TaskSamples
 {
     class Program
     {
+        private static readonly Command[] s_commands =
+        {
+            new Command("-p", nameof(TasksUsingThreadPool), TasksUsingThreadPool),
+            new Command("-s", nameof(RunSynchronousTask), RunSynchronousTask),
+            new Command("-l", nameof(LongRunningTask), LongRunningTask),
+            new Command("-r", nameof(TaskWithResultDemo), TaskWithResultDemo),
+            new Command("-c", nameof(ContinuationTasks), ContinuationTasks),
+            new Command("-pc", nameof(ParentAndChild), ParentAndChild),
+        };
+
+
         static void Main(string[] args)
         {
-            if (args.Length != 1)
+            if (args.Length == 0 || args.Length > 1 || !s_commands.Select(c => c.Option).Contains(args[0]))
             {
                 ShowUsage();
                 return;
             }
-            switch (args[0])
-            {
-                case "-p":
-                    TasksUsingThreadPool();
-                    break;
-                case "-s":
-                    RunSynchronousTask();
-                    break;
-                case "-l":
-                    LongRunningTask();
-                    break;
-                case "-r":
-                    TaskWithResultDemo();
-                    break;
-                case "-c":
-                    ContinuationTasks();
-                    break;
-                case "-pc":
-                    ParentAndChild();
-                    break;
-                default:
-                    ShowUsage();
-                    break;
-            }
+
+            s_commands.Single(c => c.Option == args[0]).Action();
+
             Console.ReadLine();
         }
 
         private static void ShowUsage()
         {
-            Console.WriteLine("TaskSamples option");
-            Console.WriteLine("options");
-            Console.WriteLine("\t-p\tUse Thread Pool");
-            Console.WriteLine("\t-s\tUse Synchronous Task");
-            Console.WriteLine("\t-l\tUse Long Running Task");
-            Console.WriteLine("\t-r\tTask with Result");
-            Console.WriteLine("\t-c\tContinuation Tasks");
-            Console.WriteLine("\t-pc\tParent and Child");
+            Console.WriteLine("Usage: TaskSamples [options]");
+            Console.WriteLine();
+            foreach (var command in s_commands)
+            {
+                Console.WriteLine($"{command.Option} {command.Text}");
+            }
         }
 
         public static void ParentAndChild()

@@ -8,13 +8,14 @@ namespace CancellationSamples
     {
         static void Main()
         {
-            // CancelParallelFor();
+            CancelParallelFor();
             CancelTask();
             Console.ReadLine();
         }
 
         public static void CancelTask()
         {
+            Console.WriteLine(nameof(CancelTask));
             var cts = new CancellationTokenSource();
             cts.Token.Register(() => Console.WriteLine("*** task cancelled"));
             // send a cancel after 500 ms
@@ -50,10 +51,12 @@ namespace CancellationSamples
                       $"{ex.InnerException.Message}");
                 }
             }
+            Console.WriteLine();
         }
 
         public static void CancelParallelFor()
         {
+            Console.WriteLine(nameof(CancelParallelFor));
             var cts = new CancellationTokenSource();
             cts.Token.Register(() => Console.WriteLine("*** token cancelled"));
 
@@ -83,6 +86,7 @@ namespace CancellationSamples
             {
                 Console.WriteLine(ex.Message);
             }
+            Console.WriteLine();
         }
     }
 }

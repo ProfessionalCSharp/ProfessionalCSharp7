@@ -12,7 +12,6 @@ namespace DataFlowSample
             var target = SetupPipeline();
             target.Post(".");
             Console.ReadLine();
-
         }
 
         public static IEnumerable<string> GetFileNames(string path)
@@ -56,22 +55,13 @@ namespace DataFlowSample
         public static ITargetBlock<string> SetupPipeline()
         {
             var fileNamesForPath = new TransformBlock<string, IEnumerable<string>>(
-              path =>
-              {
-                  return GetFileNames(path);
-              });
+              path => GetFileNames(path));
 
             var lines = new TransformBlock<IEnumerable<string>, IEnumerable<string>>(
-              fileNames =>
-              {
-                  return LoadLines(fileNames);
-              });
+              fileNames => LoadLines(fileNames));
 
             var words = new TransformBlock<IEnumerable<string>, IEnumerable<string>>(
-              lines2 =>
-              {
-                  return GetWords(lines2);
-              });
+              lines2 => GetWords(lines2));
 
             var display = new ActionBlock<IEnumerable<string>>(
               coll =>

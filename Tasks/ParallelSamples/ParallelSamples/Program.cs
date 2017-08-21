@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -6,52 +7,37 @@ namespace ParallelSamples
 {
     class Program
     {
+        private static readonly Command[] s_commands =
+        {
+            new Command("-p", nameof(ParallelFor), ParallelFor),
+            new Command("-pfa", nameof(ParallelForWithAsync), ParallelForWithAsync),
+            new Command("-spfe", nameof(StopParallelForEarly), StopParallelForEarly),
+            new Command("-pfi", nameof(ParallelForWithInit), ParallelForWithInit),
+            new Command("-pfe", nameof(ParallelForEach), ParallelForEach),
+            new Command("-pi", nameof(ParallelInvoke), ParallelInvoke),
+        };
+
         static void Main(string[] args)
         {
-            if (args.Length != 1)
+            if (args.Length == 0 || args.Length > 1 || !s_commands.Select(c => c.Option).Contains(args[0]))
             {
                 ShowUsage();
                 return;
             }
 
-            switch (args[0])
-            {
-                case "pf":
-                    ParallelFor();
-                    break;
-                case "pfa":
-                    ParallelForWithAsync();
-                    break;
-                case "spfe":
-                    StopParallelForEarly();
-                    break;
-                case "pfi":
-                    ParallelForWithInit();
-                    break;
-                case "pfe":
-                    ParallelForEach();
-                    break;
-                case "pi":
-                    ParallelInvoke();
-                    break;
-                default:
-                    ShowUsage();
-                    break;
-            }
+            s_commands.Single(c => c.Option == args[0]).Action();
 
             Console.ReadLine();
         }
 
         private static void ShowUsage()
         {
-            Console.WriteLine("ParallelSamples options");
-            Console.WriteLine("Options:");
-            Console.WriteLine("\t-pf\tParallel For");
-            Console.WriteLine("\t-pfa\tParallel For Async");
-            Console.WriteLine("\t-spfe\tStop Parallel For Early");
-            Console.WriteLine("\t-pfwi\tParallel For With Init");
-            Console.WriteLine("\t-pfe\tParallel ForEach");
-            Console.WriteLine("\t-pi\tParallel Invoke");
+            Console.WriteLine("Usage: ParallelSamples [options]");
+            Console.WriteLine();
+            foreach (var command in s_commands)
+            {
+                Console.WriteLine($"{command.Option} {command.Text}");
+            }
         }
 
         public static void ParallelInvoke()

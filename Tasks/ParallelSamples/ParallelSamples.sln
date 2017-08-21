@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelSamples", "ParallelSamples\ParallelSamples.csproj", "{4C4AE31B-0FA7-4A55-BA04-DD81B19BC497}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFlowSample", "DataFlowSample\DataFlowSample.csproj", "{8A4E35FF-EF1B-4F0C-97AB-1FD09CB09552}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleDataFlowSample", "SimpleDataFlowSample\SimpleDataFlowSample.csproj", "{DA02FB4E-BC85-4751-870F-86AEC8550D90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTaskSample", "ValueTaskSample\ValueTaskSample.csproj", "{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,8 +85,23 @@ Global
 		{DA02FB4E-BC85-4751-870F-86AEC8550D90}.Release|x64.Build.0 = Release|Any CPU
 		{DA02FB4E-BC85-4751-870F-86AEC8550D90}.Release|x86.ActiveCfg = Release|Any CPU
 		{DA02FB4E-BC85-4751-870F-86AEC8550D90}.Release|x86.Build.0 = Release|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Debug|x64.Build.0 = Debug|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Debug|x86.Build.0 = Debug|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Release|x64.ActiveCfg = Release|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Release|x64.Build.0 = Release|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Release|x86.ActiveCfg = Release|Any CPU
+		{D359C2F3-3205-4422-BDA0-DFA1DFD1181E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFE3E970-8C28-4B16-96E1-8726F3FC34F4}
 	EndGlobalSection
 EndGlobal

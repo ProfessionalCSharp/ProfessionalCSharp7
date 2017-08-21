@@ -37,7 +37,6 @@ namespace SimpleDataFlowSample
             Task.WaitAll(t1, t2);
         }
 
-
         private static BufferBlock<string> s_buffer = new BufferBlock<string>();
 
         public static void Producer()

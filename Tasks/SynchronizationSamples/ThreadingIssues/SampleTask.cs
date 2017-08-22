@@ -19,7 +19,7 @@ namespace ThreadingIssues
                     if (_state != 6)
                     {
                         Console.WriteLine($"Race condition occured after {loop} loops");
-                        Trace.Fail("race condition");
+                        Trace.Fail($"race condition at {loop}");
                     }
                 }
                 _state = 5;

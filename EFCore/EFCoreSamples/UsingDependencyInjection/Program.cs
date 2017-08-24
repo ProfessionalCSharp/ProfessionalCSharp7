@@ -1,0 +1,35 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Threading.Tasks;
+
+namespace UsingDependencyInjection
+{
+    class Program
+    {
+        static async Task Main()
+        {
+            var p = new Program();
+            p.InitializeServices();
+            var service = p.Container.GetService<BooksService>();
+            await service.AddBooksAsync();
+            service.ReadBooks();
+            p.Container.Dispose();
+        }
+
+        private void InitializeServices()
+        {
+            const string ConnectionString =
+              @"server=(localdb)\MSSQLLocalDb;database=Books;trusted_connection=true";
+            var services = new ServiceCollection();
+            services.AddTransient<BooksService>()
+              .AddEntityFrameworkSqlServer()
+              .AddDbContext<BooksContext>(options =>
+                options.UseSqlServer(ConnectionString));
+
+            Container = services.BuildServiceProvider();
+        }
+        public ServiceProvider Container { get; private set; }
+
+    }
+}

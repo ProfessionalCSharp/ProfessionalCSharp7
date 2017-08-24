@@ -13,7 +13,7 @@ namespace UsingDependencyInjection
             p.InitializeServices();
             var service = p.Container.GetService<BooksService>();
             await service.AddBooksAsync();
-            service.ReadBooks();
+            await service.ReadBooksAsync();
             p.Container.Dispose();
         }
 

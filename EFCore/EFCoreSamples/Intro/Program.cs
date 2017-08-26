@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +14,14 @@ namespace Intro
         static async Task Main()
         {
             var p = new Program();
+            p.AddLogging();
             await p.CreateTheDatabaseAsync();
             await p.AddBookAsync("Professional C# 7", "Wrox Press");
             await p.AddBooksAsync();
             await p.ReadBooksAsync();
             await p.QueryBooksAsync();
             await p.UpdateBookAsync();
+
             await p.DeleteBooksAsync();
             await p.DeleteDatabaseAsync();
         }
@@ -134,5 +139,15 @@ namespace Intro
             }
             Console.WriteLine();
         }
+
+            private void AddLogging()
+            {
+                using (var context = new BooksContext())
+                {
+                    IServiceProvider provider = context.GetInfrastructure<IServiceProvider>();
+                    ILoggerFactory loggerFactory = provider.GetService<ILoggerFactory>();
+                    loggerFactory.AddConsole(LogLevel.Information);
+                }
+            }
     }
 }

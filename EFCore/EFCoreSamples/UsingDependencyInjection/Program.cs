@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace UsingDependencyInjection
         {
             var p = new Program();
             p.InitializeServices();
+            p.ConfigureLogging();
             var service = p.Container.GetService<BooksService>();
             await service.AddBooksAsync();
             await service.ReadBooksAsync();
@@ -26,10 +28,16 @@ namespace UsingDependencyInjection
               .AddEntityFrameworkSqlServer()
               .AddDbContext<BooksContext>(options =>
                 options.UseSqlServer(ConnectionString));
+            services.AddLogging();
 
             Container = services.BuildServiceProvider();
         }
         public ServiceProvider Container { get; private set; }
 
+        private void ConfigureLogging()
+        {
+            ILoggerFactory loggerFactory = Container.GetService<ILoggerFactory>();
+            loggerFactory.AddConsole(LogLevel.Information);
+        }
     }
 }

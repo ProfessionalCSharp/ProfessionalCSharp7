@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static MappingToFields.ColumnNames;
 
 namespace MappingToFields
 {
@@ -13,11 +14,13 @@ namespace MappingToFields
             var p = new Program();
             await p.CreateTheDatabaseAsync();
             await p.AddBookAsync("Professional C# 7", "Wrox Press");
+            await p.AddBookAsync("Test", "Test");
             await p.AddBooksAsync();
             await p.ReadBooksAsync();
             await p.QueryBooksAsync();
-            await p.UpdateBookAsync();
-            await p.DeleteBooksAsync();
+            await p.DeleteBookAsync(2);
+            await p.QueryDeletedBooksAsync();
+
             await p.DeleteDatabaseAsync();
         }
 
@@ -45,7 +48,7 @@ namespace MappingToFields
         {
             using (var context = new BooksContext())
             {
-                var book = new Book { Title = title, Publisher = publisher };
+                var book = new Book(title, publisher);
                 await context.Books.AddAsync(book);
                 int records = await context.SaveChangesAsync();
 
@@ -58,10 +61,10 @@ namespace MappingToFields
         {
             using (var context = new BooksContext())
             {
-                var b1 = new Book { Title = "Professional C# 6 and .NET Core 1.0", Publisher = "Wrox Press" };
-                var b2 = new Book { Title = "Professional C# 5 and .NET 4.5.1", Publisher = "Wrox Press" };
-                var b3 = new Book { Title = "JavaScript for Kids", Publisher = "Wrox Press" };
-                var b4 = new Book { Title = "Web Design with HTML and CSS", Publisher = "For Dummies" };
+                var b1 = new Book("Professional C# 6 and .NET Core 1.0", "Wrox Press");
+                var b2 = new Book("Professional C# 5 and .NET 4.5.1", "Wrox Press");
+                var b3 = new Book("JavaScript for Kids", "Wrox Press");
+                var b4 = new Book("Web Design with HTML and CSS", "For Dummies");
                 await context.Books.AddRangeAsync(b1, b2, b3, b4);
                 int records = await context.SaveChangesAsync();
 
@@ -77,7 +80,7 @@ namespace MappingToFields
                 List<Book> books = await context.Books.ToListAsync();
                 foreach (var b in books)
                 {
-                    Console.WriteLine($"{b.Title} {b.Publisher}");
+                    Console.WriteLine(b);
                 }
             }
             Console.WriteLine();
@@ -91,11 +94,6 @@ namespace MappingToFields
                     .Where(b => b.Publisher == "Wrox Press")
                     .ToListAsync();
 
-                // comment the previous line and uncomment the next lines to try the LINQ query syntax
-                //var wroxBooks = await (from b in context.Books
-                //                         where b.Publisher == "Wrox Press"
-                //                         select b).ToListAsync();
-
                 foreach (var b in wroxBooks)
                 {
                     Console.WriteLine($"{b.Title} {b.Publisher}");
@@ -103,36 +101,43 @@ namespace MappingToFields
             }
             Console.WriteLine();
         }
-
-        private async Task UpdateBookAsync()
+    
+        private async Task UpdateBookAsync(Book updateBook)
         {
             using (var context = new BooksContext())
             {
-                int records = 0;
-                Book book = await context.Books
-                    .Where(b => b.Title == "Professional C# 7")
-                    .FirstOrDefaultAsync();
-                if (book != null)
-                {
-                    book.Title = "Professional C# 7 and .NET Core 2.0";
-                    records = await context.SaveChangesAsync();
-                }
+                context.Entry<Book>(updateBook).State = EntityState.Modified;
+                await context.SaveChangesAsync();
+            } 
+        }
 
-                Console.WriteLine($"{records} record updated");
+        private async Task DeleteBookAsync(int id)
+        {
+            using (var context = new BooksContext())
+            {
+                Book b = await context.Books.FindAsync(id);
+                if (b == null) return;
+
+                context.Books.Remove(b);
+                int records = await context.SaveChangesAsync();
+                Console.WriteLine($"{records} books deleted");
             }
             Console.WriteLine();
         }
 
-        private async Task DeleteBooksAsync()
+        private async Task QueryDeletedBooksAsync()
         {
             using (var context = new BooksContext())
             {
-                List<Book> books = await context.Books.ToListAsync();
-                context.Books.RemoveRange(books);
-                int records = await context.SaveChangesAsync();
-                Console.WriteLine($"{records} records deleted");
+                IEnumerable<Book> deletedBooks = 
+                    await context.Books
+                    .Where(b => EF.Property<bool>(b, IsDeleted))
+                    .ToListAsync();
+                foreach (var book in deletedBooks)
+                {
+                    Console.WriteLine($"deleted: {book}");
+                }
             }
-            Console.WriteLine();
         }
     }
 }

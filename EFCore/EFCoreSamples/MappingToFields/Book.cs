@@ -2,13 +2,21 @@
 {
     public class Book
     {
-        public Book()
+        // parameterless constructor neeeded for EF Core
+        private Book()
         {
 
         }
-        private int _bookId;
-        public string Title { get; }
-        public string Publisher { get; }
+        public Book(string title, string publisher)
+        {
+            Title = title;
+            _publisher = publisher;
+        }
+
+        private int _bookId = 0;
+        public string Title { get; set; }
+        private string _publisher;
+        public string Publisher => _publisher;
 
         public override string ToString() => $"id: {_bookId}, title: {Title}, publisher: {Publisher}";
     }

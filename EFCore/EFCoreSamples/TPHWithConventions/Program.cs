@@ -29,9 +29,9 @@ namespace TPHWithConventions
         {
             using (var context = new BankContext())
             {
-                context.CashPayments.Add(new CashPayment { Name = "Donald", Amount = 0.5 });
-                context.CashPayments.Add(new CashPayment { Name = "Scrooge", Amount = 20000 });
-                context.CreditcardPayments.Add(new CreditcardPayment { Name = "Gus Goose", Amount = 300, CreditcardNumber = "987654321" });
+                context.CashPayments.Add(new CashPayment { Name = "Donald", Amount = 0.5M });
+                context.CashPayments.Add(new CashPayment { Name = "Scrooge", Amount = 20000M });
+                context.CreditcardPayments.Add(new CreditcardPayment { Name = "Gus Goose", Amount = 300M, CreditcardNumber = "987654321" });
                 context.SaveChanges();
             }
         }

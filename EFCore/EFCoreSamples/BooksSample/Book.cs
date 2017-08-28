@@ -1,4 +1,6 @@
-﻿namespace BooksSample
+﻿using System.Collections.Generic;
+
+namespace BooksSample
 {
     public class Book
     {
@@ -15,6 +17,8 @@
         public string Title { get; set; }
         private string _publisher;
         public string Publisher => _publisher;
+
+        public virtual List<BookAuthor> BookAuthors { get; set; }
 
         public override string ToString() => $"id: {_bookId}, title: {Title}, publisher: {Publisher}";
     }

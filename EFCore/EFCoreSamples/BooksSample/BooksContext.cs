@@ -12,12 +12,15 @@ namespace BooksSample
         public const string LastUpdated = nameof(LastUpdated);
         public const string IsDeleted = nameof(IsDeleted);
         public const string BookId = nameof(BookId);
+        public const string AuthorId = nameof(AuthorId);
     }
 
     public class BooksContext : DbContext
     {
-        private const string ConnectionString = @"server=(localdb)\MSSQLLocalDb;database=Books3;trusted_connection=true";
+        private const string ConnectionString = @"server=(localdb)\MSSQLLocalDb;database=BooksSample;trusted_connection=true";
         public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<BookAuthor> BookAuthors { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -28,7 +31,7 @@ namespace BooksSample
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Book>().HasQueryFilter(b => !EF.Property<bool>(b, IsDeleted));
+          //  modelBuilder.Entity<Book>().HasQueryFilter(b => !EF.Property<bool>(b, IsDeleted));
 
             modelBuilder.Entity<Book>().Property(b => b.Title)
                 .IsRequired()
@@ -47,6 +50,9 @@ namespace BooksSample
             // shadow properties
             modelBuilder.Entity<Book>().Property<bool>(IsDeleted);
             modelBuilder.Entity<Book>().Property<DateTime>(LastUpdated);
+
+            modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+            modelBuilder.ApplyConfiguration(new BookAuthorConfiguration());
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

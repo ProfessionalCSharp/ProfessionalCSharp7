@@ -22,17 +22,19 @@ namespace BooksSample
             await p.AddBooksAsync();
             await p.QueryAllBooksAsync();
             await p.QueryBookByKeyAsync(2);
+            await p.UpdateBookAsync();
             await p.QueryBookAsync("Professional C# 7 and .NET Core 2.0");
             await p.FilterBooksAsync("Pro");
 
             await p.DeleteBookAsync(2);
             await p.QueryDeletedBooksAsync();
             await p.QueryBooksAsync();
+            await p.ClientAndServerEvaluationAsync();
             await p.RawSqlQuery("Wrox Press");
-
 
             await p.DeleteDatabaseAsync();
         }
+
 
         private async Task CreateTheDatabaseAsync()
         {
@@ -80,11 +82,44 @@ namespace BooksSample
                 var b1 = new Book("Professional C# 6 and .NET Core 1.0", "Wrox Press");
                 var b2 = new Book("Professional C# 5 and .NET 4.5.1", "Wrox Press");
                 var b3 = new Book("JavaScript for Kids", "Wrox Press");
-                var b4 = new Book("Web Design with HTML and CSS", "For Dummies");
+                var b4 = new Book("HTML and CSS", "John Wiley");
                 await context.Books.AddRangeAsync(b1, b2, b3, b4);
+
+                var a1 = new Author("Christian", "Nagel");
+                var a2 = new Author("Jay", "Glynn");
+                var a3 = new Author("Jon", "Duckett");
+                var a4 = new Author("Nick", "Morgan");
+                await context.Authors.AddRangeAsync(a1, a2, a3, a4);
+
+                var ba1 = new BookAuthor { Author = a1, Book = b1 };
+                var ba2 = new BookAuthor { Author = a1, Book = b2 };
+                var ba3 = new BookAuthor { Author = a2, Book = b2 };
+                var ba4 = new BookAuthor { Author = a3, Book = b4 };
+                var ba5 = new BookAuthor { Author = a4, Book = b3 };
+                await context.BookAuthors.AddRangeAsync(ba1, ba2, ba3, ba4, ba5);
+
                 int records = await context.SaveChangesAsync();
 
                 Console.WriteLine($"{records} records added");
+            }
+            Console.WriteLine();
+        }
+
+        private async Task UpdateBookAsync()
+        {
+            using (var context = new BooksContext())
+            {
+                int records = 0;
+                Book book = await context.Books
+                    .Where(b => b.Title == "Professional C# 7")
+                    .FirstOrDefaultAsync();
+                if (book != null)
+                {
+                    book.Title = "Professional C# 7 and .NET Core 2.0";
+                    records = await context.SaveChangesAsync();
+                }
+
+                Console.WriteLine($"{records} record updated");
             }
             Console.WriteLine();
         }
@@ -155,6 +190,24 @@ namespace BooksSample
             {
                 List<Book> wroxBooks = await context.Books
                     .Where(b => b.Title.Contains(title))
+                    .ToListAsync();
+
+                foreach (var b in wroxBooks)
+                {
+                    Console.WriteLine($"{b.Title} {b.Publisher}");
+                }
+            }
+            Console.WriteLine();
+        }
+
+        private async Task ClientAndServerEvaluationAsync()
+        {
+            Console.WriteLine(nameof(ClientAndServerEvaluationAsync));
+            string textQuery = ".net";
+            using (var context = new BooksContext())
+            {
+                List<Book> wroxBooks = await context.Books
+                    .Where(b => b.Title.Contains(textQuery.ToUpper()))
                     .ToListAsync();
 
                 foreach (var b in wroxBooks)

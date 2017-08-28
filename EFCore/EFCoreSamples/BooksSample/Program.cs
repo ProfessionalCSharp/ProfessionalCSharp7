@@ -29,7 +29,7 @@ namespace BooksSample
             await p.DeleteBookAsync(2);
             await p.QueryDeletedBooksAsync();
             await p.QueryBooksAsync();
-            await p.ClientAndServerEvaluationAsync();
+            p.ClientAndServerEvaluation();
             await p.RawSqlQuery("Wrox Press");
 
             await p.DeleteDatabaseAsync();
@@ -171,13 +171,21 @@ namespace BooksSample
         public async Task QueryBookAsync(string title)
         {
             Console.WriteLine(nameof(QueryBookAsync));
-            using (var context = new BooksContext())
+            try
             {
-                Book book = await context.Books.SingleOrDefaultAsync(b => b.Title == title);
-                if (book != null)
+
+                using (var context = new BooksContext())
                 {
-                    Console.WriteLine($"found book {book}");
+                    Book book = await context.Books.SingleOrDefaultAsync(b => b.Title == title);
+                    if (book != null)
+                    {
+                        Console.WriteLine($"found book {book}");
+                    }
                 }
+            }
+            catch (InvalidOperationException ex) when (ex.HResult == -2146233079) // more than 1 element
+            {
+                Console.WriteLine(ex.Message);
             }
             Console.WriteLine();
         }
@@ -200,19 +208,23 @@ namespace BooksSample
             Console.WriteLine();
         }
 
-        private async Task ClientAndServerEvaluationAsync()
+        private void ClientAndServerEvaluation()
         {
-            Console.WriteLine(nameof(ClientAndServerEvaluationAsync));
-            string textQuery = ".net";
+            Console.WriteLine(nameof(ClientAndServerEvaluation));
             using (var context = new BooksContext())
             {
-                List<Book> wroxBooks = await context.Books
-                    .Where(b => b.Title.Contains(textQuery.ToUpper()))
-                    .ToListAsync();
+                var books = context.Books.Where(b => b.Title.StartsWith("Pro"))
+                    .OrderBy(b => b.Title)
+                    .Select(b => new
+                    {
+                        b.Title,
+                    //    Authors = string.Join(", ", b.BookAuthors.Select(a => $"{a.Author.FirstName} {a.Author.LastName}").ToArray())
+                    Authors = b.BookAuthors
+                    });
 
-                foreach (var b in wroxBooks)
+                foreach (var b in books)
                 {
-                    Console.WriteLine($"{b.Title} {b.Publisher}");
+                    Console.WriteLine($"{b.Title} {b.Authors}");
                 }
             }
             Console.WriteLine();

@@ -30,7 +30,7 @@ namespace BooksSample
 
             await p.DeleteBookAsync(2);
             await p.QueryDeletedBooksAsync();
-            await p.QueryBooksAsync();
+            await QuerySamples.QueryBooksAsync();
             QuerySamples.ClientAndServerEvaluation();
             await QuerySamples.RawSqlQuery("Wrox Press");
             QuerySamples.CompileQuery();

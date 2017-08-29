@@ -31,6 +31,7 @@ namespace BooksSample
             await p.QueryBooksAsync();
             p.ClientAndServerEvaluation();
             await p.RawSqlQuery("Wrox Press");
+            p.CompiledQuery();
 
             await p.DeleteDatabaseAsync();
         }
@@ -211,21 +212,28 @@ namespace BooksSample
         private void ClientAndServerEvaluation()
         {
             Console.WriteLine(nameof(ClientAndServerEvaluation));
-            using (var context = new BooksContext())
+            try
             {
-                var books = context.Books.Where(b => b.Title.StartsWith("Pro"))
-                    .OrderBy(b => b.Title)
-                    .Select(b => new
-                    {
-                        b.Title,
-                    //    Authors = string.Join(", ", b.BookAuthors.Select(a => $"{a.Author.FirstName} {a.Author.LastName}").ToArray())
-                    Authors = b.BookAuthors
+                using (var context = new BooksContext())
+                {
+                    var books = context.Books.Where(b => b.Title.StartsWith("Pro"))
+                        .OrderBy(b => b.Title)
+                        .Select(b => new
+                        {
+                            b.Title,
+                            Authors = string.Join(", ", b.BookAuthors.Select(a => $"{a.Author.FirstName} {a.Author.LastName}").ToArray())
+                        //  Authors = b.BookAuthors  // client evaluation
                     });
 
-                foreach (var b in books)
-                {
-                    Console.WriteLine($"{b.Title} {b.Authors}");
+                    foreach (var b in books)
+                    {
+                        Console.WriteLine($"{b.Title} {b.Authors}");
+                    }
                 }
+            }
+            catch (InvalidOperationException ex) when (ex.HResult == -2146233079)
+            {
+                Console.WriteLine(ex.Message);
             }
             Console.WriteLine();
         }
@@ -278,9 +286,21 @@ namespace BooksSample
             Console.WriteLine();
         }
 
-        private async Task CompiledQueryAsync()
+        private void CompiledQuery()
         {
-            return;
+            Console.WriteLine(nameof(CompiledQuery));
+            Func<BooksContext, string, IEnumerable<Book>> query = EF.CompileQuery<BooksContext, string, Book>((context, publisher) => context.Books.Where(b => b.Publisher == publisher));
+           
+            using (var context = new BooksContext())
+            {
+                IEnumerable<Book> books = query(context, "Wrox Press");
+
+                foreach (var b in books)
+                {
+                    Console.WriteLine($"{b.Title} {b.Publisher}");
+                }
+            }
+            Console.WriteLine();
         }
 
         private void AddLogging()

@@ -126,8 +126,6 @@ namespace BooksSample
             Console.WriteLine();
         }
 
-
-
         private async Task DeleteBookAsync(int id)
         {
             using (var context = new BooksContext())

@@ -33,7 +33,7 @@ namespace BooksSample
         {
             base.OnModelCreating(modelBuilder);
 
-          //  modelBuilder.Entity<Book>().HasQueryFilter(b => !EF.Property<bool>(b, IsDeleted));
+            modelBuilder.Entity<Book>().HasQueryFilter(b => !EF.Property<bool>(b, IsDeleted));
 
             modelBuilder.Entity<Book>().Property(b => b.Title)
                 .IsRequired()

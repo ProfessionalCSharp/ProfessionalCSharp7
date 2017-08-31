@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="WinAppHttpClient.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinAppHttpClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Header="Url" Text="{x:Bind Url, Mode=TwoWay}" MinWidth="200" Margin="5" />
+            <Button Content="Send" Click="{x:Bind OnSendRequest}" Margin="10,5,5,5" VerticalAlignment="Bottom" />
+        </StackPanel>
+        <TextBox Header="Version" Text="{x:Bind Version, Mode=OneWay}" Grid.Row="1" Margin="5" IsReadOnly="True" />
+        <TextBox AcceptsReturn="True" IsReadOnly="True" Text="{x:Bind Result, Mode=OneWay}" Grid.Row="2" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</Page>

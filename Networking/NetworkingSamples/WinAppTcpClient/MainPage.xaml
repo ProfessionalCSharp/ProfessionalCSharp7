@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="WinAppTcpClient.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinAppTcpClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5">
+            <TextBox Text="{x:Bind RemoteHost, Mode=TwoWay}" />
+            <TextBox Text="{x:Bind ServerPort, Mode=TwoWay}" />
+            <Button Content="Connect" Margin="5" Padding="5" Click="OnConnect" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <ComboBox ItemsSource="{x:Bind Commands, Mode=OneTime}" SelectedItem="{x:Bind ActiveCommand, Mode=TwoWay}" MinWidth="200" Margin="5" />
+            <TextBox Text="{x:Bind ActiveCommand.Action, Mode=TwoWay}" MinWidth="200" Margin="5" />
+            <Button Content="Send" Margin="5" Padding="5" Width="200" Click="OnSendCommand" />
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBox Header="Session Id" IsReadOnly="True" Text="{x:Bind SessionId, Mode=OneWay}" Grid.Column="1" Margin="5" />
+            <TextBox Header="Status" IsReadOnly="True" Text="{x:Bind Status, Mode=OneWay}" Grid.Row="1" Grid.Column="1" Margin="5" />
+            <Button Content="Clear Log" Click="OnClearLog" Grid.Row="2" Margin="5" Padding="5" />
+            <TextBox IsReadOnly="True" Text="{x:Bind Log, Mode=OneWay}" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MinHeight="80" Grid.Row="2" Grid.Column="1" Margin="5" />
+        </Grid>
+    </Grid>
+</Page>

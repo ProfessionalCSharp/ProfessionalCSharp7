@@ -6,12 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="System.Buffers.Primitives">
-      <HintPath>..\..\..\..\..\..\microsoftsamples\corefxlab\src\System.IO.Compression.Brotli\bin\Debug\netstandard1.1\System.Buffers.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.Compression.Brotli">
-      <HintPath>..\..\..\..\..\..\microsoftsamples\corefxlab\src\System.IO.Compression.Brotli\bin\Debug\netstandard1.1\System.IO.Compression.Brotli.dll</HintPath>
-    </Reference>
+    <PackageReference Include="System.IO.Compression.Brotli" Version="0.1.0-e170901-1" />
+    <PackageReference Include="System.Memory" Version="4.5.0-preview2-25701-02" />
   </ItemGroup>
+
 
 </Project>

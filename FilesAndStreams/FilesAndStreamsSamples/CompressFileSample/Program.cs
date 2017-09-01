@@ -16,7 +16,7 @@ namespace CompressFileSample
             CompressFileWithBrotli("./test.txt", "./test.txt.brotli");
             DecompressFileWithBrotli("./test.txt.brotli");
 
-            CreateZipFile("c:/test", "c:/test2/test.zip");
+            CreateZipFile("../StreamSamples/", "./test.zip");
         }
 
         public static void CreateZipFile(string directory, string zipFile)

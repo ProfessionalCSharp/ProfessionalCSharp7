@@ -55,7 +55,6 @@ namespace HttpServer
                     }
 
                 } while (true);
-
             }
             catch (Exception ex)
             {
@@ -67,18 +66,11 @@ namespace HttpServer
         {
             string title = "Sample WebListener";
 
-            //var sb = new StringBuilder("<h1>Hello from the server</h1>");
-            //sb.Append("<h2>Header Info</h2>");
-            //sb.Append(string.Join(" ", GetHeaderInfo(request.Headers)));
-            //sb.Append("<h2>Request Object Information</h2>");
-            //sb.Append(string.Join(" ", GetRequestInfo(request)));
-
-            string content = "<h1>Hello from the server</h1>" +
-                "<h2>Header Info</h2>" +
+            string content = $"<h1>Hello from the server</h1>" +
+                $"<h2>Header Info</h2>" +
                 $"{string.Join(' ', GetHeaderInfo(request.Headers))}" +
-                "<h2>Request Object Information</h2>" +
+                $"<h2>Request Object Information</h2>" +
                 $"{string.Join(' ', GetRequestInfo(request))}";
-
         
             string html = string.Format(s_htmlFormat, title, content);
             return Encoding.UTF8.GetBytes(html);
@@ -86,7 +78,6 @@ namespace HttpServer
 
         private static IEnumerable<string> GetRequestInfo(Request request) =>
             request.GetType().GetProperties().Select(p => $"<div>{p.Name}: {p.GetValue(request)}</div>");
-
 
         private static IEnumerable<string> GetHeaderInfo(HeaderCollection headers) =>
             headers.Keys.Select(key => $"<div>{key}: {string.Join(",", headers.GetValues(key))}</div>");

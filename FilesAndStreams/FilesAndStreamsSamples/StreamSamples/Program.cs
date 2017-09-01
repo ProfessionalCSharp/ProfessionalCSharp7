@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Console;
 
 namespace StreamSamples
 {
@@ -44,19 +43,19 @@ namespace StreamSamples
             {
                 ShowUsage();
             }
-            WriteLine("ready");
+            Console.WriteLine("ready");
         }
 
         public static void ShowUsage()
         {
-            WriteLine("Usage: StreamSamples [option] [Filename]");
-            WriteLine("Options:");
-            WriteLine("\t-rs filename\tRead File Using Streams");
-            WriteLine("\t-w filename\tWrite Text File");
-            WriteLine("\t-cs sourcefilename targetfilename\tCopy Using Streams");
-            WriteLine("\t-cs2 sourcefilename targetfilename\tCopy Using Streams 2");
-            WriteLine("\t-sample\tCreate Sample File");
-            WriteLine("\t-r\tRandom Access Sample");
+            Console.WriteLine("Usage: StreamSamples [option] [Filename]");
+            Console.WriteLine("Options:");
+            Console.WriteLine("\t-rs filename\tRead File Using Streams");
+            Console.WriteLine("\t-w filename\tWrite Text File");
+            Console.WriteLine("\t-cs sourcefilename targetfilename\tCopy Using Streams");
+            Console.WriteLine("\t-cs2 sourcefilename targetfilename\tCopy Using Streams 2");
+            Console.WriteLine("\t-sample\tCreate Sample File");
+            Console.WriteLine("\t-r\tRandom Access Sample");
         }
 
         public static void WriteTextFile()
@@ -75,7 +74,7 @@ namespace StreamSamples
                 string hello = "Hello, World!";
                 byte[] buffer = Encoding.UTF8.GetBytes(hello);
                 stream.Write(buffer, 0, buffer.Length);
-                WriteLine($"file {stream.Name} written");
+                Console.WriteLine($"file {stream.Name} written");
             }
         }
 
@@ -90,8 +89,8 @@ namespace StreamSamples
                     {
                         try
                         {
-                            Write("record number (or 'bye' to end): ");
-                            string line = ReadLine();
+                            Console.Write("record number (or 'bye' to end): ");
+                            string line = Console.ReadLine();
                             if (line.ToUpper().CompareTo("BYE") == 0) break;
 
                             if (int.TryParse(line, out int record))
@@ -99,27 +98,22 @@ namespace StreamSamples
                                 stream.Seek((record - 1) * RECORDSIZE, SeekOrigin.Begin);
                                 stream.Read(buffer, 0, RECORDSIZE);
                                 string s = Encoding.UTF8.GetString(buffer);
-                                WriteLine($"record: {s}");
+                                Console.WriteLine($"record: {s}");
                             }
                         }
                         catch (Exception ex)
                         {
-                            WriteLine(ex.Message);
+                            Console.WriteLine(ex.Message);
                         }
                     } while (true);
-                    WriteLine("finished");
+                    Console.WriteLine("finished");
                 }
             }
             catch (FileNotFoundException)
             {
-                WriteLine("Create the sample file using the option -sample first");
+                Console.WriteLine("Create the sample file using the option -sample first");
             }
         }
-
-        // use this line with .NET 4.6
-        //static string Invariant(FormattableString formattable) => 
-        //    formattable.ToString(CultureInfo.InvariantCulture);
-
 
         public static async Task CreateSampleFileAsync(int nRecords)
         {
@@ -137,8 +131,6 @@ namespace StreamSamples
 
                 foreach (var rec in records)
                 {
-                    // use this line with .NET 4.6
-                    // string s = Invariant($"#{rec.Number,5};{rec.Text,10};{rec.Date:d}#");
                     string date = rec.Date.ToString("d", CultureInfo.InvariantCulture);
                     string s = $"#{rec.Number,8};{rec.Text,-20};{date}#{Environment.NewLine}";
                     await writer.WriteAsync(s);
@@ -194,19 +186,19 @@ namespace StreamSamples
                     }
 
                     string s = encoding.GetString(buffer, 0, nread);
-                    WriteLine($"read {nread} bytes");
-                    WriteLine(s);
+                    Console.WriteLine($"read {nread} bytes");
+                    Console.WriteLine(s);
                 } while (!completed);
             }
         }
 
         public static void ShowStreamInformation(Stream stream)
         {
-            WriteLine($"stream can read: {stream.CanRead}, can write: {stream.CanWrite}, can seek: {stream.CanSeek}, can timeout: {stream.CanTimeout}");
-            WriteLine($"length: {stream.Length}, position: {stream.Position}");
+            Console.WriteLine($"stream can read: {stream.CanRead}, can write: {stream.CanWrite}, can seek: {stream.CanSeek}, can timeout: {stream.CanTimeout}");
+            Console.WriteLine($"length: {stream.Length}, position: {stream.Position}");
             if (stream.CanTimeout)
             {
-                WriteLine($"read timeout: {stream.ReadTimeout} write timeout: {stream.WriteTimeout} ");
+                Console.WriteLine($"read timeout: {stream.ReadTimeout} write timeout: {stream.WriteTimeout} ");
             }
         }
 
@@ -221,25 +213,25 @@ namespace StreamSamples
             int nRead = stream.Read(bom, offset: 0, count: 5);
             if (bom[0] == 0xff && bom[1] == 0xfe && bom[2] == 0 && bom[3] == 0)
             {
-                WriteLine("UTF-32");
+                Console.WriteLine("UTF-32");
                 stream.Seek(4, SeekOrigin.Begin);
                 return Encoding.UTF32;
             }
             else if (bom[0] == 0xff && bom[1] == 0xfe)
             {
-                WriteLine("UTF-16, little endian");
+                Console.WriteLine("UTF-16, little endian");
                 stream.Seek(2, SeekOrigin.Begin);
                 return Encoding.Unicode;
             }
             else if (bom[0] == 0xfe && bom[1] == 0xff)
             {
-                WriteLine("UTF-16, big endian");
+                Console.WriteLine("UTF-16, big endian");
                 stream.Seek(2, SeekOrigin.Begin);
                 return Encoding.BigEndianUnicode;
             }
             else if (bom[0] == 0xef && bom[1] == 0xbb && bom[2] == 0xbf)
             {
-                WriteLine("UTF-8");
+                Console.WriteLine("UTF-8");
                 stream.Seek(3, SeekOrigin.Begin);
                 return Encoding.UTF8;
             }

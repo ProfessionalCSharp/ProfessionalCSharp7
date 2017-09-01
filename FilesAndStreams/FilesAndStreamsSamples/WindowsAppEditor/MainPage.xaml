@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="WindowsAppEditor.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsAppEditor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar IsOpen="True">
+            <AppBarButton Icon="OpenFile" Label="Open" Click="{x:Bind OnOpen}" />
+            <AppBarButton Icon="Save" Label="Save" Click="{x:Bind OnSave}" />
+            <AppBarButton Icon="OpenFile" Label="Open .NET" Click="{x:Bind OnOpenDotnet}" />
+            <AppBarButton Icon="Save" Label="Save .NET" Click="{x:Bind OnSaveDotnet}" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="text1" AcceptsReturn="True" TextReadingOrder="Default" HorizontalTextAlignment="Left" Margin="10"  />
+    </Grid>
+</Page>

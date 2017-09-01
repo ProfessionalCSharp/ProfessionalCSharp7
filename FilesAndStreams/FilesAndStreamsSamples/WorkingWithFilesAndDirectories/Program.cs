@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using static System.Console;
 
-namespace WorkingWithFilesAndFolders
+namespace WorkingWithFilesAndDirectories
 {
     public class Program
     {
 
-        const string Sample1FileName = "Sample1.txt";
-        const string Sample2FileName = "Sample2.txt";
+        const string Sample1FileName = "Sample1.md";
+        const string Sample2FileName = "Sample2.md";
 
         private static readonly string[,] options =
         {
@@ -26,7 +24,7 @@ namespace WorkingWithFilesAndFolders
             { "-dd", nameof(DeleteDuplicateFiles) }
         };
 
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             var ops = Enumerable.Range(0, options.GetLength(0)).Select(i => options[i, 0]);
             if (args.Length == 0 || args.Length > 2 || !ops.Contains(args[0]))
@@ -76,10 +74,10 @@ namespace WorkingWithFilesAndFolders
 
         private static void ShowUsage()
         {
-            WriteLine("Usage: WorkingWithFilesAndFolders [options] [filename|directory]");
+            Console.WriteLine("Usage: WorkingWithFilesAndFolders [options] [filename|directory]");
             for (int i = 0; i < options.GetLength(0); i++)
             {
-                WriteLine($"\t{options[i, 0]}\t{options[i, 1]}");
+                Console.WriteLine($"\t{options[i, 0]}\t{options[i, 1]}");
             }
 
         }
@@ -87,14 +85,14 @@ namespace WorkingWithFilesAndFolders
         private static void FileInformation(string fileName)
         {
             var file = new FileInfo(fileName);
-            WriteLine($"Name: {file.Name}");
-            WriteLine($"Directory: {file.DirectoryName}");
-            WriteLine($"Read only: {file.IsReadOnly}");
-            WriteLine($"Extension: {file.Extension}");
-            WriteLine($"Length: {file.Length}");
-            WriteLine($"Creation time: {file.CreationTime:F}");
-            WriteLine($"Access time: {file.LastAccessTime:F}");
-            WriteLine($"File attributes: {file.Attributes}");
+            Console.WriteLine($"Name: {file.Name}");
+            Console.WriteLine($"Directory: {file.DirectoryName}");
+            Console.WriteLine($"Read only: {file.IsReadOnly}");
+            Console.WriteLine($"Extension: {file.Extension}");
+            Console.WriteLine($"Length: {file.Length}");
+            Console.WriteLine($"Creation time: {file.CreationTime:F}");
+            Console.WriteLine($"Access time: {file.LastAccessTime:F}");
+            Console.WriteLine($"File attributes: {file.Attributes}");
         }
 
         private static void DeleteDuplicateFiles(string directory, bool checkOnly)
@@ -112,7 +110,7 @@ namespace WorkingWithFilesAndFolders
                     var originalFile = new FileInfo(fileName);
                     if (copiedFile.Length == originalFile.Length)
                     {
-                        WriteLine($"delete {copiedFile.FullName}");
+                        Console.WriteLine($"delete {copiedFile.FullName}");
                         if (!checkOnly)
                         {
                             copiedFile.Delete();
@@ -153,27 +151,20 @@ namespace WorkingWithFilesAndFolders
             int i = 1;
             foreach (var line in lines)
             {
-                WriteLine($"{i++}. {line}");
+                Console.WriteLine($"{i++}. {line}");
             }
 
             IEnumerable<string> lines2 = File.ReadLines(fileName);
             i = 1;
             foreach (var line in lines2)
             {
-                WriteLine($"{i++}. {line}");
+                Console.WriteLine($"{i++}. {line}");
             }
         }
 
-        private static string GetDocumentsFolder()
-        {
-#if NET46
-            return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-#else
-            string drive = Environment.GetEnvironmentVariable("HOMEDRIVE");
-            string path = Environment.GetEnvironmentVariable("HOMEPATH");
-            return Path.Combine(drive, path, "documents");
-#endif
-        }
+        private static string GetDocumentsFolder() =>
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
 
         private static void ChangeFileProperties()
         {
@@ -181,15 +172,14 @@ namespace WorkingWithFilesAndFolders
             var file = new FileInfo(fileName);
             if (!file.Exists)
             {
-                WriteLine($"Create the file {Sample1FileName} before calling this method");
-                WriteLine("You can do this by invoking this program with the -c argument");
+                Console.WriteLine($"Create the file {Sample1FileName} before calling this method");
+                Console.WriteLine("You can do this by invoking this program with the -c argument");
                 return;
             }
 
-            WriteLine($"creation time: {file.CreationTime:F}");
-            file.CreationTime = new DateTime(2023, 12, 24, 15, 0, 0);
-            WriteLine($"creation time: {file.CreationTime:F}");
-
+            Console.WriteLine($"creation time: {file.CreationTime:F}");
+            file.CreationTime = new DateTime(2025, 12, 24, 15, 0, 0);
+            Console.WriteLine($"creation time: {file.CreationTime:F}");
         }
 
         private static void CreateAFile()

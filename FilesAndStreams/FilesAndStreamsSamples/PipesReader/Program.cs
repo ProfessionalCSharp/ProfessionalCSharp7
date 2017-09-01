@@ -2,7 +2,6 @@
 using System.IO;
 using System.IO.Pipes;
 using System.Text;
-using static System.Console;
 
 namespace PipesReader
 {
@@ -25,15 +24,15 @@ namespace PipesReader
         {
             using (var reader = new AnonymousPipeServerStream(PipeDirection.In, HandleInheritability.Inheritable))
             {
-                WriteLine("using anonymous pipe");
+                Console.WriteLine("using anonymous pipe");
                 string pipeHandle = reader.GetClientHandleAsString();
-                WriteLine($"pipe handle: {pipeHandle}");
+                Console.WriteLine($"pipe handle: {pipeHandle}");
 
                 byte[] buffer = new byte[256];
                 int nRead = reader.Read(buffer, 0, 256);
                 
                 string line = Encoding.UTF8.GetString(buffer, 0, 256);
-                WriteLine(line);
+                Console.WriteLine(line);
             }
         }
 
@@ -45,22 +44,22 @@ namespace PipesReader
                 using (var reader = new StreamReader(pipeReader))
                 {
                     pipeReader.WaitForConnection();
-                    WriteLine("reader connected");
+                    Console.WriteLine("reader connected");
 
                     bool completed = false;
                     while (!completed)
                     {
                         string line = reader.ReadLine();
-                        WriteLine(line);
+                        Console.WriteLine(line);
                         if (line == "bye") completed = true;
                     }
                 }
-                WriteLine("completed reading");
-                ReadLine();
+                Console.WriteLine("completed reading");
+                Console.ReadLine();
             }
             catch (Exception ex)
             {
-                WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -71,7 +70,7 @@ namespace PipesReader
                 using (var pipeReader = new NamedPipeServerStream(pipeName, PipeDirection.In))
                 {
                     pipeReader.WaitForConnection();
-                    WriteLine("reader connected");
+                    Console.WriteLine("reader connected");
                     const int BUFFERSIZE = 256;
 
                     bool completed = false;
@@ -80,16 +79,16 @@ namespace PipesReader
                         byte[] buffer = new byte[BUFFERSIZE];
                         int nRead = pipeReader.Read(buffer, 0, BUFFERSIZE);
                         string line = Encoding.UTF8.GetString(buffer, 0, nRead);
-                        WriteLine(line);
+                        Console.WriteLine(line);
                         if (line == "bye") completed = true;
                     }
                 }
-                WriteLine("completed reading");
-                ReadLine();
+                Console.WriteLine("completed reading");
+                Console.ReadLine();
             }
             catch (Exception ex)
             {
-                WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
     }

@@ -28,9 +28,11 @@ namespace WindowsAppEditor
             {
                 var picker = new FileOpenPicker()
                 {
+                    ViewMode = PickerViewMode.Thumbnail,
                     SuggestedStartLocation = PickerLocationId.DocumentsLibrary
                 };
                 picker.FileTypeFilter.Add(".txt");
+                picker.FileTypeFilter.Add(".md");
 
                 StorageFile file = await picker.PickSingleFileAsync();
                 if (file != null)
@@ -57,9 +59,11 @@ namespace WindowsAppEditor
             {
                 var picker = new FileOpenPicker()
                 {
+                    ViewMode = PickerViewMode.Thumbnail,
                     SuggestedStartLocation = PickerLocationId.DocumentsLibrary
                 };
                 picker.FileTypeFilter.Add(".txt");
+                picker.FileTypeFilter.Add(".md");
 
                 StorageFile file = await picker.PickSingleFileAsync();
                 if (file != null)
@@ -135,7 +139,6 @@ namespace WindowsAppEditor
                         stream.Seek(0);
                         using (var writer = new DataWriter(stream))
                         {
-
                             writer.WriteString(text1.Text);
                             tx.Stream.Size = await writer.StoreAsync();
 

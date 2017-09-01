@@ -17,6 +17,6 @@
     </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox x:Name="text1" HorizontalContentAlignment="Left" AcceptsReturn="True" TextReadingOrder="Default" Margin="10"  />
+        <TextBox x:Name="text1" AcceptsReturn="True" TextReadingOrder="Default" HorizontalTextAlignment="Left" Margin="10"  />
     </Grid>
 </Page>

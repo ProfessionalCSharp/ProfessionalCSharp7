@@ -1,0 +1,50 @@
+﻿<Window x:Class="WPFAppTcpClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFAppTcpClient"
+        mc:Ignorable="d"
+        x:Name="mainWindow"
+        DataContext="{Binding ElementName=mainWindow}"
+        Title="TCP Client" Height="350" Width="725">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5">
+            <TextBox Text="{Binding RemoteHost, Mode=TwoWay}" />
+            <TextBox Text="{Binding ServerPort, Mode=TwoWay}" />
+            <Button Content="Connect" Margin="5" Padding="5" Click="OnConnect" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <ComboBox ItemsSource="{Binding Commands, Mode=OneTime}" SelectedItem="{Binding ActiveCommand, Mode=TwoWay}" MinWidth="200" Margin="5" SelectedIndex="1" />
+            <TextBox Text="{Binding ActiveCommand.Action, Mode=TwoWay}" MinWidth="200" Margin="5" />
+            <Button Content="Send" Margin="5" Padding="5" Width="200" Click="OnSendCommand" />
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="Session Id" Margin="5" />
+            <TextBox IsReadOnly="True" Text="{Binding SessionId, Mode=OneWay}" Grid.Column="1" Margin="5" />
+            <Label Content="Status" Grid.Row="1" Margin="5" />
+            <TextBox IsReadOnly="True" Text="{Binding Status, Mode=OneWay}" Grid.Row="1" Grid.Column="1" Margin="5" />
+            <Button Content="Clear Log" Click="OnClearLog" Grid.Row="2" Margin="5" Padding="5" />
+            <TextBox IsReadOnly="True" Text="{Binding Log, Mode=OneWay}" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MinHeight="80" Grid.Row="2" Grid.Column="1" Margin="5" />
+        </Grid>
+
+        
+    </Grid>
+</Window>

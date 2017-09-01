@@ -4,7 +4,6 @@ using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using static System.Console;
 
 namespace MemoryMappedFilesSample
 {
@@ -32,29 +31,29 @@ namespace MemoryMappedFilesSample
                 p.RunWithStreams();
             }
 
-            ReadLine();
+            Console.ReadLine();
         }
 
         private static void ShowUsage()
         {
-            WriteLine($"{nameof(MemoryMappedFilesSample)} [-f|-s]");
-            WriteLine("Options:");
-            WriteLine("-f\tFiles");
-            WriteLine("-s\tStreams");
+            Console.WriteLine($"{nameof(MemoryMappedFilesSample)} [-f|-s]");
+            Console.WriteLine("Options:");
+            Console.WriteLine("-f\tFiles");
+            Console.WriteLine("-s\tStreams");
         }
 
         public void Run()
         {
             Task.Run(() => WriterAsync());
             Task.Run(() => Reader());
-            WriteLine("tasks started");
+            Console.WriteLine("tasks started");
         }
 
         public void RunWithStreams()
         {
             Task.Run(() => WriterUsingStreamsAsync());
             Task.Run(() => ReaderUsingStreamsAsync());
-            WriteLine("tasks started");
+            Console.WriteLine("tasks started");
         }
 
         private async Task WriterAsync()
@@ -65,24 +64,24 @@ namespace MemoryMappedFilesSample
                 // MemoryMappedFile mappedFile = MemoryMappedFile.CreateFromFile("./memoryMappedFile", FileMode.Create, MAPNAME, 10000);
                 {
                     _mapCreated.Set(); // signal shared memory segment created
-                    WriteLine("shared memory segment created");
+                    Console.WriteLine("shared memory segment created");
 
                     using (MemoryMappedViewAccessor accessor = mappedFile.CreateViewAccessor(0, 10000, MemoryMappedFileAccess.Write))
                     {
                         for (int i = 0, pos = 0; i < 100; i++, pos += 4)
                         {
                             accessor.Write(pos, i);
-                            WriteLine($"written {i} at position {pos}");
+                            Console.WriteLine($"written {i} at position {pos}");
                             await Task.Delay(10);
                         }
                         _dataWrittenEvent.Set(); // signal all data written
-                        WriteLine("data written");
+                        Console.WriteLine("data written");
                     }
                 }
             }
             catch (Exception ex)
             {
-                WriteLine($"writer {ex.Message}");
+                Console.WriteLine($"writer {ex.Message}");
             }
         }
 
@@ -94,7 +93,7 @@ namespace MemoryMappedFilesSample
                 // MemoryMappedFile mappedFile = MemoryMappedFile.CreateFromFile("./memoryMappedFile", FileMode.Create, MAPNAME, 10000);
                 {
                     _mapCreated.Set(); // signal shared memory segment created
-                    WriteLine("shared memory segment created");
+                    Console.WriteLine("shared memory segment created");
 
                     MemoryMappedViewStream stream = mappedFile.CreateViewStream(0, 10000, MemoryMappedFileAccess.Write);
                     using (var writer = new StreamWriter(stream))
@@ -103,18 +102,17 @@ namespace MemoryMappedFilesSample
                         for (int i = 0; i < 100; i++)
                         {
                             string s = $"some data {i}";
-                            WriteLine($"writing {s} at {stream.Position}");
+                            Console.WriteLine($"writing {s} at {stream.Position}");
                             await writer.WriteLineAsync(s);
-                            
                         }
                     }
                     _dataWrittenEvent.Set(); // signal all data written
-                    WriteLine("data written");
+                    Console.WriteLine("data written");
                 }
             }
             catch (Exception ex)
             {
-                WriteLine($"writer {ex.Message}");
+                Console.WriteLine($"writer {ex.Message}");
             }
         }
 
@@ -122,28 +120,28 @@ namespace MemoryMappedFilesSample
         {
             try
             {
-                WriteLine("reader");
+                Console.WriteLine("reader");
                 _mapCreated.Wait();
-                WriteLine("reader starting");
+                Console.WriteLine("reader starting");
 
                 using (MemoryMappedFile mappedFile = MemoryMappedFile.OpenExisting(MAPNAME, MemoryMappedFileRights.Read))
                 {
                     using (MemoryMappedViewAccessor accessor = mappedFile.CreateViewAccessor(0, 10000, MemoryMappedFileAccess.Read))
                     {
                         _dataWrittenEvent.Wait();
-                        WriteLine("reading can start now");
+                        Console.WriteLine("reading can start now");
 
                         for (int i = 0; i < 400; i += 4)
                         {
                             int result = accessor.ReadInt32(i);
-                            WriteLine($"reading {result} from position {i}");
+                            Console.WriteLine($"reading {result} from position {i}");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                WriteLine($"reader {ex.Message}");
+                Console.WriteLine($"reader {ex.Message}");
             }
         }
 
@@ -151,9 +149,9 @@ namespace MemoryMappedFilesSample
         {
             try
             {
-                WriteLine("reader");
+                Console.WriteLine("reader");
                 _mapCreated.Wait();
-                WriteLine("reader starting");
+                Console.WriteLine("reader starting");
 
                 using (MemoryMappedFile mappedFile = MemoryMappedFile.OpenExisting(MAPNAME, MemoryMappedFileRights.Read))
                 {
@@ -161,20 +159,20 @@ namespace MemoryMappedFilesSample
                     using (var reader = new StreamReader(stream))
                     {
                         _dataWrittenEvent.Wait();
-                        WriteLine("reading can start now");
+                        Console.WriteLine("reading can start now");
 
                         for (int i = 0; i < 100; i++)
                         {
                             long pos = stream.Position;
                             string s = await reader.ReadLineAsync();
-                            WriteLine($"read {s} from {pos}");
+                            Console.WriteLine($"read {s} from {pos}");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                WriteLine($"reader {ex.Message}");
+                Console.WriteLine($"reader {ex.Message}");
             }
         }
     }

@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
-using static System.Console;
 
 namespace ReaderWriterSamples
 {
@@ -9,15 +9,15 @@ namespace ReaderWriterSamples
         public static void Main()
         {
             ReadFileUsingReader("./Program.cs");
-            WriteLine();
+            Console.WriteLine();
             string textFile = Path.ChangeExtension(Path.GetTempFileName(), "txt");
             WriteFileUsingWriter(textFile, new string[] { "one", "two" });
-            WriteLine($"Written temp file {textFile}");
+            Console.WriteLine($"Written temp file {textFile}");
 
             string binFile = Path.ChangeExtension(Path.GetTempFileName(), "bin");
-            WriteLine($"writing to {binFile}");
+            Console.WriteLine($"writing to {binFile}");
             WriteFileUsingBinaryWriter(binFile);
-            WriteLine($"written to {binFile}");
+            Console.WriteLine($"written to {binFile}");
             ReadFileUsingBinaryReader(binFile);
         }
 
@@ -59,7 +59,7 @@ namespace ReaderWriterSamples
                 int i = reader.ReadInt32();
                 long l = reader.ReadInt64();
                 string s = reader.ReadString();
-                WriteLine($"d: {d}, i: {i}, l: {l}, s: {s}");
+                Console.WriteLine($"d: {d}, i: {i}, l: {l}, s: {s}");
             }
         }
 
@@ -71,7 +71,7 @@ namespace ReaderWriterSamples
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
-                    WriteLine(line);
+                    Console.WriteLine(line);
                 }
             }
         }

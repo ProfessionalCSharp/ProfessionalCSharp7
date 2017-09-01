@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 25, Networking
+# Readme - Code Samples for Chapter 23, Networking
 
 This chapter contains the following code samples:
 
@@ -14,6 +14,7 @@ This chapter contains the following code samples:
     * HttpClientUsingTcp (using `TcpClient` to access a HTTP Server)
     * TcpServer (TCP server using `TcpListener` and a custom protocol)
     * TcpClientSample (TCP client using `TcpClient`)
+    * WinAppTcpClient (UWP client application managing the custom protocol form TcpServer)
     * WPFAppTcpClient (WPF client application managing the custom protocol from TcpServer)
 * UDP
     * UdpSender (UDP sender using `UdpClient`)
@@ -25,9 +26,11 @@ This chapter contains the following code samples:
 To build and run the .NET Core samples, please install
 * Visual Studio 2017 with the .NET Core workload
 
+> WinAppTcpClient needs Visual Studio 2017 Update 4 and Windows 10 Fall Creator Update
+
 Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core#windows).
  
-For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp6)
+For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7)
 
 Please check my blog [csharp.christiannagel.com](https://csharp.christiannagel.com "csharp.christiannagel.com") for additional information for topics covered in the book.
 

@@ -71,8 +71,10 @@ namespace XPathNavigatorSample
         {
             //modify to match your path structure
             var doc = new XPathDocument(BooksFileName);
+
             //create the XPath navigator
             XPathNavigator nav = doc.CreateNavigator();
+
             //create the XPathNodeIterator of book nodes
             XPathNodeIterator iterator = nav.Select("/bookstore/book");
             while (iterator.MoveNext())

@@ -88,7 +88,6 @@ namespace LinqToXmlSample
             Console.WriteLine($"\t{TransformingOption}\txTransform to XML");
         }
 
-
         public static void LoadDocument()
         {
             XDocument doc = XDocument.Load(HamletFileName);

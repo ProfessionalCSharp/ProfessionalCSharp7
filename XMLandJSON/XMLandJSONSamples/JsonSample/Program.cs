@@ -102,7 +102,6 @@ namespace JsonSample
                 }
             };
 
-
         public static void DeserializeJson()
         {
             using (StreamReader reader = File.OpenText(InventoryFileName))
@@ -116,7 +115,6 @@ namespace JsonSample
             }
         }
 
-
         public static string ConvertXmlToJson()
         {
             XElement xmlInventory = XElement.Load(InventoryXmlFileName);
@@ -126,10 +124,10 @@ namespace JsonSample
         private static void CreateJson()
         {
             var book1 = new JObject();
-            book1["title"] = "Professional C# 6 and .NET 5 Core";
+            book1["title"] = "Professional C# 7 and .NET Core 2.0";
             book1["publisher"] = "Wrox Press";
             var book2 = new JObject();
-            book2["title"] = "Professional C# 5 and .NET 4.5.1";
+            book2["title"] = "Professional C# 6 and .NET Core 1.0";
             book2["publisher"] = "Wrox Press";
             var books = new JArray();
             books.Add(book1);
@@ -147,7 +145,16 @@ namespace JsonSample
             {
                 while (jsonReader.Read())
                 {
-
+                    Console.Write($"token: {jsonReader.TokenType}, ");
+                    if (!string.IsNullOrEmpty(jsonReader.Path))
+                    {
+                        Console.Write($"path: {jsonReader.Path}, ");
+                    }
+                    if (!string.IsNullOrEmpty(jsonReader.Value?.ToString()))
+                    {
+                        Console.Write($"value: {jsonReader.Value}");
+                    }
+                    Console.WriteLine();                
                 }
             }
         }

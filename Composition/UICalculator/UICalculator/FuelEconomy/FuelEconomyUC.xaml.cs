@@ -17,13 +17,13 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Wrox.ProCSharp.Composition
 {
-    public sealed partial class TemperatureConversionUC : UserControl
+    public sealed partial class FuelEconomyUC : UserControl
     {
-        public TemperatureConversionUC()
+        public FuelEconomyUC()
         {
             this.InitializeComponent();
         }
 
-        public TemperatureConversionViewModel ViewModel { get; } = new TemperatureConversionViewModel();
+        public FuelEconomyViewModel ViewModel { get; } = new FuelEconomyViewModel();
     }
 }

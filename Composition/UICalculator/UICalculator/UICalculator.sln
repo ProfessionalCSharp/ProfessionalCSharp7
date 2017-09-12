@@ -1,21 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26823.1
+VisualStudioVersion = 15.0.26906.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorContract", "CalculatorContract\CalculatorContract.csproj", "{E5EB6788-11EB-4344-B523-A41A5A37A6E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorContract", "CalculatorContract\CalculatorContract.csproj", "{E5EB6788-11EB-4344-B523-A41A5A37A6E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorUtils", "CalculatorUtils\CalculatorUtils.csproj", "{666D575B-B738-4393-8C82-A8BF8AB67B41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorUtils", "CalculatorUtils\CalculatorUtils.csproj", "{666D575B-B738-4393-8C82-A8BF8AB67B41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculator", "SimpleCalculator\SimpleCalculator.csproj", "{EA372A1C-593B-4C25-8FAB-52D38130ACE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCalculator", "SimpleCalculator\SimpleCalculator.csproj", "{EA372A1C-593B-4C25-8FAB-52D38130ACE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedOperations", "AdvancedOperations\AdvancedOperations.csproj", "{94F9B6D7-E4DC-4077-A17D-873D7B3497E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedOperations", "AdvancedOperations\AdvancedOperations.csproj", "{94F9B6D7-E4DC-4077-A17D-873D7B3497E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperaturConversion", "TemperaturConversion\TemperaturConversion.csproj", "{8B76E14E-E5A2-4F04-9CC0-15A96114BA65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorViewModels", "CalculatorViewModels\CalculatorViewModels.csproj", "{AE429BD9-54F7-4DDF-ADAD-A8C438400F8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorViewModels", "CalculatorViewModels\CalculatorViewModels.csproj", "{AE429BD9-54F7-4DDF-ADAD-A8C438400F8E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWPCalculatorHost", "UWPCalculatorHost\UWPCalculatorHost.csproj", "{9851E8BD-C47E-45ED-8902-F742031C9743}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddIns", "AddIns", "{9C3B3DED-82FC-4634-A911-318C7ED9234E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelEconomy", "FuelEconomy\FuelEconomy.csproj", "{A367CC88-8F60-4D0C-9438-8AC515122E93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -126,6 +130,8 @@ Global
 		{AE429BD9-54F7-4DDF-ADAD-A8C438400F8E}.Release|x86.ActiveCfg = Release|Any CPU
 		{AE429BD9-54F7-4DDF-ADAD-A8C438400F8E}.Release|x86.Build.0 = Release|Any CPU
 		{9851E8BD-C47E-45ED-8902-F742031C9743}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9851E8BD-C47E-45ED-8902-F742031C9743}.Debug|Any CPU.Build.0 = Debug|x86
+		{9851E8BD-C47E-45ED-8902-F742031C9743}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{9851E8BD-C47E-45ED-8902-F742031C9743}.Debug|ARM.ActiveCfg = Debug|ARM
 		{9851E8BD-C47E-45ED-8902-F742031C9743}.Debug|ARM.Build.0 = Debug|ARM
 		{9851E8BD-C47E-45ED-8902-F742031C9743}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -145,9 +151,33 @@ Global
 		{9851E8BD-C47E-45ED-8902-F742031C9743}.Release|x86.ActiveCfg = Release|x86
 		{9851E8BD-C47E-45ED-8902-F742031C9743}.Release|x86.Build.0 = Release|x86
 		{9851E8BD-C47E-45ED-8902-F742031C9743}.Release|x86.Deploy.0 = Release|x86
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Debug|ARM.Build.0 = Debug|ARM
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Debug|x64.ActiveCfg = Debug|x64
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Debug|x64.Build.0 = Debug|x64
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Debug|x86.ActiveCfg = Debug|x86
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Debug|x86.Build.0 = Debug|x86
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|ARM.ActiveCfg = Release|ARM
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|ARM.Build.0 = Release|ARM
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|x64.ActiveCfg = Release|x64
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|x64.Build.0 = Release|x64
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|x86.ActiveCfg = Release|x86
+		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5EB6788-11EB-4344-B523-A41A5A37A6E3} = {9C3B3DED-82FC-4634-A911-318C7ED9234E}
+		{666D575B-B738-4393-8C82-A8BF8AB67B41} = {9C3B3DED-82FC-4634-A911-318C7ED9234E}
+		{EA372A1C-593B-4C25-8FAB-52D38130ACE6} = {9C3B3DED-82FC-4634-A911-318C7ED9234E}
+		{94F9B6D7-E4DC-4077-A17D-873D7B3497E4} = {9C3B3DED-82FC-4634-A911-318C7ED9234E}
+		{8B76E14E-E5A2-4F04-9CC0-15A96114BA65} = {9C3B3DED-82FC-4634-A911-318C7ED9234E}
+		{A367CC88-8F60-4D0C-9438-8AC515122E93} = {9C3B3DED-82FC-4634-A911-318C7ED9234E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {497A8EC3-252A-408C-AB86-93ED2D4FC661}

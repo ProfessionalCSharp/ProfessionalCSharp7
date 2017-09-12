@@ -23,8 +23,6 @@ namespace Wrox.ProCSharp.Composition
 
         public void Execute(object parameter) => _execute();
 
-
-        public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-        
+        public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);        
     }
 }

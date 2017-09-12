@@ -10,6 +10,19 @@
     d:DesignWidth="400">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
+        <ComboBox Grid.Row="0" Grid.Column="0" Margin="5" ItemsSource="{x:Bind ViewModel.TemperatureConversionTypes, Mode=OneTime}" SelectedItem="{x:Bind ViewModel.FromType, Mode=TwoWay}" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="1" Grid.Column="0" Margin="5" ItemsSource="{x:Bind ViewModel.TemperatureConversionTypes, Mode=OneTime}" SelectedItem="{x:Bind ViewModel.ToType, Mode=TwoWay}" VerticalAlignment="Center" />
+        <TextBox Text="{x:Bind ViewModel.FromValue, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" />
+        <TextBox Text="{x:Bind ViewModel.ToValue, Mode=OneWay}" Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" IsReadOnly="True" />
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" Content="Calculate" Command="{Binding ViewModel.CalculateCommand}"  />
     </Grid>
 </UserControl>

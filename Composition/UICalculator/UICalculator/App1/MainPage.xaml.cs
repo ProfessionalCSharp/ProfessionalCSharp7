@@ -12,11 +12,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Wrox.ProCSharp.Composition;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace UWPCalculatorHost
+namespace App1
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -26,29 +25,6 @@ namespace UWPCalculatorHost
         public MainPage()
         {
             this.InitializeComponent();
-            ViewModel = new CalculatorViewModel();
-            ViewModel.Init(typeof(Calculator), typeof(SubtractOperation), typeof(AddOperation), typeof(SlowAddOperation));
-        }
-
-
-        public CalculatorViewModel ViewModel { get; }
-
-        public void OnNumberClick(object sender, RoutedEventArgs e)
-        {
-            var b = sender as Button;
-            if (b != null)
-            {
-                ViewModel.Input += b.Content.ToString();
-            }
-        }
-
-        public void DefineOperation(object sender, RoutedEventArgs e)
-        {
-            var b = sender as Button;
-            if (b != null)
-            {
-                ViewModel.CurrentOperation = b.Tag as IOperation;
-            }
         }
     }
 }

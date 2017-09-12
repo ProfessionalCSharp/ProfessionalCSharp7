@@ -4,4 +4,13 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Composition" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CalculatorContract\CalculatorContract.csproj" />
+    <ProjectReference Include="..\CalculatorUtils\CalculatorUtils.csproj" />
+  </ItemGroup>
+
 </Project>

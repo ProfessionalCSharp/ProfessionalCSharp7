@@ -131,6 +131,28 @@
       <Version>6.0.0-preview1-25611-03</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdvancedOperations\AdvancedOperations.csproj">
+      <Project>{94f9b6d7-e4dc-4077-a17d-873d7b3497e4}</Project>
+      <Name>AdvancedOperations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CalculatorContract\CalculatorContract.csproj">
+      <Project>{e5eb6788-11eb-4344-b523-a41a5a37a6e3}</Project>
+      <Name>CalculatorContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CalculatorUtils\CalculatorUtils.csproj">
+      <Project>{666d575b-b738-4393-8c82-a8bf8ab67b41}</Project>
+      <Name>CalculatorUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CalculatorViewModels\CalculatorViewModels.csproj">
+      <Project>{AE429BD9-54F7-4DDF-ADAD-A8C438400F8E}</Project>
+      <Name>CalculatorViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleCalculator\SimpleCalculator.csproj">
+      <Project>{ea372a1c-593b-4c25-8fab-52d38130ace6}</Project>
+      <Name>SimpleCalculator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

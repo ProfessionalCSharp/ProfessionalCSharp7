@@ -11,6 +11,5 @@ namespace Wrox.ProCSharp.Composition
     {
         private object _control;
         public object UI => _control ?? (_control = new TemperatureConversionUC());
-
     }
 }

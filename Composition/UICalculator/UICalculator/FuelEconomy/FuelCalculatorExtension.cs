@@ -6,7 +6,7 @@ namespace Wrox.ProCSharp.Composition
     [CalculatorExtensionMetadata(
       Title = "Fuel Economy",
       Description = "Calculate fuel economy",
-      ImageUri = "Images/Fuel.png")]
+      ImageUri = "ms-appx:///FuelEconomy/Images/Fuel.png")]
     public class FuelCalculatorExtension : ICalculatorExtension
     {
         private object _control;

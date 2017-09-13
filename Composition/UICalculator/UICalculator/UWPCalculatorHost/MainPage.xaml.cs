@@ -27,11 +27,11 @@ namespace UWPCalculatorHost
         {
             this.InitializeComponent();
 
-            CalculatorExtensionsViewModel = new CalculatorExtensionsViewModel();
-            CalculatorExtensionsViewModel.Init(typeof(FuelCalculatorExtension), typeof(TemperatureConversionExtension));
+            ViewModel = new CalculatorExtensionsViewModel();
+            ViewModel.Init(typeof(FuelCalculatorExtension), typeof(TemperatureConversionExtension));
         }
 
-        public CalculatorExtensionsViewModel CalculatorExtensionsViewModel { get; }
+        public CalculatorExtensionsViewModel ViewModel { get; }
 
 
     }

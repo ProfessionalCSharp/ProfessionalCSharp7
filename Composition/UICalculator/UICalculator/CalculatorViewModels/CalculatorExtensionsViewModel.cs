@@ -46,7 +46,6 @@ namespace Wrox.ProCSharp.Composition
             get => _ui;
             set => SetProperty(ref _ui, value);
         }
-
     }
 
     public class CalculatorExtensionsViewModel : Observable

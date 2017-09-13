@@ -45,6 +45,7 @@ namespace Wrox.ProCSharp.Composition
                 _currentOperands[1] = double.Parse(input[2]);
                 Result = _calculatorManager.InvokeCalculator(_currentOperation, _currentOperands);
             }
+            Input = string.Empty;
         }
 
         private string _status;
@@ -82,10 +83,7 @@ namespace Wrox.ProCSharp.Composition
         public IOperation CurrentOperation
         {
             get => _currentOperation;
-            set
-            {
-                SetCurrentOperation(value);
-            }
+            set => SetCurrentOperation(value);
         }
 
         private double[] _currentOperands;

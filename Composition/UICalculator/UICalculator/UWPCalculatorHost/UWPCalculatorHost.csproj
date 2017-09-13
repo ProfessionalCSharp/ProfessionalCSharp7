@@ -99,6 +99,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\CalculatorUI.xaml.cs">
+      <DependentUpon>CalculatorUI.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\CalculatorUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
@@ -148,9 +155,17 @@
       <Project>{AE429BD9-54F7-4DDF-ADAD-A8C438400F8E}</Project>
       <Name>CalculatorViewModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FuelEconomy\FuelEconomy.csproj">
+      <Project>{a367cc88-8f60-4d0c-9438-8ac515122e93}</Project>
+      <Name>FuelEconomy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimpleCalculator\SimpleCalculator.csproj">
       <Project>{ea372a1c-593b-4c25-8fab-52d38130ace6}</Project>
       <Name>SimpleCalculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemperaturConversion\TemperaturConversion.csproj">
+      <Project>{8b76e14e-e5a2-4f04-9cc0-15a96114ba65}</Project>
+      <Name>TemperaturConversion</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

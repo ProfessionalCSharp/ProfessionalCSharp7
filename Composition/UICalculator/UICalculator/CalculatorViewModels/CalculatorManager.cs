@@ -14,9 +14,7 @@ namespace Wrox.ProCSharp.Composition
         {
             _calcImport = new CalculatorImport();
             _calcImport.ImportsSatisfied += (sender, e) =>
-            {
                 ImportsSatisfied?.Invoke(this, e);
-            };
         }
 
         public void InitializeContainer(params Type[] parts)

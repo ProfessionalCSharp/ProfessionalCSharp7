@@ -55,9 +55,7 @@ namespace Wrox.ProCSharp.Composition
         {
             _calculatorExtensionsManager = new CalculatorExtensionsManager();
             _calculatorExtensionsManager.ImportsSatisfied += (sender, e) =>
-            {
-                Status += $"{e.StatusMessage}\n";
-            };
+                Status += $"{e.StatusMessage}{Environment.NewLine}";
         }
         public void Init(params Type[] parts)
         {

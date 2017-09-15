@@ -14,7 +14,7 @@ namespace Wrox.ProCSharp.Composition
                 Status += $"{e.StatusMessage}\n";
             };
 
-            CalculateCommand = new DelegateCommand(OnCalculate);
+            CalculateCommand = new RelayCommand(OnCalculate);
         }
 
         public void Init(params Type[] parts)

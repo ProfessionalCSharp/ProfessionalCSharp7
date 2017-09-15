@@ -29,8 +29,7 @@ namespace Wrox.ProCSharp.Composition
             {
                 case "+":
                     foreach (var addMethod in AddMethods)
-                    {
-                       
+                    {                       
                         if (addMethod.Metadata.Speed == Speed.Fast)
                             result = addMethod.Value.Operation(operands[0], operands[1]);
                     }

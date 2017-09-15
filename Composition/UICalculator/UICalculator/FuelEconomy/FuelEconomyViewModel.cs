@@ -7,10 +7,10 @@ namespace Wrox.ProCSharp.Composition
         public FuelEconomyViewModel()
         {
             InitializeFuelEcoTypes();
-            CalculateCommand = new DelegateCommand(OnCalculate);
+            CalculateCommand = new RelayCommand(OnCalculate);
         }
 
-        public DelegateCommand CalculateCommand { get; }
+        public RelayCommand CalculateCommand { get; }
 
         public void OnCalculate()
         {
@@ -33,7 +33,6 @@ namespace Wrox.ProCSharp.Composition
         }
 
         public List<FuelEconomyType> FuelEcoTypes { get; } = new List<FuelEconomyType>();
-
 
         private void InitializeFuelEcoTypes()
         {

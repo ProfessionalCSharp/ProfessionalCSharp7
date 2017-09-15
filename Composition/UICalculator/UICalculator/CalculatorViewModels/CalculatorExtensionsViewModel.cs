@@ -86,7 +86,6 @@ namespace Wrox.ProCSharp.Composition
         }
 
         private string _status;
-
         public string Status
         {
             get => _status;

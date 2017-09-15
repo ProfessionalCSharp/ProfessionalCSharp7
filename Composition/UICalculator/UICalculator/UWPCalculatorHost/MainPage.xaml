@@ -35,6 +35,13 @@
             </ListView>
         </Grid>
         <!--</AppBar>-->
-        <views:CalculatorUI Grid.Row="1" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <views:CalculatorUI Grid.Column="0" />
+            <views:CalculatorExtensionsUC x:Name="calculatorExtensionsUC" Grid.Column="1" />
+        </Grid>
     </Grid>
 </Page>

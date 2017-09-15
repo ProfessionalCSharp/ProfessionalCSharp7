@@ -13,6 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -23,6 +24,6 @@
         <ComboBox Grid.Row="1" Grid.Column="0" Margin="5" ItemsSource="{x:Bind ViewModel.TemperatureConversionTypes, Mode=OneTime}" SelectedItem="{x:Bind ViewModel.ToType, Mode=TwoWay}" VerticalAlignment="Center" />
         <TextBox Text="{x:Bind ViewModel.FromValue, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" />
         <TextBox Text="{x:Bind ViewModel.ToValue, Mode=OneWay}" Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" IsReadOnly="True" />
-        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" Content="Calculate" Command="{Binding ViewModel.CalculateCommand}"  />
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" Content="Calculate" Command="{x:Bind ViewModel.CalculateCommand, Mode=OneTime}"  />
     </Grid>
 </UserControl>

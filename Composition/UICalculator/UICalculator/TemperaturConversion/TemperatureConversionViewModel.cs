@@ -65,15 +65,15 @@ namespace Wrox.ProCSharp.Composition
             set => SetProperty(ref _toValue, value);
         }
 
-        private TempConversionType _fromType;
-        public TempConversionType FromType
+        private string _fromType;
+        public string FromType
         {
             get => _fromType;
             set => SetProperty(ref _fromType, value);
         }
 
-        private TempConversionType _toType;
-        public TempConversionType ToType
+        private string _toType;
+        public string ToType
         {
             get => _toType;
             set => SetProperty(ref _toType, value);
@@ -81,8 +81,8 @@ namespace Wrox.ProCSharp.Composition
 
         public void OnCalculate()
         {
-            double result = FromCelsiusTo(
-                ToCelsiusFrom(double.Parse(FromValue), FromType), ToType);
+            double celsius = ToCelsiusFrom(double.Parse(FromValue), Enum.Parse<TempConversionType>(FromType));
+            double result = FromCelsiusTo(celsius, Enum.Parse<TempConversionType>(ToType));
             ToValue = result.ToString();
         }
     }

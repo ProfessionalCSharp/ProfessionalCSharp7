@@ -29,10 +29,9 @@ namespace UWPCalculatorHost
 
             ViewModel = new CalculatorExtensionsViewModel();
             ViewModel.Init(typeof(FuelCalculatorExtension), typeof(TemperatureConversionExtension));
+            calculatorExtensionsUC.ViewModel = ViewModel;
         }
 
         public CalculatorExtensionsViewModel ViewModel { get; }
-
-
     }
 }

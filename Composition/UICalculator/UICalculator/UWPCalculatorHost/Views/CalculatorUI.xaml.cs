@@ -14,8 +14,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Wrox.ProCSharp.Composition;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace UWPCalculatorHost.Views
 {
     public sealed partial class CalculatorUI : UserControl

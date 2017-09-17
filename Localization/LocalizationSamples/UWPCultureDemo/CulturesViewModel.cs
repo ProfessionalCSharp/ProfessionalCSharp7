@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace UWPCultureDemo
 {
-    public class MainPageViewModel
+    public class CulturesViewModel : INotifyPropertyChanged
     {
-        public MainPageViewModel()
+        public CulturesViewModel()
         {
             SetupCultures();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void SetProperty<T>(ref T item, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (!EqualityComparer<T>.Default.Equals(item, value))
+            {
+                item = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         private void SetupCultures()
@@ -35,9 +45,7 @@ namespace UWPCultureDemo
                 }
                 else
                 {
-                    CultureData parentCultureData;
-                    if (cultureDataDict.TryGetValue(cd.CultureInfo.Parent.Name,
-                    out parentCultureData))
+                    if (cultureDataDict.TryGetValue(cd.CultureInfo.Parent.Name, out CultureData parentCultureData))
                     {
                         parentCultureData.SubCultures.Add(cd);
                     }
@@ -55,5 +63,12 @@ namespace UWPCultureDemo
         }
 
         public IList<CultureData> RootCultures { get; } = new List<CultureData>();
+
+        private CultureData _selectedCulture;
+        public CultureData SelectedCulture
+        {
+            get => _selectedCulture;
+            set => SetProperty(ref _selectedCulture, value);
+        }
     }
 }

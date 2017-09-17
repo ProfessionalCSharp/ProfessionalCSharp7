@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using System.Linq;
 using TreeViewControl;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -26,17 +14,20 @@ namespace UWPCultureDemo
     {
         public MainPage()
         {
-            ViewModel = new MainPageViewModel();
+            ViewModel = new CulturesViewModel();
             this.InitializeComponent();
-
-            
         }
 
-        public MainPageViewModel ViewModel { get; }
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ViewModel.SelectedCulture =
+                (treeView1.SelectedItems?.FirstOrDefault() as TreeNode)?.Data as CultureData;
+        }
+
+        public CulturesViewModel ViewModel { get; }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
             void AddSubNodes(TreeNode parent)
             {
                 if (parent.Data is CultureData cd && cd.SubCultures != null)
@@ -63,6 +54,7 @@ namespace UWPCultureDemo
             {
                 Data = cd
             });
+
             foreach (var node in rootNodes)
             {
                 treeView1.RootNode.Add(node);

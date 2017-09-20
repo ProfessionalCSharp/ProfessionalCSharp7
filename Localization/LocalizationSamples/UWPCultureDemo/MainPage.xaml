@@ -9,7 +9,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
+        <tvc:IntegerToIndentationConverter x:Key="IntegerToIndConverter" IndentMultiplier="40" />
         <conv:GlyphConverter x:Key="ExpandCollapseGlyphConverter" ExpandedGlyph="&#xE70D;" CollapsedGlyph="&#xE76C;"/>
+        <conv:EmptyCollectionToVisibilityConverter x:Key="EmptyConverter" />
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -22,16 +24,16 @@
                       IsItemClickEnabled="True" 
                       SelectionChanged="{x:Bind OnSelectionChanged, Mode=OneTime}">
             <tvc:TreeView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="4">
+                <DataTemplate x:DataType="tvc:TreeNode">
+                    <StackPanel Orientation="Horizontal" Height="40" Margin="{Binding Depth, Converter={StaticResource IntegerToIndConverter}}">
                         <FontIcon x:Name="expandCollapseChevron" 
                           Glyph="{Binding IsExpanded, Converter={StaticResource ExpandCollapseGlyphConverter}}"
-                          Visibility="{Binding Data.IsFolder }"                           
+                          Visibility="{Binding Data.SubCultures, Converter={StaticResource EmptyConverter}}"                           
                           FontSize="12"
                           Margin="12,8,12,8" 
                           FontFamily="Segoe MDL2 Assets"                          
                           />
-                        <TextBlock Text="{Binding Data.CultureInfo.EnglishName}" />
+                        <TextBlock Text="{Binding Data.CultureInfo.EnglishName}" VerticalAlignment="Center" />
                     </StackPanel>
                 </DataTemplate>
             </tvc:TreeView.ItemTemplate>

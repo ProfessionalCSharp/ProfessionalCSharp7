@@ -40,7 +40,7 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Bind CultureData.CultureInfo.EnglishName, Mode=OneWay}" />
 
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Native Name:" />
-        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Bind CultureData.CultureInfo.NativeName}" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Bind CultureData.CultureInfo.NativeName, Mode=OneWay}" />
 
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Default Calendar:" />
         <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Bind CultureData.CultureInfo.Calendar, Mode=OneWay, Converter={StaticResource CalendarConverter}}" />

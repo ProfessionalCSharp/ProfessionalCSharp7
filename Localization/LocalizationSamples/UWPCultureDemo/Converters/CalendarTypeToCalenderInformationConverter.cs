@@ -9,19 +9,24 @@ namespace UWPCultureDemo.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var c = value as Calendar;
-            if (c == null) return null;
-            var calText = new StringBuilder(50);
-            calText.Append(c.ToString());
-            calText.Remove(0, 21); // remove the namespace
-            calText.Replace("Calendar", "");
-
-            if (c is GregorianCalendar gregCal)
+            if (value is Calendar cal)
             {
-                calText.Append($" {gregCal.CalendarType}");
-            }
+                var calText = new StringBuilder(50);
+                calText.Append(cal.ToString());
+                calText.Remove(0, 21); // remove the namespace
+                calText.Replace("Calendar", "");
 
-            return calText.ToString();
+                if (cal is GregorianCalendar gregCal)
+                {
+                    calText.Append($" {gregCal.CalendarType}");
+                }
+
+                return calText.ToString();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

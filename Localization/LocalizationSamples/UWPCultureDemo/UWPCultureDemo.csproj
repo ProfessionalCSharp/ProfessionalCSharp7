@@ -95,8 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\CalendarTypeToCalenderConversionConverter.cs" />
+    <Compile Include="Converters\CalendarTypeToCalenderInformationConverter.cs" />
     <Compile Include="Converters\GlyphConverter.cs" />
+    <Compile Include="Converters\EmptyCollectionToVisibilityConverter.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Converters\TreeNodeToCultureDataConverter.cs" />
     <Compile Include="CultureData.cs" />

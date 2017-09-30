@@ -33,7 +33,6 @@ namespace CreateResource
 
             using (var writer = new ResourceWriter(stream))
             {
-                writer.AddResource()
                 writer.AddResource("Title", "Professional C#");
                 writer.AddResource("Author", "Christian Nagel");
                 writer.AddResource("Publisher", "Wrox Press");

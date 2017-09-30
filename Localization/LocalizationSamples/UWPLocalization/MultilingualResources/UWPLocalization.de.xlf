@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de" original="UWPLOCALIZATION/MESSAGES/EN-US/ERRORS.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6810.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="UWPLOCALIZATION/MESSAGES/EN-US/ERRORS.RESW" datatype="resx" />
+    </body>
+  </file>
+  <file datatype="xml" source-language="en-US" target-language="de" original="UWPLOCALIZATION/MESSAGES/EN-US/MESSAGES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6810.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="UWPLOCALIZATION/MESSAGES/EN-US/MESSAGES.RESW" datatype="resx">
+        <trans-unit id="GoodDay" translate="yes" xml:space="preserve">
+          <source>Good Day!</source>
+          <target state="new">Good Day!</target>
+        </trans-unit>
+        <trans-unit id="GoodEvening" translate="yes" xml:space="preserve">
+          <source>Good Evening!</source>
+          <target state="new">Good Evening!</target>
+        </trans-unit>
+        <trans-unit id="GoodMorning" translate="yes" xml:space="preserve">
+          <source>Good Morning!</source>
+          <target state="new">Good Morning!</target>
+        </trans-unit>
+        <trans-unit id="Hello" translate="yes" xml:space="preserve">
+          <source>Hello, World</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Hello World</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+  <file datatype="xml" source-language="en-US" target-language="de" original="UWPLOCALIZATION/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6810.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="UWPLOCALIZATION/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="Text3.Text" translate="yes" xml:space="preserve">
+          <source>This is a sample message for Text 4</source>
+          <target state="new">This is a sample message for Text 4</target>
+        </trans-unit>
+        <trans-unit id="Text3.Width" translate="yes" xml:space="preserve">
+          <source>300</source>
+          <target state="new">300</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

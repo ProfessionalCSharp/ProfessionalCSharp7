@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="UWPCultureDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPCultureDemo"
+    xmlns:conv="using:UWPCultureDemo.Converters"
+    xmlns:tvc="using:TreeViewControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <tvc:IntegerToIndentationConverter x:Key="IntegerToIndConverter" IndentMultiplier="40" />
+        <conv:GlyphConverter x:Key="ExpandCollapseGlyphConverter" ExpandedGlyph="&#xE70D;" CollapsedGlyph="&#xE76C;"/>
+        <conv:EmptyCollectionToVisibilityConverter x:Key="EmptyConverter" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <tvc:TreeView x:Name="treeView1" 
+                      IsMultiSelectCheckBoxEnabled="False"
+                      IsItemClickEnabled="True" 
+                      SelectionChanged="{x:Bind OnSelectionChanged, Mode=OneTime}">
+            <tvc:TreeView.ItemTemplate>
+                <DataTemplate x:DataType="tvc:TreeNode">
+                    <StackPanel Orientation="Horizontal" Height="40" Margin="{Binding Depth, Converter={StaticResource IntegerToIndConverter}}">
+                        <FontIcon x:Name="expandCollapseChevron" 
+                          Glyph="{Binding IsExpanded, Converter={StaticResource ExpandCollapseGlyphConverter}}"
+                          Visibility="{Binding Data.SubCultures, Converter={StaticResource EmptyConverter}}"                           
+                          FontSize="12"
+                          Margin="12,8,12,8" 
+                          FontFamily="Segoe MDL2 Assets"                          
+                          />
+                        <TextBlock Text="{Binding Data.CultureInfo.EnglishName}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </tvc:TreeView.ItemTemplate>
+            <tvc:TreeView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <ContentThemeTransition />
+                    <ReorderThemeTransition />
+                    <EntranceThemeTransition IsStaggeringEnabled="False" />
+                </TransitionCollection>
+            </tvc:TreeView.ItemContainerTransitions>
+        </tvc:TreeView>
+        <local:CultureDetailUC Grid.Column="1" CultureData="{x:Bind ViewModel.SelectedCulture, Mode=OneWay}" />
+    </Grid>
+</Page>

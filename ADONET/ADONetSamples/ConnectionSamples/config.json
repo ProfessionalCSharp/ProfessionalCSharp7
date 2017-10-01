@@ -1,7 +1,7 @@
 ﻿{
 	"Data": {
 		"DefaultConnection": {
-			"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=AdventureWorks2014;Trusted_Connection=True;"
+			"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=WideWorldImporters;Trusted_Connection=True;"
 		}
 	}
 }

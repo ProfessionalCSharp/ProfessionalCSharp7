@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace ConnectionSamples
 {
@@ -30,7 +31,8 @@ namespace ConnectionSamples
                 default:
                     ShowUsage();
                     break;
-            } 
+            }
+            Console.WriteLine("completed");
 
             Console.ReadLine();
         }
@@ -48,7 +50,7 @@ namespace ConnectionSamples
         {
             string connectionString = @"server=(localdb)\MSSQLLocalDB;" +
                             "integrated security=SSPI;" +
-                            "database=AdventureWorks2014";
+                            "database=WideWorldImporters";
             var connection = new SqlConnection(connectionString);
 
             connection.Open();
@@ -61,7 +63,9 @@ namespace ConnectionSamples
 
         public static void ConnectionUsingConfig()
         {
-            var configurationBuilder = new ConfigurationBuilder().AddJsonFile("config.json");
+            var configurationBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("config.json");
             IConfiguration config = configurationBuilder.Build();
          
             string connectionString = config["Data:DefaultConnection:ConnectionString"];
@@ -70,7 +74,9 @@ namespace ConnectionSamples
 
         public static string GetConnectionString()
         {
-            var configurationBuilder = new ConfigurationBuilder().AddJsonFile("config.json");
+            var configurationBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("config.json");
 
             IConfiguration config = configurationBuilder.Build();
             string connectionString = config["Data:DefaultConnection:ConnectionString"];

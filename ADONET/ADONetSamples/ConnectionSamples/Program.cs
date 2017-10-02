@@ -50,7 +50,7 @@ namespace ConnectionSamples
         {
             string connectionString = @"server=(localdb)\MSSQLLocalDB;" +
                             "integrated security=SSPI;" +
-                            "database=WideWorldImporters";
+                            "database=Books";
             var connection = new SqlConnection(connectionString);
 
             connection.Open();

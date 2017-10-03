@@ -121,11 +121,11 @@ namespace CommandSamples
         {
             using (var connection = new SqlConnection(GetConnectionString()))
             {
-                string sql = "SELECT [Title], [Publisher], [ReleaseDate] FROM [ProCSharp].[Books] WHERE lower([Title]) LIKE @TitleStart";
+                string sql = "SELECT [Title], [Publisher], [ReleaseDate] FROM [ProCSharp].[Books] WHERE lower([Title]) LIKE @Title";
                 var command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("TitleStart", "Professional C#");
+                command.Parameters.AddWithValue("Title", "Professional C#");
                 command.Parameters.Add("TitleStart", SqlDbType.NVarChar, 50);
-                command.Parameters["TitleStart"].Value = "Professional C#";
+                command.Parameters["Title"].Value = "Professional C#%";
 
                 //SqlCommand command2 = connection.CreateCommand();
                 //command2.CommandText = sql;
@@ -143,9 +143,9 @@ namespace CommandSamples
         {
             using (var connection = new SqlConnection(GetConnectionString()))
             {
-                string sql = "SELECT [Title], [Publisher], [ReleaseDate] FROM [ProCSharp].[Books] WHERE lower([Title]) LIKE @TitleStart ORDER BY [ReleaseDate]";
+                string sql = "SELECT [Title], [Publisher], [ReleaseDate] FROM [ProCSharp].[Books] WHERE lower([Title]) LIKE @Title ORDER BY [ReleaseDate]";
                 var command = new SqlCommand(sql, connection);
-                var parameter = new SqlParameter("TitleStart", SqlDbType.NVarChar, 50)
+                var parameter = new SqlParameter("Title", SqlDbType.NVarChar, 50)
                 {
                     Value = "Professional C#"
                 };
@@ -197,15 +197,17 @@ namespace CommandSamples
             }
         }
 
-        public static void ExecuteReader(string titleParameter)
+        public static void ExecuteReader(string title)
         {
+            string GetBookQuery() =>
+                "SELECT [Id], [Title], [Publisher], [ReleaseDate] FROM [ProCSharp].[Books] WHERE lower([Title]) LIKE @Title ORDER BY [ReleaseDate] DESC";
+
             var connection = new SqlConnection(GetConnectionString());
 
-            string sql = "SELECT [Id], [Title], [Publisher], [ReleaseDate] FROM [ProCSharp].[Books] WHERE lower([Title]) LIKE @TitleStart ORDER BY [ReleaseDate]";
-            var command = new SqlCommand(sql, connection);
-            var parameter = new SqlParameter("TitleStart", SqlDbType.NVarChar, 50)
+            var command = new SqlCommand(GetBookQuery(), connection);
+            var parameter = new SqlParameter("Title", SqlDbType.NVarChar, 50)
             {
-                Value = $"{titleParameter}%"
+                Value = $"{title}%"
                 
             };
             command.Parameters.Add(parameter);
@@ -217,44 +219,12 @@ namespace CommandSamples
                 while (reader.Read())
                 {
                     int id = reader.GetInt32(0);
-                    string title = reader.GetString(1);
+                    string bookTitle = reader.GetString(1);
                     string publisher = reader[2].ToString();
-                    DateTime releaseDate = reader.GetDateTime(3);
-                    Console.WriteLine($"{title,-40} {publisher,-15} {releaseDate:d}");
+                    DateTime? releaseDate = reader.IsDBNull(3) ? (DateTime?)null : reader.GetDateTime(3);
+                    Console.WriteLine($"{id,5}. {bookTitle,-40} {publisher,-15} {releaseDate:d}");
                 }
             }
         }
-
-        //public static void ExecuteReader(int productId)
-        //{
-        //    string GetProductInformationSQL() =>
-        //       "SELECT Prod.ProductID, Prod.Name, Prod.StandardCost, Prod.ListPrice, CostHistory.StartDate, CostHistory.EndDate, CostHistory.StandardCost " +
-        //           "FROM Production.ProductCostHistory AS CostHistory  " +
-        //           "INNER JOIN Production.Product AS Prod ON CostHistory.ProductId = Prod.ProductId " +
-        //             "WHERE Prod.ProductId = @ProductId";
-
-        //    var connection = new SqlConnection(GetConnectionString());
-
-        //    string sql = GetProductInformationSQL();
-        //    var command = new SqlCommand(sql, connection);
-        //    var productIdParameter = new SqlParameter("ProductId", SqlDbType.Int);
-        //    productIdParameter.Value = productId;
-        //    command.Parameters.Add(productIdParameter);
-
-        //    connection.Open();
-
-        //    using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection))
-        //    {
-        //        while (reader.Read())
-        //        {
-        //            int id = reader.GetInt32(0);
-        //            string name = reader.GetString(1);
-        //            DateTime from = reader.GetDateTime(4);
-        //            DateTime? to = reader.IsDBNull(5) ? (DateTime?)null : reader.GetDateTime(5);
-        //            decimal standardPrice = reader.GetDecimal(6);
-        //            Console.WriteLine($"{id} {name} from: {from:d} to: {to:d}; price: {standardPrice}");
-        //        }
-        //    }
-        //}
     }
 }

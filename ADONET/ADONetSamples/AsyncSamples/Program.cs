@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace AsyncSamples
@@ -10,21 +11,19 @@ namespace AsyncSamples
     {
         static async Task Main()
         {
-            await ReadAsync(714);
+            await ReadAsync("Wrox Press");
         }
 
-        public static async Task ReadAsync(int productId)
+        public static async Task ReadAsync(string title)
         {
             var connection = new SqlConnection(GetConnectionString());
 
-            string sql = "SELECT Prod.ProductID, Prod.Name, Prod.StandardCost, Prod.ListPrice, CostHistory.StartDate, CostHistory.EndDate, CostHistory.StandardCost " +
-                "FROM Production.ProductCostHistory AS CostHistory  " +
-                "INNER JOIN Production.Product AS Prod ON CostHistory.ProductId = Prod.ProductId " +
-                  "WHERE Prod.ProductId = @ProductId";
+            string sql = "SELECT [Title], [Publisher], [ReleaseDate] FROM [ProCSharp].[Books] WHERE lower([Title]) LIKE @Title ORDER BY [ReleaseDate]";
+
             var command = new SqlCommand(sql, connection);
-            var productIdParameter = new SqlParameter("ProductId", SqlDbType.Int);
-            productIdParameter.Value = productId;
-            command.Parameters.Add(productIdParameter);
+            var titleParameter = new SqlParameter("Title", SqlDbType.NVarChar, 50);
+            titleParameter.Value = title;
+            command.Parameters.Add(titleParameter);
 
             await connection.OpenAsync();
 
@@ -33,18 +32,19 @@ namespace AsyncSamples
                 while (await reader.ReadAsync())
                 {
                     int id = reader.GetInt32(0);
-                    string name = reader.GetString(1);
-                    DateTime from = reader.GetDateTime(4);
-                    DateTime? to = reader.IsDBNull(5) ? (DateTime?)null : reader.GetDateTime(5);
-                    decimal standardPrice = reader.GetDecimal(6);
-                    Console.WriteLine($"{id} {name} from: {from:d} to: {to:d}; price: {standardPrice}");
+                    string bookTitle = reader.GetString(1);
+                    string publisher = reader[2].ToString();
+                    DateTime? releaseDate = reader.IsDBNull(3) ? (DateTime?)null : reader.GetDateTime(3);
+                    Console.WriteLine($"{id,5}. {bookTitle,-40} {publisher,-15} {releaseDate:d}");
                 }
             }
         }
 
         public static string GetConnectionString()
         {
-            var configurationBuilder = new ConfigurationBuilder().AddJsonFile("config.json");
+            var configurationBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("config.json");
 
             IConfiguration config = configurationBuilder.Build();
             return config["Data:DefaultConnection:ConnectionString"];

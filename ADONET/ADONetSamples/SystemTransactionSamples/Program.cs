@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Transactions;
+using System.Linq;
 using static SystemTransactionSamples.Utilities;
 
 namespace SystemTransactionSamples
@@ -31,9 +32,6 @@ namespace SystemTransactionSamples
             Console.WriteLine("SystemTransactionSamples command");
             Console.WriteLine("\t-c\tCommittable Transactions");
 
-            Console.WriteLine("\t-c\tUse Configuration File");
-            Console.WriteLine("\t-i\tConnection Information");
-            Console.WriteLine("\t-t\tTransactions");
         }
 
         static void AmbientTransactions()
@@ -61,7 +59,8 @@ namespace SystemTransactionSamples
                 {
                     Title = "A Dog in The House",
                     Publisher = "Pet Show",
-                    Isbn = "4711"               
+                    Isbn = string.Join("", Guid.NewGuid().ToString().ToCharArray().Take(15)),
+                    ReleaseDate = new DateTime(2018, 11, 24)
                 };
                 var data = new BookData();
                 await data.AddBookAsync(b, tx);
@@ -70,6 +69,7 @@ namespace SystemTransactionSamples
                 {
                     throw new ApplicationException("transaction abort");
                 }
+                tx.Commit();
             }
             catch (Exception ex)
             {

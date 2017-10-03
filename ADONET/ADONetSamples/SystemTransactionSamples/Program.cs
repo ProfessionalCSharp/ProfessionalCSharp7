@@ -29,11 +29,13 @@ namespace SystemTransactionSamples
                 case "-a":
                     AmbientTransactions();
                     break;
+                case "-n":
+                    NestedScopes();
+                    break;
                 default:
                     ShowUsage();
                     break;
             }
-            // AmbientTransactions();
         }
 
         public static void ShowUsage()
@@ -43,6 +45,50 @@ namespace SystemTransactionSamples
             Console.WriteLine("\t-p\tPromotable Transactions");
             Console.WriteLine("\t-d\tDepdendent Transactions");
             Console.WriteLine("\t-a\tAmbient Transactions");
+            Console.WriteLine("\t-n\tNested Transactions");
+        }
+
+        static void NestedScopes()
+        {
+            using (var scope = new TransactionScope())
+            {
+                Transaction.Current.TransactionCompleted += (sender, e) =>
+                    DisplayTransactionInformation("TX completed", e.Transaction.TransactionInformation);
+
+                DisplayTransactionInformation("Ambient Tx created", Transaction.Current.TransactionInformation);
+
+                var b = new Book
+                {
+                    Title = "Dogs in The House",
+                    Publisher = "Pet Show",
+                    Isbn = RandomIsbn(),
+                    ReleaseDate = new DateTime(2020, 11, 24)
+                };
+                var data = new BookData();
+                data.AddBook(b);
+
+                using (var scope2 = new TransactionScope(TransactionScopeOption.RequiresNew))
+                {
+                    Transaction.Current.TransactionCompleted += (sender, e) =>
+                        DisplayTransactionInformation("Inner Tx completed", e.Transaction.TransactionInformation);
+
+                    DisplayTransactionInformation("Inner Tx scope", Transaction.Current.TransactionInformation);
+
+                    var b1 = new Book
+                    {
+                        Title = "Dogs and Cats in The House",
+                        Publisher = "Pet Show",
+                        Isbn = RandomIsbn(),
+                        ReleaseDate = new DateTime(2021, 11, 24)
+                    };
+                    var data1 = new BookData();
+                    data1.AddBook(b1);
+
+                    scope2.Complete();
+                }
+
+                scope.Complete();
+            }
         }
 
         static void AmbientTransactions()
@@ -52,9 +98,28 @@ namespace SystemTransactionSamples
                 Transaction.Current.TransactionCompleted += (sender, e) => 
                     DisplayTransactionInformation("TX completed", e.Transaction.TransactionInformation);
 
-             
-                // scope.Complete();
-            }
+                DisplayTransactionInformation("Ambient Tx created", Transaction.Current.TransactionInformation);
+
+                var b = new Book
+                {
+                    Title = "Cats in The House",
+                    Publisher = "Pet Show",
+                    Isbn = RandomIsbn(),
+                    ReleaseDate = new DateTime(2019, 11, 24)
+                };
+                var data = new BookData();
+                data.AddBook(b);
+
+                if (!AbortTx())
+                {
+                    scope.Complete();
+                }
+                else
+                {
+                    Console.WriteLine("transaction will be aborted");
+                }
+
+            }  // scope.Dispose();
         }
 
         static void DependentTransactions()

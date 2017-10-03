@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Transactions;
 
 namespace SystemTransactionSamples
@@ -24,5 +23,10 @@ namespace SystemTransactionSamples
             Console.WriteLine($"Distributed Id: {info.DistributedIdentifier}");
             Console.WriteLine();
         }
+
+        public static string RandomIsbn() =>
+            string.Join("", Guid.NewGuid().ToString().ToCharArray().Take(15));
+
+
     }
 }

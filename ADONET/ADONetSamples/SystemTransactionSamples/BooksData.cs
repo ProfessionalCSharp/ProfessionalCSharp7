@@ -34,6 +34,26 @@ namespace SystemTransactionSamples
             }
         }
 
+        public void AddBook(Book book)
+        {
+            using (SqlConnection connection = new SqlConnection(GetConnectionString()))
+            {
+                string sql = "INSERT INTO [ProCSharp].[Books] ([Title], [Publisher], [Isbn], [ReleaseDate]) " +
+                    "VALUES (@Title, @Publisher, @Isbn, @ReleaseDate)";
+
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText = sql;
+                command.Parameters.AddWithValue("Title", book.Title);
+                command.Parameters.AddWithValue("Publisher", book.Publisher);
+                command.Parameters.AddWithValue("Isbn", book.Isbn);
+                command.Parameters.AddWithValue("ReleaseDate", book.ReleaseDate);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
         public static string GetConnectionString()
         {
             var configurationBuilder = new ConfigurationBuilder()

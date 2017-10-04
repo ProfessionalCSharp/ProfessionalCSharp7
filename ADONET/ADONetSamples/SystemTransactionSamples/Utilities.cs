@@ -26,7 +26,5 @@ namespace SystemTransactionSamples
 
         public static string RandomIsbn() =>
             string.Join("", Guid.NewGuid().ToString().ToCharArray().Take(15));
-
-
     }
 }

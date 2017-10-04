@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
-using System.Linq;
 using static SystemTransactionSamples.Utilities;
 
 namespace SystemTransactionSamples
@@ -116,7 +116,7 @@ namespace SystemTransactionSamples
                 }
                 else
                 {
-                    Console.WriteLine("transaction will be aborted");
+                    Console.WriteLine("transaction abort by the user");
                 }
 
             }  // scope.Dispose();
@@ -150,7 +150,6 @@ namespace SystemTransactionSamples
                 {
                     throw new ApplicationException("transaction abort by the user");
                 }
-
                 tx.Commit();
             }
             catch (Exception ex)
@@ -195,7 +194,7 @@ namespace SystemTransactionSamples
 
                 if (AbortTx())
                 {
-                    throw new ApplicationException("transaction abort");
+                    throw new ApplicationException("transaction abort by the user");
                 }
                 tx.Commit();
             }
@@ -228,7 +227,7 @@ namespace SystemTransactionSamples
 
                 if (AbortTx())
                 {
-                    throw new ApplicationException("transaction abort");
+                    throw new ApplicationException("transaction abort by the user");
                 }
                 tx.Commit();
             }

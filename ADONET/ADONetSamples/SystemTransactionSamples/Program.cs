@@ -124,9 +124,8 @@ namespace SystemTransactionSamples
 
         static void DependentTransactions()
         {
-            async Task UsingDependentTransactionAsync(object obj)
+            async Task UsingDependentTransactionAsync(DependentTransaction dtx)
             {
-                var dtx = obj as DependentTransaction;
                 dtx.TransactionCompleted += (sender, e) => 
                     DisplayTransactionInformation("Depdendent TX completed", e.Transaction.TransactionInformation);
 

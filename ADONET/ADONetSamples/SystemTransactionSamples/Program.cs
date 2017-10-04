@@ -219,7 +219,7 @@ namespace SystemTransactionSamples
                 {
                     Title = "A Dog in The House",
                     Publisher = "Pet Show",
-                    Isbn = string.Join("", Guid.NewGuid().ToString().ToCharArray().Take(15)),
+                    Isbn =RandomIsbn(),
                     ReleaseDate = new DateTime(2018, 11, 24)
                 };
                 var data = new BookData();

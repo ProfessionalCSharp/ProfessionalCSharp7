@@ -67,7 +67,7 @@ namespace SystemTransactionSamples
                 var data = new BookData();
                 data.AddBook(b);
 
-                using (var scope2 = new TransactionScope(TransactionScopeOption.Required))
+                using (var scope2 = new TransactionScope(TransactionScopeOption.RequiresNew))
                 {
                     Transaction.Current.TransactionCompleted += (sender, e) =>
                         DisplayTransactionInformation("Inner TX completed", e.Transaction.TransactionInformation);

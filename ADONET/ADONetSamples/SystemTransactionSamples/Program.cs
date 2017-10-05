@@ -55,7 +55,7 @@ namespace SystemTransactionSamples
                 Transaction.Current.TransactionCompleted += (sender, e) =>
                     DisplayTransactionInformation("TX completed", e.Transaction.TransactionInformation);
 
-                DisplayTransactionInformation("Ambient Tx created", Transaction.Current.TransactionInformation);
+                DisplayTransactionInformation("Ambient TX created", Transaction.Current.TransactionInformation);
 
                 var b = new Book
                 {
@@ -67,12 +67,12 @@ namespace SystemTransactionSamples
                 var data = new BookData();
                 data.AddBook(b);
 
-                using (var scope2 = new TransactionScope(TransactionScopeOption.RequiresNew))
+                using (var scope2 = new TransactionScope(TransactionScopeOption.Required))
                 {
                     Transaction.Current.TransactionCompleted += (sender, e) =>
-                        DisplayTransactionInformation("Inner Tx completed", e.Transaction.TransactionInformation);
+                        DisplayTransactionInformation("Inner TX completed", e.Transaction.TransactionInformation);
 
-                    DisplayTransactionInformation("Inner Tx scope", Transaction.Current.TransactionInformation);
+                    DisplayTransactionInformation("Inner TX scope", Transaction.Current.TransactionInformation);
 
                     var b1 = new Book
                     {
@@ -98,7 +98,7 @@ namespace SystemTransactionSamples
                 Transaction.Current.TransactionCompleted += (sender, e) => 
                     DisplayTransactionInformation("TX completed", e.Transaction.TransactionInformation);
 
-                DisplayTransactionInformation("Ambient Tx created", Transaction.Current.TransactionInformation);
+                DisplayTransactionInformation("Ambient TX created", Transaction.Current.TransactionInformation);
 
                 var b = new Book
                 {

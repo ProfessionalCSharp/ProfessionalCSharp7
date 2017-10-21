@@ -7,9 +7,9 @@ namespace ServicesLifetime
     {
         static void Main()
         {
-            //SingletonAndTransient();
+            SingletonAndTransient();
             //UsingScoped();
-            CustomFactories();
+            //CustomFactories();
         }
 
         private static void CustomFactories()

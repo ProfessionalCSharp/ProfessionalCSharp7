@@ -10,7 +10,7 @@ namespace DataLib
             new List<Racer>
             {
                 new Racer("Nino", "Farina", "Italy", 33, 5, new int[] { 1950 }, new string[] { "Alfa Romeo" }),
-                new Racer("Alberto", "Ascari", "Italy", 32, 10, new int[] { 1952, 1953 }, new string[] { "Ferrari" }),
+                new Racer("Alberto", "Ascari", "Italy", 32, 13, new int[] { 1952, 1953 }, new string[] { "Ferrari" }),
                 new Racer("Juan Manuel", "Fangio", "Argentina", 51, 24, new int[] { 1951, 1954, 1955, 1956, 1957 }, new string[] { "Alfa Romeo", "Maserati", "Mercedes", "Ferrari" }),
                 new Racer("Mike", "Hawthorn", "UK", 45, 3, new int[] { 1958 }, new string[] { "Ferrari" }),
                 new Racer("Phil", "Hill", "USA", 48, 3, new int[] { 1961 }, new string[] { "Ferrari" }),
@@ -36,11 +36,11 @@ namespace DataLib
                 new Racer("Jacques", "Villeneuve", "Canada", 165, 11, new int[] { 1997 }, new string[] { "Williams" }),
                 new Racer("Mika", "Hakkinen", "Finland", 160, 20, new int[] { 1998, 1999 }, new string[] { "McLaren" }),
                 new Racer("Michael", "Schumacher", "Germany", 287, 91, new int[] { 1994, 1995, 2000, 2001, 2002, 2003, 2004 }, new string[] { "Benetton", "Ferrari" }),
-                new Racer("Fernando", "Alonso", "Spain", 279, 33, new int[] { 2005, 2006 }, new string[] { "Renault" }),
-                new Racer("Kimi", "Räikkönen", "Finland", 260, 20, new int[] { 2007 }, new string[] { "Ferrari" }),
-                new Racer("Lewis", "Hamilton", "UK", 196, 56, new int[] { 2008, 2014, 2015 }, new string[] { "McLaren", "Mercedes" }),
+                new Racer("Fernando", "Alonso", "Spain", 287, 32, new int[] { 2005, 2006 }, new string[] { "Renault" }),
+                new Racer("Kimi", "Räikkönen", "Finland", 267, 20, new int[] { 2007 }, new string[] { "Ferrari" }),
+                new Racer("Lewis", "Hamilton", "UK", 204, 61, new int[] { 2008, 2014, 2015 }, new string[] { "McLaren", "Mercedes" }),
                 new Racer("Jenson", "Button", "UK", 306, 16, new int[] { 2009 }, new string[] { "Brawn GP" }),
-                new Racer("Sebastian", "Vettel", "Germany", 186, 45, new int[] { 2010, 2011, 2012, 2013 }, new string[] { "Red Bull Racing" }),
+                new Racer("Sebastian", "Vettel", "Germany", 194, 46, new int[] { 2010, 2011, 2012, 2013 }, new string[] { "Red Bull Racing" }),
                 new Racer("Nico", "Rosberg", "Germany", 207, 24, new int[] { 2016 }, new string[] { "Mercedes" })
             };
 
@@ -187,9 +187,9 @@ namespace DataLib
                 _moreRacers.Add(new Racer("Eddie", "Irvine", "UK", starts: 147, wins: 4));
                 _moreRacers.Add(new Racer("Rubens", "Barrichello", "Brazil", starts: 322, wins: 11));
                 _moreRacers.Add(new Racer("Juan Pablo", "Montoya", "Columbia", starts: 94, wins: 7));
-                _moreRacers.Add(new Racer("Felipe", "Massa", "Brazil", starts: 258, wins: 11));
+                _moreRacers.Add(new Racer("Felipe", "Massa", "Brazil", starts: 265, wins: 11));
                 _moreRacers.Add(new Racer("Mark", "Webber", "Australia", starts: 215, wins: 9));
-                _moreRacers.Add(new Racer("Daniel", "Ricciardo", "Australia", starts: 117, wins: 5));
+                _moreRacers.Add(new Racer("Daniel", "Ricciardo", "Australia", starts: 125, wins: 5));
             }
             return _moreRacers;
         }

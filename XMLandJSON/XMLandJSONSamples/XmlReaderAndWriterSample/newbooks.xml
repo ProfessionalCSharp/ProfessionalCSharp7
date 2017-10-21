@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book
+  genre="Mystery"
+  publicationdate="2001"
+  ISBN="123456789">
+  <title>Case of the Missing Cookie</title>
+  <author>
+    <name>Cookie Monster</name>
+  </author>
+  <price>9.99</price>
+</book>

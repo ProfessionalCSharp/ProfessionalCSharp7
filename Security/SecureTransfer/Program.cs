@@ -3,7 +3,6 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Console;
 
 namespace SecureTransfer
 {
@@ -14,11 +13,11 @@ namespace SecureTransfer
         private byte[] _alicePubKeyBlob;
         private byte[] _bobPubKeyBlob;
 
-        static void Main()
+        static async Task Main()
         {
             var p = new Program();
-            p.RunAsync().Wait();
-            ReadLine();
+            await p.RunAsync();
+            Console.ReadLine();
         }
 
         private async Task RunAsync()
@@ -31,15 +30,12 @@ namespace SecureTransfer
             }
             catch (Exception ex)
             {
-                WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
-
-
         private void CreateKeys()
-        {
-          
+        {       
             _aliceKey = CngKey.Create(CngAlgorithm.ECDiffieHellmanP521);
             _bobKey = CngKey.Create(CngAlgorithm.ECDiffieHellmanP521);
             _alicePubKeyBlob = _aliceKey.Export(CngKeyBlobFormat.EccPublicBlob);
@@ -48,7 +44,7 @@ namespace SecureTransfer
 
         private async Task<byte[]> AliceSendsDataAsync(string message)
         {
-            WriteLine($"Alice sends message: {message}");
+            Console.WriteLine($"Alice sends message: {message}");
             byte[] rawData = Encoding.UTF8.GetBytes(message);
             byte[] encryptedData = null;
 
@@ -57,7 +53,7 @@ namespace SecureTransfer
                   CngKeyBlobFormat.EccPublicBlob))
             {
                 byte[] symmKey = aliceAlgorithm.DeriveKeyMaterial(bobPubKey);
-                WriteLine("Alice creates this symmetric key with " +
+                Console.WriteLine("Alice creates this symmetric key with " +
                       $"Bobs public key information: { Convert.ToBase64String(symmKey)}");
 
                 using (var aes = new AesCryptoServiceProvider())
@@ -80,14 +76,14 @@ namespace SecureTransfer
                     aes.Clear();
                 }
             }
-            WriteLine($"Alice: message is encrypted: {Convert.ToBase64String(encryptedData)}"); ;
-            WriteLine();
+            Console.WriteLine($"Alice: message is encrypted: {Convert.ToBase64String(encryptedData)}"); ;
+            Console.WriteLine();
             return encryptedData;
         }
 
         private async Task BobReceivesDataAsync(byte[] encryptedData)
         {
-            WriteLine("Bob receives encrypted data");
+            Console.WriteLine("Bob receives encrypted data");
             byte[] rawData = null;
 
             var aes = new AesCryptoServiceProvider();
@@ -102,7 +98,7 @@ namespace SecureTransfer
                   CngKeyBlobFormat.EccPublicBlob))
             {
                 byte[] symmKey = bobAlgorithm.DeriveKeyMaterial(alicePubKey);
-                WriteLine("Bob creates this symmetric key with " +
+                Console.WriteLine("Bob creates this symmetric key with " +
                       $"Alices public key information: {Convert.ToBase64String(symmKey)}");
                 aes.Key = symmKey;
                 aes.IV = iv;
@@ -117,7 +113,7 @@ namespace SecureTransfer
 
                     rawData = ms.ToArray();
 
-                    WriteLine($"Bob decrypts message to: {Encoding.UTF8.GetString(rawData)}");
+                    Console.WriteLine($"Bob decrypts message to: {Encoding.UTF8.GetString(rawData)}");
                 }
                 aes.Clear();
             }

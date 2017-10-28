@@ -21,7 +21,7 @@ namespace DataProtectionSample
             }
             string fileName = args[1];
 
-            MySafe safe = InitProtection();
+            MySafe safe = SetupDataProtection();
 
 
             switch (args[0])
@@ -38,17 +38,17 @@ namespace DataProtectionSample
             }
         }
 
-        public static MySafe InitProtection()
+        public static MySafe SetupDataProtection()
         {
-            var serviceCollection = new ServiceCollection();   
-            serviceCollection.AddDataProtection()
+            var services = new ServiceCollection();
+            services.AddDataProtection()
                 .PersistKeysToFileSystem(new DirectoryInfo("."))
                 .SetDefaultKeyLifetime(TimeSpan.FromDays(20))
                 .ProtectKeysWithDpapi();
+            services.AddTransient<MySafe>();
           
-            IServiceProvider services = serviceCollection.BuildServiceProvider();
-
-            return ActivatorUtilities.CreateInstance<MySafe>(services);
+            IServiceProvider provider = services.BuildServiceProvider();
+            return provider.GetService<MySafe>();
         }
 
         public static void Read(MySafe safe, string fileName)

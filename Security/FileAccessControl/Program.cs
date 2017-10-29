@@ -1,7 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
-using static System.Console;
 
 namespace FileAccessControl
 {
@@ -23,10 +23,10 @@ namespace FileAccessControl
                 foreach (AuthorizationRule rule in rules)
                 {
                     var fileRule = rule as FileSystemAccessRule;
-                    WriteLine($"Access type: {fileRule.AccessControlType}");
-                    WriteLine($"Rights: {fileRule.FileSystemRights}");
-                    WriteLine($"Identity: {fileRule.IdentityReference.Value}");
-                    WriteLine();
+                    Console.WriteLine($"Access type: {fileRule.AccessControlType}");
+                    Console.WriteLine($"Rights: {fileRule.FileSystemRights}");
+                    Console.WriteLine($"Identity: {fileRule.IdentityReference.Value}");
+                    Console.WriteLine();
                 }
             }
         }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Product xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Discount="0">
+  <ProductID>200</ProductID>
+  <ProductName>Serialize Objects</ProductName>
+  <SupplierID>1</SupplierID>
+  <CategoryID>100</CategoryID>
+  <QuantityPerUnit>6</QuantityPerUnit>
+  <UnitPrice>1000</UnitPrice>
+  <UnitsInStock>10</UnitsInStock>
+  <UnitsOnOrder>0</UnitsOnOrder>
+  <ReorderLevel>1</ReorderLevel>
+  <Discontinued>false</Discontinued>
+</Product>

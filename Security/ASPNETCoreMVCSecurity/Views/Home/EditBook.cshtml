@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "EditBook";
+}
+<h2>Edit Book</h2>
+
+
+<form asp-controller="Home" asp-action="EditBook" method="post">
+    @Html.AntiForgeryToken()
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" />
+    <br />
+    <label for="publisher">Publisher:</label>
+    <input type="text" id="publisher" name="publisher" />
+    <br />
+    <input type="submit" value="Submit" />
+</form>

@@ -27,6 +27,7 @@ namespace BooksSample
             await p.UpdateBookAsync();
             await QuerySamples.QueryBookAsync("Professional C# 7 and .NET Core 2.0");
             await QuerySamples.FilterBooksAsync("Pro");
+            await QuerySamples.UseEFCunctions("C#");
 
             await p.DeleteBookAsync(2);
             await p.QueryDeletedBooksAsync();

@@ -151,6 +151,22 @@ namespace BooksSample
             Console.WriteLine();
         }
 
+        public static async Task UseEFCunctions(string titleSegment)
+        {
+            Console.WriteLine(nameof(UseEFCunctions));
+            using (var context = new BooksContext())
+            {
+                string likeExpression = $"%{titleSegment}%";
+
+                IList<Book> books = await context.Books.Where(b => EF.Functions.Like(b.Title, likeExpression)).ToListAsync();
+                foreach (var b in books)
+                {
+                    Console.WriteLine($"{b.Title} {b.Publisher}");
+                }
+            }
+            Console.WriteLine();
+        }
+
         public static void CompileQuery()
         {
             Console.WriteLine(nameof(CompileQuery));

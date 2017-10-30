@@ -96,7 +96,7 @@ namespace Intro
                     .Where(b => b.Publisher == "Wrox Press")
                     .ToListAsync();
 
-                // comment the previous line and uncomment the next lines to try the LINQ query syntax
+                // comment the previous lines and uncomment the next lines to try the LINQ query syntax
                 //var wroxBooks = await (from b in context.Books
                 //                         where b.Publisher == "Wrox Press"
                 //                         select b).ToListAsync();

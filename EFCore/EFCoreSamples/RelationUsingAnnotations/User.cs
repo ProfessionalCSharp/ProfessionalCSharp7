@@ -8,6 +8,7 @@ namespace RelationUsingAnnotations
     public class User
     {
         public int UserId { get; set; }
+        public string Name { get; set; }
         [InverseProperty("Author")]
         public List<Book> AuthoredBooks { get; set; }
         [InverseProperty("Reviewer")]

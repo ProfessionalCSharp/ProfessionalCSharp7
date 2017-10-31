@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace RelationUsingAnnotations
 {
@@ -13,5 +11,8 @@ namespace RelationUsingAnnotations
         public List<Book> AuthoredBooks { get; set; }
         [InverseProperty("Reviewer")]
         public List<Book> ReviewedBooks { get; set; }
+
+        [InverseProperty("ProjectEditor")]
+        public List<Book> EditedBooks { get; set; }
     }
 }

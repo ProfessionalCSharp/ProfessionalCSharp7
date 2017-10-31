@@ -8,7 +8,7 @@ namespace RelationUsingAnnotations
         {
             CreateDatabase();
             AddBooks();
-         //   DeleteDatabase();
+            DeleteDatabase();
         }
 
         private static void DeleteDatabase()
@@ -25,8 +25,6 @@ namespace RelationUsingAnnotations
             {
                 bool created = context.Database.EnsureCreated();
                 Console.WriteLine($"database created: {created}");
-
-
             }
         }
 

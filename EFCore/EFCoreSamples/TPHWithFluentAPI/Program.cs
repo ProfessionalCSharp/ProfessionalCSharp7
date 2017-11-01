@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace TPHWithConventions
+namespace TPHWithFluentAPI
 {
     partial class Program
     {
@@ -29,9 +29,9 @@ namespace TPHWithConventions
         {
             using (var context = new BankContext())
             {
-                context.CashPayments.Add(new CashPayment { Name = "Donald", Amount = 0.5M });
-                context.CashPayments.Add(new CashPayment { Name = "Scrooge", Amount = 20000M });
-                context.CreditcardPayments.Add(new CreditcardPayment { Name = "Gus Goose", Amount = 300M, CreditcardNumber = "987654321" });
+                context.Payments.Add(new CashPayment { Name = "Donald", Amount = 0.5M });
+                context.Payments.Add(new CashPayment { Name = "Scrooge", Amount = 20000M });
+                context.Payments.Add(new CreditcardPayment { Name = "Gus Goose", Amount = 300M, CreditcardNumber = "987654321" });
                 context.SaveChanges();
             }
         }

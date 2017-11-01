@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27019.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intro", "Intro\Intro.csproj", "{084F0F2E-C966-4BE7-A153-B31224EE3E22}"
 EndProject
@@ -17,11 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPHWithConventions", "TPHWi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksSample", "BooksSample\BooksSample.csproj", "{86ACB5BF-1E43-408C-A7F2-24B8F538C3FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationUsingConventions", "RelationUsingConventions\RelationUsingConventions.csproj", "{7E47A0E1-2B9B-4039-8B03-DA8D019AD078}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelationUsingConventions", "RelationUsingConventions\RelationUsingConventions.csproj", "{7E47A0E1-2B9B-4039-8B03-DA8D019AD078}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationUsingAnnotations", "RelationUsingAnnotations\RelationUsingAnnotations.csproj", "{5B1575C6-BF5D-4A66-B57B-4FA3CCD79C83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelationUsingAnnotations", "RelationUsingAnnotations\RelationUsingAnnotations.csproj", "{5B1575C6-BF5D-4A66-B57B-4FA3CCD79C83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationUsingFluentAPI", "RelationUsingFluentAPI\RelationUsingFluentAPI.csproj", "{DD1F0BDF-4E83-4C35-9F80-A9C68BDDF4B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelationUsingFluentAPI", "RelationUsingFluentAPI\RelationUsingFluentAPI.csproj", "{DD1F0BDF-4E83-4C35-9F80-A9C68BDDF4B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPHWithFluentAPI", "TPHWithFluentAPI\TPHWithFluentAPI.csproj", "{110FA863-8EAE-4A6A-861F-ED4E563AB37D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{DD1F0BDF-4E83-4C35-9F80-A9C68BDDF4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD1F0BDF-4E83-4C35-9F80-A9C68BDDF4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD1F0BDF-4E83-4C35-9F80-A9C68BDDF4B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{110FA863-8EAE-4A6A-861F-ED4E563AB37D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110FA863-8EAE-4A6A-861F-ED4E563AB37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110FA863-8EAE-4A6A-861F-ED4E563AB37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110FA863-8EAE-4A6A-861F-ED4E563AB37D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

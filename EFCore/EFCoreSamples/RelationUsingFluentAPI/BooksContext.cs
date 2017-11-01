@@ -21,19 +21,16 @@ namespace RelationUsingFluentAPI
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Book>().HasMany(b => b.Chapters).WithOne(c => c.Book);
             modelBuilder.Entity<Book>().HasOne(b => b.Author).WithMany(a => a.WrittenBooks);
             modelBuilder.Entity<Book>().HasOne(b => b.Reviewer).WithMany(r => r.ReviewedBooks);
             modelBuilder.Entity<Book>().HasOne(b => b.Editor).WithMany(e => e.EditedBooks);
 
-            modelBuilder.Entity<Chapter>().HasOne(c => c.Book).WithMany(b => b.Chapters);
+            modelBuilder.Entity<Chapter>().HasOne(c => c.Book).WithMany(b => b.Chapters).HasForeignKey(c => c.BookId);
 
             modelBuilder.Entity<User>().HasMany(a => a.WrittenBooks).WithOne(b => b.Author);
             modelBuilder.Entity<User>().HasMany(r => r.ReviewedBooks).WithOne(b => b.Reviewer);
             modelBuilder.Entity<User>().HasMany(e => e.EditedBooks).WithOne(b => b.Editor);
-
-            //   modelBuilder.Entity<Book>().Property
         }
     }
 }

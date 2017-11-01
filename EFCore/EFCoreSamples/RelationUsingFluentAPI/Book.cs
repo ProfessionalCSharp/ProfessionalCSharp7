@@ -6,7 +6,7 @@ namespace RelationUsingFluentAPI
     {
         public int BookId { get; set; }
         public string Title { get; set; }
-        public List<Chapter> Chapters { get; set; }
+        public List<Chapter> Chapters { get; } = new List<Chapter>();
 
         public User Author { get; set; }
         public User Reviewer { get; set; }

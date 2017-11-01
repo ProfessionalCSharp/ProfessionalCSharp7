@@ -7,11 +7,11 @@ namespace RelationUsingAnnotations
     {
         public int UserId { get; set; }
         public string Name { get; set; }
-    //    [InverseProperty("Author")]
-        public List<Book> AuthoredBooks { get; set; }
-    //    [InverseProperty("Reviewer")]
+        [InverseProperty("Author")]
+        public List<Book> WrittenBooks { get; set; }
+        [InverseProperty("Reviewer")]
         public List<Book> ReviewedBooks { get; set; }
-    //    [InverseProperty("ProjectEditor")]
+        [InverseProperty("ProjectEditor")]
         public List<Book> EditedBooks { get; set; }
     }
 }

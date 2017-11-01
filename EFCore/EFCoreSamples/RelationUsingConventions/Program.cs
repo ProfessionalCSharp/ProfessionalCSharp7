@@ -180,7 +180,6 @@ namespace RelationUsingConventions
                     Book = b1
                 };
 
-
                 context.Books.Add(b1);
 
                 context.Users.Add(author);

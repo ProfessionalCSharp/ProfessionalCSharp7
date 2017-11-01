@@ -13,9 +13,14 @@ namespace RelationUsingAnnotations
 
         private static void DeleteDatabase()
         {
-            using (var context = new BooksContext())
+            Console.Write("Delete the database? ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "y")
             {
-                context.Database.EnsureDeleted();
+                using (var context = new BooksContext())
+                {
+                    context.Database.EnsureDeleted();
+                }
             }
         }
 

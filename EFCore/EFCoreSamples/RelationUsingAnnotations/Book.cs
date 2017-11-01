@@ -9,11 +9,11 @@ namespace RelationUsingAnnotations
         public string Title { get; set; }
         public List<Chapter> Chapters { get; } = new List<Chapter>();
 
-        public int? AuthorUserId { get; set; }
-        [ForeignKey(nameof(AuthorUserId))]
+        public int? AuthorId { get; set; }
+        [ForeignKey(nameof(AuthorId))]
         public User Author { get; set; }
-        public int? ReviewerUserId { get; set; }
-        [ForeignKey(nameof(ReviewerUserId))]
+        public int? ReviewerId { get; set; }
+        [ForeignKey(nameof(ReviewerId))]
         public User Reviewer { get; set; }
         public int? ProjectEditorId { get; set; }
         [ForeignKey(nameof(ProjectEditorId))]

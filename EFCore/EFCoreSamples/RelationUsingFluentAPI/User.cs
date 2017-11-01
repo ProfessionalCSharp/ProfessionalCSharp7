@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace RelationUsingFluentAPI
 {
     public class User
     {
         public int UserId { get; set; }
-        [InverseProperty("Author")]
-        public List<Book> Books { get; set; }
-        [InverseProperty("Reviewer")]
+        public string Name { get; set; }
+        public List<Book> WrittenBooks { get; set; }
         public List<Book> ReviewedBooks { get; set; }
+        public List<Book> EditedBooks { get; set; }
     }
 }

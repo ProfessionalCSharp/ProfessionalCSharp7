@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-
-namespace RelationUsingFluentAPI
+﻿namespace RelationUsingFluentAPI
 {
     public class Chapter
     {
         public int ChapterId { get; set; }
-        public int BookId { get; set; }
-        [ForeignKey("BookId")]
+        public int Number { get; set; }
+        public string Title { get; set; }
         public Book Book { get; set; }
     }
 }

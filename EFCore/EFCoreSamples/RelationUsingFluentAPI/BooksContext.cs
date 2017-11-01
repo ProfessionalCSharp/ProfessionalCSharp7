@@ -7,7 +7,7 @@ namespace RelationUsingFluentAPI
 {
     public class BooksContext : DbContext
     {
-        private const string ConnectionString = @"server=(localdb)\MSSQLLocalDb;database=BooksAnno;trusted_connection=true";
+        private const string ConnectionString = @"server=(localdb)\MSSQLLocalDb;database=BooksFluent;trusted_connection=true";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -17,11 +17,23 @@ namespace RelationUsingFluentAPI
         }
         public DbSet<Book> Books { get; set; }
         public DbSet<Chapter> Chapters { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-         //   modelBuilder.Entity<Book>().Property
+            modelBuilder.Entity<Book>().HasMany(b => b.Chapters).WithOne(c => c.Book);
+            modelBuilder.Entity<Book>().HasOne(b => b.Author).WithMany(a => a.WrittenBooks);
+            modelBuilder.Entity<Book>().HasOne(b => b.Reviewer).WithMany(r => r.ReviewedBooks);
+            modelBuilder.Entity<Book>().HasOne(b => b.Editor).WithMany(e => e.EditedBooks);
+
+            modelBuilder.Entity<Chapter>().HasOne(c => c.Book).WithMany(b => b.Chapters);
+
+            modelBuilder.Entity<User>().HasMany(a => a.WrittenBooks).WithOne(b => b.Author);
+            modelBuilder.Entity<User>().HasMany(r => r.ReviewedBooks).WithOne(b => b.Reviewer);
+            modelBuilder.Entity<User>().HasMany(e => e.EditedBooks).WithOne(b => b.Editor);
+
+            //   modelBuilder.Entity<Book>().Property
         }
     }
 }

@@ -54,11 +54,16 @@ namespace BooksSample
         private async Task DeleteDatabaseAsync()
         {
             Console.WriteLine(nameof(DeleteDatabaseAsync));
-            using (var context = new BooksContext())
+            Console.Write("Delete the database? ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "y")
             {
-                bool deleted = await context.Database.EnsureDeletedAsync();
-                string deletionInfo = deleted ? "deleted" : "not deleted";
-                Console.WriteLine($"database {deletionInfo}");
+                using (var context = new BooksContext())
+                {
+                    bool deleted = await context.Database.EnsureDeletedAsync();
+                    string deletionInfo = deleted ? "deleted" : "not deleted";
+                    Console.WriteLine($"database {deletionInfo}");
+                }
             }
             Console.WriteLine();
         }

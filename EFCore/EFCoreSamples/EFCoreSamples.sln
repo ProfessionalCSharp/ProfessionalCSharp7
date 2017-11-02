@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelationUsingFluentAPI", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPHWithFluentAPI", "TPHWithFluentAPI\TPHWithFluentAPI.csproj", "{110FA863-8EAE-4A6A-861F-ED4E563AB37D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnedEntities", "OwnedEntities\OwnedEntities.csproj", "{38BF4A01-640B-4FC3-A2FA-68026F488409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableSplitting", "TableSplitting\TableSplitting.csproj", "{F08C5897-7AEC-46AA-8D4F-BD2F9FB2371B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{110FA863-8EAE-4A6A-861F-ED4E563AB37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{110FA863-8EAE-4A6A-861F-ED4E563AB37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{110FA863-8EAE-4A6A-861F-ED4E563AB37D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BF4A01-640B-4FC3-A2FA-68026F488409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BF4A01-640B-4FC3-A2FA-68026F488409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BF4A01-640B-4FC3-A2FA-68026F488409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BF4A01-640B-4FC3-A2FA-68026F488409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F08C5897-7AEC-46AA-8D4F-BD2F9FB2371B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08C5897-7AEC-46AA-8D4F-BD2F9FB2371B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08C5897-7AEC-46AA-8D4F-BD2F9FB2371B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08C5897-7AEC-46AA-8D4F-BD2F9FB2371B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

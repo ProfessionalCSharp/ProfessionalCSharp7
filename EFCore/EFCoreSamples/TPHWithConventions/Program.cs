@@ -48,11 +48,16 @@ namespace TPHWithConventions
 
         private static void DeleteDatabase()
         {
-            using (var context = new BankContext())
+            Console.Write("Delete the database? ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "y")
             {
-                bool deleted = context.Database.EnsureDeleted();
-                string deletionInfo = deleted ? "deleted" : "not deleted";
-                Console.WriteLine($"database {deletionInfo}");
+                using (var context = new BankContext())
+                {
+                    bool deleted = context.Database.EnsureDeleted();
+                    string deletionInfo = deleted ? "deleted" : "not deleted";
+                    Console.WriteLine($"database {deletionInfo}");
+                }
             }
         }
 

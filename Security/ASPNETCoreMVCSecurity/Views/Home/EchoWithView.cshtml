@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Html;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EchoWithView</title>
+</head>
+<body>
+    @{ 
+        string data = ViewBag.SampleData;
+    }
+    <div>
+        this is encoded
+    </div>
+    <div>@data</div>
+
+    <br />
+    <div>
+        This is not encoded
+    </div>
+    <div>
+        @Html.Raw(@data)
+    </div>
+
+
+</body>
+</html>

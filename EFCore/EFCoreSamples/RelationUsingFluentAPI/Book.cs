@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace RelationUsingFluentAPI
 {
@@ -8,11 +6,10 @@ namespace RelationUsingFluentAPI
     {
         public int BookId { get; set; }
         public string Title { get; set; }
-        public List<Chapter> Chapters { get; set; }
+        public List<Chapter> Chapters { get; } = new List<Chapter>();
 
-        public int AuthorUserId { get; set; }
         public User Author { get; set; }
-        public int ReviewerUserId { get; set; }
         public User Reviewer { get; set; }
+        public User Editor { get; set; }
     }
 }

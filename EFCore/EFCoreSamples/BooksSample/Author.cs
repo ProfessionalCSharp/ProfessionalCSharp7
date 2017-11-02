@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace BooksSample
 {
@@ -15,6 +13,7 @@ namespace BooksSample
         }
 
         private int _authorId = 0;
+        public int AuthorId => _authorId;
 
         private string _firstName;
         public string FirstName => _firstName;

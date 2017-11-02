@@ -1,0 +1,110 @@
+﻿<UserControl
+    x:Class="UWPCultureDemo.CultureDetailUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPCultureDemo"
+    xmlns:conv="using:UWPCultureDemo.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="400"
+    d:DesignWidth="500">
+    <UserControl.Resources>
+        <conv:CalendarTypeToCalendarInformationConverter x:Key="CalendarConverter" />
+        <conv:NullToVisibilityConverter x:Key="NullConverter" />
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="4" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Culture Name:" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Bind CultureData.CultureInfo.Name, Mode=OneWay}" Width="100" />
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Neutral Culture" Visibility="{x:Bind CultureData.CultureInfo.IsNeutralCulture, Mode=OneWay}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="English Name:" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Bind CultureData.CultureInfo.EnglishName, Mode=OneWay}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Native Name:" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Bind CultureData.CultureInfo.NativeName, Mode=OneWay}" />
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Default Calendar:" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Bind CultureData.CultureInfo.Calendar, Mode=OneWay, Converter={StaticResource CalendarConverter}}" />
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Optional Calendars:" />
+        <ListBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{x:Bind CultureData.CultureInfo.OptionalCalendars, Mode=OneWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter={StaticResource CalendarConverter}}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Samples" Style="{StaticResource SubheaderTextBlockStyle}" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Number" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind CultureData.NumberSample, Mode=OneWay}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Full Date" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind CultureData.DateSample, Mode=OneWay}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Time" />
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind CultureData.TimeSample, Mode=OneWay}" />
+        </Grid>
+
+
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" 
+              Visibility="{x:Bind CultureData.RegionInfo, Mode=OneWay, Converter={StaticResource NullConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Region Information" 
+                       Style="{StaticResource SubheaderTextBlockStyle}" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Region" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" 
+                       Text="{x:Bind CultureData.RegionInfo.DisplayName, Mode=OneWay}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Currency" />
+            <TextBlock Grid.Row="2" Grid.Column="1" 
+                       Text="{x:Bind CultureData.RegionInfo.CurrencySymbol, Mode=OneWay}" />
+            <TextBlock Grid.Row="2" Grid.Column="2" 
+                       Text="{x:Bind CultureData.RegionInfo.ISOCurrencySymbol, Mode=OneWay}"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Is Metric" 
+                       Visibility="{x:Bind CultureData.RegionInfo.IsMetric, Mode=OneWay}" />
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -14,6 +14,7 @@ namespace BooksSample
         }
 
         private int _bookId = 0;
+        public int BookId => _bookId;
         public string Title { get; set; }
         private string _publisher;
         public string Publisher => _publisher;

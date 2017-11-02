@@ -15,6 +15,7 @@ namespace MenusSample
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(ConnectionString);
+            // optionsBuilder.UseSqlServer(ConnectionString, options => options.MaxBatchSize(1));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

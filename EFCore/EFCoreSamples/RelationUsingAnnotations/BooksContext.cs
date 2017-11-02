@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RelationUsingAnnotations
 {
     public class BooksContext : DbContext
     {
-        private const string ConnectionString = @"server=(localdb)\MSSQLLocalDb;database=BooksAnno1;trusted_connection=true";
+        private const string ConnectionString = @"server=(localdb)\MSSQLLocalDb;database=BooksAnno;trusted_connection=true";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

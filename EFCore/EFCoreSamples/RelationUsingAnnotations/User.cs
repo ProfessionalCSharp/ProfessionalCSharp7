@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace RelationUsingAnnotations
 {
     public class User
     {
         public int UserId { get; set; }
+        public string Name { get; set; }
         [InverseProperty("Author")]
-        public List<Book> AuthoredBooks { get; set; }
+        public List<Book> WrittenBooks { get; set; }
         [InverseProperty("Reviewer")]
         public List<Book> ReviewedBooks { get; set; }
+        [InverseProperty("ProjectEditor")]
+        public List<Book> EditedBooks { get; set; }
     }
 }

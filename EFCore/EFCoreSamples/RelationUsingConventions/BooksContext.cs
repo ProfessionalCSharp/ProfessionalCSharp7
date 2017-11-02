@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RelationUsingConventions
 {
@@ -17,5 +14,6 @@ namespace RelationUsingConventions
         }
         public DbSet<Book> Books { get; set; }
         public DbSet<Chapter> Chapters { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

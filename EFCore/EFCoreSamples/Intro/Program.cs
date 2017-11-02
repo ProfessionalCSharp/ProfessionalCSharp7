@@ -38,11 +38,16 @@ namespace Intro
 
         private async Task DeleteDatabaseAsync()
         {
-            using (var context = new BooksContext())
+            Console.Write("Delete the database? ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "y")
             {
-                bool deleted = await context.Database.EnsureDeletedAsync();
-                string deletionInfo = deleted ? "deleted" : "not deleted";
-                Console.WriteLine($"database {deletionInfo}");
+                using (var context = new BooksContext())
+                {
+                    bool deleted = await context.Database.EnsureDeletedAsync();
+                    string deletionInfo = deleted ? "deleted" : "not deleted";
+                    Console.WriteLine($"database {deletionInfo}");
+                }
             }
         }
 
@@ -96,7 +101,7 @@ namespace Intro
                     .Where(b => b.Publisher == "Wrox Press")
                     .ToListAsync();
 
-                // comment the previous line and uncomment the next lines to try the LINQ query syntax
+                // comment the previous lines and uncomment the next lines to try the LINQ query syntax
                 //var wroxBooks = await (from b in context.Books
                 //                         where b.Publisher == "Wrox Press"
                 //                         select b).ToListAsync();
@@ -140,14 +145,14 @@ namespace Intro
             Console.WriteLine();
         }
 
-            private void AddLogging()
+        private void AddLogging()
+        {
+            using (var context = new BooksContext())
             {
-                using (var context = new BooksContext())
-                {
-                    IServiceProvider provider = context.GetInfrastructure<IServiceProvider>();
-                    ILoggerFactory loggerFactory = provider.GetService<ILoggerFactory>();
-                    loggerFactory.AddConsole(LogLevel.Information);
-                }
+                IServiceProvider provider = context.GetInfrastructure<IServiceProvider>();
+                ILoggerFactory loggerFactory = provider.GetService<ILoggerFactory>();
+                loggerFactory.AddConsole(LogLevel.Information);
             }
+        }
     }
 }

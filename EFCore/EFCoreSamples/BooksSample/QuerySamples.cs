@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BooksSample
@@ -73,10 +72,9 @@ namespace BooksSample
             Console.WriteLine(nameof(QueryBookAsync));
             try
             {
-
                 using (var context = new BooksContext())
                 {
-                    Book book = await context.Books.SingleOrDefaultAsync(b => b.Title == title);
+                    Book book = await context.Books.FirstOrDefaultAsync(b => b.Title == title);
                     if (book != null)
                     {
                         Console.WriteLine($"found book {book}");
@@ -143,6 +141,22 @@ namespace BooksSample
             {
                 IList<Book> books = await context.Books.FromSql($"SELECT * FROM Books WHERE Publisher = {publisher}").ToListAsync();
 
+                foreach (var b in books)
+                {
+                    Console.WriteLine($"{b.Title} {b.Publisher}");
+                }
+            }
+            Console.WriteLine();
+        }
+
+        public static async Task UseEFCunctions(string titleSegment)
+        {
+            Console.WriteLine(nameof(UseEFCunctions));
+            using (var context = new BooksContext())
+            {
+                string likeExpression = $"%{titleSegment}%";
+
+                IList<Book> books = await context.Books.Where(b => EF.Functions.Like(b.Title, likeExpression)).ToListAsync();
                 foreach (var b in books)
                 {
                     Console.WriteLine($"{b.Title} {b.Publisher}");

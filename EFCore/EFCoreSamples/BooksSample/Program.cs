@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,8 @@ namespace BooksSample
 {
     class Program
     {
+        private const string BookTitle = "sample book";
+
         static async Task Main()
         {
             var p = new Program();
@@ -28,6 +31,7 @@ namespace BooksSample
             await QuerySamples.QueryBookAsync("Professional C# 7 and .NET Core 2.0");
             await QuerySamples.FilterBooksAsync("Pro");
             await QuerySamples.UseEFCunctions("C#");
+            ConflictHandling();
 
             await p.DeleteBookAsync(2);
             await p.QueryDeletedBooksAsync();
@@ -37,6 +41,67 @@ namespace BooksSample
             QuerySamples.CompileQuery();
 
             await p.DeleteDatabaseAsync();
+        }
+
+        private static void ConflictHandling()
+        {
+            void PrepareBook()
+            {
+                using (var context = new BooksContext())
+                {
+                    context.Books.Add(new Book(BookTitle, "Sample"));
+                    context.SaveChanges();
+                }
+            }
+
+            PrepareBook();
+
+            // user 1
+            var tuple1 = PrepareUpdate();
+            tuple1.book.Title = "updated from user 1";
+
+            // user 2
+            var tuple2 = PrepareUpdate();
+            tuple2.book.Title = "updated from user 2";
+
+            Update(tuple1.context, tuple1.book, "user 1");
+            Update(tuple2.context, tuple2.book, "user 2");
+
+            tuple1.context.Dispose();
+            tuple2.context.Dispose();
+
+            CheckUpdate(tuple1.book.BookId);
+        }
+
+        private static (BooksContext context, Book book) PrepareUpdate()
+        {
+            var context = new BooksContext();
+            Book book = context.Books.Where(b => b.Title == BookTitle).FirstOrDefault();
+            return (context, book);
+        }
+
+        private static void CheckUpdate(int id)
+        {
+            using (var context = new BooksContext())
+            {
+                Book book = context.Books.Find(id);
+                Console.WriteLine($"this is the updated state: {book.Title}");
+            }
+        }
+
+        private static void Update(BooksContext context, Book book, string user)
+        {
+            int records = context.SaveChanges();
+            Console.WriteLine($"{user}: {records} record updated from {user}");
+        }
+
+        private static void ShowChanges(int id, EntityEntry entity)
+        {
+            void ShowChange(PropertyEntry propertyEntry) =>
+                Console.WriteLine($"id: {id}, current: {propertyEntry.CurrentValue}, original: {propertyEntry.OriginalValue}, modified: {propertyEntry.IsModified}");
+
+            ShowChange(entity.Property("Title"));
+            ShowChange(entity.Property("Publisher"));
         }
 
         private async Task CreateTheDatabaseAsync()

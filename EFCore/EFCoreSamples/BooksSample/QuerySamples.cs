@@ -72,10 +72,9 @@ namespace BooksSample
             Console.WriteLine(nameof(QueryBookAsync));
             try
             {
-
                 using (var context = new BooksContext())
                 {
-                    Book book = await context.Books.SingleOrDefaultAsync(b => b.Title == title);
+                    Book book = await context.Books.FirstOrDefaultAsync(b => b.Title == title);
                     if (book != null)
                     {
                         Console.WriteLine($"found book {book}");

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using WebSampleApp.Controllers;
 using WebSampleApp.Services;
 
 namespace WebSampleApp
@@ -18,6 +19,7 @@ namespace WebSampleApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ISampleService, DefaultSampleService>();
+            services.AddTransient<HomeController>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,6 +31,16 @@ namespace WebSampleApp
             }
 
             app.UseStaticFiles();
+
+            app.Map("/Home", app1 =>
+            {
+                app1.Run(async context =>
+                {
+                    HomeController controller = app.ApplicationServices.GetService<HomeController>();
+                    int statusCode = await controller.Index(context);
+                    context.Response.StatusCode = statusCode;
+                });
+            });
 
             app.Map("/RequestAndResponse", app1 =>
             {

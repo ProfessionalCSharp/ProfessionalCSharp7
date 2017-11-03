@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using WebSampleApp.Controllers;
+using WebSampleApp.Middleware;
 using WebSampleApp.Services;
 
 namespace WebSampleApp
@@ -31,6 +32,7 @@ namespace WebSampleApp
             }
 
             app.UseStaticFiles();
+            app.UseHeaderMiddleware();
 
             app.Map("/Home", app1 =>
             {

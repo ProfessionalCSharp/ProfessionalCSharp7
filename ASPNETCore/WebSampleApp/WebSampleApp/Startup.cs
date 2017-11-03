@@ -21,6 +21,8 @@ namespace WebSampleApp
         {
             services.AddTransient<ISampleService, DefaultSampleService>();
             services.AddTransient<HomeController>();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(10));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +35,7 @@ namespace WebSampleApp
 
             app.UseStaticFiles();
             app.UseHeaderMiddleware();
+            app.UseSession();
 
             app.Map("/Home", app1 =>
             {
@@ -43,6 +46,15 @@ namespace WebSampleApp
                     context.Response.StatusCode = statusCode;
                 });
             });
+
+            app.Map("/Session", sessionApp =>
+            {
+                sessionApp.Run(async context =>
+                {
+                    await SessionSample.SessionAsync(context);
+                });
+            });
+
 
             app.Map("/RequestAndResponse", app1 =>
             {

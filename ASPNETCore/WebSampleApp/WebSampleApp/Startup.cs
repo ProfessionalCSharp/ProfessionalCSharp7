@@ -43,6 +43,32 @@ namespace WebSampleApp
                 });
             });
 
+            app.MapWhen(context => context.Request.Path.Value.Contains("hello"), helloApp =>
+            {
+                helloApp.Run(async context =>
+                {
+                    await context.Response.WriteAsync("hello in the path".Div());
+                });
+            });
+
+            //PathString remaining;
+            //app.MapWhen(context => context.Request.Path.StartsWithSegments("/configuration", out PathString remaining),
+            //    configApp =>
+            //    {
+            //        app.UseWebpackDevMiddleware();
+            //        configApp.Run(async context =>
+            //        {
+            //            if (remaining.StartsWithSegments("/appsettings"))
+            //            {
+            //                await ConfigSample.AppSettingsAsync(context, Configuration);
+            //            }
+            //            else if (remaining.StartsWithSegments("/database"))
+            //            {
+            //                await ConfigSample.ReadDatabaseConnectionAsync(context, Configuration);
+            //            }
+            //        });
+            //    });
+
             app.Map("/Session", sessionApp =>
             {
                 sessionApp.Run(async context =>
@@ -99,33 +125,34 @@ namespace WebSampleApp
 
                 string[] lines = new[]
                 {
-                    "<ul>",
-                    @"<li><a href=""/hello.html"">Static Files</a> - requires UseStaticFiles</li>",
-                    "<li>Request and Response",
-                    "<ul>",
-                    @"<li><a href=""/RequestAndResponse"">Request and Response</a></li>",
-                    @"<li><a href=""/RequestAndResponse/header"">Header</a></li>",
-                    @"<li><a href=""/RequestAndResponse/add?x=38&y=4"">Add</a></li>",
-                    @"<li><a href=""/RequestAndResponse/content?data=sample"">Content</a></li>",
-                    @"<li><a href=""/RequestAndResponse/content?data=<h1>Heading 1</h1>"">HTML Content</a></li>",
-                    @"<li><a href=""/RequestAndResponse/content?data=<script>alert('hacker');</script>"">Bad Content</a></li>",
-                    @"<li><a href=""/RequestAndResponse/encoded?data=<h1>sample</h1>"">Encoded content</a></li>",
-                    @"<li><a href=""/RequestAndResponse/encoded?data=<script>alert('hacker');</script>"">Encoded bad Content</a></li>",
-                    @"<li><a href=""/RequestAndResponse/form"">Form</a></li>",
-                    @"<li><a href=""/RequestAndResponse/writecookie"">Write cookie</a></li>",
-                    @"<li><a href=""/RequestAndResponse/readcookie"">Read cookie</a></li>",
-                    @"<li><a href=""/RequestAndResponse/json"">JSON</a></li>",
-                    "</ul>",
-                    "</li>",
-                    @"<li><a href=""/Home"">Home Controller with dependency injection</a></li>",
-                    @"<li><a href=""/session"">Session</a></li>",
-                    "<ul>",
-                    "<li>Configuration",
-                    @"<li><a href=""/configuration/appsettings"">Appsettings</a></li>",
-                    @"<li><a href=""/configuration/database"">Database</a></li>",
-                    "</ul>",
-                    "</li>",
-                    "</ul>"
+                    @"<ul>",
+                      @"<li><a href=""/hello.html"">Static Files</a> - requires UseStaticFiles</li>",
+                      @"<li>Request and Response",
+                        @"<ul>",
+                          @"<li><a href=""/RequestAndResponse"">Request and Response</a></li>",
+                          @"<li><a href=""/RequestAndResponse/header"">Header</a></li>",
+                          @"<li><a href=""/RequestAndResponse/add?x=38&y=4"">Add</a></li>",
+                          @"<li><a href=""/RequestAndResponse/content?data=sample"">Content</a></li>",
+                          @"<li><a href=""/RequestAndResponse/content?data=<h1>Heading 1</h1>"">HTML Content</a></li>",
+                          @"<li><a href=""/RequestAndResponse/content?data=<script>alert('hacker');</script>"">Bad Content</a></li>",
+                          @"<li><a href=""/RequestAndResponse/encoded?data=<h1>sample</h1>"">Encoded content</a></li>",
+                          @"<li><a href=""/RequestAndResponse/encoded?data=<script>alert('hacker');</script>"">Encoded bad Content</a></li>",
+                          @"<li><a href=""/RequestAndResponse/form"">Form</a></li>",
+                          @"<li><a href=""/RequestAndResponse/writecookie"">Write cookie</a></li>",
+                          @"<li><a href=""/RequestAndResponse/readcookie"">Read cookie</a></li>",
+                          @"<li><a href=""/RequestAndResponse/json"">JSON</a></li>",
+                        @"</ul>",
+                      @"</li>",
+                      @"<li><a href=""/Home"">Home Controller with dependency injection</a></li>",
+                      @"<li><a href=""/abc/xyz/42hello42/foobar"">MapWhen with hello in the URL</a></li>",
+                      @"<li><a href=""/Session"">Session</a></li>",
+                      @"<li>Configuration",
+                        @"<ul>",
+                          @"<li><a href=""/configuration/appsettings"">Appsettings</a></li>",
+                          @"<li><a href=""/configuration/database"">Database</a></li>",
+                        @"</ul>",
+                      @"</li>",
+                    @"</ul>"
                 };
 
                 var sb = new StringBuilder();

@@ -63,7 +63,7 @@ namespace WebSampleApp
             switch (request.Method)
             {
                 case "GET":
-                    result = GetForm();
+                    result = GetForm().HtmlDocument("Form Input");
                     break;
                 case "POST":
                     result = ShowForm(request);

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Text;
@@ -12,6 +13,11 @@ namespace WebSampleApp
 {
     public class Startup
     {
+        public Startup(IConfiguration configuration) =>
+            Configuration = configuration;
+
+        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -20,6 +26,7 @@ namespace WebSampleApp
             services.AddTransient<HomeController>();
             services.AddDistributedMemoryCache();
             services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(10));
+            services.AddTransient<ConfigurationSample>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +56,28 @@ namespace WebSampleApp
                 {
                     await context.Response.WriteAsync("hello in the path".Div());
                 });
+            });
+
+            PathString remainingPath; // out var is not possible when used in lambda expression following 
+            app.MapWhen(context => context.Request.Path.StartsWithSegments("/Configuration", out remainingPath), configurationApp =>
+            {
+                configurationApp.Run(async context =>
+                {
+                    var configSample = app.ApplicationServices.GetService<ConfigurationSample>();
+                    if (remainingPath.StartsWithSegments("/appsettings"))
+                    {
+                        await configSample.ShowApplicationSettingsAsync(context);
+                    }
+                    else if (remainingPath.StartsWithSegments("/database"))
+                    {
+                        await configSample.ShowConnectionStringSettingAsync(context);
+                    }
+                    else if (remainingPath.StartsWithSegments("/stronglytyped"))
+                    {
+                        await configSample.ShowApplicationSettingsStronglyTyped(context);
+                    }
+                });
+
             });
 
             app.Map("/Session", sessionApp =>
@@ -129,8 +158,9 @@ namespace WebSampleApp
                       @"<li><a href=""/Session"">Session</a></li>",
                       @"<li>Configuration",
                         @"<ul>",
-                          @"<li><a href=""/configuration/appsettings"">Appsettings</a></li>",
-                          @"<li><a href=""/configuration/database"">Database</a></li>",
+                          @"<li><a href=""/Configuration/appsettings"">Appsettings</a></li>",
+                          @"<li><a href=""/Configuration/database"">Database</a></li>",
+                          @"<li><a href=""/Configuration/stronglytyped"">Strongly Typed</a></li>",
                         @"</ul>",
                       @"</li>",
                     @"</ul>"

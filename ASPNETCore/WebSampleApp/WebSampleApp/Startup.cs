@@ -41,9 +41,8 @@ namespace WebSampleApp
             {
                 app1.Run(async context =>
                 {
-                    HomeController controller = app.ApplicationServices.GetService<HomeController>();
-                    int statusCode = await controller.Index(context);
-                    context.Response.StatusCode = statusCode;
+                    HomeController controller = app1.ApplicationServices.GetService<HomeController>();
+                    await controller.Index(context);
                 });
             });
 
@@ -121,7 +120,7 @@ namespace WebSampleApp
                     @"<li><a href=""/RequestAndResponse/json"">JSON</a></li>",
                     "</ul>",
                     "</li>",
-                    @"<li><a href=""/home2"">Home Controller with dependency injection</a></li>",
+                    @"<li><a href=""/Home"">Home Controller with dependency injection</a></li>",
                     @"<li><a href=""/session"">Session</a></li>",
                     "<ul>",
                     "<li>Configuration",

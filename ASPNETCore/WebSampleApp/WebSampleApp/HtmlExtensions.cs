@@ -13,10 +13,13 @@ namespace WebSampleApp
         public static string Div(this string key, string value) =>
             $"{key.Span()}:&nbsp;{value.Span()}".Div();
 
-        public static string LI(this string value, string url) =>
+        public static string Li(this string value, string url) =>
             $@"<li><a href=""{url}"">{value}</a></li>";
 
-        public static string UL(this string value) =>
+        public static string Li(this string value) =>
+            $@"<li>{value}</li>";
+
+        public static string Ul(this string value) =>
             $"<ul>{value}</ul>";
 
         public static string HtmlDocument(this string content, string title)

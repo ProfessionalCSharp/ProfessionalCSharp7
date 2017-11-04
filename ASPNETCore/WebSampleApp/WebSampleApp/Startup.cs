@@ -42,32 +42,14 @@ namespace WebSampleApp
                     await controller.Index(context);
                 });
             });
-
+           
             app.MapWhen(context => context.Request.Path.Value.Contains("hello"), helloApp =>
-            {
+            {         
                 helloApp.Run(async context =>
                 {
                     await context.Response.WriteAsync("hello in the path".Div());
                 });
             });
-
-            //PathString remaining;
-            //app.MapWhen(context => context.Request.Path.StartsWithSegments("/configuration", out PathString remaining),
-            //    configApp =>
-            //    {
-            //        app.UseWebpackDevMiddleware();
-            //        configApp.Run(async context =>
-            //        {
-            //            if (remaining.StartsWithSegments("/appsettings"))
-            //            {
-            //                await ConfigSample.AppSettingsAsync(context, Configuration);
-            //            }
-            //            else if (remaining.StartsWithSegments("/database"))
-            //            {
-            //                await ConfigSample.ReadDatabaseConnectionAsync(context, Configuration);
-            //            }
-            //        });
-            //    });
 
             app.Map("/Session", sessionApp =>
             {
@@ -76,7 +58,6 @@ namespace WebSampleApp
                     await SessionSample.SessionAsync(context);
                 });
             });
-
 
             app.Map("/RequestAndResponse", app1 =>
             {

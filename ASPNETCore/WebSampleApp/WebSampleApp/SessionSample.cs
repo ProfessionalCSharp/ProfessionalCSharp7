@@ -12,8 +12,7 @@ namespace WebSampleApp
         public static async Task SessionAsync(HttpContext context)
         {
             int visits = context.Session.GetInt32(SessionVisits) ?? 0;
-            string timeCreated = context.Session.GetString(SessionTimeCreated) ??
-              string.Empty;
+            string timeCreated = context.Session.GetString(SessionTimeCreated) ?? string.Empty;
             if (string.IsNullOrEmpty(timeCreated))
             {
                 timeCreated = DateTime.Now.ToString("t", CultureInfo.InvariantCulture);

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Text;
 using WebSampleApp.Controllers;
 using WebSampleApp.Middleware;
 using WebSampleApp.Services;
@@ -37,11 +34,11 @@ namespace WebSampleApp
             app.UseHeaderMiddleware();
             app.UseSession();
 
-            app.Map("/Home", app1 =>
+            app.Map("/Home", homeApp =>
             {
-                app1.Run(async context =>
+                homeApp.Run(async context =>
                 {
-                    HomeController controller = app1.ApplicationServices.GetService<HomeController>();
+                    HomeController controller = homeApp.ApplicationServices.GetService<HomeController>();
                     await controller.Index(context);
                 });
             });

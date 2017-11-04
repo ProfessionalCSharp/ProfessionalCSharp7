@@ -8,9 +8,6 @@ namespace WebSampleApp
 {
     public static class RequestAndResponseSamples
     {
-        public static string GetDiv(string key, string value) =>
-            $"<div><span>{key}:</span>&nbsp;<span>{value}</span></div>";
-
         public static string GetRequestInformation(HttpRequest request)
         {
             var sb = new StringBuilder();
@@ -30,7 +27,7 @@ namespace WebSampleApp
             IHeaderDictionary headers = request.Headers;
             foreach (var header in request.Headers)
             {
-                sb.Append(GetDiv(header.Key, string.Join("; ", header.Value)));
+                sb.Append(header.Key.Div(string.Join("; ", header.Value)));
             }
             return sb.ToString();
         }
@@ -38,7 +35,6 @@ namespace WebSampleApp
         // use the query string sample
         public static string QueryString(HttpRequest request)
         {
-            var sb = new StringBuilder();
             string xtext = request.Query["x"];
             string ytext = request.Query["y"];
             if (xtext == null || ytext == null)
@@ -92,7 +88,7 @@ namespace WebSampleApp
                 IFormCollection coll = request.Form;
                 foreach (var key in coll.Keys)
                 {
-                    sb.Append(GetDiv(key, HtmlEncoder.Default.Encode(coll[key])));
+                    sb.Append(key.Div(HtmlEncoder.Default.Encode(coll[key])));
                 }
                 return sb.ToString();
             }
@@ -116,7 +112,7 @@ namespace WebSampleApp
             IRequestCookieCollection cookies = request.Cookies;
             foreach (var key in cookies.Keys)
             {
-                sb.Append(GetDiv(key, cookies[key]));
+                sb.Append(key.Div(cookies[key]));
             }
             return sb.ToString();
         }

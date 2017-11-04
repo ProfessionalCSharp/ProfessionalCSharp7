@@ -11,7 +11,7 @@ namespace WebSampleApp
             $"<span>{value}</span>";
 
         public static string Div(this string key, string value) =>
-            $"{key.Span()}{value.Span()}".Div();
+            $"{key.Span()}:&nbsp;{value.Span()}".Div();
 
         public static string LI(this string value, string url) =>
             $@"<li><a href=""{url}"">{value}</a></li>";
@@ -23,7 +23,7 @@ namespace WebSampleApp
         {
             var sb = new StringBuilder();
             sb.Append("<!DOCTYPE HTML>");
-            sb.Append("<head><meta charset=\"utf-8\"><title>{title}</title></head>");
+            sb.Append($"<head><meta charset=\"utf-8\"><title>{title}</title></head>");
             sb.Append("<body>");
             sb.Append(content);
             sb.Append("</body>");

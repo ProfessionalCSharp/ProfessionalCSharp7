@@ -68,6 +68,10 @@ namespace WebSampleApp
                     {
                         await configSample.ShowApplicationSettingsAsync(context);
                     }
+                    else if (remainingPath.StartsWithSegments("/colons"))
+                    {
+                        await configSample.ShowApplicationSettingsUsingColonsAsync(context);
+                    }
                     else if (remainingPath.StartsWithSegments("/database"))
                     {
                         await configSample.ShowConnectionStringSettingAsync(context);
@@ -77,7 +81,6 @@ namespace WebSampleApp
                         await configSample.ShowApplicationSettingsStronglyTyped(context);
                     }
                 });
-
             });
 
             app.Map("/Session", sessionApp =>
@@ -159,6 +162,7 @@ namespace WebSampleApp
                       @"<li>Configuration",
                         @"<ul>",
                           @"<li><a href=""/Configuration/appsettings"">Appsettings</a></li>",
+                          @"<li><a href=""/Configuration/colons"">Using Colons</a></li>",
                           @"<li><a href=""/Configuration/database"">Database</a></li>",
                           @"<li><a href=""/Configuration/stronglytyped"">Strongly Typed</a></li>",
                         @"</ul>",

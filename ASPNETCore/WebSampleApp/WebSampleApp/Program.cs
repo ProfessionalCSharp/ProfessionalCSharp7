@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Xml;
 
 namespace WebSampleApp
 {
@@ -13,6 +15,10 @@ namespace WebSampleApp
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .ConfigureAppConfiguration(configure =>
+                {
+                    configure.AddXmlFile("appsettings.xml", optional: true);
+                })
                 .Build();
     }
 }

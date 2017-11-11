@@ -30,8 +30,6 @@ namespace CustomConfiguration
             Configuration = builder.Build();
         }
 
-
-
         public static IConfigurationRoot Configuration { get; private set; }
     }
 }

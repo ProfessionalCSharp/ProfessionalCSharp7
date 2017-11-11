@@ -9,6 +9,7 @@ namespace MVCSampleApp.Controllers
 {
     public class HomeController : Controller
     {
+     
         public string Hello() => "Hello, ASP.NET Core MVC";
 
         public string Greeting(string name) =>

@@ -27,13 +27,21 @@ namespace MVCSampleApp
             }
 
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            // app.UseMvcWithDefaultRoute();
 
+            // uncomment the next route and comment the default one before
             app.UseMvc(routes => routes.MapRoute(
               name: "default",
               template: "{controller}/{action}/{id?}",
               defaults: new { controller = "Home", action = "Index" }
+            ).MapRoute(
+              name: "multipleparameters",
+              template: "{controller}/{action}/{x}/{y}",
+              defaults: new { controller = "Home", action = "Add" },
+              constraints: new { x = @"\d", y = @"\d" }
             ));
+
+
 
 
             app.Run(async (context) =>

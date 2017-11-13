@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Create Menu";
+}
+<h2>Create Menu</h2>
+<form action="/SubmitData/CreateMenu2" method="post">
+    <fieldset>
+        <legend>Menu</legend>
+        <label for="id">Id</label><br />
+        <input name="id" id="id" type="number" /><br />
+
+        <label for="text">Text</label><br />
+        <input name="text" id="text" type="text" /><br />
+
+        <label for="price">Price</label><br />
+        <input name="price" id="price" type="number" /><br />
+
+        <label for="date">Date</label><br />
+        <input name="date" id="date" type="date" /><br />
+
+        <label for="category">Category</label><br />
+        <input name="category" id="category" type="text" /><br />
+
+        <button type="submit">Submit</button>
+    </fieldset>
+</form>

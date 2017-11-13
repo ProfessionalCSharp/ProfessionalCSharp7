@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MVCSampleApp.Models
 {
-    public class Menu
+    public partial class Menu
     {
         public int Id { get; set; }
         public string Text { get; set; }

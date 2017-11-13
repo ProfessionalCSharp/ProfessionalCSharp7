@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MVCSampleApp.Models;
+using System.Collections.Generic;
 
 namespace MVCSampleApp.Controllers
 {
@@ -48,5 +45,7 @@ namespace MVCSampleApp.Controllers
         public IActionResult PassingAModel() =>
             View(GetSampleData());
 
+        public IActionResult LayoutSample() => 
+            View();
     }
 }

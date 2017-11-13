@@ -59,11 +59,14 @@ namespace MVCSampleApp.Controllers
 
         public IActionResult UseAPartialView1() => View(_context);
 
-        public ActionResult UseAPartialView2() => View();
-        public ActionResult ShowEvents()
+        public IActionResult UseAPartialView2() => View();
+        public IActionResult ShowEvents()
         {
             ViewBag.EventsTitle = "Live Events";
             return PartialView(_context.Events);
         }
+
+        public IActionResult UseViewComponent1() => View();
+        public IActionResult UseViewComponent2() => View();
     }
 }

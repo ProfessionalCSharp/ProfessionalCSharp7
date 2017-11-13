@@ -68,5 +68,6 @@ namespace MVCSampleApp.Controllers
 
         public IActionResult UseViewComponent1() => View();
         public IActionResult UseViewComponent2() => View();
+        public IActionResult InjectServiceInView() => View();
     }
 }

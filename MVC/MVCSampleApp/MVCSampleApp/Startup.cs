@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.DependencyInjection;
 using MVCSampleApp.Models;
+using MVCSampleApp.Services;
 
 namespace MVCSampleApp
 {
@@ -20,6 +21,7 @@ namespace MVCSampleApp
         {
             services.AddMvc();
             services.AddScoped<EventsAndMenusContext>();
+            services.AddSingleton<ISampleService, SampleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

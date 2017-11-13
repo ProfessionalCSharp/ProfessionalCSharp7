@@ -1,15 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 
 namespace MVCSampleApp.Controllers
 {
     public class HomeController : Controller
     {
-     
+        public IActionResult Index() => View();
+
         public string Hello() => "Hello, ASP.NET Core MVC";
 
         public string Greeting(string name) =>

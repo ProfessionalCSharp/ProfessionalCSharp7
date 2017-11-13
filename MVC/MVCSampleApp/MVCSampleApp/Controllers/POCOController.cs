@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MVCSampleApp.Controllers
 {
@@ -22,9 +18,9 @@ namespace MVCSampleApp.Controllers
 
         public string UserAgentInfo()
         {
-            if (Context.Request.Headers.ContainsKey("User-Agent"))
+            if (HttpContext.Request.Headers.ContainsKey("User-Agent"))
             {
-                return Context.Request.Headers["User-Agent"];
+                return HttpContext.Request.Headers["User-Agent"];
             }
             return "No user-agent information";
         }

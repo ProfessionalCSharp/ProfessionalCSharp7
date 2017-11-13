@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MVCSampleApp
@@ -27,22 +29,19 @@ namespace MVCSampleApp
             }
 
             app.UseStaticFiles();
+            // uncomment this route and comment the next route definitions for trying the default route
             // app.UseMvcWithDefaultRoute();
 
-            // uncomment the next route and comment the default one before
             app.UseMvc(routes => routes.MapRoute(
-              name: "default",
-              template: "{controller}/{action}/{id?}",
-              defaults: new { controller = "Home", action = "Index" }
-            ).MapRoute(
-              name: "multipleparameters",
-              template: "{controller}/{action}/{x}/{y}",
-              defaults: new { controller = "Home", action = "Add" },
-              constraints: new { x = @"\d", y = @"\d" }
-            ));
-
-
-
+                name: "default",
+                template: "{controller}/{action}/{id?}",
+                defaults: new { controller = "Home", action = "Index" })
+                .MapRoute(
+                    name: "multipleparameters",
+                    template: "{controller}/Add/{x:int}/{y:int}",
+                    defaults: new { controller = "Home", action = "Add" },
+                    constraints: new { x = @"\d{1,3}", y = @"\d{1,3}" })
+                );
 
             app.Run(async (context) =>
             {

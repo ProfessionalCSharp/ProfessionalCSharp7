@@ -47,5 +47,8 @@ namespace MVCSampleApp.Controllers
 
         public IActionResult LayoutSample() => 
             View();
+
+        public IActionResult LayoutUsingSections() =>
+            View();
     }
 }

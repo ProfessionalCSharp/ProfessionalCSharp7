@@ -39,6 +39,9 @@
             </ul>
         </nav>
         <div>
+            @RenderSection("PageNavigation", required: false)
+        </div>
+        <div>
             @RenderBody()
         </div>
         <hr />

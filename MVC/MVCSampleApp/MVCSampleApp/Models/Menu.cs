@@ -15,6 +15,7 @@ namespace MVCSampleApp.Models
         public double Price { get; set; }
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
+        [StringLength(10)]
         public string Category { get; set; }
     }
 }

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Menu>
+@addTagHelper *, MVCSampleApp
+@{
+    ViewData["Title"] = "CustomHelper";
+}
+<h2>CustomHelper</h2>
+<table items="Model" class="tablesample">
+    <row>
+        <tr>
+            <td>{{Text}}</td>
+            <td>{{Price}}</td>
+        </tr>
+    </row>
+</table>

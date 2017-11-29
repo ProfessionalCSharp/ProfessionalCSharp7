@@ -34,6 +34,9 @@ namespace MVCSampleApp.Controllers
             return View("ValidationHelperResult", m);
         }
 
+        public IActionResult Markdown() => View();
+        public IActionResult MarkdownAttribute() => View();
+
         public IActionResult CustomHelper() => View(GetSampleMenus());
         private IList<Menu> GetSampleMenus() =>
             new List<Menu>

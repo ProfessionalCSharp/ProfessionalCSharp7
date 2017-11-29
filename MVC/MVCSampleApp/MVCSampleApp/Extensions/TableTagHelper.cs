@@ -24,13 +24,21 @@ namespace MVCSampleApp.Extensions
             var childContent = output.Content.IsModified ? output.Content.GetContent() :
                 (await output.GetChildContentAsync()).GetContent();
 
-            var table = new TagBuilder("table");
-            table.GenerateId(context.UniqueId, "id");
-            var attributes = context.AllAttributes
-                .Where(a => a.Name != ItemsAttributeName).ToDictionary(a => a.Name);
-            table.MergeAttributes(attributes);
 
+            output.PreContent.SetHtmlContent("<table>");
+            output.PostContent.SetHtmlContent("</table>");
+            // output.Content.SetHtmlContent()
+
+        //  var table = new TagBuilder("table");
+        //   table.GenerateId(context.UniqueId, "id");
+        //   var attributes = context.AllAttributes
+        //       .Where(a => a.Name != ItemsAttributeName).ToDictionary(a => a.Name);
+        //   table.MergeAttributes(attributes);
+            output.Attributes.RemoveAll("items");
+
+            // header row
             var tr = new TagBuilder("tr");
+            
             var heading = Items.First();
             PropertyInfo[] properties = heading.GetType().GetProperties();
             foreach (var prop in properties)
@@ -39,7 +47,8 @@ namespace MVCSampleApp.Extensions
                 th.InnerHtml.Append(prop.Name);
                 th.InnerHtml.AppendHtml(th);
             }
-            table.InnerHtml.AppendHtml(tr);
+           
+            //table.InnerHtml.AppendHtml(tr);
 
             foreach (var item in Items)
             {
@@ -50,9 +59,9 @@ namespace MVCSampleApp.Extensions
                     td.InnerHtml.Append(prop.GetValue(item).ToString());
                     td.InnerHtml.AppendHtml(td);
                 }
-                table.InnerHtml.AppendHtml(tr);
+              //  table.InnerHtml.AppendHtml(tr);
             }
-            output.Content.Append(table.InnerHtml.ToString());
+            //output.Content.Append(table.InnerHtml.ToString());
 
 
         }

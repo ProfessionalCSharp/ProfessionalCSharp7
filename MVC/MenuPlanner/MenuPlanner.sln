@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuPlanner", "MenuPlanner\MenuPlanner.csproj", "{AB3386A8-5D93-4D9C-B815-028826DB5BBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB3386A8-5D93-4D9C-B815-028826DB5BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB3386A8-5D93-4D9C-B815-028826DB5BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB3386A8-5D93-4D9C-B815-028826DB5BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB3386A8-5D93-4D9C-B815-028826DB5BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7283D6BB-292D-4900-9CE4-3B3F1CBB3BEA}
+	EndGlobalSection
+EndGlobal

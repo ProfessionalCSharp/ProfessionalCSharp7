@@ -15,19 +15,17 @@ namespace TagHelperSamples
             if (context == null) throw new ArgumentNullException(nameof(context));
             if (output == null) throw new ArgumentNullException(nameof(output));
 
-            string html = string.Empty;
+            string markdown = string.Empty;
             if (MarkdownFile != null)
             {
                 string filename = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot", MarkdownFile);
-                string markdown = File.ReadAllText(filename);
-                html = Markdown.ToHtml(markdown);
+                markdown = File.ReadAllText(filename);
             }
             else
             {
-                string markdown = (await output.GetChildContentAsync()).GetContent();
-                html = Markdown.ToHtml(markdown);
+                markdown = (await output.GetChildContentAsync()).GetContent();
             }
-            output.Content.SetHtmlContent(html);
+            output.Content.SetHtmlContent(Markdown.ToHtml(markdown));
         }
 
         [HtmlAttributeName("markdownfile")]

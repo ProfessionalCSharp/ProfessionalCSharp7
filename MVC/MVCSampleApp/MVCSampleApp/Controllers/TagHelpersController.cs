@@ -34,10 +34,12 @@ namespace MVCSampleApp.Controllers
             return View("ValidationHelperResult", m);
         }
 
+        public IActionResult EnvironmentHelper() => View();
+
         public IActionResult Markdown() => View();
         public IActionResult MarkdownAttribute() => View();
 
-        public IActionResult CustomHelper() => View(GetSampleMenus());
+        public IActionResult CustomTable() => View(GetSampleMenus());
         private IList<Menu> GetSampleMenus() =>
             new List<Menu>
             {
@@ -46,7 +48,7 @@ namespace MVCSampleApp.Controllers
                     Id = 1,
                     Text = "Schweinsbraten mit Knödel und Sauerkraut",
                     Price = 8.5,
-                    Date = new DateTime(2016, 10, 5),
+                    Date = new DateTime(2018, 10, 5),
                     Category = "Main"
                 },
                 new Menu
@@ -54,7 +56,7 @@ namespace MVCSampleApp.Controllers
                     Id = 2,
                     Text = "Erdäpfelgulasch mit Tofu und Gebäck",
                     Price = 8.5,
-                    Date = new DateTime(2016, 10, 6),
+                    Date = new DateTime(2018, 10, 6),
                     Category = "Vegetarian"
                 },
                 new Menu
@@ -62,7 +64,7 @@ namespace MVCSampleApp.Controllers
                     Id = 3,
                     Text = "Tiroler Bauerngröst'l mit Spiegelei und Krautsalat",
                     Price = 8.5,
-                    Date = new DateTime(2016, 10, 7),
+                    Date = new DateTime(2018, 10, 7),
                     Category = "Vegetarian"
                 }
             };

@@ -8,7 +8,7 @@ namespace MenuPlanner.Services
 {
     public class MenuCardsService : IMenuCardsService
     {
-        private MenuCardsContext _menuCardsContext;
+        private readonly MenuCardsContext _menuCardsContext;
         public MenuCardsService(MenuCardsContext menuCardsContext) =>
             _menuCardsContext = menuCardsContext;
 
@@ -16,7 +16,7 @@ namespace MenuPlanner.Services
         {
             await EnsureDatabaseCreatedAsync();
             var menus = _menuCardsContext.Menus.Include(m => m.MenuCard);
-            return menus.ToArray();
+            return await menus.ToArrayAsync();
         }
 
         public async Task<IEnumerable<MenuCard>> GetMenuCardsAsync()

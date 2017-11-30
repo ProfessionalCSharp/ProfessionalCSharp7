@@ -26,7 +26,7 @@ namespace MenuPlanner.Controllers
                 return NotFound();
             }
 
-            var menu = await _service.GetMenuByIdAsync(id.Value);
+            Menu menu = await _service.GetMenuByIdAsync(id.Value);
             if (menu == null)
             {
                 return NotFound();
@@ -63,7 +63,7 @@ namespace MenuPlanner.Controllers
                 return NotFound();
             }
 
-            var menu = await _service.GetMenuByIdAsync(id.Value);
+            Menu menu = await _service.GetMenuByIdAsync(id.Value);
             if (menu == null)
             {
                 return NotFound();
@@ -99,7 +99,7 @@ namespace MenuPlanner.Controllers
                 return NotFound();
             }
 
-            var menu = await _service.GetMenuByIdAsync(id.Value);
+            Menu menu = await _service.GetMenuByIdAsync(id.Value);
             if (menu == null)
             {
                 return NotFound();
@@ -112,7 +112,7 @@ namespace MenuPlanner.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var menu = await _service.GetMenuByIdAsync(id);
+            Menu menu = await _service.GetMenuByIdAsync(id);
             await _service.DeleteMenuAsync(id);
             return RedirectToAction(nameof(Index));
         }

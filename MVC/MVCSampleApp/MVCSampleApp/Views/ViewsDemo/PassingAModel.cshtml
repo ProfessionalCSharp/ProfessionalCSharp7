@@ -1,0 +1,23 @@
+﻿@using MVCSampleApp.Models
+@model IEnumerable<Menu>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PassingAModel</title>
+</head>
+<body>
+    <div>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item.Text</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>

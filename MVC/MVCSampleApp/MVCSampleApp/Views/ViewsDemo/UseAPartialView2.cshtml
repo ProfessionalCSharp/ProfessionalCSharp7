@@ -1,0 +1,31 @@
+﻿@using MVCSampleApp.Models
+@model EventsAndMenusContext
+@{
+    ViewBag.Title = "Use a Partial View";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    (function () {
+        window.onload = function () {
+            var buttonEvents = document.getElementById("getEvents");
+            buttonEvents.onclick = function () {
+                if (window.fetch == null) {
+                    output.innerHTML = "<div>window.fetch not supported. Use another browser</div>";
+                    return;
+                }
+                var result = fetch("/ViewsDemo/ShowEvents");
+                result.then(function (response) {
+                    return response.text();
+                }).then(function (text) {
+                    var output = document.getElementById("output");
+                    output.innerHTML = text;
+                });
+            };
+        };
+    })();
+</script>
+<h2>Use a Partial View</h2>
+<div>this is the main view</div>
+<button id="getEvents">Get Events</button>
+<div id="output">
+</div>

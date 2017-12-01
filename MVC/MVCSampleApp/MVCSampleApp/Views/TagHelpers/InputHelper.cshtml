@@ -1,0 +1,18 @@
+﻿@model MVCSampleApp.Models.Menu
+@{
+    ViewBag.Title = "Input Tag Helper";
+}
+<h2>@ViewBag.Title</h2>
+<div>
+    <label asp-for="Text"></label>
+    <input asp-for="Text" />
+</div>
+<div>
+    <label asp-for="Price"></label>
+    <input asp-for="Price" />
+</div>
+<div>
+    <label asp-for="Date"></label>
+    <input asp-for="Date" />
+</div>
+

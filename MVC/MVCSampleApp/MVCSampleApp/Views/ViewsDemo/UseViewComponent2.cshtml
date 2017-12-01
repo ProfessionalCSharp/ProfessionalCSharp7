@@ -1,0 +1,6 @@
+﻿@addTagHelper *, MVCSampleApp
+@{
+    ViewBag.Title = "View Components Sample";
+}
+<h2>@ViewBag.Title</h2>
+<vc:event-list from="@new DateTime(2018, 4, 1)" to="@new DateTime(2018, 4, 20)" />

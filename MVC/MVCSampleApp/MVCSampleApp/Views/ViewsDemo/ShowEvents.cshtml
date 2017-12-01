@@ -1,0 +1,14 @@
+﻿@using MVCSampleApp.Models
+@model IEnumerable<Event>
+<h2>
+    @ViewBag.EventsTitle
+</h2>
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Day.ToShortDateString()&nbsp;</td>
+            <td>@item.Text</td>
+        </tr>
+    }
+</table>

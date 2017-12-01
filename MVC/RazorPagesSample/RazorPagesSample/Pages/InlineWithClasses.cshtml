@@ -1,0 +1,84 @@
+﻿@page
+@model InlinePageModel
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using RazorPagesSample.Models
+
+@{
+    ViewData["Title"] = "Inline";
+}
+
+@functions
+{
+    public class InlinePageModel : PageModel
+    {
+        private readonly BooksContext _context;
+        public InlinePageModel(BooksContext context) => _context = context;
+
+        public void OnGet()
+        {
+            bool created = _context.Database.EnsureCreated();
+            if (created) SeedBooks();
+
+            Books = _context.Books.ToList();
+        }
+
+        public IEnumerable<Book> Books { get; set; }
+
+        private void SeedBooks()
+        {
+            _context.Books.Add(new Book { Title = "Professional C# 6 and .NET Core 1", Publisher = "Wrox Press" });
+            _context.Books.Add(new Book { Title = "Professional C# 7 and .NET Core 2", Publisher = "Wrox Press" });
+            _context.SaveChanges();
+        }
+
+        public void OnPost()
+        {
+            _context.Books.Add(Book);
+            _context.SaveChanges();
+            Message = "Book saved";
+            Books = _context.Books.ToList();
+        }
+
+        [BindProperty()]
+        public Book Book { get; set; }
+
+        public string Message { get; set; } = string.Empty;
+    }
+}
+
+<h2>Inline With Classes Razor Page Sample</h2>
+
+@if (Model.Books != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Publisher</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Publisher</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div>@Model.Message</div>
+
+<form method="post">
+    Enter a new book
+    <br />
+    <input type="text" name="Title" id="Title" />
+    <br />
+    <input type="text" name="Publisher" id="Publisher" />
+    <br />
+    <button type="submit">Submit</button>
+</form>
+
+

@@ -1,0 +1,42 @@
+﻿@page
+@model RazorPagesSample.Pages.CodeBehindModel
+@{
+    ViewData["Title"] = "Code Behind";
+}
+<h2>Code Behind Razor Page Sample</h2>
+
+@if (Model.Books != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Publisher</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Publisher</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div>@Model.Message</div>
+
+<form method="post">
+    Enter a new book
+    <br />
+    <input type="text" name="Title" id="Title" />
+    <br />
+    <input type="text" name="Publisher" id="Publisher" />
+    <br />
+    <button type="submit">Submit</button>
+</form>
+
+
+

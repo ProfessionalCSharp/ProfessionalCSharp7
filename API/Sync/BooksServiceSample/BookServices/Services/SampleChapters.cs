@@ -1,7 +1,5 @@
 ﻿using BooksServiceSample.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BooksServiceSample.Services
 {
@@ -14,7 +12,7 @@ namespace BooksServiceSample.Services
         }
 
         private string[] sampleTitles = new[]
-{
+        {
             ".NET Applications and Tools",
             "Core C#",
             "Objects and Types",

@@ -30,7 +30,6 @@ namespace BooksServiceSampleHost
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddSingleton<IBookChaptersService, BookChaptersService>();
             services.AddSingleton<SampleChapters>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

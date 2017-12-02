@@ -44,8 +44,7 @@ namespace BooksServiceSample.Controllers
                 return BadRequest();
             }
             _bookChaptersService.Add(chapter);
-            return CreatedAtRoute(nameof(GetBookChapterById), new { id = chapter.Id },
-            chapter);
+            return CreatedAtRoute(nameof(GetBookChapterById), new { id = chapter.Id }, chapter);
         }
 
         // PUT api/bookchapters/guid

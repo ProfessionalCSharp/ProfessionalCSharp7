@@ -1,6 +1,7 @@
 ﻿using BookServiceClientApp.Models;
 using BookServiceClientApp.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,10 @@ namespace BookServiceClientApp
             services.AddSingleton<UrlService>();
             services.AddSingleton<BookChapterClientService>();
             services.AddTransient<SampleRequestClient>();
+            services.AddLogging(logger =>
+            {
+                logger.AddConsole();
+            });
 
             Container = services.BuildServiceProvider();
         }

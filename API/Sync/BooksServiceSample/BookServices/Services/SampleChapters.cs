@@ -13,26 +13,27 @@ namespace BooksServiceSample.Services
 
         private string[] sampleTitles = new[]
         {
-            ".NET Applications and Tools",
+            ".NET Application Architectures",
             "Core C#",
             "Objects and Types",
             "Object-Oriented Programming with C#",
             "Generics",
             "Operators and Casts",
             "Arrays",
-            "Delegates, Lambdas, and Events"
+            "Delegates, Lambdas, and Events",
+            "Windows Communication Foundation"
         };
-        private int[] numberPages = { 35, 42, 33, 20, 24, 38, 20, 32 };
-
+        private int[] chapterNumbers = { 1, 2, 3, 4, 5, 6, 7, 8, 44 };
+        private int[] numberPages = { 35, 42, 33, 20, 24, 38, 20, 32, 44 };
 
         public void CreateSampleChapters()
         {
             var chapters = new List<BookChapter>();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 chapters.Add(new BookChapter
                 {
-                    Number = i,
+                    Number = chapterNumbers[i],
                     Title = sampleTitles[i],
                     Pages = numberPages[i]
                 });

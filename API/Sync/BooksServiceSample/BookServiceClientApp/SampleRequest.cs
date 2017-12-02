@@ -4,20 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace BookServiceClientApp
 {
-    public class SampleRequestClient
+    public class SampleRequest
     {
         private readonly UrlService _urlService;
         private readonly BookChapterClientService _client;
-        public SampleRequestClient(UrlService urlService, BookChapterClientService client)
+        public SampleRequest(UrlService urlService, BookChapterClientService client)
         {
-            _urlService = urlService;
-            _client = client;
+            _urlService = urlService ?? throw new ArgumentNullException(nameof(urlService));
+            _client = client ?? throw new ArgumentNullException(nameof(client));
         }
 
         public async Task ReadChaptersAsync()
@@ -72,8 +71,8 @@ namespace BookServiceClientApp
             Console.WriteLine(nameof(AddChapterAsync));
             BookChapter chapter = new BookChapter
             {
-                Number = 42,
-                Title = "ASP.NET Web API",
+                Number = 34,
+                Title = "ASP.NET Core Web API",
                 Pages = 35
             };
             chapter = await _client.PostAsync(_urlService.BooksApi, chapter);
@@ -85,11 +84,10 @@ namespace BookServiceClientApp
         {
             Console.WriteLine(nameof(UpdateChapterAsync));
             var chapters = await _client.GetAllAsync(_urlService.BooksApi);
-            var chapter = chapters.SingleOrDefault(c => c.Title == "Windows Store Apps");
+            var chapter = chapters.SingleOrDefault(c => c.Title == ".NET Application Architectures");
             if (chapter != null)
             {
-                chapter.Number = 32;
-                chapter.Title = "Windows Apps";
+                chapter.Title = ".NET Applications and Tools";
                 await _client.PutAsync(_urlService.BooksApi + chapter.Id, chapter);
                 Console.WriteLine($"updated chapter {chapter.Title}");
             }
@@ -100,7 +98,7 @@ namespace BookServiceClientApp
         {
             Console.WriteLine(nameof(RemoveChapterAsync));
             var chapters = await _client.GetAllAsync(_urlService.BooksApi);
-            var chapter = chapters.SingleOrDefault(c => c.Title == "ASP.NET Web Forms");
+            var chapter = chapters.SingleOrDefault(c => c.Title == "Windows Communication Foundation");
             if (chapter != null)
             {
                 await _client.DeleteAsync(_urlService.BooksApi + chapter.Id);

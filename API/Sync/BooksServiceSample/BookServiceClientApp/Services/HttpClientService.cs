@@ -27,10 +27,8 @@ namespace BookServiceClientApp.Services
             _httpClient.BaseAddress = new Uri(_urlService.BaseAddress);
         }
 
-        private void LogInformation(string message, [CallerMemberName] string callerName = null)
-        {
+        private void LogInformation(string message, [CallerMemberName] string callerName = null) =>
             _logger.LogInformation($"{nameof(HttpClientService<T>)}.{callerName}: {message}");
-        }
 
         private async Task<string> GetInternalAsync(string requestUri)
         {

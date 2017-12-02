@@ -1,13 +1,8 @@
-﻿using BookServiceClientApp.Models;
-using BookServiceClientApp.Services;
+﻿using BookServiceClientApp.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace BookServiceClientApp
 {
@@ -17,8 +12,8 @@ namespace BookServiceClientApp
         {
             Console.WriteLine("Client app, wait for service");
             Console.ReadLine();
-            RegisterServices();
-            var test = Container.GetRequiredService<SampleRequestClient>();
+            ConfigureServices();
+            var test = ApplicationServices.GetRequiredService<SampleRequest>();
             
             await test.ReadChaptersAsync();
             await test.ReadChapterAsync();
@@ -30,20 +25,20 @@ namespace BookServiceClientApp
             Console.ReadLine();
         }
 
-        public static void RegisterServices()
+        public static void ConfigureServices()
         {
             var services = new ServiceCollection();
             services.AddSingleton<UrlService>();
             services.AddSingleton<BookChapterClientService>();
-            services.AddTransient<SampleRequestClient>();
+            services.AddTransient<SampleRequest>();
             services.AddLogging(logger =>
             {
                 logger.AddConsole();
             });
 
-            Container = services.BuildServiceProvider();
+            ApplicationServices = services.BuildServiceProvider();
         }
 
-        public static IServiceProvider Container { get; private set; }
+        public static IServiceProvider ApplicationServices { get; private set; }
     }
 }

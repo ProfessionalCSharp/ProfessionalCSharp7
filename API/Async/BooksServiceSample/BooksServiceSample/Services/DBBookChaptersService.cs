@@ -32,9 +32,6 @@ namespace BooksServiceSample.Services
         public async Task<IEnumerable<BookChapter>> GetAllAsync() =>
             await _booksContext.Chapters.ToListAsync();
 
-
-        public Task InitAsync() => Task.CompletedTask;
-
         public async Task<BookChapter> RemoveAsync(Guid id)
         {
             BookChapter chapter = await _booksContext.Chapters.SingleOrDefaultAsync(c => c.Id == id);

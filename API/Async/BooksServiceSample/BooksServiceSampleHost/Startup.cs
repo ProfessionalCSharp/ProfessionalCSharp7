@@ -27,7 +27,8 @@ namespace BooksServiceSampleHost
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddXmlSerializerFormatters();
+            services.AddMvc().AddXmlSerializerFormatters();            
+//          services.AddScoped<IBookChaptersService, BookChaptersService>();
             services.AddScoped<IBookChaptersService, DBBookChaptersService>();
             services.AddScoped<SampleChapters>();
 
@@ -36,16 +37,16 @@ namespace BooksServiceSampleHost
 
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new Info
+                options.IncludeXmlComments("../docs/BooksServiceSample.xml");
+                options.SwaggerDoc("v2", new Info
                 {
                     Title = "Books Service API",
-                    Version = "v1",
-                    Description = "Professional C# sample app",
+                    Version = "v2",
+                    Description = "Sample service for Professional C# 7",
                     Contact = new Contact { Name = "Christian Nagel", Url = "https://csharp.christiannagel.com" },
                     License = new License { Name = "MIT License" }
                 });
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,14 +60,13 @@ namespace BooksServiceSampleHost
             app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(options =>
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Book Chapter Services"));
+                options.SwaggerEndpoint("/swagger/v2/swagger.json", "Book Chapter Services"));
 
             bool created = booksContext.Database.EnsureCreated();
             if (created)
             {
                 await sampleChapters.CreateSampleChaptersAsync();
             }
-
         }
     }
 }

@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewData["Title"] = "HtmlAttributes";
+}
+<h2>HTML Attributes</h2>
+@Html.TextBox("text1", "input text here",
+  new { required = "required", maxlength = 15, @class = "CSSDemo" });
+
+

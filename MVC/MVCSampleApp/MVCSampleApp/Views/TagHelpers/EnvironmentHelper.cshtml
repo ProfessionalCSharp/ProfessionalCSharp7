@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "EnvironmentHelper";
+}
+
+<h2>EnvironmentHelper</h2>
+
+<environment names="a, b">
+
+</environment>
+<environment include="Development, Staging">
+    <div>This shows up for the <strong>Development</strong> and <strong>Staging</strong> environments</div>
+</environment>
+<environment exclude="Production">
+    <div>Not visible in the <strong>Production</strong> environment</div>
+</environment>
+

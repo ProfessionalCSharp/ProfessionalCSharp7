@@ -1,0 +1,34 @@
+﻿@model MVCSampleApp.Models.Menu
+@{
+    ViewData["Title"] = "FormHelper";
+}
+<h2>Form Helper</h2>
+
+<form method="post" asp-method="FormHelper">
+    <input asp-for="Id" hidden="hidden" />
+    <hr />
+    <div>
+        <label asp-for="Text"></label>
+        <input asp-for="Text" />
+        <span asp-validation-for="Text"></span>
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+
+        <input asp-for="Price" />
+        <span asp-validation-for="Price"></span>
+    </div>
+    <div>
+        <label asp-for="Date"></label>
+
+        <input asp-for="Date" />
+        <span asp-validation-for="Date"></span>
+    </div>
+    <div>
+        <label asp-for="Category"></label>
+        <input asp-for="Category" />
+        <span asp-validation-for="Category"></span>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+

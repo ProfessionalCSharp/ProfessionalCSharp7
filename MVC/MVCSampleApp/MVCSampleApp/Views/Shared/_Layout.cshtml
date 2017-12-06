@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+</head>
+<body>
+    <div class="container body-content">
+        <header>
+            <h1>ASP.NET Core MVC Sample App</h1>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-controller="ViewsDemo" asp-action="LayoutSample">
+                        Layout Sample
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="ViewsDemo" asp-action="LayoutUsingSections">
+                        Layout Using Sections
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            @RenderSection("PageNavigation", required: false)
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+        <hr />
+        <footer>
+            <p>
+                <div>Sample Code for Professional C#</div>
+                © @DateTime.Now.Year - My ASP.NET Application
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>

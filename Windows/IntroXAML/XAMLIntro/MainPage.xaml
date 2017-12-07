@@ -8,8 +8,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <Button Content="Click Me!" x:Name="button1" Click="OnButtonClick">
+    <StackPanel x:Name="stackPanel1">
+        <Button x:Name="button1" Click="OnButtonClick">
+            Click Me!
             <Button.Background>
                 <LinearGradientBrush StartPoint="0.5,0.0" EndPoint="0.5, 1.0">
                     <LinearGradientBrush.GradientStops>
@@ -24,9 +25,9 @@
             </Button.Background>
         </Button>
         <ListBox>
-            <datalib:Person FirstName="Stephanie" LastName="Nagel">
-            </datalib:Person>
+            <datalib:Person FirstName="Stephanie" LastName="Nagel" />
             <datalib:Person FirstName="Matthias" LastName="Nagel" />
+            <datalib:Person FirstName="Katharina" LastName="Nagel" />
         </ListBox>
     </StackPanel>
 </Page>

@@ -10,6 +10,11 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <TextBlock Text="{local:Calculator Operation=Add, X=38,Y=4}" />
+            <TextBlock>
+                <TextBlock.Text>
+                    <local:CalculatorExtension Operation="Multiply" X="7" Y="6" />
+                </TextBlock.Text>
+            </TextBlock>
         </StackPanel>
 
     </Grid>

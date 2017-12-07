@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttachedProperty", "Attache
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkupExtensions", "MarkupExtensions\MarkupExtensions.csproj", "{8CD4630F-8C15-4A26-8695-593EA6CBCE45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMarkupExtension", "CustomMarkupExtension\CustomMarkupExtension.csproj", "{1313A15F-0782-4601-90ED-46B826AE4C6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +145,26 @@ Global
 		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x86.ActiveCfg = Release|x86
 		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x86.Build.0 = Release|x86
 		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x86.Deploy.0 = Release|x86
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|ARM.ActiveCfg = Debug|ARM
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|ARM.Build.0 = Debug|ARM
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|ARM.Deploy.0 = Debug|ARM
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|x64.ActiveCfg = Debug|x64
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|x64.Build.0 = Debug|x64
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|x64.Deploy.0 = Debug|x64
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|x86.ActiveCfg = Debug|x86
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|x86.Build.0 = Debug|x86
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Debug|x86.Deploy.0 = Debug|x86
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|Any CPU.ActiveCfg = Release|x86
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|ARM.ActiveCfg = Release|ARM
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|ARM.Build.0 = Release|ARM
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|ARM.Deploy.0 = Release|ARM
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|x64.ActiveCfg = Release|x64
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|x64.Build.0 = Release|x64
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|x64.Deploy.0 = Release|x64
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|x86.ActiveCfg = Release|x86
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|x86.Build.0 = Release|x86
+		{1313A15F-0782-4601-90ED-46B826AE4C6C}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

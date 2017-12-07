@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutedEvents", "RoutedEvent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttachedProperty", "AttachedProperty\AttachedProperty.csproj", "{95866ED6-4130-4908-983F-54704C297147}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkupExtensions", "MarkupExtensions\MarkupExtensions.csproj", "{8CD4630F-8C15-4A26-8695-593EA6CBCE45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,26 @@ Global
 		{95866ED6-4130-4908-983F-54704C297147}.Release|x86.ActiveCfg = Release|x86
 		{95866ED6-4130-4908-983F-54704C297147}.Release|x86.Build.0 = Release|x86
 		{95866ED6-4130-4908-983F-54704C297147}.Release|x86.Deploy.0 = Release|x86
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|ARM.Build.0 = Debug|ARM
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|ARM.Deploy.0 = Debug|ARM
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|x64.ActiveCfg = Debug|x64
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|x64.Build.0 = Debug|x64
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|x64.Deploy.0 = Debug|x64
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|x86.ActiveCfg = Debug|x86
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|x86.Build.0 = Debug|x86
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Debug|x86.Deploy.0 = Debug|x86
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|Any CPU.ActiveCfg = Release|x86
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|ARM.ActiveCfg = Release|ARM
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|ARM.Build.0 = Release|ARM
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|ARM.Deploy.0 = Release|ARM
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x64.ActiveCfg = Release|x64
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x64.Build.0 = Release|x64
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x64.Deploy.0 = Release|x64
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x86.ActiveCfg = Release|x86
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x86.Build.0 = Release|x86
+		{8CD4630F-8C15-4A26-8695-593EA6CBCE45}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

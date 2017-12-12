@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RuntimeFrameworkVersion>2.1.0-preview2-25624-02</RuntimeFrameworkVersion>
+    <NETStandardImplicitPackageVersion>2.1.0-preview2-25624-02</NETStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="ControlsSamples.Views.TimePickerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ControlsSamples.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DatePicker Grid.Column="0" Date="{x:Bind Date, Mode=TwoWay}" />
+        <Button Grid.Column="1" Content="Open a Date Picker" Click="{x:Bind OnOpenDatePicker}" />
+        <TimePicker Grid.Column="2" Time="{x:Bind Time, Mode=TwoWay}" />
+        <Button Grid.Column="3" Content="Show Date and Time" Click="{x:Bind OnButtonClick}" />
+
+    </Grid>
+</Page>

@@ -30,12 +30,16 @@ namespace ControlsSamples.Views
 
         private void ShowProgress()
         {
-            DispatcherTimer timer = new DispatcherTimer();
+            var timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             int i = 0;
             timer.Tick += (sender, e) =>
             {
-                progressBar.Value = i++;
+                progressBar1.Value = i++;
+                if (i >= 100)
+                {
+                    i = 0;
+                }
             };
             timer.Start();
         }

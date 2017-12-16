@@ -9,6 +9,11 @@ namespace EnumerableSample
             var app = new CommandLineApplication(throwOnUnexpectedArg: false);
             app.FullName = "LINQ Sample App";
             LinqSamples.Register(app);
+            FilteringSamples.Register(app);
+            GroupingSamples.Register(app);
+            CompoundFromSamples.Register(app);
+            JoinSamples.Register(app);
+            SortingSamples.Register(app);
 
             app.Command("help", cmd =>
             {

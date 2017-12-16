@@ -4,37 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace EnumerableSample
 {
     internal class LinqSamples
     {
-        //static Dictionary<string, Action> commands = new Dictionary<string, Action>()
-        //{
-        //    [nameof(Filtering)] = Filtering,
-        //    [nameof(FilteringWithMethods)] = FilteringWithMethods,
-        //    [nameof(FilteringWithIndex)] = FilteringWithIndex,
-        //    [nameof(TypeFiltering)] = TypeFiltering,
-        //    [nameof(CompoundFrom)] = CompoundFrom,
-        //    [nameof(CompoundFromWithMethods)] = CompoundFromWithMethods,
-        //    [nameof(SortDescending)] = SortDescending,
-        //    [nameof(SortDescendingWithMethods)] = SortDescendingWithMethods,
-        //    [nameof(SortMultiple)] = SortMultiple,
-        //    [nameof(SortDescending)] = SortDescending,
-        //    [nameof(SortMultipleWithMethods)] = SortMultipleWithMethods,
-        //    [nameof(Grouping)] = Grouping,
-        //    [nameof(GroupingWithMethods)] = GroupingWithMethods,
-        //    [nameof(GroupingWithVariables)] = GroupingWithVariables,
-        //    [nameof(GroupingWithAnonymousTypes)] = GroupingWithAnonymousTypes,
-        //    [nameof(GroupingAndNestedObjects)] = GroupingAndNestedObjects,
-        //    [nameof(GroupingAndNestedObjectsWithMethods)] = GroupingAndNestedObjectsWithMethods,
-        //};
-
         internal static void Register(CommandLineApplication app)
         {
-            // v3
-
             MethodInfo[] methods = Assembly.GetExecutingAssembly()
                 .GetTypes()
                 .Where(t => t.Name == nameof(LinqSamples))
@@ -51,48 +27,6 @@ namespace EnumerableSample
                     cmd.OnExecute(() => { method.Invoke(null, null); return 0; });
                 });
             }
-               
-            // v2
-            //foreach (var command in commands)
-            //{
-            //    app.Command(command.Key, cmd =>
-            //    {
-            //        cmd.Description = command.Key;
-            //        cmd.OnExecute(() => { command.Value(); return 0; });
-            //    });
-            //}
-
-            // v1
-            //app.Command("filter", cmd =>
-            //{               
-            //    cmd.Description = $"{nameof(Filtering)}";
-            //    cmd.OnExecute(() => { Filtering(); return 0; });
-            //});
-            //app.Command("filterwithmethods", cmd =>
-            //{
-            //    cmd.Description = $"{nameof(FilteringWithMethods)}";
-            //    cmd.OnExecute(() => { FilteringWithMethods(); return 0; });
-            //});
-            //app.Command("filterwithindex", cmd =>
-            //{
-            //    cmd.Description = $"{nameof(FilteringWithIndex)}";
-            //    cmd.OnExecute(() => { FilteringWithIndex(); return 0; });
-            //});
-            //app.Command("typefilter", cmd =>
-            //{
-            //    cmd.Description = $"{nameof(TypeFiltering)}";
-            //    cmd.OnExecute(() => { TypeFiltering(); return 0; });
-            //});
-            //app.Command("compoundfrom", cmd =>
-            //{
-            //    cmd.Description = $"{nameof(CompoundFrom)}";
-            //    cmd.OnExecute(() => { CompoundFrom(); return 0; });
-            //});
-            //app.Command("compoundfromwithmethods", cmd =>
-            //{
-            //    cmd.Description = $"{nameof(CompoundFromWithMethods)}";
-            //    cmd.OnExecute(() => { CompoundFromWithMethods(); return 0; });
-            //});
         }
 
         public static void Filtering()

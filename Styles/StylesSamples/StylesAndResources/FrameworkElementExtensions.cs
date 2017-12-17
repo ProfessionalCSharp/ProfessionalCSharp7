@@ -16,9 +16,12 @@ namespace StylesAndResources
             }
             else if (e.Parent is FrameworkElement parent)
             {
-                TryFindResource(parent, key);
+                return TryFindResource(parent, key);
             }
-            return null;
+            else
+            {
+                return null;
+            }
         }
     }
 }

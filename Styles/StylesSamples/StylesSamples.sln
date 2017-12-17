@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StylesAndResources", "Style
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourcesLib", "ResourcesLib\ResourcesLib.csproj", "{9A6521AA-55EF-4284-8B5E-95392DD8421B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animation", "Animation\Animation.csproj", "{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +145,26 @@ Global
 		{9A6521AA-55EF-4284-8B5E-95392DD8421B}.Release|x64.Build.0 = Release|x64
 		{9A6521AA-55EF-4284-8B5E-95392DD8421B}.Release|x86.ActiveCfg = Release|x86
 		{9A6521AA-55EF-4284-8B5E-95392DD8421B}.Release|x86.Build.0 = Release|x86
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|ARM.Build.0 = Debug|ARM
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|ARM.Deploy.0 = Debug|ARM
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|x64.ActiveCfg = Debug|x64
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|x64.Build.0 = Debug|x64
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|x64.Deploy.0 = Debug|x64
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|x86.ActiveCfg = Debug|x86
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|x86.Build.0 = Debug|x86
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Debug|x86.Deploy.0 = Debug|x86
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|Any CPU.ActiveCfg = Release|x86
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|ARM.ActiveCfg = Release|ARM
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|ARM.Build.0 = Release|ARM
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|ARM.Deploy.0 = Release|ARM
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|x64.ActiveCfg = Release|x64
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|x64.Build.0 = Release|x64
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|x64.Deploy.0 = Release|x64
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|x86.ActiveCfg = Release|x86
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|x86.Build.0 = Release|x86
+		{76BE8493-6816-4CC9-9DA4-6C8FD539DEF5}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

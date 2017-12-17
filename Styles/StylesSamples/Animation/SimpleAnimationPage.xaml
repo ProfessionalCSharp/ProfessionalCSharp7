@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="Animation.SimpleAnimationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Animation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Ellipse x:Name="ellipse1" Width="100" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20">
+            <Ellipse.Fill>
+                <SolidColorBrush Color="Green" />
+            </Ellipse.Fill>
+            <Ellipse.RenderTransform>
+                <CompositeTransform ScaleX="1" ScaleY="1" TranslateX="0" TranslateY="0" />
+            </Ellipse.RenderTransform>
+            <Ellipse.Triggers>
+                <EventTrigger>
+                    <BeginStoryboard>
+                        <Storyboard x:Name="MoveResizeStoryboard">
+                            <DoubleAnimation Duration="0:0:10" To="5" Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" />
+                            <DoubleAnimation Duration="0:0:10" To="3" Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" />
+                            <DoubleAnimation Duration="0:0:10" To="400" Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" />
+                            <DoubleAnimation Duration="0:0:10" To="200" Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" />
+                            <ColorAnimation Duration="0:0:10" To="Red" Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+
+        </Ellipse>
+        <!--<Canvas Width="200" Height="200" x:Name="animatedcanvas" Background="Red">
+            <Canvas.Triggers>
+                <EventTrigger>
+                    <BeginStoryboard>
+                        <Storyboard x:Name="ColorStoryboard">
+                            -->
+        <!-- Animate the background of the canvas to green over 4 seconds. -->
+        <!--
+                            <ColorAnimation Storyboard.TargetName="animatedcanvas"
+                      Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
+                      To="Green" Duration="0:0:4" RepeatBehavior="Forever" AutoReverse="True" />
+                            <DoubleAnimation Storyboard.TargetName="animatedcanvas"
+                                             Storyboard.TargetProperty="(FrameworkElement.Width)" To="400" RepeatBehavior="Forever" AutoReverse="True" Duration="0:0:4" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Canvas.Triggers>
+        </Canvas>
+        <Ellipse x:Name="animatedellipse" Height="50" Width="100">
+            <Ellipse.Fill>
+                <SolidColorBrush x:Name="ellipseBrush" Color="Yellow" />
+            </Ellipse.Fill>
+            <Ellipse.Triggers>
+                <EventTrigger>
+                    <BeginStoryboard>
+                        <Storyboard x:Name="WidthStoryboard" Duration="00:00:06" RepeatBehavior="Forever" >
+                            <DoubleAnimation Storyboard.TargetName="animatedellipse" Storyboard.TargetProperty="(FrameworkElement.Width)" 
+                				Duration="0:0:3" AutoReverse="True" FillBehavior="Stop"
+                				RepeatBehavior="Forever" To="300" />
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse x:Name="ellipse" Fill="#FFF4F4F5" Height="43" Margin="130,127,130,0" Stroke="Black" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <CompositeTransform/>
+            </Ellipse.RenderTransform>
+        </Ellipse>-->
+
+    </Grid>
+</Page>

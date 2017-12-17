@@ -33,9 +33,12 @@ namespace Shapes
 
             var figure = new PathFigure() { StartPoint = _mouthPoints[index, 0] };
             figure.Segments = new PathSegmentCollection();
-            var segment1 = new QuadraticBezierSegment();
-            segment1.Point1 = _mouthPoints[index, 1];
-            segment1.Point2 = _mouthPoints[index, 2];
+            var segment1 = new QuadraticBezierSegment
+            {
+                Point1 = _mouthPoints[index, 1],
+                Point2 = _mouthPoints[index, 2]
+            };
+
             figure.Segments.Add(segment1);
             var geometry = new PathGeometry();
             geometry.Figures = new PathFigureCollection();

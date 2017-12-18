@@ -15,7 +15,7 @@
         <ImageBrush x:Key="BackgroundBrush" ImageSource="msbuild.png" Opacity="0.5" />
     </Page.Resources>
 
-    <Grid Background="{StaticResource BackgroundBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
@@ -23,15 +23,16 @@
         <StackPanel Orientation="Horizontal">
             <Slider x:Name="slider1" Value="1" Minimum="0.1" Maximum="1" StepFrequency="0.1" Width="200" />
         </StackPanel>
+        <Rectangle Fill="Orange" Width="300" Height="300" Grid.RowSpan="2" Margin="100"></Rectangle>
         <VariableSizedWrapGrid Grid.Row="1">
             <Button Background="#FFC9659C">Solid Color
             </Button>
-            <Button>Solid Color 2
+            <Button Content="Solid Color 2">
                 <Button.Background>
                     <SolidColorBrush Color="#FFC9659C" />
                 </Button.Background>
             </Button>
-            <Button Content="Linear Gradient Brush" Margin="20">
+            <Button Content="Linear Gradient Brush">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Offset="0" Color="LightGreen" />
@@ -46,18 +47,20 @@
                     </ImageBrush>
                 </Button.Background>
             </Button>
+
             <Button Content="Acrylic Brush Host Backdrop">
                 <Button.Background>
-                    <AcrylicBrush BackgroundSource="HostBackdrop" TintOpacity="{x:Bind slider1.Value, Mode=OneWay}" />
+                    <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="#FFFF0000"  TintOpacity="{x:Bind slider1.Value, Mode=OneWay}" FallbackColor="Orange" />
                 </Button.Background>
             </Button>
             <Button Content="Acrylic Brush Backdrop">
                 <Button.Background>
-                    <AcrylicBrush BackgroundSource="Backdrop" TintOpacity="{x:Bind slider1.Value, Mode=OneWay}" />
+                    <AcrylicBrush BackgroundSource="Backdrop" TintColor="#FFFF0000" TintOpacity="{x:Bind slider1.Value, Mode=OneWay}" FallbackColor="Orange" />
                 </Button.Background>
             </Button>
 
-            <Button Content="Button with Reveal Style" Padding="12" Margin="12" Style="{StaticResource ButtonRevealStyle}" />
+            <Button Content="Button with Reveal Style" Style="{StaticResource ButtonRevealStyle}" />
+            <Button Margin="4" BorderThickness="8" Background="{ThemeResource SystemControlHighlightAccentRevealBackgroundBrush}" BorderBrush="{ThemeResource SystemControlHighlightAccentRevealBorderBrush}">With Reveal Border</Button>
 
         </VariableSizedWrapGrid>
     </Grid>

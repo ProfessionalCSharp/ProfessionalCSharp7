@@ -1,0 +1,65 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Templates.Styles">
+
+    <Style x:Key="ListViewStyle1" TargetType="ListView">
+        <Setter Property="ItemTemplate" Value="{StaticResource CountryDataTemplate}" />
+    </Style>
+
+    <Style x:Key="ListViewItemStyle1" TargetType="ListViewItem">
+        <Setter Property="Background" Value="Orange"/>
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <ListViewItemPresenter ContentMargin="{TemplateBinding Padding}" 
+                                           FocusBorderBrush="{ThemeResource SystemControlForegroundAltHighBrush}" 
+                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                           PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" 
+                                           SelectedPressedBackground="{ThemeResource SystemControlHighlightListAccentHighBrush}" 
+                                           SelectedForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}" 
+                                           SelectedBackground="{ThemeResource SystemControlHighlightListAccentLowBrush}"     
+                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+        <ItemsStackPanel Orientation="Horizontal" Background="Yellow" />
+    </ItemsPanelTemplate>
+
+    <Style x:Key="ListViewStyle2" TargetType="ListView">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Auto"/>
+        <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="False"/>
+        <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
+        <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="False"/>
+        <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+        <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False"/>
+        <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True"/>
+        <Setter Property="ItemTemplate" Value="{StaticResource CountryDataTemplate}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewItemStyle1}" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel Orientation="Horizontal" Background="Yellow"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListView">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" IsHorizontalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsHorizontalScrollChainingEnabled}" IsVerticalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsVerticalScrollChainingEnabled}" IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}" TabNavigation="{TemplateBinding TabNavigation}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}">
+                            <ItemsPresenter FooterTransitions="{TemplateBinding FooterTransitions}" FooterTemplate="{TemplateBinding FooterTemplate}" Footer="{TemplateBinding Footer}" HeaderTemplate="{TemplateBinding HeaderTemplate}" Header="{TemplateBinding Header}" HeaderTransitions="{TemplateBinding HeaderTransitions}" Padding="{TemplateBinding Padding}"/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

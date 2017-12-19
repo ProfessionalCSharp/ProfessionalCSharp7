@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="StylesAndResources.ResourceDemoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StylesAndResources"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel x:Name="myContainer">
+            <StackPanel.Resources>
+                <LinearGradientBrush x:Key="MyGradientBrush" StartPoint="0,0" EndPoint="0.3,1">
+                    <GradientStop Offset="0.0" Color="LightCyan" />
+                    <GradientStop Offset="0.14" Color="Cyan" />
+                    <GradientStop Offset="0.7" Color="DarkCyan" />
+                </LinearGradientBrush>
+            </StackPanel.Resources>
+            <Button Width="200" Height="50" Foreground="White" Margin="5" 
+      Background="{StaticResource MyGradientBrush}" Content="Click Me!" />
+
+            <Button Name="button1" Width="220" Height="50" Margin="5" 
+  Click="OnApplyResources" Content="Apply Resource Programmatically" />
+
+            <Button Width="300" Height="50" Style="{StaticResource PinkButtonStyle}" 
+        Content="Referenced Resource" />
+        </StackPanel>
+    </Grid>
+</Page>

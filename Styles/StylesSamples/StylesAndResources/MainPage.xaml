@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="StylesAndResources.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StylesAndResources"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LemonChiffon" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style x:Key="ButtonStyle1" TargetType="Button">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <Style x:Key="FancyButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="LightCyan" />
+                        <GradientStop Offset="0.14" Color="Cyan" />
+                        <GradientStop Offset="0.7" Color="DarkCyan" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="AnotherButtonStyle" BasedOn="{StaticResource FancyButtonStyle}" 
+    TargetType="Button">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0.2" Color="White" />
+                        <GradientStop Offset="0.5" Color="LightYellow" />
+                        <GradientStop Offset="0.9" Color="Orange" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Page.Resources>
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+        <StackPanel Orientation="Vertical">
+
+            <Button Width="150" Content="Click Me!" Click="OnOpenResources">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Yellow" />
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="Margin" Value="5" />
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="200" Content="Default Button style" Margin="3" Click="OnOpenThemePage" />
+            <Button Width="200" Content="Named style" 
+        Style="{StaticResource ButtonStyle1}" Margin="3" />
+
+
+            <Button 
+                Width="200" 
+                Content="Fancy button style" 
+                Style="{StaticResource FancyButtonStyle}" 
+                Margin="3" />
+            <Button 
+                Width="200" 
+                Content="Style inheritance" 
+                Style="{StaticResource AnotherButtonStyle}" 
+                Margin="3" />
+
+        </StackPanel>
+    </Grid>
+</Page>

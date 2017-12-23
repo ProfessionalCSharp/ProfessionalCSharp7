@@ -1,19 +1,29 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace EventSourceSampleInheritance
+namespace EventSourceSampleAnnotations
 {
     class Program
     {
-        static async Task Main()
+        public static void GenerateManifest()
+        {
+            string schema = SampleEventSource.GenerateManifest(
+              typeof(SampleEventSource), ".");
+            File.WriteAllText("sampleeventsource.xml", schema);
+        }
+
+        static async Task Main(string[] args)
         {
             SampleEventSource.Log.Startup();
+            GenerateManifest();
             Console.WriteLine($"Log Guid: {SampleEventSource.Log.Guid}");
             Console.WriteLine($"Name: {SampleEventSource.Log.Name}");
             await NetworkRequestSampleAsync();
             Console.ReadLine();
         }
+
         private static async Task NetworkRequestSampleAsync()
         {
             try

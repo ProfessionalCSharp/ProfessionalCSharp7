@@ -9,18 +9,18 @@ namespace SimpleEventSourceSample
     {
         private static EventSource sampleEventSource = new EventSource("Wrox-SimpleEventSourceSample");
 
-        static void Main()
+        static async Task Main()
         {
             Console.WriteLine($"Log Guid: {sampleEventSource.Guid}");
             Console.WriteLine($"Name: {sampleEventSource.Name}");
 
             sampleEventSource.Write("Startup", new { Info = "started app" });
-            NetworkRequestSample().Wait();
+            await NetworkRequestSampleAsync();
             Console.ReadLine();
             sampleEventSource.Dispose();
         }
 
-        private static async Task NetworkRequestSample()
+        private static async Task NetworkRequestSampleAsync()
         {
             try
             {

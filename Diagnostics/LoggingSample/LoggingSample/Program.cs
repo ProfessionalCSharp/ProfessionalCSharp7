@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace LoggingSample
         static async Task RunSampleAsync()
         {
             var controller = AppServices.GetService<SampleController>();
-            await controller.NetworkRequestSample2Async("https://csharp.christiannagel.com");
+            await controller.NetworkRequestSampleAsync("https://csharp.christiannagel.com");
         }
 
         static void RegisterServices()
@@ -27,7 +28,8 @@ namespace LoggingSample
             {
                 options.AddEventSourceLogger();
                 options.AddConsole();
-                options.AddDebug().AddFilter(level => level >= LogLevel.Information);       
+                options.AddDebug();
+                options.AddFilter<ConsoleLoggerProvider>(level => level >= LogLevel.Error);
             });
             services.AddScoped<SampleController>();
             AppServices = services.BuildServiceProvider();

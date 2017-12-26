@@ -8,17 +8,44 @@ namespace LoggingSample
 {
     class Program
     {
-        static async Task Main()
+        private static bool s_useScope = false;
+        private static string s_url = "https://csharp.christiannagel.com";
+
+        static async Task Main(string[] args)
         {
+            if (args.Length == 2)
+            {
+                if (args[0] == "--usescope")
+                    s_useScope = true;
+                s_url = args[1];
+            }
+            else if (args.Length == 1)
+            {
+                s_url = args[0];
+            }
+
             RegisterServices();
-            await RunSampleAsync();
+            if (s_useScope)
+            {
+                await RunSampleScopeAsync();
+            }
+            else
+            {
+                await RunSampleAsync();
+            }
             Console.ReadLine();
         }
 
         static async Task RunSampleAsync()
         {
             var controller = AppServices.GetService<SampleController>();
-            await controller.NetworkRequestSampleAsync("https://csharp.christiannagel.com");
+            await controller.NetworkRequestSampleAsync(s_url);
+        }
+
+        static async Task RunSampleScopeAsync()
+        {
+            var controller = AppServices.GetService<SampleController>();
+            await controller.NetworkRequestSampleScopeAsync(s_url);
         }
 
         static void RegisterServices()
@@ -27,9 +54,16 @@ namespace LoggingSample
             services.AddLogging(options =>
             {
                 options.AddEventSourceLogger();
-                options.AddConsole();
+                if (s_useScope)
+                {
+                    options.AddConsole(consoleOptions => consoleOptions.IncludeScopes = true);
+                }
+                else
+                {
+                    options.AddConsole();
+                }
                 options.AddDebug();
-                options.AddFilter<ConsoleLoggerProvider>(level => level >= LogLevel.Error);
+              //  options.AddFilter<ConsoleLoggerProvider>(level => level >= LogLevel.Error);
             });
             services.AddScoped<SampleController>();
             AppServices = services.BuildServiceProvider();

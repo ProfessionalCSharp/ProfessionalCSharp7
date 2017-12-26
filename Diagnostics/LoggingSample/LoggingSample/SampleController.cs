@@ -27,26 +27,24 @@ namespace LoggingSample
             catch (Exception ex)
             {
                 _logger.LogError(LoggingEvents.Networking, ex, "Error in NetworkRequestSampleAsync, error message: {0}, HResult: {1}", ex.Message, ex.HResult);
-                Console.WriteLine(ex.Message);
             }
         }
 
-        public async Task NetworkRequestSample2Async(string url)
+        public async Task NetworkRequestSampleScopeAsync(string url)
         {
-            using (_logger.BeginScope("NetworkRequestSample"))
+            using (_logger.BeginScope("NetworkRequestSampleAsync"))
             {
                 try
                 {
-                    _logger.Log(LogLevel.Trace, new EventId(42), url, null, (state, ex) => $"message: {state}, {ex?.Message}");
-                    _logger.LogInformation("NetworkRequestSample started {0}", url);
+                    _logger.LogInformation(LoggingEvents.Networking, "NetworkRequestSampleAsync started with url {0}", url);
                     var client = new HttpClient();
+
                     string result = await client.GetStringAsync(url);
-                    _logger.LogInformation("NetworkRequestSample completed {0} --", result);
+                    _logger.LogInformation(LoggingEvents.Networking, "NetworkRequestSampleAsync completed, received {0} characters", result.Length);
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError($"NetworkRequestSample {ex.Message}", ex.Message, ex.HResult);
-                    Console.WriteLine(ex.Message);
+                    _logger.LogError(LoggingEvents.Networking, ex, "Error in NetworkRequestSampleAsync, error message: {0}, HResult: {1}", ex.Message, ex.HResult);
                 }
             }
         }

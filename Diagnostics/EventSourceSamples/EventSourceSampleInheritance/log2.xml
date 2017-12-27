@@ -1,0 +1,148 @@
+<Events>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+	<System>
+		<Provider Guid="{9e814aad-3204-11d2-9a82-006008a86939}" />
+		<EventID>0</EventID>
+		<Version>2</Version>
+		<Level>0</Level>
+		<Task>0</Task>
+		<Opcode>0</Opcode>
+		<Keywords>0x0</Keywords>
+		<TimeCreated SystemTime="2017-12-23T13:32:31.773621900+00:59" />
+		<Correlation ActivityID="{00000000-0000-0000-0000-000000000000}" />
+		<Execution ProcessID="14076" ThreadID="20508" ProcessorID="0" KernelTime="15" UserTime="0" />
+		<Channel />
+		<Computer />
+	</System>
+	<EventData>
+		<Data Name="BufferSize">    8192</Data>
+		<Data Name="Version">83951626</Data>
+		<Data Name="ProviderVersion">   16299</Data>
+		<Data Name="NumberOfProcessors">       4</Data>
+		<Data Name="EndTime">131585059946364378</Data>
+		<Data Name="TimerResolution">  156250</Data>
+		<Data Name="MaxFileSize">       0</Data>
+		<Data Name="LogFileMode">0x0</Data>
+		<Data Name="BuffersWritten">       4</Data>
+		<Data Name="StartBuffers">       1</Data>
+		<Data Name="PointerSize">       8</Data>
+		<Data Name="EventsLost">       0</Data>
+		<Data Name="CPUSpeed">    2808</Data>
+		<Data Name="LoggerName">0xA</Data>
+		<Data Name="LogFileName">0x6</Data>
+		<Data Name="BootTime">131577112604898589</Data>
+		<Data Name="PerfFreq">2742185</Data>
+		<Data Name="StartTime">131585059517736219</Data>
+		<Data Name="ReservedFlags">0x1</Data>
+		<Data Name="BuffersLost">       0</Data>
+		<Data Name="SessionNameString">mysession</Data>
+		<Data Name="LogFileNameString">C:\procsharpsources\diagnostics\ProfessionalCSharp7\Diagnostics\EventSourceSamples\EventSourceSampleInheritance\log2.etl</Data>
+	</EventData>
+	<RenderingInfo Culture="en-US">
+		<Opcode>Header</Opcode>
+		<Provider>MSNT_SystemTrace</Provider>
+		<EventName xmlns="http://schemas.microsoft.com/win/2004/08/events/trace">EventTrace</EventName>
+	</RenderingInfo>
+	<ExtendedTracingInfo xmlns="http://schemas.microsoft.com/win/2004/08/events/trace">
+		<EventGuid>{68fdd900-4a3e-11d1-84f4-0000f80464e3}</EventGuid>
+	</ExtendedTracingInfo>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+	<System>
+		<Provider Guid="{9e814aad-3204-11d2-9a82-006008a86939}" />
+		<EventID>0</EventID>
+		<Version>2</Version>
+		<Level>0</Level>
+		<Task>0</Task>
+		<Opcode>80</Opcode>
+		<Keywords>0x0</Keywords>
+		<TimeCreated SystemTime="2017-12-23T13:32:31.773621900+00:59" />
+		<Correlation ActivityID="{00000000-0000-0000-0000-000000000000}" />
+		<Execution ProcessID="14076" ThreadID="20508" ProcessorID="0" KernelTime="15" UserTime="0" />
+		<Channel />
+		<Computer />
+	</System>
+	<EventData>
+		<Data Name="EventVersion">0</Data>
+		<Data Name="Reserved">0</Data>
+		<Data Name="PartitionType">       0</Data>
+		<Data Name="QpcOffsetFromRoot">0</Data>
+		<Data Name="PartitionId">{00000000-0000-0000-0000-000000000000}</Data>
+		<Data Name="ParentId">{00000000-0000-0000-0000-000000000000}</Data>
+	</EventData>
+	<RenderingInfo Culture="en-US">
+		<Opcode>PartitionInfoExtension</Opcode>
+		<Provider>MSNT_SystemTrace</Provider>
+		<EventName xmlns="http://schemas.microsoft.com/win/2004/08/events/trace">EventTrace</EventName>
+	</RenderingInfo>
+	<ExtendedTracingInfo xmlns="http://schemas.microsoft.com/win/2004/08/events/trace">
+		<EventGuid>{68fdd900-4a3e-11d1-84f4-0000f80464e3}</EventGuid>
+	</ExtendedTracingInfo>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+	<System>
+		<Provider Name="Wrox-SampleEventSource2" Guid="{1cedea2a-a420-5660-1ff0-f718b8ea5138}" />
+		<EventID>6</EventID>
+		<Version>0</Version>
+		<Level>4</Level>
+		<Task>0</Task>
+		<Opcode>0</Opcode>
+		<Keywords>0xF00000000000</Keywords>
+		<TimeCreated SystemTime="2017-12-23T13:32:58.979541600+00:59" />
+		<Correlation ActivityID="{00000000-0000-0000-0000-000000000000}" />
+		<Execution ProcessID="6196" ThreadID="36392" ProcessorID="2" KernelTime="15" UserTime="30" />
+		<Channel />
+		<Computer />
+	</System>
+	<EventData>
+	</EventData>
+	<RenderingInfo Culture="en-US">
+		<Task>Startup</Task>
+	</RenderingInfo>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+	<System>
+		<Provider Name="Wrox-SampleEventSource2" Guid="{1cedea2a-a420-5660-1ff0-f718b8ea5138}" />
+		<EventID>7</EventID>
+		<Version>0</Version>
+		<Level>4</Level>
+		<Task>0</Task>
+		<Opcode>0</Opcode>
+		<Keywords>0xF00000000000</Keywords>
+		<TimeCreated SystemTime="2017-12-23T13:32:59.015066500+00:59" />
+		<Correlation ActivityID="{00000000-0000-0000-0000-000000000000}" />
+		<Execution ProcessID="6196" ThreadID="36392" ProcessorID="0" KernelTime="30" UserTime="45" />
+		<Channel />
+		<Computer />
+	</System>
+	<EventData>
+		<Data Name="url">http://www.cninnovation.com</Data>
+	</EventData>
+	<RenderingInfo Culture="en-US">
+		<Task>CallService</Task>
+	</RenderingInfo>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+	<System>
+		<Provider Name="Wrox-SampleEventSource2" Guid="{1cedea2a-a420-5660-1ff0-f718b8ea5138}" />
+		<EventID>8</EventID>
+		<Version>0</Version>
+		<Level>4</Level>
+		<Task>0</Task>
+		<Opcode>0</Opcode>
+		<Keywords>0xF00000000000</Keywords>
+		<TimeCreated SystemTime="2017-12-23T13:33:02.409809800+00:59" />
+		<Correlation ActivityID="{00000000-0000-0000-0000-000000000000}" />
+		<Execution ProcessID="6196" ThreadID="25996" ProcessorID="3" KernelTime="0" UserTime="120" />
+		<Channel />
+		<Computer />
+	</System>
+	<EventData>
+		<Data Name="url">http://www.cninnovation.com</Data>
+		<Data Name="length">39759</Data>
+	</EventData>
+	<RenderingInfo Culture="en-US">
+		<Task>CalledService</Task>
+	</RenderingInfo>
+</Event>
+</Events>

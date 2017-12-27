@@ -7,7 +7,7 @@ namespace LoggingSample
 {
     class SampleController
     {
-        private ILogger<SampleController> _logger;
+        private readonly ILogger<SampleController> _logger;
         public SampleController(ILogger<SampleController> logger)
         {
             _logger = logger;

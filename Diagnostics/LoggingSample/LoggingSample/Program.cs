@@ -19,6 +19,7 @@ namespace LoggingSample
 
             RegisterServices();
             await RunSampleAsync();
+            Console.WriteLine("Completed");
             Console.ReadLine();
         }
 
@@ -31,14 +32,20 @@ namespace LoggingSample
         static void RegisterServices()
         {
             var services = new ServiceCollection();
-            services.AddLogging(options =>
+            services.AddLogging(builder =>
             {
-                options.AddEventSourceLogger();
-                options.AddConsole();
+                builder.AddEventSourceLogger();
+                builder.AddConsole();
 #if DEBUG
-                options.AddDebug();
+                builder.AddDebug();
 #endif
-                //  options.AddFilter<ConsoleLoggerProvider>(level => level >= LogLevel.Error);
+               // builder.AddFilter<ConsoleLoggerProvider>("LoggingSample", LogLevel.Error);
+                builder.AddFilter<ConsoleLoggerProvider>((category, logLevel) =>
+                {
+                    if (category.Contains("SampleController") && logLevel >= LogLevel.Information) return true;
+                    else if (logLevel >= LogLevel.Error) return true;
+                    else return false;
+                });
             });
             services.AddScoped<SampleController>();
             AppServices = services.BuildServiceProvider();

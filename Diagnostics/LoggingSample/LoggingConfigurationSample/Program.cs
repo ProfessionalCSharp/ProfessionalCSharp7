@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Threading.Tasks;
 
@@ -23,6 +22,7 @@ namespace LoggingConfigurationSample
             IConfiguration configuration = configurationBuilder.Build();
             RegisterServices(configuration.GetSection("Logging"));
             await RunSampleAsync();
+            Console.WriteLine("Completed");
             Console.ReadLine();
         }
 

@@ -7,7 +7,7 @@ namespace LoggingConfigurationSample
 {
     class SampleController
     {
-        private ILogger<SampleController> _logger;
+        private readonly ILogger<SampleController> _logger;
         public SampleController(ILogger<SampleController> logger)
         {
             _logger = logger;
@@ -16,20 +16,17 @@ namespace LoggingConfigurationSample
 
         public async Task NetworkRequestSampleAsync(string url)
         {
-            using (_logger.BeginScope("NetworkRequestSampleAsync, url: {0}", url))
+            try
             {
-                try
-                {
-                    _logger.LogInformation(LoggingEvents.Networking, "Started");
-                    var client = new HttpClient();
+                _logger.LogInformation(LoggingEvents.Networking, "NetworkRequestSampleAsync started with url {0}", url);
+                var client = new HttpClient();
 
-                    string result = await client.GetStringAsync(url);
-                    _logger.LogInformation(LoggingEvents.Networking, "Completed with characters {0} received", result.Length);
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(LoggingEvents.Networking, ex, "Error, error message: {0}, HResult: {1}", ex.Message, ex.HResult);
-                }
+                string result = await client.GetStringAsync(url);
+                _logger.LogInformation(LoggingEvents.Networking, "NetworkRequestSampleAsync completed, received {0} characters", result.Length);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LoggingEvents.Networking, ex, "Error in NetworkRequestSampleAsync, error message: {0}, HResult: {1}", ex.Message, ex.HResult);
             }
         }
     }

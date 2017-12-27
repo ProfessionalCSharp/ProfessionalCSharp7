@@ -31,11 +31,11 @@ namespace LoggingScopeSample
         static void RegisterServices()
         {
             var services = new ServiceCollection();
-            services.AddLogging(options =>
+            services.AddLogging(builder =>
             {
-                options.AddEventSourceLogger();
-                options.AddConsole(consoleOptions => consoleOptions.IncludeScopes = true);
-                options.AddDebug();
+                builder.AddEventSourceLogger();
+                builder.AddConsole(options => options.IncludeScopes = true);
+                builder.AddDebug();
             });
             services.AddScoped<SampleController>();
             AppServices = services.BuildServiceProvider();

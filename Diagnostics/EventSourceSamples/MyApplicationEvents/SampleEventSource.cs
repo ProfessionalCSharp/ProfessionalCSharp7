@@ -14,7 +14,6 @@ namespace MyApplicationEvents
         public void Processing(int x) => WriteEvent(2, x);
         
         public void ProcessingStop(int x) => WriteEvent(3, x);
-        
 
         public void RequestStart() => WriteEvent(4);        
 

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Threading.Tasks;
 
-namespace LoggingSample
+namespace LoggingScopeSample
 {
     class Program
     {
@@ -34,16 +34,13 @@ namespace LoggingSample
             services.AddLogging(options =>
             {
                 options.AddEventSourceLogger();
-                options.AddConsole();
-#if DEBUG
+                options.AddConsole(consoleOptions => consoleOptions.IncludeScopes = true);
                 options.AddDebug();
-#endif
-                //  options.AddFilter<ConsoleLoggerProvider>(level => level >= LogLevel.Error);
             });
             services.AddScoped<SampleController>();
             AppServices = services.BuildServiceProvider();
         }
-         
+
         public static IServiceProvider AppServices { get; private set; }
     }
 }

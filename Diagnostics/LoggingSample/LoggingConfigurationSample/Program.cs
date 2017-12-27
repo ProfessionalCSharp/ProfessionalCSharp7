@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Threading.Tasks;
 
-namespace LoggingSample
+namespace LoggingConfigurationSample
 {
     class Program
     {
@@ -17,7 +18,10 @@ namespace LoggingSample
                 s_url = args[0];
             }
 
-            RegisterServices();
+            var configurationBuilder = new ConfigurationBuilder();
+            configurationBuilder.AddJsonFile("appsettings.json");
+            IConfiguration configuration = configurationBuilder.Build();
+            RegisterServices(configuration.GetSection("Logging"));
             await RunSampleAsync();
             Console.ReadLine();
         }
@@ -28,22 +32,21 @@ namespace LoggingSample
             await controller.NetworkRequestSampleAsync(s_url);
         }
 
-        static void RegisterServices()
+        static void RegisterServices(IConfiguration configuration)
         {
             var services = new ServiceCollection();
-            services.AddLogging(options =>
+            services.AddLogging(builder =>
             {
-                options.AddEventSourceLogger();
-                options.AddConsole();
+                builder.AddConfiguration(configuration)
+                .AddConsole();
 #if DEBUG
-                options.AddDebug();
+                builder.AddDebug();
 #endif
-                //  options.AddFilter<ConsoleLoggerProvider>(level => level >= LogLevel.Error);
             });
             services.AddScoped<SampleController>();
             AppServices = services.BuildServiceProvider();
         }
-         
+
         public static IServiceProvider AppServices { get; private set; }
     }
 }

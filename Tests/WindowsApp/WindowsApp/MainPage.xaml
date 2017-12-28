@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="WindowsApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Viewbox>
+            <StackPanel>
+                <TextBox AutomationProperties.AutomationId="textIn" x:Name="textIn" Margin="8" />
+                <Button AutomationProperties.AutomationId="button1" Click="OnClickButton" Content="Click Me!" Margin="8" />
+                <TextBlock AutomationProperties.AutomationId="textOut" x:Name="textOut" Margin="8" />
+            </StackPanel>
+
+        </Viewbox>
+    </Grid>
+</Page>

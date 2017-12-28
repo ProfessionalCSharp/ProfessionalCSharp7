@@ -28,8 +28,11 @@ namespace EFCoreSample
         [Fact]
         public void GetTopBooksByPublisherCount()
         {
+            // arrange
             var booksService = new BooksService(_booksContext);
+            // act
             var topbooks = booksService.GetTopBooksByPublisher(PublisherName);
+            // assert
             Assert.Equal(10, topbooks.Count());
         }
 

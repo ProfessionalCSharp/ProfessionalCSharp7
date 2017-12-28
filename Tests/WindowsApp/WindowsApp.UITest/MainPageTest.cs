@@ -11,23 +11,24 @@ using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 
 namespace WindowsApp.UITest
 {
-    /// <summary>
-    /// Summary description for CodedUITest1
-    /// </summary>
     [CodedUITest(CodedUITestType.WindowsStore)]
-    public class CodedUITest1
+    public class MainPageTest
     {
-        private string TitleAutomationId = "P~0e07ecab-af0f-4129-965b-eed7a5beef75_p2wxv0ry6mv8g!App";
-        public CodedUITest1()
+        private string TileAutomationId = "0e07ecab-af0f-4129-965b-eed7a5beef75_p2wxv0ry6mv8g!App";
+        public MainPageTest()
         {
         }
 
         [TestMethod]
-        public void CodedUITestMethod1()
+        public void EnterTextAndButtonClick()
         {
-            // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
-            XamlWindow xamlWindow = XamlWindow.Launch(TitleAutomationId);
-
+            string inText = "Hello, Windows!";
+            XamlWindow xamlWindow = XamlWindow.Launch(TileAutomationId);
+            UIMap.UIWindowsAppWindow.UITextInEdit.Text = inText;
+            Gesture.Tap(UIMap.UIWindowsAppWindow.UIClickMeButton);
+            string outText = UIMap.UIWindowsAppWindow.UITextOutText.DisplayText;
+            xamlWindow.Close();
+            Assert.AreEqual(inText, outText);
         }
 
         #region Additional test attributes
@@ -56,14 +57,8 @@ namespace WindowsApp.UITest
         ///</summary>
         public TestContext TestContext
         {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
+            get => testContextInstance;
+            set => testContextInstance = value;
         }
         private TestContext testContextInstance;
 

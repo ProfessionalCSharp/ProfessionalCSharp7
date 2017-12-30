@@ -57,7 +57,10 @@ namespace BooksLib.ViewModels
 
         private void OnAddBook()
         {
-          //  EventAggregator<BookInfoEvent>.Instance.Publish(this, new BookInfoEvent { BookId = 0 });
+            var bookVM = new BookViewModel(new Book());
+            this.Items.Add(bookVM);
+            this.SelectedItem = bookVM;
+            this.IsEditMode = true;
         }      
 
         protected override Book GetSelectedItem()

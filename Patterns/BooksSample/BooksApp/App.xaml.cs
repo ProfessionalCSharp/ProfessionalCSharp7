@@ -1,4 +1,5 @@
-﻿using BooksLib.Services;
+﻿using BooksApp.Services;
+using BooksLib.Services;
 using BooksLib.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -109,6 +110,7 @@ namespace BooksApp
             services.AddSingleton<IBooksRepository, BooksSampleRepository>();
             services.AddSingleton<IBooksService, BooksService>();
             services.AddTransient<ManageBooksViewModel>();
+            services.AddSingleton<IShowMessageService, UWPMessageService>();
             services.AddLogging(builder =>
             {
 #if DEBUG

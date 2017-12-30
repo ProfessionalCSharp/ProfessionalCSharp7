@@ -58,9 +58,9 @@ namespace BooksLib.ViewModels
         private void OnAddBook()
         {
             var bookVM = new BookViewModel(new Book());
-            this.Items.Add(bookVM);
-            this.SelectedItem = bookVM;
-            this.IsEditMode = true;
+            Items.Add(bookVM);
+            SelectedItem = bookVM;
+            IsEditMode = true;
         }      
 
         protected override Book GetSelectedItem()

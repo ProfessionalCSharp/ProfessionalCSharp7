@@ -21,20 +21,20 @@ namespace BooksLib.ViewModels
             _logger = logger;
             _showMessage = showMessage;
 
-            GetBooksCommand = new RelayCommand(OnGetBooks, CanGetBooks);
+            ReadBooksCommand = new RelayCommand(OnReadBooks, CanGetBooks);
             AddBookCommand = new RelayCommand(OnAddBook);
         }
-        public RelayCommand GetBooksCommand { get; }
+        public RelayCommand ReadBooksCommand { get; }
         public RelayCommand AddBookCommand { get; }
 
-        public async void OnGetBooks()
+        public async void OnReadBooks()
         {
             using (StartInProgress())
             {
                 await RefreshBooksAsync();
 
                 _canGetBooks = false;
-                GetBooksCommand.OnCanExecuteChanged();
+                ReadBooksCommand.OnCanExecuteChanged();
             }
         }
 
@@ -45,7 +45,7 @@ namespace BooksLib.ViewModels
             
             foreach (var book in books)
             {
-                Items.Add(new BookViewModel(book));
+                Items.Add(new BookViewModel(book, this));
             }
 
             SelectedItem = Items.First();
@@ -57,16 +57,11 @@ namespace BooksLib.ViewModels
 
         private void OnAddBook()
         {
-            var bookVM = new BookViewModel(new Book());
+            var bookVM = new BookViewModel(new Book(), this);
             Items.Add(bookVM);
             SelectedItem = bookVM;
             IsEditMode = true;
         }      
-
-        protected override Book GetSelectedItem()
-        {
-            return base.GetSelectedItem();
-        }
 
         protected override Book CreateCopyOfItem(Book book) =>
             new Book
@@ -75,22 +70,6 @@ namespace BooksLib.ViewModels
                 Title = book.Title,
                 Publisher = book.Publisher
             };
-
-        public override void BeginEdit()
-        {
-            base.BeginEdit();
-        }
-
-
-        public override void CancelEdit()
-        {
-            base.CancelEdit();
-        }
-
-        public override void EndEdit()
-        {
-            base.EndEdit();
-        }
 
         protected async override void OnSave()
         {
@@ -109,6 +88,16 @@ namespace BooksLib.ViewModels
             {
                 await _showMessage.ShowMessageAsync(ex.Message);
             } 
+        }
+
+        public async Task DeleteBookAsync(BookViewModel bookViewModel)
+        {
+            using (StartInProgress())
+            {
+                await _booksService.DeleteBookAsync(bookViewModel.Item);
+                await RefreshBooksAsync();
+                SelectedItem = Items.First();
+            }
         }
     }
 }

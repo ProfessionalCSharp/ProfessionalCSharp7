@@ -6,14 +6,10 @@ namespace BooksLib.Services
 {
     public interface IBooksService
     {
-        // Task RefreshBooksAsync();
-
-        // IEnumerable<Book> Books { get; }
-
         Task<IEnumerable<Book>> GetBooksAsync();
 
-       // Book GetBook(int bookId);
-
         Task<Book> AddOrUpdateBookAsync(Book book);
+
+        Task DeleteBookAsync(Book book);
     }
 }

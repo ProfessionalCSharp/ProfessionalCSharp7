@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <ProgressBar Margin="8" HorizontalAlignment="Stretch" Visibility="{x:Bind ViewModel.InProgress, Mode=OneWay}" IsIndeterminate="True" Grid.ColumnSpan="2" />
         <CommandBar Grid.Row="1">
-            <AppBarButton Icon="Download" Command="{x:Bind ViewModel.GetBooksCommand}" Label="Get Books" />
+            <AppBarButton Icon="Refresh" Command="{x:Bind ViewModel.ReadBooksCommand}" Label="Get Books" />
             <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddBookCommand}" Label="Add Book" />
         </CommandBar>
         <ListView Grid.Row="2" ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" 
@@ -30,6 +30,7 @@
                 <DataTemplate x:DataType="vm:BookViewModel">
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="{x:Bind Item.Title, Mode=OneWay}" />
+                        <AppBarButton Icon="Delete" Label="Delete" Command="{x:Bind DeleteBookCommand, Mode=OneTime}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

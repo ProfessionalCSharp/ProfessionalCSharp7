@@ -27,6 +27,9 @@ namespace BooksLib.Services
             return updated;
         }
 
+        public Task DeleteBookAsync(Book book) =>
+            _booksRepository.DeleteAsync(book.BookId);
+
         public Task<IEnumerable<Book>> GetBooksAsync() => 
             _booksRepository.GetItemsAsync();
     }

@@ -2,7 +2,7 @@
 
 namespace BooksLib.Services
 {
-    public interface IShowMessageService
+    public interface IMessageService
     {
         Task ShowMessageAsync(string message);
     }

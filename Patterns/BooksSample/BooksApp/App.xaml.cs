@@ -110,7 +110,7 @@ namespace BooksApp
             services.AddSingleton<IBooksRepository, BooksSampleRepository>();
             services.AddSingleton<IBooksService, BooksService>();
             services.AddTransient<ManageBooksViewModel>();
-            services.AddSingleton<IShowMessageService, UWPMessageService>();
+            services.AddSingleton<IMessageService, UWPMessageService>();
             services.AddLogging(builder =>
             {
 #if DEBUG

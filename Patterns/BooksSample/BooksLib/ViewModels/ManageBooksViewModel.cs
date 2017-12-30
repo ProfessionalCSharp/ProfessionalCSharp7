@@ -13,9 +13,9 @@ namespace BooksLib.ViewModels
     {
         private readonly IBooksService _booksService;
         private readonly ILogger<ManageBooksViewModel> _logger;
-        private readonly IShowMessageService _showMessage;
+        private readonly IMessageService _showMessage;
 
-        public ManageBooksViewModel(IBooksService booksService, ILogger<ManageBooksViewModel> logger, IShowMessageService showMessage)
+        public ManageBooksViewModel(IBooksService booksService, ILogger<ManageBooksViewModel> logger, IMessageService showMessage)
         {
             _booksService = booksService;
             _logger = logger;

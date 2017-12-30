@@ -8,7 +8,7 @@ using Windows.UI.Popups;
 
 namespace BooksApp.Services
 {
-    public class UWPMessageService : IShowMessageService
+    public class UWPMessageService : IMessageService
     {
         public async Task ShowMessageAsync(string message) => await new MessageDialog(message).ShowAsync();
     }

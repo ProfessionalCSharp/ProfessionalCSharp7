@@ -99,6 +99,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UWPMessageService.cs" />
     <Compile Include="Views\BookDetailUserControl.xaml.cs">
       <DependentUpon>BookDetailUserControl.xaml</DependentUpon>
     </Compile>

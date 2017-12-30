@@ -12,17 +12,19 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <CommandBar>
+        <ProgressBar Margin="8" HorizontalAlignment="Stretch" Visibility="{x:Bind ViewModel.InProgress, Mode=OneWay}" IsIndeterminate="True" Grid.ColumnSpan="2" />
+        <CommandBar Grid.Row="1">
             <AppBarButton Icon="Download" Command="{x:Bind ViewModel.GetBooksCommand}" Label="Get Books" />
             <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddBookCommand}" Label="Add Book" />
         </CommandBar>
-        <ListView Grid.Row="1" ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" 
+        <ListView Grid.Row="2" ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" 
                  SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:BookViewModel">
@@ -32,6 +34,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <views:BookDetailUserControl ViewModel="{x:Bind ViewModel, Mode=OneTime}" Grid.Column="1" Grid.Row="1" />
+        <views:BookDetailUserControl ViewModel="{x:Bind ViewModel, Mode=OneTime}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
     </Grid>
 </Page>

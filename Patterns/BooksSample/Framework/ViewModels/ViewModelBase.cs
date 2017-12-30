@@ -1,9 +1,21 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 
 namespace Framework.ViewModels
 {
     public abstract class ViewModelBase : BindableObject
     {
+        private class StateSetter : IDisposable
+        {
+            private Action _end;
+            public StateSetter(Action start, Action end)
+            {
+                start?.Invoke();
+                _end = end;
+            }
+            public void Dispose() => _end?.Invoke();
+        }
+
         private int _inProgressCounter = 0;
         protected void SetInProgress(bool set = true)
         {
@@ -18,6 +30,9 @@ namespace Framework.ViewModels
                 OnPropertyChanged(nameof(InProgress));
             }
         }
+
+        public IDisposable StartInProgress() => 
+            new StateSetter(() => SetInProgress(), () => SetInProgress(false));
 
         public bool InProgress => _inProgressCounter != 0;
 

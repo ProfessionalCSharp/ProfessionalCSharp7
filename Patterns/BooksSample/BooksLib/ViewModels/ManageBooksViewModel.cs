@@ -3,6 +3,7 @@ using BooksLib.Services;
 using Framework;
 using Framework.ViewModels;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,11 +13,13 @@ namespace BooksLib.ViewModels
     {
         private readonly IBooksService _booksService;
         private readonly ILogger<ManageBooksViewModel> _logger;
+        private readonly IShowMessageService _showMessage;
 
-        public ManageBooksViewModel(IBooksService booksService, ILogger<ManageBooksViewModel> logger)
+        public ManageBooksViewModel(IBooksService booksService, ILogger<ManageBooksViewModel> logger, IShowMessageService showMessage)
         {
             _booksService = booksService;
             _logger = logger;
+            _showMessage = showMessage;
 
             GetBooksCommand = new RelayCommand(OnGetBooks, CanGetBooks);
             AddBookCommand = new RelayCommand(OnAddBook);
@@ -26,11 +29,13 @@ namespace BooksLib.ViewModels
 
         public async void OnGetBooks()
         {
-            // await _booksService.LoadBooksAsync();
-            await RefreshBooksAsync();
+            using (StartInProgress())
+            {
+                await RefreshBooksAsync();
 
-            _canGetBooks = false;
-           GetBooksCommand.OnCanExecuteChanged();
+                _canGetBooks = false;
+                GetBooksCommand.OnCanExecuteChanged();
+            }
         }
 
         public async Task RefreshBooksAsync()
@@ -53,9 +58,7 @@ namespace BooksLib.ViewModels
         private void OnAddBook()
         {
           //  EventAggregator<BookInfoEvent>.Instance.Publish(this, new BookInfoEvent { BookId = 0 });
-        }
-
-       
+        }      
 
         protected override Book GetSelectedItem()
         {
@@ -88,10 +91,21 @@ namespace BooksLib.ViewModels
 
         protected async override void OnSave()
         {
-            await _booksService.AddOrUpdateBookAsync(EditItem);
-            var selectedId = SelectedItem.Item.BookId;
-            await RefreshBooksAsync();
-            SelectedItem = Items.Single(b => b.Item.BookId == selectedId);
+            try
+            {
+                using (StartInProgress())
+                {
+                    await _booksService.AddOrUpdateBookAsync(EditItem);
+                    await Task.Delay(5000); // simulate think time
+                    var selectedId = SelectedItem.Item.BookId;
+                    await RefreshBooksAsync();
+                    SelectedItem = Items.Single(b => b.Item.BookId == selectedId);
+                }
+            }
+            catch (Exception ex)
+            {
+                await _showMessage.ShowMessageAsync(ex.Message);
+            } 
         }
     }
 }

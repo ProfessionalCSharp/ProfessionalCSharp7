@@ -89,7 +89,9 @@ namespace BooksLib.ViewModels
         protected async override void OnSave()
         {
             await _booksService.AddOrUpdateBookAsync(EditItem);
+            var selectedId = SelectedItem.Item.BookId;
             await RefreshBooksAsync();
+            SelectedItem = Items.Single(b => b.Item.BookId == selectedId);
         }
     }
 }

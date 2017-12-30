@@ -20,8 +20,8 @@
             <AppBarButton Content="Cancel" Icon="Cancel" Command="{x:Bind ViewModel.CancelEditModeCommand, Mode=OneTime}" />
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1">
-            <TextBox IsReadOnly="{x:Bind ViewModel.IsReadMode, Mode=OneWay}" Text="{x:Bind ViewModel.EditItem.Title, Mode=TwoWay}" />
-            <TextBox IsReadOnly="{x:Bind ViewModel.IsReadMode, Mode=OneWay}" Text="{x:Bind ViewModel.EditItem.Publisher, Mode=TwoWay}" />
+            <TextBox IsReadOnly="{x:Bind ViewModel.IsReadMode, Mode=OneWay}" Text="{x:Bind ViewModel.EditItem.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox IsReadOnly="{x:Bind ViewModel.IsReadMode, Mode=OneWay}" Text="{x:Bind ViewModel.EditItem.Publisher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </Grid>
 </UserControl>

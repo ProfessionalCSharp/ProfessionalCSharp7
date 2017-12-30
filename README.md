@@ -12,6 +12,7 @@ To run many of the code samples on Linux, here is the installation procedure for
 
 Samples available for these chapters (sample folders)
 
+* Chapter 1 - .NET Applications and Tools (HelloWorld)
 * Chapter 2 - Core C# (CoreCsharp)
 * Chapter 3 - Objects and Types (ObjectsAndTypes)
 * Chapter 4 - Object-Oriented Programming with C# (ObjectOrientation)
@@ -39,6 +40,8 @@ Samples available for these chapters (sample folders)
 * Chapter 27 - ADO.NET and Transactions (ADONet)
 * Chapter 28 - Entity Framework Core (EFCore)
 * Chapter 29 - Localization (Localization)
+* Chapter 30 - Testing (Tests)
+* Chapter 31 - Tracing, Logging, and Analytics (Diagnostics)
 * Chapter 32 - ASP.NET Core (ASPNETCore)
 * Chapter 33 - ASP.NET Core MVC (MVC)
 * Chapter 34 - Web API (API)

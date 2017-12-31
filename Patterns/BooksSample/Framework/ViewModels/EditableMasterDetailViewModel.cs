@@ -81,9 +81,6 @@ namespace Framework.ViewModels
                 {
                     IsEditMode = false;
                     OnPropertyChanged(nameof(EditItem));
-                    //ClearAndResetSelectedItems(_selectedItem);
-
-                    //SetSelectedItem(_selectedItem);
                 }
             }
         }

@@ -48,7 +48,7 @@ namespace BooksLib.ViewModels
                 Items.Add(new BookViewModel(book, this));
             }
 
-            SelectedItem = Items.First();
+            SelectedItem = Items.FirstOrDefault();
         }
 
         private bool _canGetBooks = true;
@@ -96,7 +96,6 @@ namespace BooksLib.ViewModels
             {
                 await _booksService.DeleteBookAsync(bookViewModel.Item);
                 await RefreshBooksAsync();
-                SelectedItem = Items.First();
             }
         }
     }

@@ -8,6 +8,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="BookItemTemplate" x:DataType="vm:BookViewModel">
+            <views:BookItemUserControl BookViewModel="{x:Bind }" />
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -24,16 +29,8 @@
             <AppBarButton Icon="Refresh" Command="{x:Bind ViewModel.ReadBooksCommand}" Label="Get Books" />
             <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddBookCommand}" Label="Add Book" />
         </CommandBar>
-        <ListView Grid.Row="2" ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" 
+        <ListView ItemTemplate="{StaticResource BookItemTemplate}" Grid.Row="2" ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" 
                  SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" >
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="vm:BookViewModel">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{x:Bind Item.Title, Mode=OneWay}" />
-                        <AppBarButton Icon="Delete" Label="Delete" Command="{x:Bind DeleteBookCommand, Mode=OneTime}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
         </ListView>
         <views:BookDetailUserControl ViewModel="{x:Bind ViewModel, Mode=OneTime}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
     </Grid>

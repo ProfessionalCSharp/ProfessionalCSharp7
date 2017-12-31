@@ -103,6 +103,9 @@
     <Compile Include="Views\BookDetailUserControl.xaml.cs">
       <DependentUpon>BookDetailUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BookItemUserControl.xaml.cs">
+      <DependentUpon>BookItemUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BooksPage.xaml.cs">
       <DependentUpon>BooksPage.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BookItemUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BooksPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,7 +159,9 @@
       <Version>6.0.5</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BooksLib\BooksLib.csproj">
       <Project>{214B320A-5718-40E2-82DF-799C55A4ED19}</Project>

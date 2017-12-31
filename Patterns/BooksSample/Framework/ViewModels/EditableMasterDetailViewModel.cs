@@ -6,6 +6,7 @@ namespace Framework.ViewModels
         where TItemViewModel : IItemViewModel<TItem>
         where TItem : class
     {
+        #region Commands
         public EditableMasterDetailViewModel()
         {
             SaveCommand = new RelayCommand(EndEdit, () => IsEditMode);
@@ -20,7 +21,9 @@ namespace Framework.ViewModels
         public RelayCommand EditModeCommand { get; }
         public RelayCommand CancelEditModeCommand { get; }
         public RelayCommand SaveCommand { get; }
+        #endregion
 
+        #region Edit / Read Mode
         private bool _isEditMode;
         public bool IsReadMode => !IsEditMode;
         public bool IsEditMode
@@ -38,6 +41,24 @@ namespace Framework.ViewModels
             }
         }
 
+        // override from MasterDetailViewModel to change edit mode
+        public override TItemViewModel SelectedItem
+        {
+            get => base.SelectedItem;
+            set
+            {
+                if (value == null) return;
+
+                if (Set(ref _selectedItem, value))
+                {
+                    IsEditMode = false;
+                    OnPropertyChanged(nameof(EditItem));
+                }
+            }
+        }
+        #endregion
+
+        #region Copy Item for Edit Mode
         private TItem _editItem;
         public TItem EditItem
         {
@@ -46,7 +67,9 @@ namespace Framework.ViewModels
         }
 
         protected virtual TItem GetSelectedItem() => SelectedItem?.Item;
+        #endregion
 
+        #region IEditableObject
         public virtual void BeginEdit()
         {
             IsEditMode = true;
@@ -71,25 +94,12 @@ namespace Framework.ViewModels
             OnSave();
             EditItem = null;
         }
+        #endregion
 
+        #region Overrides Needed By Derived Class
         protected abstract void OnSave();
-
         protected abstract void OnAdd();
         protected abstract void OnRefresh();
-
-        public override TItemViewModel SelectedItem
-        {
-            get => base.SelectedItem;
-            set
-            {
-                if (value == null) return;
-
-                if (Set(ref _selectedItem, value))
-                {
-                    IsEditMode = false;
-                    OnPropertyChanged(nameof(EditItem));
-                }
-            }
-        }
+        #endregion
     }
 }

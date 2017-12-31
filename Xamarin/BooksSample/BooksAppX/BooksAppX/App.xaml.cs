@@ -1,8 +1,10 @@
 ﻿using System;
 using BooksAppX.Services;
 using BooksAppX.Views;
+using BooksLib.Models;
 using BooksLib.Services;
 using BooksLib.ViewModels;
+using Framework.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
 
@@ -38,9 +40,11 @@ namespace BooksAppX
         {
             var services = new ServiceCollection();
             services.AddSingleton<IBooksRepository, BooksSampleRepository>();
-            services.AddSingleton<IBooksService, BooksService>();
-            services.AddTransient<ManageBooksViewModel>();
+            services.AddSingleton<IEditModeService, EditModeService>();
+            services.AddSingleton<IItemsService<Book>, BooksService>();
+            services.AddTransient<BooksViewModel>();
             services.AddSingleton<IMessageService, XamarinMessageService>();
+            services.AddSingleton<ISelectedItemService<Book>, SelectedItemService<Book>>();
             services.AddLogging();
 //            builder =>
 //            {

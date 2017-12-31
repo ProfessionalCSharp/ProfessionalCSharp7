@@ -16,12 +16,13 @@
                  IsPullToRefreshEnabled="true"
                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                  CachingStrategy="RecycleElement"
-                 SelectedItem="{Binding ViewModel.SelectedItem, Mode=TwoWay}">
+                 SelectedItem="{Binding ViewModel.SelectedItem, Mode=TwoWay}"
+                 ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Item.Title}" 
+                                <Label Text="{Binding Title}" 
                        LineBreakMode="NoWrap" 
                        Style="{DynamicResource ListItemTextStyle}" 
                        FontSize="16" />

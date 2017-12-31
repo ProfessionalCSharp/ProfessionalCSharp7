@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Framework.Services;
+using System.ComponentModel;
 
 namespace Framework.ViewModels
 {
@@ -7,8 +8,10 @@ namespace Framework.ViewModels
         where TItem : class
     {
         #region Commands
-        public EditableMasterDetailViewModel()
+        public EditableMasterDetailViewModel(ISelectedItemService<TItem> selectedItemService)
         {
+            _selectedItemService = selectedItemService;
+
             SaveCommand = new RelayCommand(EndEdit, () => IsEditMode);
             CancelEditModeCommand = new RelayCommand(CancelEdit, () => IsEditMode);
             EditModeCommand = new RelayCommand(BeginEdit, () => IsReadMode);
@@ -52,6 +55,7 @@ namespace Framework.ViewModels
                 if (Set(ref _selectedItem, value))
                 {
                     IsEditMode = false;
+                    _selectedItemService.SelectedItem = _selectedItem.Item;
                     OnPropertyChanged(nameof(EditItem));
                 }
             }

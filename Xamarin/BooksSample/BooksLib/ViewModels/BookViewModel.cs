@@ -6,12 +6,12 @@ namespace BooksLib.ViewModels
 {
     public class BookViewModel : ItemViewModel<Book>
     {
-        private readonly ManageBooksViewModel _viewModel;
+        private readonly BooksViewModel _viewModel;
 
-        public BookViewModel(Book book, ManageBooksViewModel manageBooksViewModel)
-            : base(book)
+        public BookViewModel(Book book, BooksViewModel manageBooksViewModel)
         {
             _viewModel = manageBooksViewModel;
+            Item = book;
             DeleteBookCommand = new RelayCommand(OnDeleteBook);
         }
 
@@ -19,7 +19,7 @@ namespace BooksLib.ViewModels
 
         private async void OnDeleteBook()
         {
-            await _viewModel.DeleteBookAsync(this);
+           // await _viewModel.DeleteBookAsync(this);
         }
     }
 }

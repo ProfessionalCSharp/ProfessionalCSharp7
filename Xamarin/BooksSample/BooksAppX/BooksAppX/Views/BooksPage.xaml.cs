@@ -14,6 +14,18 @@ namespace BooksAppX.Views
             this.BindingContext = this;
         }
 
-        public ManageBooksViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<ManageBooksViewModel>();
+        public BooksViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<BooksViewModel>();
+
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var item = args.SelectedItem as BookViewModel;
+            if (item == null)
+                return;
+
+            // await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+
+            // Manually deselect item.
+           // ItemsListView.SelectedItem = null;
+        }
     }
 }

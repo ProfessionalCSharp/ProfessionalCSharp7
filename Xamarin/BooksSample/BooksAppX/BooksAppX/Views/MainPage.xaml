@@ -12,6 +12,7 @@
             </NavigationPage.Icon>
             <x:Arguments>
                 <views:BooksPage />
+                <!--<views:ItemsPage />-->
             </x:Arguments>
         </NavigationPage>
         

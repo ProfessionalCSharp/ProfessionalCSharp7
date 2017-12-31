@@ -1,22 +1,60 @@
-﻿using System.Collections.ObjectModel;
+﻿using Framework.Services;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Framework.ViewModels
 {
     public abstract class MasterDetailViewModel<TItemViewModel, TItem> : ViewModelBase
+        where TItemViewModel : IItemViewModel<TItem>
     {
-        private readonly ObservableCollection<TItemViewModel> _items = new ObservableCollection<TItemViewModel>();
+        private readonly IItemsService<TItem> _itemsService;
+        private readonly IEditModeService _editModeService;
 
-        public ObservableCollection<TItemViewModel> Items => _items;
-
-        protected TItemViewModel _selectedItem;
-        public virtual TItemViewModel SelectedItem
+        public MasterDetailViewModel(IItemsService<TItem> itemsService, IEditModeService editModeService)
         {
-            get => _selectedItem;
-            set
+            _itemsService = itemsService;
+            _editModeService = editModeService;
+            _editModeService.EditModeChanged += (sender, mode) => AddCommand.OnCanExecuteChanged();
+
+            RefreshCommand = new RelayCommand(OnRefresh);
+            AddCommand = new RelayCommand(OnAdd, () => _editModeService.IsReadMode);
+        }
+
+        public RelayCommand RefreshCommand { get; }
+        public RelayCommand AddCommand { get; }
+
+        public ObservableCollection<TItem> Items => _itemsService.Items;
+
+        protected abstract TItemViewModel ToViewModel(TItem item);
+
+        public virtual IEnumerable<TItemViewModel> ItemsViewModels => _itemsService.Items.Select(item => ToViewModel(item));
+
+        protected TItem _selectedItem;
+        public virtual TItem SelectedItem
+        {
+            get => _itemsService.SelectedItem;
+            set => _itemsService.SelectedItem = value;
+        }
+
+        public async void OnRefresh()
+        {
+            using (StartInProgress())
             {
-                if (value == null) return;
-                Set(ref _selectedItem, value);
+                await OnRefreshAsync();
             }
+        }
+
+        protected async Task OnRefreshAsync()
+        {
+            await _itemsService.RefreshAsync();
+            _editModeService.IsEditMode = false;
+        }
+
+        public virtual void OnAdd()
+        {
+            _editModeService.IsEditMode = true;
         }
     }
 }

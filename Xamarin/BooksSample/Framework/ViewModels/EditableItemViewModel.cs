@@ -1,16 +1,23 @@
-﻿using System.ComponentModel;
+﻿using Framework.Services;
 
 namespace Framework.ViewModels
 {
-    public abstract class EditableItemViewModel<TItem> : ItemViewModel<TItem>, IEditableObject
+    public abstract class EditableItemViewModel<TItem> : ItemViewModel<TItem>, IEditableObjectContainer<TItem>
         where TItem : class
     {
-        public EditableItemViewModel(TItem item)
-            : base(item)
+        private readonly EditableObject<TItem> _editableObject;
+        private readonly ISelectedItemService<TItem> _selectedItemService;
+
+        public EditableItemViewModel(ISelectedItemService<TItem> selectedItemService)
         {
-            SaveCommand = new RelayCommand(EndEdit, () => IsEditMode);
-            CancelEditModeCommand = new RelayCommand(CancelEdit, () => IsEditMode);
-            EditModeCommand = new RelayCommand(BeginEdit, () => IsReadMode);
+            _selectedItemService = selectedItemService;
+            Item = _selectedItemService.SelectedItem;
+
+            _editableObject = new EditableObject<TItem>(this);
+
+            SaveCommand = new RelayCommand(_editableObject.EndEdit, () => IsEditMode);
+            CancelEditModeCommand = new RelayCommand(_editableObject.CancelEdit, () => IsEditMode);
+            EditModeCommand = new RelayCommand(_editableObject.BeginEdit, () => IsReadMode);
             AddCommand = new RelayCommand(OnAdd, () => IsReadMode);
         }
 
@@ -25,7 +32,7 @@ namespace Framework.ViewModels
         public bool IsEditMode
         {
             get => _isEditMode;
-            protected set
+            set
             {
                 if (Set(ref _isEditMode, value))
                 {
@@ -44,40 +51,15 @@ namespace Framework.ViewModels
         public TItem EditItem
         {
             get => _editItem ?? Item;
-            private set => Set(ref _editItem, value);
+            set => Set(ref _editItem, value);
         }
 
         #endregion
 
-        #region IEditableObject
-        public virtual void BeginEdit()
-        {
-            IsEditMode = true;
-            TItem itemCopy = CreateCopyOfItem(Item);
-            if (itemCopy != null)
-            {
-                EditItem = itemCopy;
-            }
-        }
-
-        protected virtual TItem CreateCopyOfItem(TItem item) => null;
-
-        public virtual void CancelEdit()
-        {
-            IsEditMode = false;
-            EditItem = null;
-        }
-
-        public virtual void EndEdit()
-        {
-            IsEditMode = false;
-            OnSave();
-            EditItem = null;
-        }
-        #endregion
+        public abstract TItem CreateCopyOfItem(TItem item);
 
         #region Overrides Needed By Derived Class
-        protected abstract void OnSave();
+        public abstract void OnSave();
         protected abstract void OnAdd();
         #endregion
     }

@@ -1,6 +1,9 @@
 ﻿using System;
-
+using BooksAppX.Services;
 using BooksAppX.Views;
+using BooksLib.Services;
+using BooksLib.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
 
 namespace BooksAppX
@@ -11,14 +14,14 @@ namespace BooksAppX
 		public App ()
 		{
 			InitializeComponent();
-
+            RegisterServices();
 
             MainPage = new MainPage();
         }
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
+
 		}
 
 		protected override void OnSleep ()
@@ -30,5 +33,24 @@ namespace BooksAppX
 		{
 			// Handle when your app resumes
 		}
+
+        private void RegisterServices()
+        {
+            var services = new ServiceCollection();
+            services.AddSingleton<IBooksRepository, BooksSampleRepository>();
+            services.AddSingleton<IBooksService, BooksService>();
+            services.AddTransient<ManageBooksViewModel>();
+            services.AddSingleton<IMessageService, XamarinMessageService>();
+            services.AddLogging();
+//            builder =>
+//            {
+//#if DEBUG
+//                builder.AddDebug();
+//#endif
+//            });
+            AppServices = services.BuildServiceProvider();
+        }
+
+        public IServiceProvider AppServices { get; private set; }
 	}
 }

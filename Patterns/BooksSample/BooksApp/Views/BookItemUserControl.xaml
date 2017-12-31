@@ -15,7 +15,7 @@
         </MenuFlyout>
     </UserControl.ContextFlyout>
 
-    <Grid Background="Yellow">
+    <Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="HoveringStates">
                 <VisualState x:Name="HoverButtonsShown">

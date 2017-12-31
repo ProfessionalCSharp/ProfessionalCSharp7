@@ -26,8 +26,8 @@
         </Grid.ColumnDefinitions>
         <ProgressBar Margin="8" HorizontalAlignment="Stretch" Visibility="{x:Bind ViewModel.InProgress, Mode=OneWay}" IsIndeterminate="True" Grid.ColumnSpan="2" />
         <CommandBar Grid.Row="1">
-            <AppBarButton Icon="Refresh" Command="{x:Bind ViewModel.ReadBooksCommand}" Label="Get Books" />
-            <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddBookCommand}" Label="Add Book" />
+            <AppBarButton Icon="Refresh" Command="{x:Bind ViewModel.RefreshCommand}" Label="Get Books" />
+            <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddCommand}" Label="Add Book" />
         </CommandBar>
         <ListView ItemTemplate="{StaticResource BookItemTemplate}" Grid.Row="2" ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" 
                  SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" >

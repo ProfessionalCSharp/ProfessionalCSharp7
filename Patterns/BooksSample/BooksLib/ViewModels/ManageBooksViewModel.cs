@@ -20,21 +20,22 @@ namespace BooksLib.ViewModels
             _booksService = booksService;
             _logger = logger;
             _showMessage = showMessage;
-
-            ReadBooksCommand = new RelayCommand(OnReadBooks, CanGetBooks);
-            AddBookCommand = new RelayCommand(OnAddBook);
         }
-        public RelayCommand ReadBooksCommand { get; }
-        public RelayCommand AddBookCommand { get; }
 
-        public async void OnReadBooks()
+        protected async override void OnRefresh()
         {
             using (StartInProgress())
             {
                 await RefreshBooksAsync();
-
-                ReadBooksCommand.OnCanExecuteChanged();
             }
+        }
+
+        protected override void OnAdd()
+        {
+            var bookVM = new BookViewModel(new Book(), this);
+            Items.Add(bookVM);
+            SelectedItem = bookVM;
+            IsEditMode = true;
         }
 
         public async Task RefreshBooksAsync()
@@ -53,14 +54,6 @@ namespace BooksLib.ViewModels
         private bool _canGetBooks = true;
 
         public bool CanGetBooks() => _canGetBooks;
-
-        private void OnAddBook()
-        {
-            var bookVM = new BookViewModel(new Book(), this);
-            Items.Add(bookVM);
-            SelectedItem = bookVM;
-            IsEditMode = true;
-        }      
 
         protected override Book CreateCopyOfItem(Book book) =>
             new Book

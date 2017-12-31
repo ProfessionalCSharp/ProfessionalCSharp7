@@ -11,8 +11,12 @@ namespace Framework.ViewModels
             SaveCommand = new RelayCommand(EndEdit, () => IsEditMode);
             CancelEditModeCommand = new RelayCommand(CancelEdit, () => IsEditMode);
             EditModeCommand = new RelayCommand(BeginEdit, () => IsReadMode);
+            RefreshCommand = new RelayCommand(OnRefresh);
+            AddCommand = new RelayCommand(OnAdd, () => IsReadMode);
         }
 
+        public RelayCommand RefreshCommand { get; }
+        public RelayCommand AddCommand { get; }
         public RelayCommand EditModeCommand { get; }
         public RelayCommand CancelEditModeCommand { get; }
         public RelayCommand SaveCommand { get; }
@@ -68,7 +72,10 @@ namespace Framework.ViewModels
             EditItem = null;
         }
 
-        protected virtual void OnSave() { }
+        protected abstract void OnSave();
+
+        protected abstract void OnAdd();
+        protected abstract void OnRefresh();
 
         public override TItemViewModel SelectedItem
         {

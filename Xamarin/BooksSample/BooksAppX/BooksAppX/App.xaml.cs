@@ -40,11 +40,10 @@ namespace BooksAppX
         {
             var services = new ServiceCollection();
             services.AddSingleton<IBooksRepository, BooksSampleRepository>();
-            services.AddSingleton<IEditModeService, EditModeService>();
             services.AddSingleton<IItemsService<Book>, BooksService>();
             services.AddTransient<BooksViewModel>();
+            services.AddTransient<BookDetailViewModel>();
             services.AddSingleton<IMessageService, XamarinMessageService>();
-            services.AddSingleton<ISelectedItemService<Book>, SelectedItemService<Book>>();
             services.AddLogging();
 //            builder =>
 //            {

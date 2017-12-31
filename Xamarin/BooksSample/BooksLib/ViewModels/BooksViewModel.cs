@@ -14,15 +14,13 @@ namespace BooksLib.ViewModels
         private readonly IItemsService<Book> _booksService;
         private readonly ILogger<BooksViewModel> _logger;
         private readonly IMessageService _messageService;
-        private readonly IEditModeService _editModeService;
 
-        public BooksViewModel(IItemsService<Book> booksService, ILogger<BooksViewModel> logger, IMessageService messageService, ISelectedItemService<Book> selectedItemService, IEditModeService editModeService)
-            : base(booksService, editModeService)
+        public BooksViewModel(IItemsService<Book> booksService, ILogger<BooksViewModel> logger, IMessageService messageService)
+            : base(booksService)
         {
             _booksService = booksService;
             _logger = logger;
             _messageService = messageService;
-            _editModeService = editModeService;
         }
 
         public override void OnAdd()
@@ -30,7 +28,6 @@ namespace BooksLib.ViewModels
             var newBook = new Book();
             Items.Add(newBook);
             SelectedItem = newBook;
-            base.OnAdd();
         }
 
         //protected override Book CreateCopyOfItem(Book book) =>

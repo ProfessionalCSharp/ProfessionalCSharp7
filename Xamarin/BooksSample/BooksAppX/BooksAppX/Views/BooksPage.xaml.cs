@@ -1,4 +1,5 @@
-﻿using BooksLib.ViewModels;
+﻿using BooksLib.Models;
+using BooksLib.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,11 +19,12 @@ namespace BooksAppX.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as BookViewModel;
+            var item = args.SelectedItem as Book;
             if (item == null)
                 return;
 
-            // await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            ViewModel.SelectedItem = item;
+            await Navigation.PushAsync(new BookDetailPage());
 
             // Manually deselect item.
            // ItemsListView.SelectedItem = null;

@@ -1,29 +1,27 @@
 ﻿using Framework.Services;
+using System.ComponentModel;
 
 namespace Framework.ViewModels
 {
-    public abstract class EditableItemViewModel<TItem> : ItemViewModel<TItem>, IEditableObjectContainer<TItem>
+    public abstract class EditableItemViewModel<TItem> : ItemViewModel<TItem>, IEditableObject
         where TItem : class
     {
-        private readonly EditableObject<TItem> _editableObject;
-        private readonly ISelectedItemService<TItem> _selectedItemService;
+        private readonly IItemsService<TItem> _itemsService;
 
-        public EditableItemViewModel(ISelectedItemService<TItem> selectedItemService)
+        public EditableItemViewModel(IItemsService<TItem> itemsService)
         {
-            _selectedItemService = selectedItemService;
-            Item = _selectedItemService.SelectedItem;
+            _itemsService = itemsService;
+            Item = _itemsService.SelectedItem;
 
-            _editableObject = new EditableObject<TItem>(this);
-
-            SaveCommand = new RelayCommand(_editableObject.EndEdit, () => IsEditMode);
-            CancelEditModeCommand = new RelayCommand(_editableObject.CancelEdit, () => IsEditMode);
-            EditModeCommand = new RelayCommand(_editableObject.BeginEdit, () => IsReadMode);
+            SaveCommand = new RelayCommand(EndEdit, () => IsEditMode);
+            CancelCommand = new RelayCommand(CancelEdit, () => IsEditMode);
+            EditCommand = new RelayCommand(BeginEdit, () => IsReadMode);
             AddCommand = new RelayCommand(OnAdd, () => IsReadMode);
         }
 
         public RelayCommand AddCommand { get; }
-        public RelayCommand EditModeCommand { get; }
-        public RelayCommand CancelEditModeCommand { get; }
+        public RelayCommand EditCommand { get; }
+        public RelayCommand CancelCommand { get; }
         public RelayCommand SaveCommand { get; }
 
         #region Edit / Read Mode
@@ -37,9 +35,9 @@ namespace Framework.ViewModels
                 if (Set(ref _isEditMode, value))
                 {
                     OnPropertyChanged(nameof(IsReadMode));
-                    CancelEditModeCommand.OnCanExecuteChanged();
+                    CancelCommand.OnCanExecuteChanged();
                     SaveCommand.OnCanExecuteChanged();
-                    EditModeCommand.OnCanExecuteChanged();
+                    EditCommand.OnCanExecuteChanged();
                 }
             }
         }
@@ -56,11 +54,38 @@ namespace Framework.ViewModels
 
         #endregion
 
-        public abstract TItem CreateCopyOfItem(TItem item);
+        public abstract TItem CreateCopy(TItem item);
 
         #region Overrides Needed By Derived Class
         public abstract void OnSave();
         protected abstract void OnAdd();
+
+        #endregion
+
+        #region IEditableObject
+
+        public virtual void BeginEdit()
+        {
+            IsEditMode = true;
+            TItem itemCopy = CreateCopy(Item);
+            if (itemCopy != null)
+            {
+                EditItem = itemCopy;
+            }
+        }
+
+        public virtual void CancelEdit()
+        {
+            IsEditMode = false;
+            EditItem = default(TItem);
+        }
+
+        public virtual void EndEdit()
+        {
+            IsEditMode = false;
+            OnSave();
+            EditItem = default(TItem);
+        }
         #endregion
     }
 }

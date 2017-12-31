@@ -10,16 +10,13 @@ namespace Framework.ViewModels
         where TItemViewModel : IItemViewModel<TItem>
     {
         private readonly IItemsService<TItem> _itemsService;
-        private readonly IEditModeService _editModeService;
 
-        public MasterDetailViewModel(IItemsService<TItem> itemsService, IEditModeService editModeService)
+        public MasterDetailViewModel(IItemsService<TItem> itemsService)
         {
             _itemsService = itemsService;
-            _editModeService = editModeService;
-            _editModeService.EditModeChanged += (sender, mode) => AddCommand.OnCanExecuteChanged();
 
             RefreshCommand = new RelayCommand(OnRefresh);
-            AddCommand = new RelayCommand(OnAdd, () => _editModeService.IsReadMode);
+            AddCommand = new RelayCommand(OnAdd);
         }
 
         public RelayCommand RefreshCommand { get; }
@@ -49,12 +46,8 @@ namespace Framework.ViewModels
         protected async Task OnRefreshAsync()
         {
             await _itemsService.RefreshAsync();
-            _editModeService.IsEditMode = false;
         }
 
-        public virtual void OnAdd()
-        {
-            _editModeService.IsEditMode = true;
-        }
+        public abstract void OnAdd();
     }
 }

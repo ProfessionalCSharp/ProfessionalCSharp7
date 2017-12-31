@@ -33,7 +33,6 @@ namespace BooksLib.ViewModels
             {
                 await RefreshBooksAsync();
 
-                _canGetBooks = false;
                 ReadBooksCommand.OnCanExecuteChanged();
             }
         }

@@ -86,6 +86,7 @@ namespace Framework.ViewModels
         {
             IsEditMode = false;
             EditItem = null;
+            OnRefresh();
         }
 
         public virtual void EndEdit()

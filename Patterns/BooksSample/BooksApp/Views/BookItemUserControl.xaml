@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Width="400"
+    Height="80"
     d:DesignHeight="300"
     d:DesignWidth="400">
     <UserControl.ContextFlyout>
@@ -28,16 +29,15 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <StackPanel VerticalAlignment="Center">
             <TextBlock Text="{x:Bind Mode=OneWay, Path=BookViewModel.Item.Title}" />
         </StackPanel>
 
-        <Grid Grid.Column="1" x:Name="hoverArea" Visibility="Collapsed" VerticalAlignment="Stretch">
+        <Grid Grid.Column="1" x:Name="hoverArea" Visibility="Collapsed" VerticalAlignment="Center">
             <AppBarButton Command="{x:Bind Mode=OneWay, Path=BookViewModel.DeleteBookCommand}" Icon="Delete" Label="Delete" IsTabStop="False" VerticalAlignment="Stretch"/>
         </Grid>
     </Grid>

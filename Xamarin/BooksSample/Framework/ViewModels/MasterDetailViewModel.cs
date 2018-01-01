@@ -32,7 +32,11 @@ namespace Framework.ViewModels
         public virtual TItem SelectedItem
         {
             get => _itemsService.SelectedItem;
-            set => _itemsService.SelectedItem = value;
+            set
+            {
+                _itemsService.SelectedItem = value;
+                OnPropertyChanged();
+            }
         }
 
         public async void OnRefresh()

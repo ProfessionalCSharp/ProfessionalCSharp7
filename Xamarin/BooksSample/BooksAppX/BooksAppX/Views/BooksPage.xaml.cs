@@ -17,17 +17,14 @@ namespace BooksAppX.Views
 
         public BooksViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<BooksViewModel>();
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-            var item = args.SelectedItem as Book;
-            if (item == null)
-                return;
+        //async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        //{
+        //    var item = args.SelectedItem as Book;
+        //    if (item == null)
+        //        return;
 
-            ViewModel.SelectedItem = item;
-            await Navigation.PushAsync(new BookDetailPage());
-
-            // Manually deselect item.
-           // ItemsListView.SelectedItem = null;
-        }
+        //    ViewModel.SelectedItem = item;
+        //    await Navigation.PushAsync(new BookDetailPage());
+        //}
     }
 }

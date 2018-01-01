@@ -2,16 +2,20 @@
 using Framework.Services;
 using Framework.ViewModels;
 using System;
+using System.Threading.Tasks;
 
 namespace BooksLib.ViewModels
 {
     // this view model is used to display details of a book and allows editing
     public class BookDetailViewModel : EditableItemViewModel<Book>
     {
-        public BookDetailViewModel(IItemsService<Book> itemsService)
+        private readonly IItemsService<Book> _itemsService;
+        private readonly INavigationService _navigationService;
+        public BookDetailViewModel(IItemsService<Book> itemsService, INavigationService navigationService)
             : base(itemsService)
         {
-
+            _itemsService = itemsService;
+            _navigationService = navigationService;
         }
 
         public override Book CreateCopy(Book item) =>
@@ -27,9 +31,13 @@ namespace BooksLib.ViewModels
 
         }
 
-        public override void OnSave()
+        public async override Task OnSaveAsync()
         {
-
+            await _itemsService.AddOrUpdateAsync(EditItem);
         }
+
+        public override Task OnEndEditAsync() =>
+            _navigationService.GoBackAsync();
+        
     }
 }

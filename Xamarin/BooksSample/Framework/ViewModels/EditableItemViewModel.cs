@@ -1,5 +1,6 @@
 ﻿using Framework.Services;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace Framework.ViewModels
 {
@@ -57,7 +58,8 @@ namespace Framework.ViewModels
         public abstract TItem CreateCopy(TItem item);
 
         #region Overrides Needed By Derived Class
-        public abstract void OnSave();
+        public abstract Task OnSaveAsync();
+        public virtual Task OnEndEditAsync() => Task.CompletedTask;
         protected abstract void OnAdd();
 
         #endregion
@@ -74,17 +76,25 @@ namespace Framework.ViewModels
             }
         }
 
-        public virtual void CancelEdit()
+        public async virtual void CancelEdit()
         {
             IsEditMode = false;
             EditItem = default(TItem);
+            await _itemsService.RefreshAsync();
+            await OnEndEditAsync();
         }
 
-        public virtual void EndEdit()
+        public async virtual void EndEdit()
         {
-            IsEditMode = false;
-            OnSave();
-            EditItem = default(TItem);
+            using (StartInProgress())
+            {
+                await OnSaveAsync();
+                EditItem = default(TItem);
+                IsEditMode = false;
+                await _itemsService.RefreshAsync();
+                await OnEndEditAsync();
+            }
+
         }
         #endregion
     }

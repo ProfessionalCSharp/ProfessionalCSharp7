@@ -11,11 +11,11 @@
         <StackLayout>
             <StackLayout Spacing="20" Padding="15">
                 <Label Text="Id:" FontSize="Medium" />
-                <Entry IsEnabled="False" Text="{Binding ViewModel.Item.BookId, Mode=OneWay}" />
+                <Entry IsEnabled="False" Text="{Binding ViewModel.EditItem.BookId, Mode=OneWay}" />
                 <Label Text="Title:" FontSize="Medium" />
-                <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=TwoWay}" Text="{Binding Item.Title}" FontSize="Small" />
+                <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=OneWay}" Text="{Binding ViewModel.EditItem.Title, Mode=TwoWay}" FontSize="Small" />
                 <Label Text="Publisher:" FontSize="Medium" />
-                <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=TwoWay}" Text="{Binding Item.Publisher}" FontSize="Small" />
+                <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=OneWay}" Text="{Binding ViewModel.EditItem.Publisher}" FontSize="Small" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

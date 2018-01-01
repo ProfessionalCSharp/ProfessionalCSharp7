@@ -14,13 +14,23 @@ namespace BooksLib.ViewModels
         private readonly IItemsService<Book> _booksService;
         private readonly ILogger<BooksViewModel> _logger;
         private readonly IMessageService _messageService;
+        private readonly INavigationService _navigationService;
 
-        public BooksViewModel(IItemsService<Book> booksService, ILogger<BooksViewModel> logger, IMessageService messageService)
+        public BooksViewModel(IItemsService<Book> booksService, ILogger<BooksViewModel> logger, IMessageService messageService, INavigationService navigationService)
             : base(booksService)
         {
             _booksService = booksService;
             _logger = logger;
             _messageService = messageService;
+            _navigationService = navigationService;
+
+            PropertyChanged += async (sender, e) =>
+            {
+                if (e.PropertyName == "SelectedItem")
+                {
+                    await _navigationService.NavigateToAsync(NavigationPageNames.BookDetailPage);
+                }
+            };
         }
 
         public override void OnAdd()
@@ -30,43 +40,6 @@ namespace BooksLib.ViewModels
             SelectedItem = newBook;
         }
 
-        //protected override Book CreateCopyOfItem(Book book) =>
-        //    new Book
-        //    {
-        //        BookId = book.BookId,
-        //        Title = book.Title,
-        //        Publisher = book.Publisher
-        //    };
-
-        //protected async override void OnSave()
-        //{
-        //    try
-        //    {
-        //        using (StartInProgress())
-        //        {
-        //            await _booksService.AddOrUpdateBookAsync(EditItem);
-        //            await Task.Delay(5000); // simulate think time
-        //            var selectedId = SelectedItem.Item.BookId;
-        //            await RefreshBooksAsync();
-        //            SelectedItem = Items.Single(b => b.Item.BookId == selectedId);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await _messageService.ShowMessageAsync(ex.Message);
-        //    } 
-        //}
-
-        //public async Task DeleteBookAsync(BookViewModel bookViewModel)
-        //{
-        //    using (StartInProgress())
-        //    {
-        //        await _booksService.DeleteBookAsync(bookViewModel.Item);
-        //        await RefreshBooksAsync();
-        //    }
-        //}
-
         protected override BookItemViewModel ToViewModel(Book item) => new BookItemViewModel(item, _booksService);
-
     }
 }

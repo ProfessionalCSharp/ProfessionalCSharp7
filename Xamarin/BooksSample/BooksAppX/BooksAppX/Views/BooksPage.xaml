@@ -16,8 +16,7 @@
                  IsPullToRefreshEnabled="true"
                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                  CachingStrategy="RecycleElement"
-                 SelectedItem="{Binding ViewModel.SelectedItem, Mode=TwoWay}"
-                 ItemSelected="OnItemSelected">
+                 SelectedItem="{Binding ViewModel.SelectedItem, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

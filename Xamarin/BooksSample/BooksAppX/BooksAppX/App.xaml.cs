@@ -19,6 +19,7 @@ namespace BooksAppX
             RegisterServices();
 
             MainPage = new MainPage();
+          
         }
 
 		protected override void OnStart ()
@@ -44,6 +45,8 @@ namespace BooksAppX
             services.AddTransient<BooksViewModel>();
             services.AddTransient<BookDetailViewModel>();
             services.AddSingleton<IMessageService, XamarinMessageService>();
+            services.AddSingleton<INavigationService, XamarinNavigationService>();
+            services.AddSingleton<InitializeNavigationService>();
             services.AddLogging();
 //            builder =>
 //            {

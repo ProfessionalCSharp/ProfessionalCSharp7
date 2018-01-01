@@ -15,6 +15,11 @@ namespace Framework.ViewModels
         {
             _itemsService = itemsService;
 
+            _itemsService.Items.CollectionChanged += (sender, e) =>
+            {
+                base.OnPropertyChanged(nameof(ItemsViewModels));
+            };
+
             RefreshCommand = new RelayCommand(OnRefresh);
             AddCommand = new RelayCommand(OnAdd);
         }
@@ -34,8 +39,25 @@ namespace Framework.ViewModels
             get => _itemsService.SelectedItem;
             set
             {
-                _itemsService.SelectedItem = value;
-                OnPropertyChanged();
+                if (!EqualityComparer<TItem>.Default.Equals(_itemsService.SelectedItem, value))
+                {
+                    _itemsService.SelectedItem = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        protected TItemViewModel _selectedItemViewModel;
+        public virtual TItemViewModel SelectedItemViewModel
+        {
+            get => ToViewModel(_itemsService.SelectedItem);
+            set
+            {
+                if (!EqualityComparer<TItem>.Default.Equals(SelectedItem, value.Item)) 
+                {
+                    SelectedItem = value.Item;
+                    OnPropertyChanged();
+                }
             }
         }
 

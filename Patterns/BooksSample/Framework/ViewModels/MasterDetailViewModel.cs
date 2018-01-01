@@ -8,6 +8,7 @@ namespace Framework.ViewModels
 {
     public abstract class MasterDetailViewModel<TItemViewModel, TItem> : ViewModelBase
         where TItemViewModel : IItemViewModel<TItem>
+        where TItem: class
     {
         private readonly IItemsService<TItem> _itemsService;
 
@@ -53,9 +54,9 @@ namespace Framework.ViewModels
             get => ToViewModel(_itemsService.SelectedItem);
             set
             {
-                if (!EqualityComparer<TItem>.Default.Equals(SelectedItem, value.Item)) 
+                if (!EqualityComparer<TItem>.Default.Equals(SelectedItem, value?.Item)) 
                 {
-                    SelectedItem = value.Item;
+                    SelectedItem = value?.Item;
                     OnPropertyChanged();
                 }
             }

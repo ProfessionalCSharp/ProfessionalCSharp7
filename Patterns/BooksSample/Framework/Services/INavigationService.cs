@@ -6,5 +6,6 @@ namespace Framework.Services
     {
         Task NavigateToAsync(string page);
         Task GoBackAsync();
+        string CurrentPage { get; }
     }
 }

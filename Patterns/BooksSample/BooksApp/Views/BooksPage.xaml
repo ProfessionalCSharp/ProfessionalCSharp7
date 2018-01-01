@@ -32,6 +32,32 @@
         <ListView ItemTemplate="{StaticResource BookItemTemplate}" Grid.Row="2" ItemsSource="{x:Bind ViewModel.ItemsViewModels, Mode=OneWay}" 
                  SelectedItem="{x:Bind ViewModel.SelectedItemViewModel, Mode=TwoWay}" >
         </ListView>
-        <!--<views:BookDetailUserControl  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />-->
+        <views:BookDetailUserControl x:Name="BookDetailUC" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1280"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="BookDetailUC.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="MediumState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitlePage.Margin" Value="12,0,12,7"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

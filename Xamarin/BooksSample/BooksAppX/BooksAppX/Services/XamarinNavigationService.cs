@@ -18,7 +18,6 @@ namespace BooksAppX.Services
         private INavigation _navigation;
         private INavigation Navigation
         {
-            // get => _navigation ?? (_navigation = (Application.Current as App).MainPage.Navigation);
             get => _navigation ?? (_navigation = _initializeNavigation.Navigation);
         }
 
@@ -27,18 +26,10 @@ namespace BooksAppX.Services
         public XamarinNavigationService(InitializeNavigationService initializeNavigation)
         {
             _initializeNavigation = initializeNavigation;
-            //_navigation = (Application.Current as App).MainPage.Navigation;
-            // _navigationPage = (Application.Current as App).MainPage as NavigationPage;
         }
 
-        public Task GoBackAsync()
-        {
-            return Navigation.PopAsync();
-        }
+        public Task GoBackAsync() => Navigation.PopAsync();
 
-        public Task NavigateToAsync(string pagename)
-        {
-            return Navigation.PushAsync(_pages[pagename]());
-        }
+        public Task NavigateToAsync(string pagename) => Navigation.PushAsync(_pages[pagename]());
     }
 }

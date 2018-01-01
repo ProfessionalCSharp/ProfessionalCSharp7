@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace Framework
 {
-    public abstract class BindableObject : INotifyPropertyChanged
+    public abstract class BindableBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

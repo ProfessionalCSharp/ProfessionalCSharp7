@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BooksLib.Services
 {
-    public class BooksService : BindableObject, IItemsService<Book>
+    public class BooksService : BindableBase, IItemsService<Book>
     {     
         private ObservableCollection<Book> _books = new ObservableCollection<Book>();
         private readonly IBooksRepository _booksRepository;

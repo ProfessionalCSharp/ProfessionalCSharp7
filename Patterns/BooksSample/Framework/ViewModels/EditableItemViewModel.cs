@@ -102,7 +102,6 @@ namespace Framework.ViewModels
                 await _itemsService.RefreshAsync();
                 await OnEndEditAsync();
             }
-
         }
         #endregion
     }

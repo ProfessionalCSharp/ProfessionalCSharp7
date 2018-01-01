@@ -1,4 +1,6 @@
 ﻿using BooksApp.ViewModels;
+using BooksLib.ViewModels;
+using Framework.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,5 +17,10 @@ namespace BooksApp
         }
 
         public MainPageViewModel ViewModel { get; }
+
+        private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            EventAggregator<NavigationInfoEvent>.Instance.Publish(this, new NavigationInfoEvent { UseNavigation = e.NewSize.Width < 1024 });
+        }
     }
 }

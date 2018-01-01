@@ -6,6 +6,11 @@ using System;
 
 namespace BooksLib.ViewModels
 {
+    public class NavigationInfoEvent : EventArgs
+    {
+        public bool UseNavigation { get; set; }
+    }
+
     public class BooksViewModel : MasterDetailViewModel<BookItemViewModel, Book>
     {
         private readonly IItemsService<Book> _booksService;
@@ -16,6 +21,11 @@ namespace BooksLib.ViewModels
         {
             _booksService = booksService ?? throw new ArgumentNullException(nameof(booksService));
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
+
+            EventAggregator<NavigationInfoEvent>.Instance.Event += (sender, e) =>
+            {
+                UseNavigation = e.UseNavigation;
+            };
 
             PropertyChanged += async (sender, e) =>
             {

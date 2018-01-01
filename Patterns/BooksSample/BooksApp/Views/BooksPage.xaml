@@ -5,6 +5,7 @@
     xmlns:views="using:BooksApp.Views"
     xmlns:model="using:BooksLib.Models"
     xmlns:vm="using:BooksLib.ViewModels"
+    xmlns:conv="using:BooksApp.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -12,6 +13,7 @@
         <DataTemplate x:Key="BookItemTemplate" x:DataType="vm:BookItemViewModel">
             <views:BookItemUserControl BookItemViewModel="{x:Bind }" />
         </DataTemplate>
+        <conv:StringToBoolConverter x:Key="StringToBoolConverter" />
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

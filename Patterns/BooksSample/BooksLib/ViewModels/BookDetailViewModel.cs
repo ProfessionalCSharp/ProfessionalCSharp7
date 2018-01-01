@@ -1,7 +1,6 @@
 ﻿using BooksLib.Models;
 using Framework.Services;
 using Framework.ViewModels;
-using System;
 using System.Threading.Tasks;
 
 namespace BooksLib.ViewModels
@@ -16,7 +15,14 @@ namespace BooksLib.ViewModels
         {
             _itemsService = itemsService;
             _navigationService = navigationService;
+
+            itemsService.SelectedItemChanged += (sender, book) =>
+            {
+                Item = book;
+            };
         }
+
+        public bool UseNavigation { get; set; }
 
         public override Book CreateCopy(Book item) =>
             new Book
@@ -36,8 +42,13 @@ namespace BooksLib.ViewModels
             await _itemsService.AddOrUpdateAsync(EditItem);
         }
 
-        public override Task OnEndEditAsync() =>
-            _navigationService.GoBackAsync();
+        public async override Task OnEndEditAsync()
+        {
+            if (UseNavigation)
+            {
+                await _navigationService.GoBackAsync();
+            }
+        }
         
     }
 }

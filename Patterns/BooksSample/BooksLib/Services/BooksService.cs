@@ -1,6 +1,7 @@
 ﻿using BooksLib.Models;
 using Framework;
 using Framework.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace BooksLib.Services
     {     
         private ObservableCollection<Book> _books = new ObservableCollection<Book>();
         private readonly IBooksRepository _booksRepository;
+
+        public event EventHandler<Book> SelectedItemChanged;
+
         public BooksService(IBooksRepository repository)
         {
             _booksRepository = repository;
@@ -23,7 +27,13 @@ namespace BooksLib.Services
         public Book SelectedItem
         {
             get => _selectedItem;
-            set => Set(ref _selectedItem, value);
+            set
+            {
+                if (Set(ref _selectedItem, value))
+                {
+                    SelectedItemChanged?.Invoke(this, _selectedItem);
+                }
+            }
         }
 
         public async Task<Book> AddOrUpdateAsync(Book book)

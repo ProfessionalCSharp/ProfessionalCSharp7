@@ -2,6 +2,11 @@
 {
     public abstract class ItemViewModel<T> : ViewModelBase, IItemViewModel<T>
     {
-        public virtual T Item { get; set; }
+        private T _item;
+        public virtual T Item
+        {
+            get => _item;
+            set => Set(ref _item, value);
+        }
     }
 }

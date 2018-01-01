@@ -14,6 +14,14 @@ namespace Framework.ViewModels
             _itemsService = itemsService;
             Item = _itemsService.SelectedItem;
 
+            PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == nameof(Item))
+                {
+                    OnPropertyChanged(nameof(EditItem));
+                }
+            };
+
             SaveCommand = new RelayCommand(EndEdit, () => IsEditMode);
             CancelCommand = new RelayCommand(CancelEdit, () => IsEditMode);
             EditCommand = new RelayCommand(BeginEdit, () => IsReadMode);

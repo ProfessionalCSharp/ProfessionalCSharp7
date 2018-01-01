@@ -27,6 +27,8 @@ namespace BooksApp.Views
         public BooksPage()
         {
             this.InitializeComponent();
+            ViewModel.UseNavigation = false;
+            BookDetailUC.ViewModel = (Application.Current as App).AppServices.GetService<BookDetailViewModel>();
         }
 
         public BooksViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<BooksViewModel>();

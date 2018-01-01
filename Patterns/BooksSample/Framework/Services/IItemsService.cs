@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace Framework.Services
@@ -14,5 +15,6 @@ namespace Framework.Services
         ObservableCollection<T> Items { get; }
 
         T SelectedItem { get; set; }
+        event EventHandler<T> SelectedItemChanged;
     }
 }

@@ -10,6 +10,7 @@ namespace BooksApp.Views
         public BookDetailPage()
         {
             this.InitializeComponent();
+            ViewModel.UseNavigation = true; // if the Page is used, enable navigation
         }
 
         public BookDetailViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<BookDetailViewModel>();

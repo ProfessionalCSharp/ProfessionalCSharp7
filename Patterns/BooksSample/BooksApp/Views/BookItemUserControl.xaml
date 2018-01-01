@@ -34,11 +34,11 @@
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="{x:Bind Mode=OneWay, Path=BookViewModel.Item.Title}" />
+            <TextBlock Text="{x:Bind Mode=OneWay, Path=BookItemViewModel.Item.Title}" />
         </StackPanel>
 
         <Grid Grid.Column="1" x:Name="hoverArea" Visibility="Collapsed" VerticalAlignment="Center">
-            <AppBarButton Command="{x:Bind Mode=OneWay, Path=BookViewModel.DeleteBookCommand}" Icon="Delete" Label="Delete" IsTabStop="False" VerticalAlignment="Stretch"/>
+            <AppBarButton Command="{x:Bind Mode=OneWay, Path=BookItemViewModel.DeleteBookCommand}" Icon="Delete" Label="Delete" IsTabStop="False" VerticalAlignment="Stretch"/>
         </Grid>
     </Grid>
 </UserControl>

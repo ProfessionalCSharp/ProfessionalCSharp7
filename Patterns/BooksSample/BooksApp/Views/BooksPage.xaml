@@ -9,8 +9,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
-        <DataTemplate x:Key="BookItemTemplate" x:DataType="vm:BookViewModel">
-            <views:BookItemUserControl BookViewModel="{x:Bind }" />
+        <DataTemplate x:Key="BookItemTemplate" x:DataType="vm:BookItemViewModel">
+            <views:BookItemUserControl BookItemViewModel="{x:Bind }" />
         </DataTemplate>
     </Page.Resources>
 
@@ -29,9 +29,9 @@
             <AppBarButton Icon="Refresh" Command="{x:Bind ViewModel.RefreshCommand}" Label="Get Books" />
             <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddCommand}" Label="Add Book" />
         </CommandBar>
-        <ListView ItemTemplate="{StaticResource BookItemTemplate}" Grid.Row="2" ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" 
-                 SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" >
+        <ListView ItemTemplate="{StaticResource BookItemTemplate}" Grid.Row="2" ItemsSource="{x:Bind ViewModel.ItemsViewModels, Mode=OneWay}" 
+                 SelectedItem="{x:Bind ViewModel.SelectedItemViewModel, Mode=TwoWay}" >
         </ListView>
-        <views:BookDetailUserControl ViewModel="{x:Bind ViewModel, Mode=OneTime}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
+        <!--<views:BookDetailUserControl  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />-->
     </Grid>
 </Page>

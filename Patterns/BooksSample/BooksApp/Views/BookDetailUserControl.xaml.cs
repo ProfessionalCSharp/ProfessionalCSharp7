@@ -13,13 +13,13 @@ namespace BooksApp.Views
             this.InitializeComponent();
         }
 
-        public ManageBooksViewModel ViewModel
+        public BookDetailViewModel ViewModel
         {
-            get { return (ManageBooksViewModel)GetValue(ManageBooksViewModelProperty); }
-            set { SetValue(ManageBooksViewModelProperty, value); }
+            get { return (BookDetailViewModel)GetValue(ViewModelProperty); }
+            set { SetValue(ViewModelProperty, value); }
         }
 
-        public static readonly DependencyProperty ManageBooksViewModelProperty =
-            DependencyProperty.Register("MyProperty", typeof(ManageBooksViewModel), typeof(BookDetailUserControl), new PropertyMetadata(null));
+        public static readonly DependencyProperty ViewModelProperty =
+            DependencyProperty.Register("ViewModel", typeof(BookDetailViewModel), typeof(BookDetailUserControl), new PropertyMetadata(null));
     }
 }

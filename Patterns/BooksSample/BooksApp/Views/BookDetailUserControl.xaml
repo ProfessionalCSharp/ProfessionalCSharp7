@@ -15,9 +15,9 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <AppBarButton Content="Edit" Icon="Edit" Command="{x:Bind ViewModel.EditModeCommand, Mode=OneTime}" />
+            <AppBarButton Content="Edit" Icon="Edit" Command="{x:Bind ViewModel.EditCommand, Mode=OneTime}" />
             <AppBarButton Content="Save" Icon="Save" Command="{x:Bind ViewModel.SaveCommand, Mode=OneTime}" />
-            <AppBarButton Content="Cancel" Icon="Cancel" Command="{x:Bind ViewModel.CancelEditModeCommand, Mode=OneTime}" />
+            <AppBarButton Content="Cancel" Icon="Cancel" Command="{x:Bind ViewModel.CancelCommand, Mode=OneTime}" />
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1">
             <TextBox IsReadOnly="{x:Bind ViewModel.IsReadMode, Mode=OneWay}" Text="{x:Bind ViewModel.EditItem.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />

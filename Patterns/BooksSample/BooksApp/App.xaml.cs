@@ -1,6 +1,9 @@
 ﻿using BooksApp.Services;
+using BooksApp.ViewModels;
+using BooksLib.Models;
 using BooksLib.Services;
 using BooksLib.ViewModels;
+using Framework.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -108,9 +111,13 @@ namespace BooksApp
         {
             var services = new ServiceCollection();
             services.AddSingleton<IBooksRepository, BooksSampleRepository>();
-            services.AddSingleton<IBooksService, BooksService>();
-            services.AddTransient<ManageBooksViewModel>();
+            services.AddSingleton<IItemsService<Book>, BooksService>();
+            services.AddTransient<BooksViewModel>();
+            services.AddTransient<BookDetailViewModel>();
+            services.AddTransient<MainPageViewModel>();
             services.AddSingleton<IMessageService, UWPMessageService>();
+            services.AddSingleton<INavigationService, UWPNavigationService>();
+            services.AddSingleton<UWPInitializeNavigationService>();
             services.AddLogging(builder =>
             {
 #if DEBUG

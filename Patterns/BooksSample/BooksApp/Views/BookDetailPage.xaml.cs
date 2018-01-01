@@ -1,6 +1,4 @@
-﻿using BooksLib.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,13 +20,11 @@ namespace BooksApp.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BooksPage : Page
+    public sealed partial class BookDetailPage : Page
     {
-        public BooksPage()
+        public BookDetailPage()
         {
             this.InitializeComponent();
         }
-
-        public BooksViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<BooksViewModel>();
     }
 }

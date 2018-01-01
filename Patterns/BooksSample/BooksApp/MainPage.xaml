@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <NavigationView Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" SelectionChanged="OnNavigationSelectionChanged">
+    <NavigationView Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" SelectionChanged="{x:Bind ViewModel.OnNavigationSelectionChanged, Mode=OneTime}">
         <NavigationView.MenuItems>
             <NavigationViewItem Icon="AllApps" Content="Books" Tag="books" />
         </NavigationView.MenuItems>

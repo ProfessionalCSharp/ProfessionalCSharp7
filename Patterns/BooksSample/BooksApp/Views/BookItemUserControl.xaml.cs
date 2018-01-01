@@ -25,15 +25,15 @@ namespace BooksApp.Views
             this.InitializeComponent();
         }
 
-        public BookViewModel BookViewModel
+        public BookItemViewModel BookItemViewModel
         {
-            get { return (BookViewModel)GetValue(BookViewModelProperty); }
-            set { SetValue(BookViewModelProperty, value); }
+            get { return (BookItemViewModel)GetValue(BookItemViewModelProperty); }
+            set { SetValue(BookItemViewModelProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty BookViewModelProperty =
-            DependencyProperty.Register("BookViewModel", typeof(BookViewModel), typeof(BookItemUserControl), new PropertyMetadata(null));
+        public static readonly DependencyProperty BookItemViewModelProperty =
+            DependencyProperty.Register("BookViewModel", typeof(BookItemViewModel), typeof(BookItemUserControl), new PropertyMetadata(null));
 
         protected override void OnPointerEntered(PointerRoutedEventArgs e)
         {

@@ -1,6 +1,9 @@
 ﻿using BooksLib.Models;
+using BooksLib.Services;
 using Framework.Services;
 using Framework.ViewModels;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Threading.Tasks;
 
 namespace BooksLib.ViewModels
@@ -10,11 +13,15 @@ namespace BooksLib.ViewModels
     {
         private readonly IItemsService<Book> _itemsService;
         private readonly INavigationService _navigationService;
-        public BookDetailViewModel(IItemsService<Book> itemsService, INavigationService navigationService)
+        private readonly IMessageService _messageService;
+        private readonly ILogger _logger;
+        public BookDetailViewModel(IItemsService<Book> itemsService, INavigationService navigationService, IMessageService messageService, ILogger<BookDetailViewModel> logger)
             : base(itemsService)
         {
             _itemsService = itemsService;
             _navigationService = navigationService;
+            _messageService = messageService;
+            _logger = logger;
 
             itemsService.SelectedItemChanged += (sender, book) =>
             {
@@ -39,7 +46,16 @@ namespace BooksLib.ViewModels
 
         public async override Task OnSaveAsync()
         {
-            await _itemsService.AddOrUpdateAsync(EditItem);
+            try
+            {
+                await _itemsService.AddOrUpdateAsync(EditItem);
+                throw new Exception("bah");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("error {0} in {1}", ex.Message, nameof(OnSaveAsync));
+                await _messageService.ShowMessageAsync("Error saving the data");
+            }
         }
 
         public async override Task OnEndEditAsync()

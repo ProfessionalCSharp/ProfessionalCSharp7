@@ -9,7 +9,11 @@
 
     <NavigationView Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" SelectionChanged="{x:Bind ViewModel.OnNavigationSelectionChanged, Mode=OneTime}">
         <NavigationView.MenuItems>
-            <NavigationViewItem Icon="AllApps" Content="Books" Tag="books" />
+            <NavigationViewItem Content="Books" Tag="books">
+                <NavigationViewItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE82D;" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
         </NavigationView.MenuItems>
 
         <Frame x:Name="ContentFrame" Margin="24">

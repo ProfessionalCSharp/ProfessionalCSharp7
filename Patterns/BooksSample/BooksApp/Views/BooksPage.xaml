@@ -25,10 +25,10 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <ProgressBar Margin="8" HorizontalAlignment="Stretch" Visibility="{x:Bind ViewModel.InProgress, Mode=OneWay}" IsIndeterminate="True" Grid.ColumnSpan="2" />
-        <CommandBar Grid.Row="1">
-            <AppBarButton Icon="Refresh" Command="{x:Bind ViewModel.RefreshCommand}" Label="Get Books" />
-            <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddCommand}" Label="Add Book" />
-        </CommandBar>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <AppBarButton Icon="Refresh" Command="{x:Bind ViewModel.RefreshCommand}" Label="Get Books" IsCompact="True"  />
+            <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddCommand}" Label="Add Book" IsCompact="True" />
+        </StackPanel>
         <ListView ItemTemplate="{StaticResource BookItemTemplate}" Grid.Row="2" ItemsSource="{x:Bind ViewModel.ItemsViewModels, Mode=OneWay}" 
                  SelectedItem="{x:Bind ViewModel.SelectedItemViewModel, Mode=TwoWay}" >
         </ListView>
@@ -38,7 +38,7 @@
             <VisualStateGroup x:Name="WindowStates">
                 <VisualState x:Name="WideState">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1280"/>
+                        <AdaptiveTrigger MinWindowWidth="1024"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="BookDetailUC.Visibility" Value="Visible" />

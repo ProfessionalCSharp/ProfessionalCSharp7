@@ -2,24 +2,20 @@
 using BooksLib.Services;
 using Framework.Services;
 using Framework.ViewModels;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace BooksLib.ViewModels
 {
     public class BooksViewModel : MasterDetailViewModel<BookItemViewModel, Book>
     {
         private readonly IItemsService<Book> _booksService;
-        private readonly ILogger<BooksViewModel> _logger;
-        private readonly IMessageService _messageService;
         private readonly INavigationService _navigationService;
 
-        public BooksViewModel(IItemsService<Book> booksService, ILogger<BooksViewModel> logger, IMessageService messageService, INavigationService navigationService)
+        public BooksViewModel(IItemsService<Book> booksService, INavigationService navigationService)
             : base(booksService)
         {
-            _booksService = booksService;
-            _logger = logger;
-            _messageService = messageService;
-            _navigationService = navigationService;
+            _booksService = booksService ?? throw new ArgumentNullException(nameof(booksService));
+            _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
 
             PropertyChanged += async (sender, e) =>
             {

@@ -12,33 +12,27 @@ namespace BooksApp.Services
 {
     public class UWPNavigationService : INavigationService
     {
-        private Dictionary<string, Type> _pages = new Dictionary<string, Type>
-        {
-            [PageNames.BooksPage] = typeof(BooksPage),
-            [PageNames.BookDetailPage] = typeof(BookDetailPage)
-        };
-
         private readonly UWPInitializeNavigationService _initializeNavigation;
+
         public UWPNavigationService(UWPInitializeNavigationService initializeNavigation)
         {
-            _initializeNavigation = initializeNavigation;
+            _initializeNavigation = initializeNavigation ?? throw new ArgumentNullException(nameof(initializeNavigation));
         }
+
+        private Dictionary<string, Type> _pages;
+        private Dictionary<string, Type> Pages => _pages ?? (_pages = _initializeNavigation.Pages);
 
         private Frame _frame;
         private Frame Frame => _frame ?? (_frame = _initializeNavigation.Frame);
 
         private string _currentPage;
-        public string CurrentPage
-        {
-            get => _currentPage;
-            set => _currentPage = value;
-        }
+        public string CurrentPage => _currentPage;
 
         public Task GoBackAsync()
         {
             PageStackEntry stackEntry = Frame.BackStack.Last();
             Type backPageType = stackEntry.SourcePageType;
-            KeyValuePair<string, Type> pageEntry = _pages.Where(pair => pair.Value == backPageType).FirstOrDefault();
+            KeyValuePair<string, Type> pageEntry = Pages.Where(pair => pair.Value == backPageType).FirstOrDefault();
             _currentPage = pageEntry.Key;
             
             Frame.GoBack();
@@ -48,7 +42,7 @@ namespace BooksApp.Services
         public Task NavigateToAsync(string pageName)
         {
             _currentPage = pageName;
-            Frame.Navigate(_pages[pageName]);
+            Frame.Navigate(Pages[pageName]);
             return Task.CompletedTask;
         }
     }

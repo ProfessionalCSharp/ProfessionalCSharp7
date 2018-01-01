@@ -22,9 +22,9 @@ namespace Framework.ViewModels
                 }
             };
 
-            SaveCommand = new RelayCommand(EndEdit, () => IsEditMode);
-            CancelCommand = new RelayCommand(CancelEdit, () => IsEditMode);
             EditCommand = new RelayCommand(BeginEdit, () => IsReadMode);
+            CancelCommand = new RelayCommand(CancelEdit, () => IsEditMode);
+            SaveCommand = new RelayCommand(EndEdit, () => IsEditMode);
             AddCommand = new RelayCommand(OnAdd, () => IsReadMode);
         }
 

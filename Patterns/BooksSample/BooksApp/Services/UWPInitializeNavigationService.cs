@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
 
 namespace BooksApp.Services
 {
     public class UWPInitializeNavigationService
     {
-        public void SetFrame(Frame frame)
+        public void Initialize(Frame frame, Dictionary<string, Type> pages)
         {
-            _frame = frame;
+            Frame = frame ?? throw new ArgumentNullException(nameof(frame));
+            Pages = pages ?? throw new ArgumentNullException(nameof(pages));
         }
-        private Frame _frame;
-        public Frame Frame => _frame ?? throw new ArgumentException("navigation not initialized");
+        public Frame Frame { get; private set; }
+        public Dictionary<string, Type> Pages { get; private set; }
     }
 }

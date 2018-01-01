@@ -23,7 +23,7 @@ namespace BooksLib.ViewModels
 
             PropertyChanged += async (sender, e) =>
             {
-                if (e.PropertyName == "SelectedItem")
+                if (e.PropertyName == nameof(SelectedItem) && _navigationService.CurrentPage == PageNames.BooksPage)
                 {
                     await _navigationService.NavigateToAsync(PageNames.BookDetailPage);
                 }

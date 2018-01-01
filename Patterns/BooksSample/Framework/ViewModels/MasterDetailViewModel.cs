@@ -1,22 +1,57 @@
-﻿using System.Collections.ObjectModel;
+﻿using Framework.Services;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Framework.ViewModels
 {
     public abstract class MasterDetailViewModel<TItemViewModel, TItem> : ViewModelBase
+        where TItemViewModel : IItemViewModel<TItem>
     {
-        private readonly ObservableCollection<TItemViewModel> _items = new ObservableCollection<TItemViewModel>();
+        private readonly IItemsService<TItem> _itemsService;
 
-        public ObservableCollection<TItemViewModel> Items => _items;
-
-        protected TItemViewModel _selectedItem;
-        public virtual TItemViewModel SelectedItem
+        public MasterDetailViewModel(IItemsService<TItem> itemsService)
         {
-            get => _selectedItem;
+            _itemsService = itemsService;
+
+            RefreshCommand = new RelayCommand(OnRefresh);
+            AddCommand = new RelayCommand(OnAdd);
+        }
+
+        public RelayCommand RefreshCommand { get; }
+        public RelayCommand AddCommand { get; }
+
+        public ObservableCollection<TItem> Items => _itemsService.Items;
+
+        protected abstract TItemViewModel ToViewModel(TItem item);
+
+        public virtual IEnumerable<TItemViewModel> ItemsViewModels => _itemsService.Items.Select(item => ToViewModel(item));
+
+        protected TItem _selectedItem;
+        public virtual TItem SelectedItem
+        {
+            get => _itemsService.SelectedItem;
             set
             {
-                if (value == null) return;
-                Set(ref _selectedItem, value);
+                _itemsService.SelectedItem = value;
+                OnPropertyChanged();
             }
         }
+
+        public async void OnRefresh()
+        {
+            using (StartInProgress())
+            {
+                await OnRefreshAsync();
+            }
+        }
+
+        protected async Task OnRefreshAsync()
+        {
+            await _itemsService.RefreshAsync();
+        }
+
+        public abstract void OnAdd();
     }
 }

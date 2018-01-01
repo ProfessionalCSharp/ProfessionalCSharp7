@@ -2,12 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace Framework
 {
-    public abstract class ErrorInfoObject : BindableObject, INotifyDataErrorInfo
+    public abstract class ErrorInfoObject : BindableBase, INotifyDataErrorInfo
     {
         #region INotifyDataErrorInfo
         private bool _hasErrors;

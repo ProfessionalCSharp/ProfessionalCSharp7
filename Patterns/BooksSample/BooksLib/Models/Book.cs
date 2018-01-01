@@ -2,7 +2,7 @@
 
 namespace BooksLib.Models
 {
-    public class Book : BindableObject
+    public class Book : BindableBase
     {
         public int BookId { get; set; }
 

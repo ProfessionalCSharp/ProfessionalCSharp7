@@ -1,6 +1,6 @@
 ﻿namespace Framework.ViewModels
 {
-    public interface IItemViewModel<T>
+    public interface IItemViewModel<out T>
     {
         T Item { get; }
     }

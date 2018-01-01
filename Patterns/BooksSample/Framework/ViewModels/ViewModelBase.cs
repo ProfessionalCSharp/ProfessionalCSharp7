@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace Framework.ViewModels
 {
-    public abstract class ViewModelBase : BindableObject
+    public abstract class ViewModelBase : BindableBase
     {
         private class StateSetter : IDisposable
         {

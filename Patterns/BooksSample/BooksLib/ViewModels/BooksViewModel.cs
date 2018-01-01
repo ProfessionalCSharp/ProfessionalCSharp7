@@ -25,7 +25,7 @@ namespace BooksLib.ViewModels
             {
                 if (e.PropertyName == "SelectedItem")
                 {
-                    await _navigationService.NavigateToAsync(NavigationPageNames.BookDetailPage);
+                    await _navigationService.NavigateToAsync(PageNames.BookDetailPage);
                 }
             };
         }

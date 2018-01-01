@@ -1,7 +1,8 @@
 ﻿namespace BooksLib.Services
 {
-    public class NavigationPageNames
+    public class PageNames
     {
+        public const string BooksPage = nameof(BooksPage);
         public const string BookDetailPage = nameof(BookDetailPage);
     }
 }

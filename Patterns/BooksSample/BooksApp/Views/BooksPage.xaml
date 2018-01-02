@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="BooksApp.Views.BooksPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:views="using:BooksApp.Views"
+    xmlns:model="using:BooksLib.Models"
+    xmlns:vm="using:BooksLib.ViewModels"
+    xmlns:conv="using:BooksApp.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="BookItemTemplate" x:DataType="vm:BookItemViewModel">
+            <views:BookItemUserControl BookItemViewModel="{x:Bind }" />
+        </DataTemplate>
+        <conv:StringToBoolConverter x:Key="StringToBoolConverter" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ProgressBar Margin="8" HorizontalAlignment="Stretch" Visibility="{x:Bind ViewModel.InProgress, Mode=OneWay}" IsIndeterminate="True" Grid.ColumnSpan="2" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <AppBarButton Icon="Refresh" Command="{x:Bind ViewModel.RefreshCommand}" Label="Get Books" IsCompact="True"  />
+            <AppBarButton Icon="Add" Command="{x:Bind ViewModel.AddCommand}" Label="Add Book" IsCompact="True" />
+        </StackPanel>
+        <ListView ItemTemplate="{StaticResource BookItemTemplate}" Grid.Row="2" ItemsSource="{x:Bind ViewModel.ItemsViewModels, Mode=OneWay}" 
+                 SelectedItem="{x:Bind ViewModel.SelectedItemViewModel, Mode=TwoWay}" >
+        </ListView>
+        <views:BookDetailUserControl x:Name="BookDetailUC" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="BookDetailUC.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="MediumState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitlePage.Margin" Value="12,0,12,7"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

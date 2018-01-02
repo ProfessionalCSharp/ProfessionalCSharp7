@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27128.1
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLIntro", "XAMLIntro\XAMLIntro.csproj", "{88670043-20CB-459C-ABA3-94E2DACA86C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "DataLib\DataLib.csproj", "{736B7DEC-B3B3-4388-B2F6-08F900C99549}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLib", "DataLib\DataLib.csproj", "{736B7DEC-B3B3-4388-B2F6-08F900C99549}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyObjectSample", "DependencyObjectSample\DependencyObjectSample.csproj", "{37AA5955-C177-4F4D-8056-EC894DFB1E84}"
 EndProject
@@ -18,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMarkupExtension", "CustomMarkupExtension\CustomMarkupExtension.csproj", "{1313A15F-0782-4601-90ED-46B826AE4C6C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConditionalXAML", "ConditionalXAML\ConditionalXAML.csproj", "{11DF0C22-D29E-4C7D-9697-1C521BEC3DB4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveTrigger", "AdaptiveTrigger\AdaptiveTrigger.csproj", "{BE14E8B1-9484-407C-A14D-576FD7758606}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -189,26 +187,6 @@ Global
 		{11DF0C22-D29E-4C7D-9697-1C521BEC3DB4}.Release|x86.ActiveCfg = Release|x86
 		{11DF0C22-D29E-4C7D-9697-1C521BEC3DB4}.Release|x86.Build.0 = Release|x86
 		{11DF0C22-D29E-4C7D-9697-1C521BEC3DB4}.Release|x86.Deploy.0 = Release|x86
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|ARM.ActiveCfg = Debug|ARM
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|ARM.Build.0 = Debug|ARM
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|ARM.Deploy.0 = Debug|ARM
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|x64.ActiveCfg = Debug|x64
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|x64.Build.0 = Debug|x64
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|x64.Deploy.0 = Debug|x64
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|x86.ActiveCfg = Debug|x86
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|x86.Build.0 = Debug|x86
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Debug|x86.Deploy.0 = Debug|x86
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|Any CPU.ActiveCfg = Release|x86
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|ARM.ActiveCfg = Release|ARM
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|ARM.Build.0 = Release|ARM
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|ARM.Deploy.0 = Release|ARM
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|x64.ActiveCfg = Release|x64
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|x64.Build.0 = Release|x64
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|x64.Deploy.0 = Release|x64
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|x86.ActiveCfg = Release|x86
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|x86.Build.0 = Release|x86
-		{BE14E8B1-9484-407C-A14D-576FD7758606}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

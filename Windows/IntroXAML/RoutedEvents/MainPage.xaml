@@ -6,6 +6,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20" />
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="20" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="20" />
+        </Style>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Tapped="OnTappedGrid">
         <Grid.RowDefinitions>
@@ -17,7 +28,7 @@
             <CheckBox x:Name="CheckStopRouting" Margin="20">Stop Routing</CheckBox>
             <Button Click="OnCleanStatus">Clean Status</Button>
         </StackPanel>
-        <Button Grid.Row="1" Margin="20" Tapped="OnTappedButton">Tap me!</Button>
-        <TextBlock Grid.Row="2" Margin="20" x:Name="textStatus" />
+        <Button Grid.Row="1" Tapped="OnTappedButton">Tap me!</Button>
+        <TextBlock Grid.Row="2" x:Name="textStatus" />
     </Grid>
 </Page>

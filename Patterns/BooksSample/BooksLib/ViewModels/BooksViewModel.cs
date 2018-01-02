@@ -1,4 +1,5 @@
-﻿using BooksLib.Models;
+﻿using BooksLib.Events;
+using BooksLib.Models;
 using BooksLib.Services;
 using Framework.Services;
 using Framework.ViewModels;
@@ -6,11 +7,6 @@ using System;
 
 namespace BooksLib.ViewModels
 {
-    public class NavigationInfoEvent : EventArgs
-    {
-        public bool UseNavigation { get; set; }
-    }
-
     public class BooksViewModel : MasterDetailViewModel<BookItemViewModel, Book>
     {
         private readonly IItemsService<Book> _booksService;

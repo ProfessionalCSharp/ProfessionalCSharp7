@@ -1,5 +1,5 @@
 ﻿using BooksApp.ViewModels;
-using BooksLib.ViewModels;
+using BooksLib.Events;
 using Framework.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;

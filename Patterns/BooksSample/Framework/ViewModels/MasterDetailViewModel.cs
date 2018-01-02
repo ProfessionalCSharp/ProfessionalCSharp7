@@ -32,7 +32,7 @@ namespace Framework.ViewModels
 
         protected abstract TItemViewModel ToViewModel(TItem item);
 
-        public virtual IEnumerable<TItemViewModel> ItemsViewModels => _itemsService.Items.Select(item => ToViewModel(item));
+        public virtual IEnumerable<TItemViewModel> ItemsViewModels => Items.Select(item => ToViewModel(item));
 
         protected TItem _selectedItem;
         public virtual TItem SelectedItem

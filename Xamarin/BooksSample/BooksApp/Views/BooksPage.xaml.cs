@@ -29,6 +29,6 @@ namespace BooksApp.Views
             this.InitializeComponent();
         }
 
-        public ManageBooksViewModel ViewModel { get; } = (App.Current as App).AppServices.GetService<ManageBooksViewModel>();
+        public BooksViewModel ViewModel { get; } = (App.Current as App).AppServices.GetService<BooksViewModel>();
     }
 }

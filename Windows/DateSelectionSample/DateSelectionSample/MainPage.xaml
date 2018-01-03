@@ -8,16 +8,21 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <CalendarView x:Name="CalendarView1" SelectedDatesChanged="OnDateChanged1" Margin="4" />
-        <CalendarDatePicker x:Name="CalendarDatePicker1" Grid.Column="1" DateChanged="OnDateChanged2" Margin="4" />
-        <DatePicker x:Name="DatePicker1" Grid.Column="2" Margin="4" />
-        <Button Content="Select a Date" Grid.Column="3" Margin="4">
+        <StackPanel Orientation="Vertical">
+            <CalendarView x:Name="CalendarView1" CalendarViewDayItemChanging="OnDayItemChanging" SelectionMode="Multiple" SelectedDatesChanged="OnDatesChanged" Margin="12" MinDate="{x:Bind MinDate, Mode=OneTime}" HorizontalAlignment="Center" FirstDayOfWeek="Monday" />
+        </StackPanel>
+ 
+        <CalendarDatePicker x:Name="CalendarDatePicker1" Grid.Row="0" Grid.Column="1" DateChanged="OnDateChanged" Margin="12" />
+        <DatePicker DateChanged="OnDateChanged1" x:Name="DatePicker1" Grid.Row="1" Margin="12" />
+        <Button Content="Select a Date" Grid.Row="1" Grid.Column="1" Margin="12">
             <Button.Flyout>
                 <DatePickerFlyout x:Name="DatePickerFlyout1" DatePicked="OnDatePicked" />
             </Button.Flyout>

@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using Windows.UI;
 using Windows.UI.Popups;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -115,7 +114,5 @@ namespace DateSelectionSample
         {
             await new MessageDialog($"date changed to {args.NewDate}").ShowAsync();
         }
-
-
     }
 }

@@ -8,12 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Margin="20">
+        <StackPanel Margin="16">
             <TextBox Header="Email" InputScope="EmailNameOrAddress"></TextBox>
             <TextBox Header="Currency" InputScope="CurrencyAmountAndSymbol"></TextBox>
             <TextBox Header="Alpha Numeric" InputScope="AlphanumericFullWidth"></TextBox>
             <TextBox Header="Formula" InputScope="Formula"></TextBox>
             <TextBox Header="Month" InputScope="DateMonthNumber"></TextBox>
+            <TextBox Header="Multiline" AcceptsReturn="True" TextWrapping="Wrap" Height="150" ScrollViewer.VerticalScrollBarVisibility="Auto"   />
         </StackPanel>
     </Grid>
 </Page>

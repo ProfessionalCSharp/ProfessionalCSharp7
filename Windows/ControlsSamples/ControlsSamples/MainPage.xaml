@@ -9,10 +9,9 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <Button Content="Calendar" Click="{x:Bind OnCalendar}" />
-            <Button Content="Range Controls" Click="{x:Bind OnRange}" />
+            <Button Content="Presenters" Click="{x:Bind OnPresenters}" />
             <Button Content="Text" Click="{x:Bind OnText}" />
-            <Button Content="Picker" Click="{x:Bind OnPicker}" />
+            <Button Content="Range Controls" Click="{x:Bind OnRange}" />
         </StackPanel>
     </Grid>
 </Page>

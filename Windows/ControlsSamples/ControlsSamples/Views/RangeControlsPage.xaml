@@ -13,15 +13,13 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <AppBarButton Icon="Back" Click="{x:Bind OnGoBack}" />
-        <ProgressBar x:Name="progressBar1" Grid.Row="1" Margin="12" />
-        <ProgressBar IsIndeterminate="True" Grid.Row="2" Margin="12" />
-        <Slider x:Name="slider" Grid.Row="3" Margin="12" />
-        <TextBox Header="Slider Value" IsReadOnly="True" Text="{x:Bind slider.Value, Mode=OneWay}" Grid.Row="4" Margin="12" />
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Grid.Row="5" Margin="12">
+        <ProgressBar x:Name="progressBar1" Grid.Row="0" Margin="12" />
+        <ProgressBar IsIndeterminate="True" Grid.Row="1" Margin="12" />
+        <Slider x:Name="slider" Minimum="10" Maximum="140" Value="60" Grid.Row="2" Margin="12" />
+        <TextBox Header="Slider Value" IsReadOnly="True" Text="{x:Bind slider.Value, Mode=OneWay}" Grid.Row="3" Margin="12" />
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Grid.Row="4" Margin="12">
             <StackPanel>
                 <TextBox Header="Text 1" Height="300" AcceptsReturn="True" TextWrapping="Wrap" PlaceholderText="Enter multiline text" Margin="8" />
                 <TextBox Header="Text 2" Margin="8" />

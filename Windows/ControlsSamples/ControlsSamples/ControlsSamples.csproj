@@ -103,17 +103,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\BindableBase.cs" />
     <Compile Include="Utilities\ColorSelection.cs" />
-    <Compile Include="Views\CalendarPage.xaml.cs">
-      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    <Compile Include="Views\PresentersPage.xaml.cs">
+      <DependentUpon>PresentersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RangeControlsPage.xaml.cs">
       <DependentUpon>RangeControlsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TextPage.xaml.cs">
       <DependentUpon>TextPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TimePickerPage.xaml.cs">
-      <DependentUpon>TimePickerPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +138,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CalendarPage.xaml">
+    <Page Include="Views\PresentersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,10 +147,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TextPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TimePickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

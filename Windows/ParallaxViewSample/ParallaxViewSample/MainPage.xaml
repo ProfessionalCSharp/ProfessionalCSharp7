@@ -25,7 +25,9 @@
         </ParallaxView>
         
         <!-- Horizontal - uncomment to use this -->
-        <!--<ListView HorizontalAlignment="Center" x:Name="MenuItems" ItemsSource="{x:Bind Menus, Mode=OneWay}" SelectionMode="None" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="auto" ScrollViewer.HorizontalScrollMode="Enabled">
+        <!--<ListView HorizontalAlignment="Center" x:Name="MenuItems" ItemsSource="{x:Bind Menus, Mode=OneWay}" SelectionMode="None" Grid.Row="1"
+                  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="auto" ScrollViewer.HorizontalScrollMode="Enabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ItemsStackPanel Orientation="Horizontal" />

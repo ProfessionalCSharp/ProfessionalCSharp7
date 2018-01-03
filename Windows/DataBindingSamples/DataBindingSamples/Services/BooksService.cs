@@ -24,6 +24,8 @@ namespace DataBindingSamples.Services
         public Book GetBook(int bookId) =>
             _books.Where(b => b.BookId == bookId).SingleOrDefault();
 
+        public void AddBook(Book book) => _books.Add(book);
+
         public IEnumerable<Book> Books => _books;
 
     }

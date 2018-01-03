@@ -12,12 +12,12 @@
     <Page.Resources>
         <DataTemplate x:DataType="models:Book" x:Key="WroxTemplate">
             <Border Background="Red" Margin="4" Padding="4" BorderThickness="2" BorderBrush="DarkRed">
-                <TextBlock Text="{x:Bind Title}" Foreground="White" />
+                <TextBlock Text="{x:Bind Title, Mode=OneWay}" Foreground="White" Width="300" />
             </Border>
         </DataTemplate>
         <DataTemplate x:DataType="models:Book" x:Key="DefaultTemplate">
             <Border Background="LightBlue" Margin="4" Padding="4" BorderThickness="2" BorderBrush="DarkBlue">
-                <TextBlock Text="{x:Bind Title}" Foreground="Black" />
+                <TextBlock Text="{x:Bind Title, Mode=OneWay}" Foreground="Black" Width="300" />
             </Border>
         </DataTemplate>
         <utils:BookTemplateSelector x:Key="BookTemplateSelector" WroxTemplate="{StaticResource WroxTemplate}" DefaultTemplate="{StaticResource DefaultTemplate}" />
@@ -29,14 +29,15 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <CommandBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <AppBarButton Icon="Refresh" Label="Refresh" Click="{x:Bind RefreshBooks}" />
+            <AppBarButton Icon="Refresh" Label="Refresh" Click="{x:Bind OnRefreshBooks}" />
+            <AppBarButton Icon="Add" Label="Add Book" Click="{x:Bind OnAddBook}" />
         </CommandBar>
         <ListView ItemsSource="{x:Bind Books, Mode=OneWay}" ItemTemplateSelector="{StaticResource BookTemplateSelector}" SelectedItem="{x:Bind SelectedBook, Mode=TwoWay}" Grid.Row="1" />
-        <views:BookUserControl Grid.Row="1" Grid.Column="1" Book="{x:Bind SelectedBook, Mode=OneWay}" />
+        <views:BookUserControl Grid.Row="1" Grid.Column="1" Margin="4" Book="{x:Bind SelectedBook, Mode=OneWay}" />
 
     </Grid>
 </Page>

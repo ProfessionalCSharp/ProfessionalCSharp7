@@ -4,10 +4,6 @@ namespace DataBindingSamples.Models
 {
     public class Book : BindableBase
     {
-        public Book()
-        {
-
-        }
         public Book(int id, string title, string publisher, params string[] authors)
         {
             BookId = id;
@@ -21,10 +17,15 @@ namespace DataBindingSamples.Models
         public string Title
         {
             get => _title;
-            set => SetProperty(ref _title, value);
+            set => Set(ref _title, value);
         }
 
-        public string Publisher { get; set; }
+        private string _publisher;
+        public string Publisher
+        {
+            get => _publisher;
+            set => Set(ref _publisher, value);
+        }
         public IEnumerable<string> Authors { get; }
 
         public override string ToString() => Title;

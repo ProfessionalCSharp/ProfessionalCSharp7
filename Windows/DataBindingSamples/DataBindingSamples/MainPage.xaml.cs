@@ -26,14 +26,5 @@ namespace DataBindingSamples
         private int GetNextBookId() => Books.Select(b => b.BookId).Max() + 1;
 
         public IEnumerable<Book> Books => _booksService.Books;
-
-        public Book SelectedBook
-        {
-            get { return (Book)GetValue(SelectedBookProperty); }
-            set { SetValue(SelectedBookProperty, value); }
-        }
-
-        public static readonly DependencyProperty SelectedBookProperty =
-            DependencyProperty.Register("SelectedBook", typeof(Book), typeof(MainPage), new PropertyMetadata(null));
     }
 }

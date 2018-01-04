@@ -36,8 +36,8 @@
             <AppBarButton Icon="Refresh" Label="Refresh" Click="{x:Bind OnRefreshBooks}" />
             <AppBarButton Icon="Add" Label="Add Book" Click="{x:Bind OnAddBook}" />
         </CommandBar>
-        <ListView ItemsSource="{x:Bind Books, Mode=OneWay}" ItemTemplateSelector="{StaticResource BookTemplateSelector}" SelectedItem="{x:Bind SelectedBook, Mode=TwoWay}" Grid.Row="1" />
-        <views:BookUserControl Grid.Row="1" Grid.Column="1" Margin="4" Book="{x:Bind SelectedBook, Mode=OneWay}" />
+        <ListView x:Name="BooksList" ItemsSource="{x:Bind Books, Mode=OneWay}" ItemTemplateSelector="{StaticResource BookTemplateSelector}" SelectedItem="{x:Bind CurrentBook.Book, Mode=TwoWay}" Grid.Row="1" />
+        <views:BookUserControl x:Name="CurrentBook" Grid.Row="1" Grid.Column="1" Margin="4" />
 
     </Grid>
 </Page>

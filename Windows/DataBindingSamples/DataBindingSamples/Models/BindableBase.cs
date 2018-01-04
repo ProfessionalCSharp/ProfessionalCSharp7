@@ -8,7 +8,7 @@ namespace DataBindingSamples.Models
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public virtual bool SetProperty<T>(ref T item, T value, [CallerMemberName] string propertyName = null)
+        public virtual bool Set<T>(ref T item, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(item, value)) return false;
             item = value;   

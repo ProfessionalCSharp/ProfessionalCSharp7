@@ -17,8 +17,7 @@ namespace DataBindingSamples.Services
             foreach (var book in books)
             {
                 _books.Add(book);
-            }
-         
+            }    
         }
 
         public Book GetBook(int bookId) =>
@@ -27,7 +26,5 @@ namespace DataBindingSamples.Services
         public void AddBook(Book book) => _books.Add(book);
 
         public IEnumerable<Book> Books => _books;
-
     }
-
 }

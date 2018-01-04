@@ -103,6 +103,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\BindableBase.cs" />
     <Compile Include="Utilities\ColorSelection.cs" />
+    <Compile Include="Views\ButtonsPage.xaml.cs">
+      <DependentUpon>ButtonsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PresentersPage.xaml.cs">
       <DependentUpon>PresentersPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ButtonsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PresentersPage.xaml">
       <SubType>Designer</SubType>

@@ -12,6 +12,7 @@
             <Button Content="Presenters" Click="{x:Bind OnPresenters}" />
             <Button Content="Text" Click="{x:Bind OnText}" />
             <Button Content="Range Controls" Click="{x:Bind OnRange}" />
+            <Button Content="Buttons" Click="{x:Bind OnButtons}" />
         </StackPanel>
     </Grid>
 </Page>

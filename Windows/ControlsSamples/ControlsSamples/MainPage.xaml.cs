@@ -16,5 +16,7 @@ namespace ControlsSamples
         private void OnPresenters() => Frame.Navigate(typeof(PresentersPage));
 
         private void OnRange() => Frame.Navigate(typeof(RangeControlsPage));
+
+        private void OnButtons() => Frame.Navigate(typeof(ButtonsPage));
     }
 }

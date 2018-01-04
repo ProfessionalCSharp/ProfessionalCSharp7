@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="ControlsSamples.Views.ButtonsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ControlsSamples.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Button Margin="12" Click="OnButtonClick">
+            <Grid>
+                <Ellipse Width="200" Height="90" Fill="red" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Click Me!" FontSize="24" />
+            </Grid>
+        </Button>
+        <HyperlinkButton NavigateUri="https://csharp.christiannagel.com" Content="C# Infos" Grid.Column="1" Style="{StaticResource TextBlockButtonStyle}" FontSize="24" />
+    </Grid>
+</Page>

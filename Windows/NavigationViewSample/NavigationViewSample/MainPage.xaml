@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="NavigationView.MainPage"
+    x:Class="NavigationViewSample.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NavigationView"
@@ -15,7 +15,7 @@
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
             <NavigationViewItemSeparator/>
-            <NavigationViewItemHeader Content="Main pages"/>
+            <NavigationViewItemHeader Content="Main"/>
             <NavigationViewItem Icon="AllApps" Content="Apps" Tag="apps"/>
             <NavigationViewItem Icon="Video" Content="Games" Tag="games"/>
             <NavigationViewItem Icon="Audio" Content="Music" Tag="music"/>

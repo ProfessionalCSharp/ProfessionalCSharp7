@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="b8ec5a80-2b22-49de-9faa-2da15dca0a12"
-    Publisher="CN=cnage"
+    Name="c8176828-4ea2-4072-b61d-c587e5602691"
+    Publisher="CN=chris"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="b8ec5a80-2b22-49de-9faa-2da15dca0a12" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="c8176828-4ea2-4072-b61d-c587e5602691" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>NavigationView</DisplayName>
-    <PublisherDisplayName>cnage</PublisherDisplayName>
+    <DisplayName>NavigationViewSample</DisplayName>
+    <PublisherDisplayName>chris</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="NavigationView.App">
+      EntryPoint="NavigationViewSample.App">
       <uap:VisualElements
-        DisplayName="NavigationView"
+        DisplayName="NavigationViewSample"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="NavigationView"
+        Description="NavigationViewSample"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

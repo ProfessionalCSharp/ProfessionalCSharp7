@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="ParallaxViewSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ParallaxViewSample"
+    xmlns:model="using:ParallaxViewSample.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <Slider x:Name="HorizontalSlider" Header="Horizontal Shift" Minimum="0" Maximum="1000" Value="0" />
+            <Slider x:Name="VerticalSlider" Header="Vertical Shift" Minimum="0" Maximum="1000" Value="0" />
+        </StackPanel>
+
+        <ParallaxView Source="{x:Bind MenuItems}" Grid.Row="1" 
+                      HorizontalShift="{x:Bind HorizontalSlider.Value, Mode=OneWay}" 
+                      VerticalShift="{x:Bind VerticalSlider.Value, Mode=OneWay}">
+            <Image Source="https://kantinem101.blob.core.windows.net/menuimages/Hirschragout_1024"></Image>
+        </ParallaxView>
+        
+        <!-- Horizontal - uncomment to use this -->
+        <!--<ListView HorizontalAlignment="Center" x:Name="MenuItems" ItemsSource="{x:Bind Menus, Mode=OneWay}" SelectionMode="None" Grid.Row="1"
+                  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="auto" ScrollViewer.HorizontalScrollMode="Enabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:LunchMenu">
+                    <Grid Margin="12">
+                        <Image Width="300" Source="{x:Bind ImageUrl, Mode=OneWay}" />
+                        <TextBlock Margin="8" VerticalAlignment="Bottom" HorizontalTextAlignment="Center" Text="{x:Bind Text, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        
+        <!-- Vertical - comment to use the horizontal version -->
+        <ListView HorizontalAlignment="Center" x:Name="MenuItems" ItemsSource="{x:Bind Menus, Mode=OneWay}" SelectionMode="None"  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:LunchMenu">
+                    <Grid Margin="12">
+                        <Image Width="300" Source="{x:Bind ImageUrl, Mode=OneWay}" />
+                        <TextBlock Margin="8" VerticalAlignment="Bottom" HorizontalTextAlignment="Center" Text="{x:Bind Text, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

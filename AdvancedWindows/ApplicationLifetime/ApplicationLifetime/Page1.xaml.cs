@@ -28,10 +28,7 @@ namespace ApplicationLifetime
             _backButtonManager.Dispose();
         }
 
-        public void GotoPage2()
-        {
-            Frame.Navigate(typeof(Page2), Parameter1);
-        }
+        public void GotoPage2() => Frame.Navigate(typeof(Page2), Parameter1);
 
         public string Parameter1 { get; set; }
 

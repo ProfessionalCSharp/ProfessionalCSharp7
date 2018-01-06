@@ -40,7 +40,6 @@ namespace ApplicationLifetime.Services
             }
         }
 
-
         public string Session2
         {
             get => _state[nameof(Session2)];

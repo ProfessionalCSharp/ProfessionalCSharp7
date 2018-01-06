@@ -44,15 +44,17 @@ namespace ApplicationLifetime
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    var suspensionManager = new NavigationSuspensionManager();
-                    string navigationState = await suspensionManager.GetNavigationStateAsync();
-                    rootFrame.SetNavigationState(navigationState);
+                    //var suspensionManager = new NavigationSuspensionManager();
+                    //string navigationState = await suspensionManager.GetNavigationStateAsync();
+                    //rootFrame.SetNavigationState(navigationState);
 
                     await DataManager.Instance.LoadTempSessionAsync();
+
+                    rootFrame.Navigate(typeof(MainPage), "Resume");
                 }
 
                 // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
+                Window.Current.Content = rootFrame;       
             }
 
             if (e.PrelaunchActivated == false)
@@ -89,7 +91,8 @@ namespace ApplicationLifetime
         private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            var frame = Window.Current.Content as Frame;
+            // var frame = Window.Current.Content as Frame;
+            var frame = NavigationFrame;
             if (frame?.BackStackDepth >= 1)
             {
                 var suspensionManager = new NavigationSuspensionManager();
@@ -104,5 +107,7 @@ namespace ApplicationLifetime
 
             deferral.Complete();
         }
+
+        public Frame NavigationFrame { get; set; }
     }
 }

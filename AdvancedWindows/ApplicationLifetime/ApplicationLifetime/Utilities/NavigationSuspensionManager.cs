@@ -21,10 +21,17 @@ namespace ApplicationLifetime.Utilities
 
         public async Task<string> GetNavigationStateAsync()
         {
-            Stream stream = await ApplicationData.Current.LocalCacheFolder.OpenStreamForReadAsync(NavigationStateFile);
-            using (var reader = new StreamReader(stream))
+            try
             {
-                return await reader.ReadLineAsync();
+                Stream stream = await ApplicationData.Current.LocalCacheFolder.OpenStreamForReadAsync(NavigationStateFile);
+                using (var reader = new StreamReader(stream))
+                {
+                    return await reader.ReadLineAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                return "error";
             }
         }
     }

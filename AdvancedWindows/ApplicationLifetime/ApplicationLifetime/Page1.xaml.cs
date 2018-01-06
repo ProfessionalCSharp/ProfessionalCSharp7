@@ -7,10 +7,7 @@ namespace ApplicationLifetime
 {
     public sealed partial class Page1 : Page
     {
-        public Page1()
-        {
-            this.InitializeComponent();
-        }
+        public Page1() => InitializeComponent();
 
         private BackButtonManager _backButtonManager;
         protected override void OnNavigatedTo(NavigationEventArgs e)

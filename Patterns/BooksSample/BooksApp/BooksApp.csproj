@@ -174,12 +174,12 @@
     <Folder Include="Styles\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BooksLib\BooksLib.csproj">
-      <Project>{214B320A-5718-40E2-82DF-799C55A4ED19}</Project>
+    <ProjectReference Include="..\..\..\PatternsXamarinShared\BooksLib\BooksLib.csproj">
+      <Project>{eac11405-e8c9-4298-a060-7e040be7d89c}</Project>
       <Name>BooksLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Framework\Framework.csproj">
-      <Project>{5a9ce8f8-0b6b-4bc3-9807-7768a1156e8f}</Project>
+    <ProjectReference Include="..\..\..\PatternsXamarinShared\Framework\Framework.csproj">
+      <Project>{6ce479e9-9164-493c-a5db-a5d4ee4026b0}</Project>
       <Name>Framework</Name>
     </ProjectReference>
   </ItemGroup>

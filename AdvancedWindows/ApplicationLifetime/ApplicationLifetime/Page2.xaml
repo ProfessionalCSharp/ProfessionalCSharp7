@@ -16,7 +16,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock FontSize="30" Text="Page 2" />
+        <TextBlock Text="Page 2" Style="{StaticResource HeaderTextBlockStyle}" />
         <TextBlock Grid.Row="1" Margin="4" Text="{x:Bind ReceivedContent, Mode=OneTime}" />
     </Grid>
 </Page>

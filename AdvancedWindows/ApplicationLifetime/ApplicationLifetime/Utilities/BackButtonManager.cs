@@ -11,7 +11,7 @@ namespace ApplicationLifetime.Utilities
 
         public BackButtonManager(Frame frame)
         {
-            _frame = frame;
+            _frame = frame ?? throw new ArgumentNullException(nameof(frame));
             _navigationManager = SystemNavigationManager.GetForCurrentView();
             _navigationManager.AppViewBackButtonVisibility = frame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
             _navigationManager.BackRequested += OnBackRequested;

@@ -44,13 +44,11 @@ namespace ApplicationLifetime
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //var suspensionManager = new NavigationSuspensionManager();
-                    //string navigationState = await suspensionManager.GetNavigationStateAsync();
-                    //rootFrame.SetNavigationState(navigationState);
+                    var suspensionManager = new NavigationSuspensionManager();
+                    string navigationState = await suspensionManager.GetNavigationStateAsync();
+                    rootFrame.SetNavigationState(navigationState);
 
                     await DataManager.Instance.LoadTempSessionAsync();
-
-                    rootFrame.Navigate(typeof(MainPage), "Resume");
                 }
 
                 // Place the frame in the current Window

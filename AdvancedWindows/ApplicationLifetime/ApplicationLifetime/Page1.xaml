@@ -20,10 +20,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock FontSize="30" Text="Page 1" />
-        <TextBlock Grid.Row="1" Text="{x:Bind ReceivedContent, Mode=OneTime}" />
-        <TextBox Grid.Row="2" Text="{x:Bind Parameter1, Mode=TwoWay}" />
-        <Button Grid.Row="3" Content="Navigate to Page 2" Click="{x:Bind GotoPage2, Mode=OneTime}" />
+        <TextBlock Text="Page 1" Style="{StaticResource HeaderTextBlockStyle}" Margin="12" />
+        <TextBlock Grid.Row="1" Text="{x:Bind ReceivedContent, Mode=OneTime}" Style="{StaticResource BodyTextBlockStyle}" Margin="12" />
+        <TextBox Grid.Row="2" Text="{x:Bind Parameter1, Mode=TwoWay}"  />
+        <Button Grid.Row="3" Content="Navigate to Page 2" Click="{x:Bind GotoPage2, Mode=OneTime}" Style="{StaticResource ButtonRevealStyle}" Margin="12" />
         <TextBox Header="Session State 1" Grid.Row="4" Text="{x:Bind Data.Session1, Mode=TwoWay}" />
         <TextBox Header="Session State 2" Grid.Row="5" Text="{x:Bind Data.Session2, Mode=TwoWay}" />
     </Grid>

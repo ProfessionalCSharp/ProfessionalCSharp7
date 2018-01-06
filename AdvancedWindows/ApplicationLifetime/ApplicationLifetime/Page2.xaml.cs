@@ -14,7 +14,6 @@ namespace ApplicationLifetime
             base.OnNavigatedTo(e);
             _backButtonManager = new BackButtonManager(Frame);
 
-
             ReceivedContent = e.Parameter?.ToString() ?? string.Empty;
             Bindings.Update();
         }
@@ -22,7 +21,7 @@ namespace ApplicationLifetime
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
-            _backButtonManager.Dispose();
+           _backButtonManager.Dispose();
         }
 
         public string ReceivedContent { get; private set; }

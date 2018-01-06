@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="ShareSource.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShareSource"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel Margin="24">
+            <Button x:Name="shareDataButton" Content="Share Data" Click="{x:Bind DataSharing.ShowShareUI, Mode=OneTime}" Margin="12" />
+            <TextBox RelativePanel.RightOf="shareDataButton" Text="{x:Bind DataSharing.SimpleText, Mode=TwoWay}" Margin="12" />
+        </RelativePanel>
+    </Grid>
+</Page>

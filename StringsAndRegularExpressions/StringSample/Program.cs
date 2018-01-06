@@ -15,8 +15,8 @@ namespace StringSample
         public static void UsingStringBuilder()
         {
             var greetingBuilder =
-                new StringBuilder("Hello from all the guys at Wrox Press. ", 150);
-            greetingBuilder.AppendFormat("We do hope you enjoy this book as much as we " +
+                new StringBuilder("Hello from all the people at Wrox Press. ", 150);
+            greetingBuilder.Append("We do hope you enjoy this book as much as we " +
                 "enjoyed writing it");
 
             Console.WriteLine("Not Encoded:\n" + greetingBuilder);
@@ -41,7 +41,7 @@ namespace StringSample
 
         public static void SimpleStrings()
         {
-            string greetingText = "Hello from all the guys at Wrox Press. ";
+            string greetingText = "Hello from all the people at Wrox Press. ";
             greetingText += "We do hope you enjoy this book as much as we enjoyed writing it.";
 
             Console.WriteLine("Not Encoded:\n" + greetingText);

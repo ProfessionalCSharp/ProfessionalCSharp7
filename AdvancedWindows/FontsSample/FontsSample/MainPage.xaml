@@ -17,10 +17,10 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListView x:Name="listFonts" ItemsSource="{x:Bind FontNames, Mode=OneTime}" SelectedItem="{x:Bind SelectedFont, Mode=TwoWay}">
+        <ListView x:Name="listFonts" ItemsSource="{x:Bind FontNames, Mode=OneTime}" SelectedItem="{x:Bind SelectedFont, Mode=TwoWay}" Margin="12">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="x:String">
                     <StackPanel Orientation="Horizontal">
@@ -29,7 +29,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" Margin="12" Padding="8">
             <TextBlock Text="{x:Bind SelectedFont, Mode=OneWay}" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" />
             <TextBlock Text="Bold" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" FontWeight="Bold" />
             <TextBlock Text="Italic" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" FontStyle="Italic" />

@@ -9,6 +9,6 @@
 
     <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
     <Grid Background="Red">
-        <TextBlock Text="Das ist die MainPage" />
+        <TextBlock Text="This is the Main Page" />
     </Grid>
 </Page>

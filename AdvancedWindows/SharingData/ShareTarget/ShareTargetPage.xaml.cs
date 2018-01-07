@@ -7,10 +7,7 @@ namespace ShareTarget
 {
     public sealed partial class ShareTargetPage : Page
     {
-        public ShareTargetPage()
-        {
-            this.InitializeComponent();
-        }
+        public ShareTargetPage() => this.InitializeComponent();
 
         public ShareTargetPageViewModel ViewModel { get; } = new ShareTargetPageViewModel();
 

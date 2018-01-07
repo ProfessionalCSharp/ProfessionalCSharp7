@@ -31,6 +31,8 @@ namespace ShareTarget.ViewModels
 
         public void Activate(ShareOperation shareOperation)
         {
+            if (shareOperation != null) throw new ArgumentNullException(nameof(shareOperation));
+
             string title = null;
             string description = null;
             try

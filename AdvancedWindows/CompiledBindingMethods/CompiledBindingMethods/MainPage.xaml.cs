@@ -33,6 +33,7 @@ namespace CompiledBindingMethods
         public void ToPerson2(string name)
         {
             string[] names = name.Split(' ');
+            if (names.Length != 2) return; // don't do anything with wrong inputs
             Person2.GivenName = names[0];
             Person2.Surname = names[1];
             Bindings.Update();

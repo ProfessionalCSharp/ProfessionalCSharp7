@@ -12,7 +12,7 @@ namespace BooksCacheClient.ViewModels
     public class BooksViewModel
     {
         private const string BookServiceName = "com.CNinnovation.BooksCache";
-        private const string BooksPackageName = "CNinnovation.Samples.BookCache_yps17xarsp2at";
+        private const string BooksPackageFamilyName = "085f62ed-e72b-4c07-9970-b4d01c066dd6_p2wxv0ry6mv8g";
 
         public ObservableCollection<Book> Books { get; } = new ObservableCollection<Book>();
         public async void GetBooksAsync()
@@ -43,7 +43,7 @@ namespace BooksCacheClient.ViewModels
             using (var connection = new AppServiceConnection())
             {
                 connection.AppServiceName = BookServiceName;
-                connection.PackageFamilyName = BooksPackageName;
+                connection.PackageFamilyName = BooksPackageFamilyName;
 
                 AppServiceConnectionStatus status = await connection.OpenAsync();
                 if (status == AppServiceConnectionStatus.Success)

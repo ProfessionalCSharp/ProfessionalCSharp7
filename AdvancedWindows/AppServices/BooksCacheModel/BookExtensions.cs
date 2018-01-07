@@ -16,7 +16,5 @@ namespace BooksCacheModel
 
         public static IEnumerable<Book> ToBooks(this string json) =>
             JsonConvert.DeserializeObject<IEnumerable<Book>>(json);
-
-
     }
 }

@@ -131,6 +131,16 @@
       <Version>6.0.4</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BooksCacheModel\BooksCacheModel.csproj">
+      <Project>{daf7f8b5-fa4e-4f66-b376-2d0e9f4bf259}</Project>
+      <Name>BooksCacheModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BooksCacheService\BooksCacheService.csproj">
+      <Project>{cb5721e6-f735-43ec-9228-52f56257d87f}</Project>
+      <Name>BooksCacheService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -5,15 +5,18 @@
     xmlns:vm="using:PhasedBinding.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="600"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBox />
-        <ListView HorizontalAlignment="Center" x:Name="MenuItems" ItemsSource="{x:Bind LunchViewModels, Mode=OneWay}" SelectionMode="None"  Grid.Row="1">
+        <TextBlock Text="Phasing Sample" Style="{StaticResource HeaderTextBlockStyle}" />
+        <TextBox Header="Enter Some Text" PlaceholderText="UI is responsive - enter some text while the actual data is retrieved" Grid.Row="1" />
+        <ListView HorizontalAlignment="Center" x:Name="MenuItems" ItemsSource="{x:Bind LunchViewModels, Mode=OneWay}" SelectionMode="None"  Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:LunchMenuViewModel">
                     <Grid Margin="12">

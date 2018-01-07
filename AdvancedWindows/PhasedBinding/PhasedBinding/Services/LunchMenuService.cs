@@ -21,9 +21,8 @@ namespace PhasedBinding.Services
 
         public async Task<IEnumerable<LunchMenu>> GetLunchMenusAsync()
         {
-            await Task.Delay(5000); // simulate a delay
+            await Task.Delay(10000); // simulate a delay
             return _menusList;
         }
-
     }
 }

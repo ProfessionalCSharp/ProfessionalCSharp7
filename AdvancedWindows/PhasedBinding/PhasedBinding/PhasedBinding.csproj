@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Framework\BindableBase.cs" />
     <Compile Include="Services\LunchMenuService.cs" />
     <Compile Include="ViewModels\LunchMenuViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">

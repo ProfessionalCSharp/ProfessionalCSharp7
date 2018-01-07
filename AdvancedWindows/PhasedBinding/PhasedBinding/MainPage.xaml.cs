@@ -35,7 +35,7 @@ namespace PhasedBinding
             }
             catch (Exception ex)
             {
-                // log the exception
+                // TODO: log the exception
                 throw;
             }
         }

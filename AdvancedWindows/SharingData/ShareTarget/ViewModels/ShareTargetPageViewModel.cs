@@ -17,7 +17,7 @@ namespace ShareTarget.ViewModels
 
         public void Set<T>(ref T item, T value, [CallerMemberName] string propertyName = null)
         {
-            if (EqualityComparer<T>.Default.Equals(item, value))
+            if (!EqualityComparer<T>.Default.Equals(item, value))
             {
                 item = value;
                 OnPropertyChanged(propertyName);
@@ -31,7 +31,7 @@ namespace ShareTarget.ViewModels
 
         public void Activate(ShareOperation shareOperation)
         {
-            if (shareOperation != null) throw new ArgumentNullException(nameof(shareOperation));
+            if (shareOperation == null) throw new ArgumentNullException(nameof(shareOperation));
 
             string title = null;
             string description = null;

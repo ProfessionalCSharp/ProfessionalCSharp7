@@ -16,9 +16,9 @@
             <TextBlock Text="{x:Bind Book.Title, Mode=OneWay}" Style="{StaticResource HeaderTextBlockStyle}" />
             <TextBlock Text="{x:Bind Book.Publisher}" />
             <TextBlock Text="Instructions:" />
-            <TextBlock Text="1. Click the Edit button to update the book from code behind. This updates the book in the UI." />
-            <TextBlock Text="2. Click the Stop button, change tracking will be stopped. Click the Edit button to update the book, this change will not reflect in the UI." />
-            <TextBlock Text="3. Click the Refresh button to update bindings" />
+            <TextBlock TextWrapping="WrapWholeWords" Text="1. Click the Edit button to update the book from code behind. This updates the book in the UI." />
+            <TextBlock TextWrapping="WrapWholeWords" Text="2. Click the Stop button, change tracking will be stopped. Click the Edit button to update the book, this change will not reflect in the UI." />
+            <TextBlock TextWrapping="WrapWholeWords" Text="3. Click the Refresh button to update bindings" />
 
         </StackPanel>
 

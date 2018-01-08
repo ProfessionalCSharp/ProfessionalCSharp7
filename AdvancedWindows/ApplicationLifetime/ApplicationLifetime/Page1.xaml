@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="ApplicationLifetime.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ApplicationLifetime"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Page 1" Style="{StaticResource HeaderTextBlockStyle}" Margin="12" />
+        <TextBlock Grid.Row="1" Text="{x:Bind ReceivedContent, Mode=OneTime}" Style="{StaticResource BodyTextBlockStyle}" Margin="12" />
+        <TextBox Grid.Row="2" Text="{x:Bind Parameter1, Mode=TwoWay}"  />
+        <Button Grid.Row="3" Content="Navigate to Page 2" Click="{x:Bind GotoPage2, Mode=OneTime}" Style="{StaticResource ButtonRevealStyle}" Margin="12" />
+        <TextBox Header="Session State 1" Grid.Row="4" Text="{x:Bind Data.Session1, Mode=TwoWay}" />
+        <TextBox Header="Session State 2" Grid.Row="5" Text="{x:Bind Data.Session2, Mode=TwoWay}" />
+    </Grid>
+</Page>

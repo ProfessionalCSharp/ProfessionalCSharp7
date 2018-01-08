@@ -1,0 +1,15 @@
+﻿<Application
+    x:Class="CompiledBindingLifetime.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CompiledBindingLifetime"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <Style TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin" Value="12" />
+            </Style.Setters>
+        </Style>
+    </Application.Resources>
+
+</Application>

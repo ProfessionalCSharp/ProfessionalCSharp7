@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="ApplicationLifetime.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ApplicationLifetime"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Main Page" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0" Margin="12" />
+        <Button Content="Page 1" Click="{x:Bind GotoPage1, Mode=OneTime}" Grid.Row="1" Margin="24, 24, 0, 0" />
+        <TextBox Header="Parameter 1" Text="{x:Bind ParameterPage1, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="0, 24, 24, 0" />
+        <Button Content="Page 2" Click="{x:Bind GotoPage2, Mode=OneTime}" Grid.Row="2" Margin="24, 24, 0, 0" />
+        <TextBox Header="Parameter 2" Text="{x:Bind ParameterPage2, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="0, 24, 24, 0" />
+    </Grid>
+</Page>

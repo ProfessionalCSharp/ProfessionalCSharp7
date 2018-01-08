@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="LayoutSamples.Views.CanvasPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LayoutSamples.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Canvas Background="LightBlue">
+            <TextBlock Canvas.Top="30" Canvas.Left="20">Enter here:</TextBlock>
+            <TextBox Canvas.Top="30" Canvas.Left="120" Width="100" />
+            <Button Canvas.Top="70" Canvas.Left="120" Content="Click Me!" Padding="4" />
+        </Canvas>
+
+    </Grid>
+</Page>

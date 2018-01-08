@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="grid1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
@@ -59,8 +59,8 @@
             </Grid.ColumnDefinitions>
 
             <RichTextBlock  x:Name="textBlock" TextWrapping="Wrap" Margin="20,0" OverflowContentTarget="{x:Bind overflowContainer1}" TextLineBounds="Full"></RichTextBlock>
-            <RichTextBlockOverflow Visibility="Collapsed" RelativePanel.RightOf="textBlock" x:Name="overflowContainer1" Grid.Column="1" Margin="20,0" OverflowContentTarget="{x:Bind overflowContainer2}"></RichTextBlockOverflow>
-            <RichTextBlockOverflow Visibility="Collapsed" RelativePanel.RightOf="overflowContainer1" x:Name="overflowContainer2" Grid.Column="2" Margin="20,0"></RichTextBlockOverflow>
+            <RichTextBlockOverflow Visibility="Collapsed" x:Name="overflowContainer1" Grid.Column="1" Margin="20,0" OverflowContentTarget="{x:Bind overflowContainer2}"></RichTextBlockOverflow>
+            <RichTextBlockOverflow Visibility="Collapsed" x:Name="overflowContainer2" Grid.Column="2" Margin="20,0"></RichTextBlockOverflow>
         </Grid>
     </Grid>
 </Page>

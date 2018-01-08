@@ -31,7 +31,7 @@ namespace TextOverflow
             return paragraph;
         }
 
-        public IList<Inline> GetInlineElements()
+        public IEnumerable<Inline> GetInlineElements()
         {
             var inlines = new List<Inline>();
             var header = new Bold();

@@ -156,12 +156,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BooksLib\BooksLib.csproj">
-      <Project>{214b320a-5718-40e2-82df-799c55a4ed19}</Project>
+    <ProjectReference Include="..\..\..\..\PatternsXamarinShared\BooksLib\BooksLib.csproj">
+      <Project>{a217c1ee-11cb-49fb-b87f-7053630713c0}</Project>
       <Name>BooksLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Framework\Framework.csproj">
-      <Project>{5a9ce8f8-0b6b-4bc3-9807-7768a1156e8f}</Project>
+    <ProjectReference Include="..\..\..\..\PatternsXamarinShared\Framework\Framework.csproj">
+      <Project>{1558b200-c14c-4ca2-b4ab-9ef7631c3e2e}</Project>
       <Name>Framework</Name>
     </ProjectReference>
   </ItemGroup>

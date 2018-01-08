@@ -12,7 +12,7 @@ namespace BooksAppX.Services
     {
         private Dictionary<string, Func<Page>> _pages = new Dictionary<string, Func<Page>>
         {
-            [NavigationPageNames.BookDetailPage] = () => new BookDetailPage()
+            [PageNames.BookDetailPage] = () => new BookDetailPage()
         };
 
         private INavigation _navigation;
@@ -20,6 +20,8 @@ namespace BooksAppX.Services
         {
             get => _navigation ?? (_navigation = _initializeNavigation.Navigation);
         }
+
+        public string CurrentPage => throw new NotImplementedException();
 
         private readonly InitializeNavigationService _initializeNavigation;
 

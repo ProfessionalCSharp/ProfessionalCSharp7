@@ -83,16 +83,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\BooksLib\BooksLib.csproj">
-      <Project>{214b320a-5718-40e2-82df-799c55a4ed19}</Project>
-      <Name>BooksLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Framework\Framework.csproj">
-      <Project>{5a9ce8f8-0b6b-4bc3-9807-7768a1156e8f}</Project>
-      <Name>Framework</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="..\BooksAppX\BooksAppX.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

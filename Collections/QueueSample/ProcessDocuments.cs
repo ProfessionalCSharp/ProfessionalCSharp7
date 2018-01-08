@@ -8,7 +8,7 @@ namespace QueueSample
             Task.Run(new ProcessDocuments(dm).Run);
 
         protected ProcessDocuments(DocumentManager dm) =>
-            _documentManager = dm ?? throw new ArgumentNullException("dm");
+            _documentManager = dm ?? throw new ArgumentNullException(nameof(dm));
 
         private DocumentManager _documentManager;
 

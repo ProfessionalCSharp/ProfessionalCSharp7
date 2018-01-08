@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="InkSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InkSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <InkCanvas x:Name="inkCanvas" Margin="8,32,8,8" />
+
+        <RelativePanel VerticalAlignment="Top">
+            <InkToolbar x:Name="inkToolbar" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" TargetInkCanvas="{x:Bind inkCanvas}" />
+            <CommandBar RelativePanel.RightOf="inkToolbar" Template="{StaticResource CommandBarControlTemplate1}">
+                <AppBarButton Icon="OpenFile" IsCompact="True" Click="{x:Bind OnLoad}" ToolTipService.ToolTip="Open File"  />
+                <AppBarButton Icon="Save" IsCompact="True" Click="{x:Bind OnSave}" ToolTipService.ToolTip="Save" />
+                <AppBarButton Icon="Clear" IsCompact="True" Click="{x:Bind OnClear}" ToolTipService.ToolTip="Clear" />
+            </CommandBar>
+        </RelativePanel>
+    </Grid>
+</Page>

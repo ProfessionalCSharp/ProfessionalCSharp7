@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  webappwithvs:
+    image: webappwithvs
+    build:
+      context: .
+      dockerfile: WebAppWithVS/Dockerfile

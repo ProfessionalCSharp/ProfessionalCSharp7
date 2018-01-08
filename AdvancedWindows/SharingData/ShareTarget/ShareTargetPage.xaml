@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="ShareTarget.ShareTargetPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShareTarget"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Share Target Page" Margin="12" FontSize="30" />
+            <TextBox Header="Title" IsReadOnly="True" Text="{x:Bind ViewModel.Title, Mode=OneWay}" Margin="12" />
+            <TextBox Header="Description" IsReadOnly="True" Text="{x:Bind ViewModel.Description, Mode=OneWay}" Margin="12" />
+            <ComboBox ItemsSource="{x:Bind ViewModel.ShareFormats, Mode=OneTime}" SelectedItem="{x:Bind ViewModel.SelectedFormat, Mode=TwoWay}" Margin="12" />
+            <Button Content="Retrieve Data" Click="{x:Bind ViewModel.RetrieveData, Mode=OneTime}" Margin="12" />
+            <Button Content="Report Complete" Click="{x:Bind ViewModel.ReportCompleted, Mode=OneTime}" Margin="12" />
+            <TextBox Header="Text" IsReadOnly="True" Text="{x:Bind ViewModel.Text, Mode=OneWay}" Margin="12" />
+            <TextBox AcceptsReturn="True" IsReadOnly="True" Text="{x:Bind ViewModel.Html, Mode=OneWay}" Margin="12" />
+        </StackPanel>
+    </Grid>
+</Page>

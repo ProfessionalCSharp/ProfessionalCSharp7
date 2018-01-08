@@ -1,3 +1,4 @@
+
 # Professional C# 7
 
 Code samples for Professional C# 7 and .NET Core 2
@@ -29,6 +30,7 @@ Samples available for these chapters (sample folders)
 * Chapter 15 - Asynchronous Programming (Async)
 * Chapter 16 - Reflection, Metadata, and Dynamic Programming (ReflectionAndDynamic)
 * Chapter 17 - Managed and Umanaged Memory (Memory)
+* Chapter 18 - Visual Studio 2017 (VisualStudio)
 * Chapter 19 - Libraries, Assemblies, Packages, and NuGet (Libraries)
 * Chapter 20 - Dependency Injection (DependencyInjection)
 * Chapter 21 - Tasks and Parallel Programming (Tasks)

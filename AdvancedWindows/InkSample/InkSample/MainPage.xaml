@@ -13,9 +13,9 @@
         <RelativePanel VerticalAlignment="Top">
             <InkToolbar x:Name="inkToolbar" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" TargetInkCanvas="{x:Bind inkCanvas}" />
             <CommandBar RelativePanel.RightOf="inkToolbar" Template="{StaticResource CommandBarControlTemplate1}">
-                <AppBarButton Icon="OpenFile" IsCompact="True" Click="{x:Bind OnLoad}"  />
-                <AppBarButton Icon="Save" IsCompact="True" Click="{x:Bind OnSave}" />
-                <AppBarButton Icon="Clear" IsCompact="True" Click="{x:Bind OnClear}" />
+                <AppBarButton Icon="OpenFile" IsCompact="True" Click="{x:Bind OnLoad}" ToolTipService.ToolTip="Open File"  />
+                <AppBarButton Icon="Save" IsCompact="True" Click="{x:Bind OnSave}" ToolTipService.ToolTip="Save" />
+                <AppBarButton Icon="Clear" IsCompact="True" Click="{x:Bind OnClear}" ToolTipService.ToolTip="Clear" />
             </CommandBar>
         </RelativePanel>
     </Grid>

@@ -14,10 +14,7 @@ namespace AutoSuggestSample
 {
     public sealed partial class MainPage : Page
     {
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
+        public MainPage() => InitializeComponent();
 
         private const string RacersUri = "http://www.cninnovation.com/downloads/Racers.xml";
         private IEnumerable<Racer> _racers;
@@ -45,16 +42,16 @@ namespace AutoSuggestSample
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput && sender.Text.Length >= 2)
             {
                 string input = sender.Text;
-                var q = _racers.Where(r => r.FirstName.StartsWith(input, StringComparison.CurrentCultureIgnoreCase)).OrderBy(r => r.FirstName).ThenBy(r => r.LastName).ThenBy(r => r.Country).ToArray();
-                if (q.Length == 0)
+                var racers = _racers.Where(r => r.FirstName.StartsWith(input, StringComparison.CurrentCultureIgnoreCase)).OrderBy(r => r.FirstName).ThenBy(r => r.LastName).ThenBy(r => r.Country).ToArray();
+                if (racers.Length == 0)
                 {
-                    q = _racers.Where(r => r.LastName.StartsWith(input, StringComparison.CurrentCultureIgnoreCase)).OrderBy(r => r.LastName).ThenBy(r => r.FirstName).ThenBy(r => r.Country).ToArray();
-                    if (q.Length == 0)
+                    racers = _racers.Where(r => r.LastName.StartsWith(input, StringComparison.CurrentCultureIgnoreCase)).OrderBy(r => r.LastName).ThenBy(r => r.FirstName).ThenBy(r => r.Country).ToArray();
+                    if (racers.Length == 0)
                     {
-                        q = _racers.Where(r => r.Country.StartsWith(input, StringComparison.CurrentCultureIgnoreCase)).OrderBy(r => r.Country).ThenBy(r => r.LastName).ThenBy(r => r.FirstName).ToArray();
+                        racers = _racers.Where(r => r.Country.StartsWith(input, StringComparison.CurrentCultureIgnoreCase)).OrderBy(r => r.Country).ThenBy(r => r.LastName).ThenBy(r => r.FirstName).ToArray();
                     }
                 }
-                sender.ItemsSource = q;
+                sender.ItemsSource = racers;
             }
         }
 

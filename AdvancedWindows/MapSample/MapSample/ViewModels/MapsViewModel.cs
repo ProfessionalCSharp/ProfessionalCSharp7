@@ -35,7 +35,7 @@ namespace MapSample.ViewModels
 
             // intialize defaults at startup
             CurrentPosition = new Geopoint(new BasicGeoposition { Latitude = 48.2, Longitude = 16.3 });
-            // { Latitude = 47.604, Longitude = -122.329 });
+             // { Latitude = 47.604, Longitude = -122.329 });
             CurrentMapStyle = MapStyle.Road;
             DesiredPitch = 0;
             ZoomLevel = 12;

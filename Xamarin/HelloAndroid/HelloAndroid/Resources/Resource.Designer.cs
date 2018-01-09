@@ -47,6 +47,9 @@ namespace HelloAndroid
 			// aapt resource value: 0x7f040000
 			public const int button1 = 2130968576;
 			
+			// aapt resource value: 0x7f040001
+			public const int showlistbutton = 2130968577;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -84,6 +87,9 @@ namespace HelloAndroid
 			
 			// aapt resource value: 0x7f030000
 			public const int main_button1_text = 2130903040;
+			
+			// aapt resource value: 0x7f030003
+			public const int main_showlistbutton_text = 2130903043;
 			
 			static String()
 			{

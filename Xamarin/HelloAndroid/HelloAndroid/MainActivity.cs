@@ -19,6 +19,10 @@ namespace HelloAndroid
             {
                 Toast.MakeText(ApplicationContext, Resource.String.hello, ToastLength.Long).Show();
             };
+
+            Button showlistButton = FindViewById<Button>(Resource.Id.showlistbutton);
+            showlistButton.Click += (sender, e) =>
+                StartActivity(typeof(SomeDataListActivity));
         }
 
     }

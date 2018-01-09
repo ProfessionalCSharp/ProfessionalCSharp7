@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="main_button1_text">Click Me!</string>
-  <string name="app_name">HelloAndroid</string>
+  <string name="app_name">Hello Android</string>
   <string name="hello">Hello Android!</string>
 </resources>

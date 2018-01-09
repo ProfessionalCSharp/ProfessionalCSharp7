@@ -41,6 +41,22 @@ namespace HelloAndroid
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int button1 = 2130968576;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
@@ -60,8 +76,14 @@ namespace HelloAndroid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f030001
+			public const int app_name = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int hello = 2130903042;
+			
 			// aapt resource value: 0x7f030000
-			public const int app_name = 2130903040;
+			public const int main_button1_text = 2130903040;
 			
 			static String()
 			{

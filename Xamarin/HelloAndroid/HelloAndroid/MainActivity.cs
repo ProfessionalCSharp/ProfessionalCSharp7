@@ -13,7 +13,14 @@ namespace HelloAndroid
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+
+            Button button1 = FindViewById<Button>(Resource.Id.button1);
+            button1.Click += (sender, e) =>
+            {
+                Toast.MakeText(ApplicationContext, Resource.String.hello, ToastLength.Long).Show();
+            };
         }
+
     }
 }
 

@@ -34,8 +34,6 @@ namespace HelloAndroid
             AlertDialog dialog = builder.Create();
 
             dialog.Show();
-
-         //   Toast.MakeText(this, $"clicked {_items[position]}", ToastLength.Long).Show();
         }
     }
 }

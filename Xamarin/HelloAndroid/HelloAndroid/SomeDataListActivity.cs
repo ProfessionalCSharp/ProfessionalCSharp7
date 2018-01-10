@@ -23,7 +23,19 @@ namespace HelloAndroid
 
         protected override void OnListItemClick(ListView l, View v, int position, long id)
         {
-            base.OnListItemClick(l, v, position, id);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.SetMessage($"clicked {_items[position]}")
+                .SetTitle(Resource.String.somedata_clickeditem_title);
+
+            builder.SetNeutralButton(Android.Resource.String.Ok, (sender, e) =>
+            {
+                // user clicked the ok button
+            });
+            AlertDialog dialog = builder.Create();
+
+            dialog.Show();
+
+         //   Toast.MakeText(this, $"clicked {_items[position]}", ToastLength.Long).Show();
         }
     }
 }

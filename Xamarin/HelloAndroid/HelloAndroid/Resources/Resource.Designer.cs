@@ -91,6 +91,9 @@ namespace HelloAndroid
 			// aapt resource value: 0x7f030003
 			public const int main_showlistbutton_text = 2130903043;
 			
+			// aapt resource value: 0x7f030004
+			public const int somedata_clickeditem_title = 2130903044;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

@@ -8,7 +8,6 @@ namespace HelloAndroid
 {
     public class SomeDataListAdapter : BaseAdapter
     {
-
         private readonly Activity _activity;
         private readonly IList<SomeData> _items;
 

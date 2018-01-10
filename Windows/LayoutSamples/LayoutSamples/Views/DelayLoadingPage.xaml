@@ -12,7 +12,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <Grid x:DeferLoadStrategy="Lazy" x:Name="deferGrid">
+        <Grid x:Load="False" x:Name="deferGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />

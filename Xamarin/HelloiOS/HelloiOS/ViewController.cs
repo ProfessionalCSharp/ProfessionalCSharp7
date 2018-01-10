@@ -21,5 +21,20 @@ namespace HelloiOS
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
         }
+
+        partial void OnButtonClick(UIButton sender)
+        {
+            var alert = new UIAlertView
+            {
+                Title = "Hello",
+                Message = "Hello iOS!",
+            };
+            alert.AddButton("Close");
+            alert.Clicked += (sender1, e) =>
+            {
+                // dialog closed
+            };
+            alert.Show();
+        }
     }
 }

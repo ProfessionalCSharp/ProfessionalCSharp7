@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="main_button1_text">Click Me!</string>
+  <string name="app_name">Hello Android</string>
+  <string name="hello">Hello Android!</string>
+  <string name="main_showlistbutton_text">Show List</string>
+  <string name="somedata_clickeditem_title">Clicked Item</string>
+</resources>

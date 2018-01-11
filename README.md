@@ -1,3 +1,4 @@
+
 # Professional C# 7
 
 Code samples for Professional C# 7 and .NET Core 2
@@ -12,6 +13,7 @@ To run many of the code samples on Linux, here is the installation procedure for
 
 Samples available for these chapters (sample folders)
 
+* Chapter 1 - .NET Applications and Tools (HelloWorld)
 * Chapter 2 - Core C# (CoreCsharp)
 * Chapter 3 - Objects and Types (ObjectsAndTypes)
 * Chapter 4 - Object-Oriented Programming with C# (ObjectOrientation)
@@ -28,6 +30,7 @@ Samples available for these chapters (sample folders)
 * Chapter 15 - Asynchronous Programming (Async)
 * Chapter 16 - Reflection, Metadata, and Dynamic Programming (ReflectionAndDynamic)
 * Chapter 17 - Managed and Umanaged Memory (Memory)
+* Chapter 18 - Visual Studio 2017 (VisualStudio)
 * Chapter 19 - Libraries, Assemblies, Packages, and NuGet (Libraries)
 * Chapter 20 - Dependency Injection (DependencyInjection)
 * Chapter 21 - Tasks and Parallel Programming (Tasks)
@@ -39,6 +42,13 @@ Samples available for these chapters (sample folders)
 * Chapter 27 - ADO.NET and Transactions (ADONet)
 * Chapter 28 - Entity Framework Core (EFCore)
 * Chapter 29 - Localization (Localization)
+* Chapter 30 - Testing (Tests)
+* Chapter 31 - Tracing, Logging, and Analytics (Diagnostics)
 * Chapter 32 - ASP.NET Core (ASPNETCore)
 * Chapter 33 - ASP.NET Core MVC (MVC)
 * Chapter 34 - Web API (API)
+* Chapter 37 - Windows Apps (Windows)
+* Chapter 38 - Patterns with XAML Apps (Patterns and PatternsXamarinShared)
+* Chapter 39 - Styling Windows Apps (Styles)
+* Chapter 40 - Advanced Windows (AdvancedWindows)
+* Chapter 41 - Xamarin (Xamarin and PatternsXamarinShared)

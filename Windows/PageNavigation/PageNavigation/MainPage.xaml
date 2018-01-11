@@ -1,0 +1,17 @@
+﻿<local:NavigationPage
+    x:Class="PageNavigation.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PageNavigation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+  <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel Orientation="Vertical">
+      <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="8">Main Page</TextBlock>
+      <TextBlock Text="{x:Bind NavigationMode, Mode=OneWay}" Margin="8" />
+      <Button Content="Navigate to SecondPage" Click="{x:Bind OnNavigateToSecondPage, Mode=OneTime}" Margin="8" />
+    </StackPanel>
+  </Grid>
+</local:NavigationPage>

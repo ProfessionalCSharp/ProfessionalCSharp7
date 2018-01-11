@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="MapSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MapSample"
+    xmlns:conv="using:MapSample.Converters"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <conv:NullableBoolToBoolConverter x:Key="nbtob" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SplitView PanePlacement="Right"  IsPaneOpen="True" DisplayMode="Inline">
+            <SplitView.Pane>
+                <StackPanel Orientation="Vertical" Margin="4">
+                    <AppBarButton Label="Streetside" Click="{x:Bind ViewModel.StartStreetViewAsync}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7EC;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Label="Stop" Command="{x:Bind ViewModel.StopStreetViewCommand}" Icon="Stop" />
+                    <AppBarButton IsCompact="False" Label="Location" Click="{x:Bind ViewModel.GetCurrentPositionAsync, Mode=OneTime}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE958;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <TextBox Header="Geo Position" IsReadOnly="True" Text="{x:Bind ViewModel.PositionStatus, Mode=OneWay}" VerticalAlignment="Center" />
+                    <TextBox Header="Map Loading Status" IsReadOnly="True" Text="{x:Bind Map.LoadingStatus, Mode=OneWay}" VerticalAlignment="Center" />
+                    <ComboBox VerticalAlignment="Center"
+                        ItemsSource="{x:Bind ViewModel.MapStyles, Mode=OneTime}" 
+                        SelectedItem="{x:Bind ViewModel.CurrentMapStyle, Mode=TwoWay}" />
+                    <Slider Header="Zoom" Value="{x:Bind ViewModel.ZoomLevel, Mode=TwoWay}" Minimum="{x:Bind Map.MinZoomLevel, Mode=OneWay}" Maximum="{x:Bind Map.MaxZoomLevel, Mode=OneWay}" />
+                    <Slider Header="Pitch" Value="{x:Bind ViewModel.DesiredPitch, Mode=TwoWay}" Minimum="0" Maximum="65" />
+                    <CheckBox x:Name="checkLandmarks" Content="Landmarks Visible" />
+                    <CheckBox x:Name="checkBusinessLandmarks" Content="Business Landmarks" />
+                    <CheckBox x:Name="checkPedestrianFeatures" Content="Pedestrian Features" />
+                    <CheckBox x:Name="checkTrafficFlow" Content="Traffic Flow" />
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <maps:MapControl x:Name="Map" 
+                        Center="{x:Bind ViewModel.CurrentPosition, Mode=OneWay}"
+                        MapTapped="{x:Bind ViewModel.OnMapTapped, Mode=OneTime}"
+                        Style="{x:Bind ViewModel.CurrentMapStyle, Mode=OneWay}"
+                        ZoomLevel="{x:Bind Path=ViewModel.ZoomLevel, Mode=OneWay}" 
+                        DesiredPitch="{x:Bind Path=ViewModel.DesiredPitch, Mode=OneWay}"
+                        TrafficFlowVisible="{x:Bind checkTrafficFlow.IsChecked, Mode=OneWay, Converter={StaticResource nbtob}}"
+                        BusinessLandmarksVisible="{x:Bind checkBusinessLandmarks.IsChecked, Mode=OneWay, Converter={StaticResource nbtob}}"
+                        LandmarksVisible="{x:Bind checkLandmarks.IsChecked, Mode=OneWay, Converter={StaticResource nbtob}}"
+                        PedestrianFeaturesVisible="{x:Bind checkPedestrianFeatures.IsChecked, Mode=OneWay, Converter={StaticResource nbtob}}" />
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>

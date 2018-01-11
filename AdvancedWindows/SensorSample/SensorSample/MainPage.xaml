@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="SensorSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SensorSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border BorderThickness="3" Margin="12" BorderBrush="Blue">
+            <RelativePanel>
+                <Button x:Name="GetLightButton" Margin="8" Content="Get Light" Click="{x:Bind LightViewModel.OnGetLight}" />
+                <Button x:Name="GetLightButtonReport" Margin="8" RelativePanel.Below="GetLightButton" Content="Get Light Report" Click="{x:Bind LightViewModel.OnGetLightReport}" />
+                <TextBlock x:Name="LightText" Margin="8" RelativePanel.RightOf="GetLightButtonReport" RelativePanel.AlignBottomWith="GetLightButton" Text="{x:Bind LightViewModel.Illuminance, Mode=OneWay}" />
+                <TextBlock x:Name="LightReportText" Margin="8" RelativePanel.AlignLeftWith="LightText" RelativePanel.AlignBottomWith="GetLightButtonReport" Text="{x:Bind LightViewModel.IlluminanceReport, Mode=OneWay}" />
+            </RelativePanel>
+        </Border>
+
+        <Border BorderThickness="3" Margin="12" BorderBrush="Blue" Grid.Row="1">
+            <RelativePanel>
+                <Button x:Name="GetCompassButton" Margin="8" Content="Get Compass" Click="{x:Bind CompassViewModel.OnGetCompass}" />
+                <Button x:Name="GetCompassButtonReport" Margin="8" RelativePanel.Below="GetCompassButton" Content="Get Compass Report" Click="{x:Bind CompassViewModel.OnGetCompassReport}" />
+                <TextBlock x:Name="CompassText" Margin="8" RelativePanel.RightOf="GetCompassButtonReport" RelativePanel.AlignBottomWith="GetCompassButton" Text="{x:Bind CompassViewModel.CompassInfo, Mode=OneWay}" />
+                <TextBlock x:Name="CompassReportText" Margin="8" RelativePanel.AlignLeftWith="CompassText" RelativePanel.AlignBottomWith="GetCompassButtonReport" Text="{x:Bind CompassViewModel.CompassInfoReport, Mode=OneWay}" />
+            </RelativePanel>
+        </Border>
+
+        <Border BorderThickness="3" Margin="12" BorderBrush="Blue" Grid.Row="2">
+            <RelativePanel>
+                <Button x:Name="GetAccelerometerButton" Margin="8" Content="Get Accelerometer" Click="{x:Bind AccelerometerViewModel.OnGetAccelerometer}" />
+                <Button x:Name="GetAccelerometerButtonReport" Margin="8" RelativePanel.Below="GetAccelerometerButton" Content="Get Accelerometer Report" Click="{x:Bind AccelerometerViewModel.OnGetAccelerometerReport}" />
+                <TextBlock x:Name="AccelerometerText" Margin="8" RelativePanel.RightOf="GetAccelerometerButtonReport" RelativePanel.AlignBottomWith="GetAccelerometerButton" Text="{x:Bind AccelerometerViewModel.AccelerometerInfo, Mode=OneWay}" />
+                <TextBlock x:Name="AccelerometerReportText" Margin="8" RelativePanel.AlignLeftWith="AccelerometerText" RelativePanel.AlignBottomWith="GetAccelerometerButtonReport" Text="{x:Bind AccelerometerViewModel.AccelerometerInfoReport, Mode=OneWay}" />
+            </RelativePanel>
+        </Border>
+
+        <Border BorderThickness="3" Margin="12" BorderBrush="Blue" Grid.Row="3">
+            <RelativePanel>
+                <Button x:Name="GetInclinometerButton" Margin="8" Content="Get Inclinometer" Click="{x:Bind InclinometerViewModel.OnGetInclinometer}" />
+                <Button x:Name="GetInclinometerButtonReport" Margin="8" RelativePanel.Below="GetInclinometerButton" Content="Get Inclinometer Report" Click="{x:Bind InclinometerViewModel.OnGetInclinometerReport}" />
+                <TextBlock x:Name="InclinometerText" Margin="8" RelativePanel.RightOf="GetInclinometerButtonReport" RelativePanel.AlignBottomWith="GetInclinometerButton" Text="{x:Bind InclinometerViewModel.InclinometerInfo, Mode=OneWay}" />
+                <TextBlock x:Name="InclinometerReportText" Margin="8" RelativePanel.AlignLeftWith="InclinometerText" RelativePanel.AlignBottomWith="GetInclinometerButtonReport" Text="{x:Bind InclinometerViewModel.InclinometerInfoReport, Mode=OneWay}" />
+            </RelativePanel>
+        </Border>
+
+        <Border BorderThickness="3" Margin="12" BorderBrush="Blue" Grid.Row="4">
+            <RelativePanel>
+                <Button x:Name="GetGyrometerButton" Margin="8" Content="Get Gyrometer" Click="{x:Bind GyrometerViewModel.OnGetGyrometer}" />
+                <Button x:Name="GetGyrometerButtonReport" Margin="8" RelativePanel.Below="GetGyrometerButton" Content="Get Gyrometer Report" Click="{x:Bind GyrometerViewModel.OnGetGyrometerReport}" />
+                <TextBlock x:Name="GyrometerText" Margin="8" RelativePanel.RightOf="GetGyrometerButtonReport" RelativePanel.AlignBottomWith="GetGyrometerButton" Text="{x:Bind GyrometerViewModel.GyrometerInfo, Mode=OneWay}" />
+                <TextBlock x:Name="GyrometerReportText" Margin="8" RelativePanel.AlignLeftWith="GyrometerText" RelativePanel.AlignBottomWith="GetGyrometerButtonReport" Text="{x:Bind GyrometerViewModel.GyrometerInfoReport, Mode=OneWay}" />
+            </RelativePanel>
+        </Border>
+
+        <Border BorderThickness="3" Margin="12" BorderBrush="Blue" Grid.Row="5">
+            <RelativePanel>
+                <Button x:Name="GetOrientationButton" Margin="8" Content="Get Orientation" Click="{x:Bind OrientationViewModel.OnGetOrientation}" />
+                <Button x:Name="GetOrientationButtonReport" Margin="8" RelativePanel.Below="GetOrientationButton" Content="Get Orientation Report" Click="{x:Bind OrientationViewModel.OnGetOrientationReport}" />
+                <TextBlock x:Name="OrientationText" Margin="8" RelativePanel.RightOf="GetOrientationButtonReport" RelativePanel.AlignBottomWith="GetOrientationButton" Text="{x:Bind OrientationViewModel.OrientationInfo, Mode=OneWay}" />
+                <TextBlock x:Name="OrientationReportText" Margin="8" RelativePanel.AlignLeftWith="OrientationText" RelativePanel.AlignBottomWith="GetOrientationButtonReport" Text="{x:Bind OrientationViewModel.OrientationInfoReport, Mode=OneWay}" />
+            </RelativePanel>
+        </Border>
+    </Grid>
+</Page>

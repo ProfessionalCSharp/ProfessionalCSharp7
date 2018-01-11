@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="LayoutSamples.Views.StackPanelPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LayoutSamples.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical">
+            <TextBox Text="TextBox" />
+            <CheckBox Content="Checkbox" />
+            <CheckBox Content="Checkbox" />
+            <ListBox>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="One A" />
+                        <TextBlock Text="One B" />
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Content="Two" />
+            </ListBox>
+            <Button Content="Button" />
+        </StackPanel>
+    </Grid>
+</Page>

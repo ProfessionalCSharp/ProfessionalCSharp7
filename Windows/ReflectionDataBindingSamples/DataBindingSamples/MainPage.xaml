@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="DataBindingSamples.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DataBindingSamples"
+    xmlns:utils="using:DataBindingSamples.Utilities"
+    xmlns:models="using:DataBindingSamples.Models"
+    xmlns:views="using:DataBindingSamples.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="WroxTemplate">
+            <Border Background="Red" Margin="4" Padding="4" BorderThickness="2" BorderBrush="DarkRed">
+                <TextBlock Text="{Binding Title, Mode=OneWay}" Foreground="White" Width="300" />
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="DefaultTemplate">
+            <Border Background="LightBlue" Margin="4" Padding="4" BorderThickness="2" BorderBrush="DarkBlue">
+                <TextBlock Text="{Binding Title, Mode=OneWay}" Foreground="Black" Width="300" />
+            </Border>
+        </DataTemplate>
+        <utils:BookTemplateSelector x:Key="BookTemplateSelector" WroxTemplate="{StaticResource WroxTemplate}" DefaultTemplate="{StaticResource DefaultTemplate}" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <CommandBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <AppBarButton Icon="Refresh" Label="Refresh" Click="OnRefreshBooks" />
+            <AppBarButton Icon="Add" Label="Add Book" Click="OnAddBook" />
+        </CommandBar>
+        <ListView x:Name="BooksList" ItemsSource="{Binding Books, Mode=OneWay}" ItemTemplateSelector="{StaticResource BookTemplateSelector}" SelectedItem="{Binding ElementName=CurrentBook, Path=Book, Mode=TwoWay}" Grid.Row="1" />
+        <views:BookUserControl x:Name="CurrentBook" Grid.Row="1" Grid.Column="1" Margin="4" />
+
+    </Grid>
+</Page>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BooksAppX.Views.BookDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Command="{Binding ViewModel.EditCommand, Mode=OneWay}" />
+        <ToolbarItem Text="Save" Command="{Binding ViewModel.SaveCommand, Mode=OneWay}" />
+        <ToolbarItem Text="Cancel" Command="{Binding ViewModel.CancelCommand, Mode=OneWay}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Id:" FontSize="Medium" />
+            <Entry IsEnabled="False" Text="{Binding ViewModel.EditItem.BookId, Mode=OneWay}" />
+            <Label Text="Title:" FontSize="Medium" />
+            <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=OneWay}" Text="{Binding ViewModel.EditItem.Title, Mode=TwoWay}" FontSize="Small" />
+            <Label Text="Publisher:" FontSize="Medium" />
+            <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=OneWay}" Text="{Binding ViewModel.EditItem.Publisher}" FontSize="Small" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

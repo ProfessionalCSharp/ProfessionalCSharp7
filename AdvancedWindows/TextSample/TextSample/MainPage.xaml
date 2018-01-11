@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="TextSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TextSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" FontFamily="Segoe UI">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Margin="12" x:Name="text1" IsTextSelectionEnabled="True" SelectionHighlightColor="Green" FontFamily="Segoe UI" Foreground="Black">
+                <Bold>This is bold.</Bold><LineBreak />
+                <Hyperlink NavigateUri="https://csharp.christiannagel.com">C# Blog</Hyperlink><LineBreak />
+                <Italic>This is italic.</Italic><LineBreak />
+                <Underline>This is underlined.</Underline><LineBreak />
+                <Run>Run element</Run><LineBreak />
+                <Span>Span element</Span><LineBreak />
+                <Span FontFamily="Calibri">
+                    <Run FontSize="24">A span can contain inlines</Run>
+                    <Italic>Italic is a span<LineBreak />
+                        and thus <Underline>underlines</Underline> can contain inlines as well
+                    </Italic>
+                </Span>
+
+            </TextBlock>
+            <!--<Button Click="OnAnalyze">Analyze Text</Button>
+            <ListBox x:Name="listResults"></ListBox>-->
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="12">
+            <RichTextBlock>
+                <Paragraph FontSize="18">Paragraph 1</Paragraph>
+                <Paragraph LineStackingStrategy="BaselineToBaseline" LineHeight="16" TextAlignment="Justify">
+                    <Run FontStretch="ExtraExpanded" FontWeight="Black" Text="Paragraph 2" />
+                    <LineBreak />
+                    <Run>The quick brown fox jumped over the lazy dogs down 1234567890 times.</Run>
+                    <Run>The quick brown fox jumped over the lazy dogs down 1234567890 times.</Run>
+                </Paragraph>
+                <Paragraph>
+                    <Bold>Paragraph 3</Bold>
+                    <LineBreak />
+                    <InlineUIContainer>
+                        <Ellipse Width="30" Height="20" Fill="Red" />
+                    </InlineUIContainer>
+                    <LineBreak />
+                    <Run>More Text</Run>
+                </Paragraph>
+                <Paragraph LineStackingStrategy="BaselineToBaseline" LineHeight="16" TextAlignment="Left">
+                    <Run FontWeight="Bold" Text="Paragraph 4" />
+                    <LineBreak />
+                    <Run>The quick brown fox jumped over the lazy dogs down 1234567890 times.</Run>
+                    <Run>The quick brown fox jumped over the lazy dogs down 1234567890 times.</Run>
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="FontsSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FontsSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin" Value="8,4" />
+                <Setter Property="FontSize" Value="22" />
+            </Style.Setters>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="listFonts" ItemsSource="{x:Bind FontNames, Mode=OneTime}" SelectedItem="{x:Bind SelectedFont, Mode=TwoWay}" Margin="12">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind Mode=OneTime}" FontFamily="{x:Bind }" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Column="1" Margin="12" Padding="8">
+            <TextBlock Text="{x:Bind SelectedFont, Mode=OneWay}" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" />
+            <TextBlock Text="Bold" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" FontWeight="Bold" />
+            <TextBlock Text="Italic" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" FontStyle="Italic" />
+            <TextBlock Text="Expanded" FontFamily="{x:Bind SelectedFont, Mode=OneWay}"  FontStretch="Expanded" />
+            <TextBlock Text="Condensed" FontFamily="{x:Bind SelectedFont, Mode=OneWay}"  FontStretch="Condensed" />
+            <TextBlock Text="The quick brown fox jumped over the lazy dogs" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" />
+            <TextBlock Text="&#xE700;&#xE701;&#xE702;" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" />
+            <TextBlock Text="&#x2467;&#x2468;&#x2469;" FontFamily="{x:Bind SelectedFont, Mode=OneWay}" />
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -4,7 +4,7 @@
             xmlns:views="clr-namespace:BooksAppX.Views"
              x:Class="BooksAppX.Views.MainPage">
     <TabbedPage.Children>
-        <NavigationPage Title="Browse">
+        <NavigationPage Title="Books" x:Name="navigationPage">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_feed.png"/>
@@ -14,17 +14,6 @@
                 <views:BooksPage x:Name="booksPage" />
             </x:Arguments>
         </NavigationPage>
-
-        <NavigationPage Title="About">
-            <NavigationPage.Icon>
-                
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_about.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:AboutPage />
-            </x:Arguments>
-        </NavigationPage>
+        <views:AboutPage Title="About" />
     </TabbedPage.Children>
 </TabbedPage>

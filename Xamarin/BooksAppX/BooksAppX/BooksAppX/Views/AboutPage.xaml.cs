@@ -1,4 +1,5 @@
 ﻿using BooksAppX.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,9 +11,10 @@ namespace BooksAppX.Views
         public AboutPage()
         {
             InitializeComponent();
-            this.BindingContext = this;
+            ViewModel = (Application.Current as App).AppServices.GetService<AboutViewModel>();
+            BindingContext = this;
         }
 
-        public AboutViewModel ViewModel { get; set; }
+        public AboutViewModel ViewModel { get; }
     }
 }

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Framework;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -10,9 +9,11 @@ namespace BooksAppX.ViewModels
     {
         public AboutViewModel()
         {
-            WebPageCommand = new Command(() => Device.OpenUri(new Uri("https://csharp.christiannagel.com")));
+            OpenWebCommand = new Command(() => 
+                Device.OpenUri(new Uri("https://csharp.christiannagel.com")));
+
         }
 
-        public ICommand WebPageCommand { get; }
+        public ICommand OpenWebCommand { get; }
     }
 }

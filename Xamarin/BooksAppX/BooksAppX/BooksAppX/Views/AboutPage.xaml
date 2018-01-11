@@ -57,7 +57,6 @@
                     </Label.FormattedText>
                 </Label>
                 <Button Margin="0,10,0,0" Text="Learn more" Command="{Binding ViewModel.OpenWebCommand, Mode=OneWay}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
-                <Label Text="{Binding ViewModel.SomeText, Mode=OneWay}" />
             </StackLayout>
         </ScrollView>
     </Grid>

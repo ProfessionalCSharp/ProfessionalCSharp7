@@ -11,7 +11,7 @@ namespace BooksAppX.Views
 		public BookDetailPage ()
 		{
 			InitializeComponent ();
-            this.BindingContext = this;
+            BindingContext = this;
         }
 
         public BookDetailViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<BookDetailViewModel>();

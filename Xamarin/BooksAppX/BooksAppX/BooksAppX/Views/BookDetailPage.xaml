@@ -8,15 +8,13 @@
         <ToolbarItem Text="Cancel" Command="{Binding ViewModel.CancelCommand, Mode=OneWay}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Spacing="20" Padding="15">
-                <Label Text="Id:" FontSize="Medium" />
-                <Entry IsEnabled="False" Text="{Binding ViewModel.EditItem.BookId, Mode=OneWay}" />
-                <Label Text="Title:" FontSize="Medium" />
-                <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=OneWay}" Text="{Binding ViewModel.EditItem.Title, Mode=TwoWay}" FontSize="Small" />
-                <Label Text="Publisher:" FontSize="Medium" />
-                <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=OneWay}" Text="{Binding ViewModel.EditItem.Publisher}" FontSize="Small" />
-            </StackLayout>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Id:" FontSize="Medium" />
+            <Entry IsEnabled="False" Text="{Binding ViewModel.EditItem.BookId, Mode=OneWay}" />
+            <Label Text="Title:" FontSize="Medium" />
+            <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=OneWay}" Text="{Binding ViewModel.EditItem.Title, Mode=TwoWay}" FontSize="Small" />
+            <Label Text="Publisher:" FontSize="Medium" />
+            <Entry IsEnabled="{Binding ViewModel.IsEditMode, Mode=OneWay}" Text="{Binding ViewModel.EditItem.Publisher}" FontSize="Small" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

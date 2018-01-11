@@ -1,5 +1,4 @@
-﻿using Framework;
-using System;
+﻿using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 

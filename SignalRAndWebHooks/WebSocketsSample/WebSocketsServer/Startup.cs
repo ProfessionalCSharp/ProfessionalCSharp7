@@ -66,7 +66,7 @@ namespace WebSocketsServer
                     string content = Encoding.UTF8.GetString(buffer, 0, result.Count);
                     if (content.StartsWith("RequestMessages:"))
                     {
-                        string message = content.Substring("RequestMessages:".Length);
+                        string message = content.Substring("REQUESTMESSAGES:".Length);
                         for (int i = 0; i < 10; i++)
                         {
                             string messageToSend = $"{message} - {i}";

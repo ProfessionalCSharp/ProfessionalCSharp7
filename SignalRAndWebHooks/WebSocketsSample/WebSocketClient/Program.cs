@@ -8,14 +8,13 @@ namespace WebSocketClient
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static async Task Main()
         {
             Console.WriteLine("Client - wait for server");
             Console.ReadLine();
             await InitiateWebSocketCommunication("ws://localhost:6295/samplesockets");
-            Console.WriteLine("at end...");
-            Console.ReadLine();
-            
+            Console.WriteLine("Program end");
+            Console.ReadLine();          
         }
 
         static async Task InitiateWebSocketCommunication(string address)
@@ -26,13 +25,13 @@ namespace WebSocketClient
                 await webSocket.ConnectAsync(new Uri(address), CancellationToken.None);
 
                 await SendAndReceiveAsync(webSocket, "A");
-                // await SendAndReceiveAsync(webSocket, "B");
+                await SendAndReceiveAsync(webSocket, "B");
                 await webSocket.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes("SERVERCLOSE")), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
                 var buffer = new byte[4096];
                 var result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
                 
                 Console.WriteLine($"received for close: {result.CloseStatus} {result.CloseStatusDescription} {Encoding.UTF8.GetString(buffer, 0, result.Count)}");
-                await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Bye for now", CancellationToken.None);
+                await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Bye", CancellationToken.None);
 
             }
             catch (Exception ex)
@@ -41,9 +40,9 @@ namespace WebSocketClient
             }
         }
 
-        static async Task SendAndReceiveAsync(WebSocket webSocket, string message)
+        static async Task SendAndReceiveAsync(WebSocket webSocket, string term)
         {
-            byte[] data = Encoding.UTF8.GetBytes($"RequestMessages:{message}");
+            byte[] data = Encoding.UTF8.GetBytes($"REQUESTMESSAGES:{term}");
             var buffer = new byte[4096];
 
             await webSocket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);

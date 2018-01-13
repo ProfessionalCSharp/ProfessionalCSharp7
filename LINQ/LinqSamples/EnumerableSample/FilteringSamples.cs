@@ -53,8 +53,8 @@ namespace EnumerableSample
 
         public static void FilteringWithIndex()
         {
-            var racers = Formula1.GetChampions().
-                    Where((r, index) => r.LastName.StartsWith("A") && index % 2 != 0);
+            var racers = Formula1.GetChampions()
+                .Where((r, index) => r.LastName.StartsWith("A") && index % 2 != 0);
             foreach (var r in racers)
             {
                 Console.WriteLine($"{r:A}");
@@ -64,7 +64,7 @@ namespace EnumerableSample
         public static void FilteringWithMethods()
         {
             var racers = Formula1.GetChampions()
-                            .Where(r => r.Wins > 15 && (r.Country == "Brazil" || r.Country == "Austria"));
+                .Where(r => r.Wins > 15 && (r.Country == "Brazil" || r.Country == "Austria"));
 
             foreach (var r in racers)
             {

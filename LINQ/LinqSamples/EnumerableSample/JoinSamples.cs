@@ -273,6 +273,5 @@ namespace EnumerableSample
                 Console.WriteLine($"{item.Year}: {item.Champion,-20} {item.Constructor}");
             }
         }
-
     }
 }

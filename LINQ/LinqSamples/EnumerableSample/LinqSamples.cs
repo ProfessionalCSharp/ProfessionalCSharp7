@@ -79,9 +79,7 @@ namespace EnumerableSample
             {
                 Console.WriteLine($"{r.FirstName} {r.LastName}");
             }
-        }
-
- 
+        } 
 
         public void ConvertWithCast()
         {

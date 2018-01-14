@@ -33,6 +33,7 @@
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.RowSpan="2">
             <Button Content="Connect" Command="{x:Bind ViewModel.ConnectCommand}"  />
             <Button Content="Send" Command="{x:Bind ViewModel.SendCommand, Mode=OneTime}" />
+            <Button Content="Group Chat" Click="OnGotoGroupChat" />
         </StackPanel>
         <ListBox ItemsSource="{x:Bind ViewModel.Messages, Mode=OneWay}" Grid.Row="2" Grid.ColumnSpan="2" Margin="12" />
     </Grid>

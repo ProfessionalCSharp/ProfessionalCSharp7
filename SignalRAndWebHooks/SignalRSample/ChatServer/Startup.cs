@@ -25,6 +25,7 @@ namespace ChatServer
             app.UseSignalR(routes =>
             {
                 routes.MapHub<ChatHub>("chat");
+                routes.MapHub<GroupChatHub>("groupchat");
             });
 
             app.Run(async (context) =>

@@ -96,7 +96,7 @@ namespace WindowsAppChatClient
         {
             IServiceCollection services = new ServiceCollection();
             services.AddTransient<ChatViewModel>();
-           // services.AddTransient<GroupChatViewModel>();
+            services.AddTransient<GroupChatViewModel>();
             services.AddSingleton<IDialogService, DialogService>();
             services.AddLogging();
             AppServices = services.BuildServiceProvider();

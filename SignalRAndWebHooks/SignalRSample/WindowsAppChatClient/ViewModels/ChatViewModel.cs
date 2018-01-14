@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
 using WindowsAppChatClient.Framework;
 using WindowsAppChatClient.Services;
 
@@ -15,12 +14,10 @@ namespace WindowsAppChatClient.ViewModels
     public class ChatViewModel
     {
         private const string ServerURI = "http://localhost:13773/chat";
-        private readonly IMessagingService _messagingService;
-        private readonly ILoggerFactory _loggerFactory;
-        public ChatViewModel(IMessagingService messagingService, ILoggerFactory loggerFactory)
+        private readonly IDialogService _dialogService;
+        public ChatViewModel(IDialogService dialogService)
         {
-            _messagingService = messagingService;
-            _loggerFactory = loggerFactory;
+            _dialogService = dialogService;
 
             ConnectCommand = new RelayCommand(OnConnect);
             SendCommand = new RelayCommand(OnSendMessage);
@@ -44,16 +41,13 @@ namespace WindowsAppChatClient.ViewModels
                 .WithUrl(ServerURI)
                 .WithLogger(loggerFactory =>
                 {
-                   
+                    loggerFactory.AddDebug();
                 })
                 .Build();
 
-            _hubConnection.Closed += HubConnection_Closed;
+            _hubConnection.Closed += HubConnectionClosed;
 
-            _hubConnection.On<string, string>("BroadcastMessage", (name, message) =>
-            {
-                OnMessageReceived(name, message);
-            });
+            _hubConnection.On<string, string>("BroadcastMessage", OnMessageReceived);
 
             try
             {
@@ -61,46 +55,39 @@ namespace WindowsAppChatClient.ViewModels
             }
             catch (HttpRequestException ex)
             {
-                await _messagingService.ShowMessageAsync(ex.Message);
+                await _dialogService.ShowMessageAsync(ex.Message);
             }
-            await _messagingService.ShowMessageAsync("client connected");
+            await _dialogService.ShowMessageAsync("client connected");
         }
 
-        private async Task HubConnection_Closed(Exception arg)
-        {
-            await _messagingService.ShowMessageAsync("Hub connection closed");
-        }
+        private Task HubConnectionClosed(Exception arg) =>
+            _dialogService.ShowMessageAsync("Hub connection closed");
 
-        public void OnSendMessage()
+        public async void OnSendMessage()
         {
-            _hubConnection.SendAsync("Send", Name, Message);
+            try
+            {
+                await _hubConnection.SendAsync("Send", Name, Message);
+            }
+            catch (Exception ex)
+            {
+                await _dialogService.ShowMessageAsync(ex.Message);
+            }
         }
 
         public async void OnMessageReceived(string name, string message)
         {
             try
             {
-                // this
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
                     Messages.Add($"{name}: {message}");
                 });
-                //// or that
-                //await Window.Current.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                //{
-                //    Messages.Add($"{name}: {message}");
-                //});
             }
             catch (Exception ex)
             {
-                await _messagingService.ShowMessageAsync(ex.Message);
+                await _dialogService.ShowMessageAsync(ex.Message);
             }
-
-        }
-
-        private async void HubConnectionClosed()
-        {
-            await _messagingService.ShowMessageAsync("Hub connection closed");
         }
 
         private Task CloseConnectionAsync() =>

@@ -1,19 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WindowsAppChatClient.Services;
 using WindowsAppChatClient.ViewModels;
@@ -107,7 +97,7 @@ namespace WindowsAppChatClient
             IServiceCollection services = new ServiceCollection();
             services.AddTransient<ChatViewModel>();
            // services.AddTransient<GroupChatViewModel>();
-            services.AddSingleton<IMessagingService, MessagingService>();
+            services.AddSingleton<IDialogService, DialogService>();
             services.AddLogging();
             AppServices = services.BuildServiceProvider();
         }

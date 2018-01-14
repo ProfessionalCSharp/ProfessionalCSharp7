@@ -2,7 +2,7 @@
 
 namespace WindowsAppChatClient.Services
 {
-    public interface IMessagingService
+    public interface IDialogService
     {
         Task ShowMessageAsync(string message);
     }

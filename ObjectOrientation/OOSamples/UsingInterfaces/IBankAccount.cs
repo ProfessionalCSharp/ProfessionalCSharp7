@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Wrox.ProCSharp
+﻿namespace Wrox.ProCSharp
 {
     public interface IBankAccount
     {

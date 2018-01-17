@@ -99,7 +99,6 @@ namespace PatternMatching
                     Console.WriteLine($"var pattern match: {every?.GetType().Name}");
                     break;
                 default:
-                    break;
             }
         }
     }

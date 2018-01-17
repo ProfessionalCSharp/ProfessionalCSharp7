@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="ControlsSamples.Views.TextPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ControlsSamples.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="16">
+            <TextBox Header="Email" InputScope="EmailNameOrAddress"></TextBox>
+            <TextBox Header="Currency" InputScope="CurrencyAmountAndSymbol"></TextBox>
+            <TextBox Header="Alpha Numeric" InputScope="AlphanumericFullWidth"></TextBox>
+            <TextBox Header="Formula" InputScope="Formula"></TextBox>
+            <TextBox Header="Month" InputScope="DateMonthNumber"></TextBox>
+            <TextBox Header="Multiline" AcceptsReturn="True" TextWrapping="Wrap" Height="150" ScrollViewer.VerticalScrollBarVisibility="Auto"   />
+        </StackPanel>
+    </Grid>
+</Page>

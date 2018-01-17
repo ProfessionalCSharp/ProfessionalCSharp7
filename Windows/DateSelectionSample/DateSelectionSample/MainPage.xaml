@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="DateSelectionSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DateSelectionSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <CalendarView x:Name="CalendarView1" CalendarViewDayItemChanging="OnDayItemChanging" SelectionMode="Multiple" SelectedDatesChanged="OnDatesChanged" Margin="12" MinDate="{x:Bind MinDate, Mode=OneTime}" HorizontalAlignment="Center" FirstDayOfWeek="Monday" />
+        </StackPanel>
+ 
+        <CalendarDatePicker x:Name="CalendarDatePicker1" Grid.Row="0" Grid.Column="1" DateChanged="OnDateChanged" Margin="12" />
+        <DatePicker DateChanged="OnDateChanged1" x:Name="DatePicker1" Grid.Row="1" Margin="12" />
+        <Button Content="Select a Date" Grid.Row="1" Grid.Column="1" Margin="12">
+            <Button.Flyout>
+                <DatePickerFlyout x:Name="DatePickerFlyout1" DatePicked="OnDatePicked" />
+            </Button.Flyout>
+        </Button>
+
+    </Grid>
+</Page>

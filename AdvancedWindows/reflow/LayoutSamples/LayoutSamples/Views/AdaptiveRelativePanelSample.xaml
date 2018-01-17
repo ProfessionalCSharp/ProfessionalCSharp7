@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="LayoutSamples.Views.AdaptiveRelativePanelPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LayoutSamples.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="RootLayout">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--<Setter Target="RootLayout.Background" Value="Yellow" />-->
+                        <Setter Target="FirstNameText.(RelativePanel.RightOf)" Value="FirstNameLabel" />
+                        <Setter Target="LastNameLabel.(RelativePanel.Below)" Value="FirstNameLabel" />
+                        <Setter Target="LastNameText.(RelativePanel.Below)" Value="FirstNameText" />
+                        <Setter Target="LastNameText.(RelativePanel.RightOf)" Value="LastNameLabel" />
+                        <Setter Target="Image.(RelativePanel.AlignTopWith)" Value="FirstNameLabel" />
+                        <Setter Target="Image.(RelativePanel.RightOf)" Value="FirstNameText" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="MediumState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--<Setter Target="RootLayout.Background" Value="Green" />-->
+                        <Setter Target="FirstNameText.(RelativePanel.RightOf)" Value="FirstNameLabel" />
+                        <Setter Target="LastNameLabel.(RelativePanel.Below)" Value="FirstNameLabel" />
+                        <Setter Target="LastNameText.(RelativePanel.Below)" Value="FirstNameText" />
+                        <Setter Target="LastNameText.(RelativePanel.RightOf)" Value="LastNameLabel" />
+                        <Setter Target="Image.(RelativePanel.Below)" Value="LastNameText" />
+                        <Setter Target="Image.(RelativePanel.AlignHorizontalCenterWith)" Value="LastNameText" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="320" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--<Setter Target="RootLayout.Background" Value="Red" />-->
+                        <Setter Target="FirstNameText.(RelativePanel.Below)" Value="FirstNameLabel" />
+                        <Setter Target="LastNameLabel.(RelativePanel.Below)" Value="FirstNameText" />
+                        <Setter Target="LastNameText.(RelativePanel.Below)" Value="LastNameLabel" />
+                        <Setter Target="Image.(RelativePanel.Below)" Value="LastNameText" />
+                        <Setter Target="OptionalImage.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+
+        </VisualStateManager.VisualStateGroups>
+        
+        <RelativePanel ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="16">
+            <TextBlock x:Name="FirstNameLabel" Text="First Name" Margin="8" />
+            <TextBox x:Name="FirstNameText"  Margin="8" Width="150" />
+            <TextBlock x:Name="LastNameLabel" Text="Last Name" Margin="8" />
+            <TextBox x:Name="LastNameText" Margin="8" Width="150" />
+            <Button Content="Save" RelativePanel.AlignBottomWithPanel="True"  Margin="8" />
+            <Rectangle x:Name="Image" Fill="Violet" Width="150" Height="250" Margin="8" />
+            <Rectangle x:Name="OptionalImage" RelativePanel.AlignRightWithPanel="True" Fill="Red" Width="350" Height="350" Margin="8" />
+        </RelativePanel>
+    </Grid>
+</Page>

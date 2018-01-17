@@ -1,0 +1,75 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events">
+ <instrumentation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <events xmlns="http://schemas.microsoft.com/win/2004/08/events">
+<provider name="EventSourceSample" guid="{45fff0e2-7198-4e4f-9fc3-df6934680096}" resourceFileName="." messageFileName="." symbol="EventSourceSample">
+ <tasks>
+  <task name="CreateMenus" message="$(string.task_CreateMenus)" value="1"/>
+  <task name="QueryMenus" message="$(string.task_QueryMenus)" value="2"/>
+  <task name="ServiceError" message="$(string.task_ServiceError)" value="65530"/>
+  <task name="CalledService" message="$(string.task_CalledService)" value="65531"/>
+  <task name="CallService" message="$(string.task_CallService)" value="65532"/>
+  <task name="EventSourceMessage" message="$(string.task_EventSourceMessage)" value="65534"/>
+ </tasks>
+ <opcodes>
+ </opcodes>
+ <keywords>
+  <keyword name="Network" message="$(string.keyword_Network)" mask="0x1"/>
+  <keyword name="Database" message="$(string.keyword_Database)" mask="0x2"/>
+  <keyword name="Diagnostics" message="$(string.keyword_Diagnostics)" mask="0x4"/>
+  <keyword name="Performance" message="$(string.keyword_Performance)" mask="0x8"/>
+  <keyword name="Session3" message="$(string.keyword_Session3)" mask="0x100000000000"/>
+  <keyword name="Session2" message="$(string.keyword_Session2)" mask="0x200000000000"/>
+  <keyword name="Session1" message="$(string.keyword_Session1)" mask="0x400000000000"/>
+  <keyword name="Session0" message="$(string.keyword_Session0)" mask="0x800000000000"/>
+ </keywords>
+ <events>
+  <event value="0" version="0" level="win:LogAlways" symbol="EventSourceMessage" task="EventSourceMessage" template="EventSourceMessageArgs"/>
+  <event value="1" version="0" level="win:Verbose" symbol="Startup" opcode="win:Start"/>
+  <event value="2" version="0" level="win:Verbose" symbol="CallService" message="$(string.event_CallService)" keywords="Network" task="CallService" template="CallServiceArgs"/>
+  <event value="3" version="0" level="win:Verbose" symbol="CalledService" message="$(string.event_CalledService)" keywords="Network" task="CalledService" template="CalledServiceArgs"/>
+  <event value="4" version="0" level="win:Error" symbol="ServiceError" message="$(string.event_ServiceError)" keywords="Network" task="ServiceError" template="ServiceErrorArgs"/>
+  <event value="5" version="0" level="win:Verbose" symbol="SomeTask" keywords="Network" task="CreateMenus"/>
+ </events>
+ <templates>
+  <template tid="EventSourceMessageArgs">
+   <data name="message" inType="win:UnicodeString"/>
+  </template>
+  <template tid="CallServiceArgs">
+   <data name="url" inType="win:UnicodeString"/>
+  </template>
+  <template tid="CalledServiceArgs">
+   <data name="url" inType="win:UnicodeString"/>
+   <data name="length" inType="win:Int32"/>
+  </template>
+  <template tid="ServiceErrorArgs">
+   <data name="message" inType="win:UnicodeString"/>
+   <data name="error" inType="win:Int32"/>
+  </template>
+ </templates>
+</provider>
+</events>
+</instrumentation>
+<localization>
+ <resources culture="en-US">
+  <stringTable>
+   <string id="event_CalledService" value="%1 length: %2"/>
+   <string id="event_CallService" value="%1"/>
+   <string id="event_ServiceError" value="%1 error: %2"/>
+   <string id="keyword_Database" value="Database"/>
+   <string id="keyword_Diagnostics" value="Diagnostics"/>
+   <string id="keyword_Network" value="Network"/>
+   <string id="keyword_Performance" value="Performance"/>
+   <string id="keyword_Session0" value="Session0"/>
+   <string id="keyword_Session1" value="Session1"/>
+   <string id="keyword_Session2" value="Session2"/>
+   <string id="keyword_Session3" value="Session3"/>
+   <string id="task_CalledService" value="CalledService"/>
+   <string id="task_CallService" value="CallService"/>
+   <string id="task_CreateMenus" value="CreateMenus"/>
+   <string id="task_EventSourceMessage" value="EventSourceMessage"/>
+   <string id="task_QueryMenus" value="QueryMenus"/>
+   <string id="task_ServiceError" value="ServiceError"/>
+  </stringTable>
+ </resources>
+</localization>
+</instrumentationManifest>

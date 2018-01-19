@@ -12,9 +12,10 @@ namespace DynamicSample
         {
             bool success = false;
             result = null;
-            if (success = _dynamicData.ContainsKey(binder.Name))
+            if (_dynamicData.ContainsKey(binder.Name))
             {
                 result = _dynamicData[binder.Name];
+                success = true;
             }
             else
             {

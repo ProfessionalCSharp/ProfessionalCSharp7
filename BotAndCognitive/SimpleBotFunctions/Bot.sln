@@ -1,0 +1,55 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Func", "%USERPROFILE%\AppData\Roaming\npm\node_modules\azure-functions-cli\bin\Func.exe", "{C3D4B696-69FC-43D3-9DE6-21FEF4184A2B}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = Func.exe
+		RemoteMachine = THERMONSTER
+		StartingDirectory = 
+		Arguments = 
+		Environment = Default
+		LaunchingEngine = fb0d4648-f776-4980-95f8-bb7f36ebc1ee
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = Yes
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{36665A78-4D93-48C7-B432-4DA46AA140D5}"
+	ProjectSection(SolutionItems) = preProject
+		commands.json = commands.json
+		debughost.cmd = debughost.cmd
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "messages", "messages", "{F4D9DF3B-F4E4-4E19-9053-3AF71A3189FA}"
+	ProjectSection(SolutionItems) = preProject
+		messages\EchoDialog.csx = messages\EchoDialog.csx
+		messages\function.json = messages\function.json
+		messages\project.json = messages\project.json
+		messages\project.lock.json = messages\project.lock.json
+		messages\run.csx = messages\run.csx
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3D4B696-69FC-43D3-9DE6-21FEF4184A2B}.Debug|Any CPU.ActiveCfg = Release
+		{C3D4B696-69FC-43D3-9DE6-21FEF4184A2B}.Debug|x64.ActiveCfg = Release
+		{C3D4B696-69FC-43D3-9DE6-21FEF4184A2B}.Release|Any CPU.ActiveCfg = Release
+		{C3D4B696-69FC-43D3-9DE6-21FEF4184A2B}.Release|x64.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4D9DF3B-F4E4-4E19-9053-3AF71A3189FA} = {36665A78-4D93-48C7-B432-4DA46AA140D5}
+	EndGlobalSection
+EndGlobal

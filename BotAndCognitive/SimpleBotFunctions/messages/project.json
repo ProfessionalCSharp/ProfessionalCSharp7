@@ -1,0 +1,9 @@
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.Bot.Builder.Azure": "3.2.5"
+      }
+    }
+   }
+}

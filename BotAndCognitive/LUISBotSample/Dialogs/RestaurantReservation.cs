@@ -9,14 +9,8 @@ namespace LuisBotSample.Dialogs
     {
         public DayOfWeek Weekday
         {
-            get
-            {
-                return Day?.DayOfWeek ?? DayOfWeek.Sunday;
-            }
-            set
-            {
-                Day = DateTime.Today.AddDays(value.DaysUntilNext());
-            }
+            get => Day?.DayOfWeek ?? DayOfWeek.Sunday;
+            set => Day = DateTime.Today.AddDays(value.DaysUntilNext());
         }
 
         [Prompt("Please enter the {&} for the reservation")]

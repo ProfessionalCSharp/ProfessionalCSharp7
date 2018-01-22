@@ -44,38 +44,33 @@ namespace LuisBotSample.Dialogs
 
             var reservation = new RestaurantReservation();
            
-            EntityRecommendation weekdayRecommendation;
-            if (result.TryFindEntity(RestaurantReservation.Reservation_Weekday, out weekdayRecommendation))
-            {
-                DayOfWeek weekday;            
-                if (Enum.TryParse(weekdayRecommendation.Entity, true, out weekday))
+            if (result.TryFindEntity(RestaurantReservation.Reservation_Weekday, out EntityRecommendation weekdayRecommendation))
+            {      
+                if (Enum.TryParse(weekdayRecommendation.Entity, true, out DayOfWeek weekday))
                 {
                     reservation.Weekday = weekday;
                 }
             }
-            EntityRecommendation dayRecommendation;
-            if (result.TryFindEntity(RestaurantReservation.Reservation_Day, out dayRecommendation))
+
+            if (result.TryFindEntity(RestaurantReservation.Reservation_Day, out EntityRecommendation dayRecommendation))
             {
-                DateTime day;
-                if (DateTime.TryParse(dayRecommendation.Entity, out day))
+                if (DateTime.TryParse(dayRecommendation.Entity, out DateTime day))
                 {
                     reservation.Day = day;
                 }
             }
-            EntityRecommendation timeRecommendation;
-            if (result.TryFindEntity(RestaurantReservation.Reservation_Time, out timeRecommendation))
+ 
+            if (result.TryFindEntity(RestaurantReservation.Reservation_Time, out EntityRecommendation timeRecommendation))
             {
-                DateTime time;
-                if (DateTime.TryParse(timeRecommendation.Entity, out time))
+                if (DateTime.TryParse(timeRecommendation.Entity, out DateTime time))
                 {
                     reservation.Time = time;
                 }
             }
-            EntityRecommendation numberRedommendation;
-            if (result.TryFindEntity(RestaurantReservation.Reservation_Number, out numberRedommendation))
+
+            if (result.TryFindEntity(RestaurantReservation.Reservation_Number, out EntityRecommendation numberRedommendation))
             {
-                int number;
-                if (int.TryParse(numberRedommendation.Entity, out number))
+                if (int.TryParse(numberRedommendation.Entity, out int number))
                 {
                     reservation.Number = number;
                 }

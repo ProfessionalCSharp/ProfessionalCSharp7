@@ -46,7 +46,7 @@ namespace LuisBotSample.Dialogs
            
             if (result.TryFindEntity(RestaurantReservation.Reservation_Weekday, out EntityRecommendation weekdayRecommendation))
             {      
-                if (Enum.TryParse(weekdayRecommendation.Entity, true, out DayOfWeek weekday))
+                if (Enum.TryParse(weekdayRecommendation.Entity, ignoreCase: true, out DayOfWeek weekday))
                 {
                     reservation.Weekday = weekday;
                 }

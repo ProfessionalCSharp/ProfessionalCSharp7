@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Memory" Version="4.4.0-preview2-25405-01" />
+    <PackageReference Include="System.Memory" Version="4.5.0-preview1-26122-01" />
   </ItemGroup>
 
 </Project>

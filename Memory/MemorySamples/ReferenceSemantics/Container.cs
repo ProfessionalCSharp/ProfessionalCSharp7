@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RefLocalAndRefReturn
+namespace ReferenceSemantics
 {
     public class Container
     {

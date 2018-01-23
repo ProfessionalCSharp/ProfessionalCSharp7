@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace RefLocalAndRefReturn
+namespace ReferenceSemantics
 {
     class Program
     {
@@ -10,6 +9,7 @@ namespace RefLocalAndRefReturn
         {
             UseMember();
             UseRefMember();
+            UseReadonlyRefMember();
             UseMax();
             UseItemOfContainer();
             UseArrayOfContainer();
@@ -52,6 +52,24 @@ namespace RefLocalAndRefReturn
             ref int n = ref d.GetNumber();
             n = 42;
             d.Show();
+
+            ref readonly int n2 = ref d.GetNumber();
+            // n2 = 42; not allowed, it's readonly!
+
+            Console.WriteLine();
+        }
+
+        static void UseReadonlyRefMember()
+        {
+            Console.WriteLine(nameof(UseReadonlyRefMember));
+            var d = new Data(11);
+            int n = d.GetReadonlyNumber();  // create a copy
+            n = 42;
+            d.Show();
+
+            // ref int n = d.GetReadonlyNumber(); // not allowed
+            ref readonly int n2 = ref d.GetReadonlyNumber();
+            // n2 = 42; // not allowed
             Console.WriteLine();
         }
 

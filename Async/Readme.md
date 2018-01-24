@@ -2,20 +2,22 @@
 
 This chapter contains these samples:
 
+* AsyncHistory
 * Foundations (changing synchronous methods to async, continuation)
 * ErrorHandling (error handling with async methods)
-* AsyncPatternsWPF (synchronous .vs. asynchronous, using the asynchronous pattern, event-based async pattern, and task-based async pattern)
+* AsyncWindowsApp (synchronous .vs. asynchronous, using the asynchronous pattern, event-based async pattern, and task-based async pattern)
 
-The Foundations and ErrorHandling samples show core features of using the async/await keywords with C#.
+To build and run the .NET Core samples, please install one of these tools:
 
-The AsyncPatternsWPF demonstrates the advantages of the async/await keywords and shows different async patterns that are used with .NET. To run the application, you need to request a BING key and add it to the BingRequest.cs file in the AsyncLib project, and a Flickr app-id to the file FlickrRequest. You can also request just one of these keys, and just enable the corresponding functionality in the application.
+* Visual Studio 2017 Update 5 with the .NET Core workload and the Universal Windows Platform development workload
+* Visual Studio for Mac
+* Visual Studio Code
 
-To build and run the .NET Core samples, please install
-* Visual Studio 2017 with the .NET Core workload
+The AsyncWindowsApp requires Windows 10 and Visual Studio 2017 with the Universal Windows Platform development workload. The other samples run on other platforms as well.
 
 Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
  
-For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp6)
+For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7)
 
 Please check my blog [csharp.christiannagel.com](https://csharp.christiannagel.com "csharp.christiannagel.com") for additional information for topics covered in the book.
 

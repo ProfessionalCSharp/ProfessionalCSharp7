@@ -1,13 +1,10 @@
-# Readme - Code Samples for Chapter 5, Generics
+# Readme - Code Samples for Chapter 1, .NET Applications and Tools
 
 This chapter contains the following code samples:
 
-* LinkedListObjects (creating a custom linked list using objects)
-* LinkedListSample (using LinkedList<T>)
-* DocumentManager (declaring a generic type with constraints)
-* Variance (using *out* and *in* with generic types)
-* GenericMethods (declaring and using generic methods)
-* Specialization (specialization of generic methods) 
+* HelloWorld (.NET Core Console App)
+* WebApp (Tool-generated ASP.NET Core MVC Web App)
+* SelfContainedHelloWorld (Console App configured for self-contained deployment)
 
 To build and run the .NET Core samples, please install one of these tools:
 

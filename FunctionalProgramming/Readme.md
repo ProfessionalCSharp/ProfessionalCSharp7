@@ -1,16 +1,12 @@
-# Readme - Code Samples for Chapter 3, Objects and Types
+# Readme - Code Samples for Chapter 13, Functional Programming with C#
 
 This chapter contains the following code samples:
 
-* ClassesSample (members of classes)
-* MathSample (declare a type with methods and properties, use the type)
-* MethodSample (instance and static methods)
-* StaticConstructorSample (declaring a static constructor)
-* StructsSample (using the *strict* keyword)
-* PassingByValueAndByReference (compare *pass by value* and *pass by reference*)
-* OutKeywordSample (using the *out* keyword to receive data from a method)
-* EnumSample (using the *enum* keyword)
-* ExtensionMethods (declaring and using *extension methods*)
+* UsingStatic (the using static declaration)
+* ExpresionBodiedMembers (using expression bodies everywhere)
+* LocalFunctions (C# 7 local functions)
+* Tuples (C# 7 tuples)
+* PatternMatching (C# 7 pattern matching with the is operator and the switch statement)
 
 To build and run the .NET Core samples, please install one of these tools:
 

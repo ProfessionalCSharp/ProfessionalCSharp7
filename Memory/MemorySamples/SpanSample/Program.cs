@@ -78,7 +78,6 @@ namespace SpanSample
             Console.WriteLine($"span1 reversed: {string.Join(", ", span1.ToArray())}");
             Console.WriteLine($"span2 (a slice) after reversing span1: {string.Join(", ", span2.ToArray())}");
             int index = span1.IndexOf(span2);
-            
             Console.WriteLine($"index of span2 in span1: {index}");
             Console.WriteLine();
         }

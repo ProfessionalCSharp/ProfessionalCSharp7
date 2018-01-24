@@ -13,5 +13,10 @@ namespace ReferenceSemantics
         public ref readonly int GetReadonlyNumber() => ref _anumber;
 
         public void Show() => Console.WriteLine($"Data: {_anumber}"); 
+
+        public void InNumber(in int anumber)  // pass by reference, but readonly
+        {
+            // anumber = 11; readonly - cannot be changed!
+        }
     }
 }

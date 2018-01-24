@@ -10,6 +10,7 @@ namespace SpanSample
             SpanOnTheHeap();
             SpanOnTheStack();
             SpanOnNativeMemory();
+            SpanExtensions();
         }
 
         private static unsafe void SpanOnNativeMemory()
@@ -29,6 +30,7 @@ namespace SpanSample
                 {
                     Console.Write($"{span[i]} ");
                 }
+                Console.WriteLine();
             }
             finally
             {
@@ -62,6 +64,22 @@ namespace SpanSample
 
             Console.WriteLine(string.Join(", ", span1.ToArray()));
 
+            Console.WriteLine();
+        }
+
+        private static void SpanExtensions()
+        {
+            Console.WriteLine(nameof(SpanExtensions));
+            Span<int> span1 = (new int[] { 1, 5, 11, 71, 22, 19, 21, 33 }).AsSpan();
+            Span<int> span2 = span1.Slice(3, 4);
+            bool overlaps = span1.Overlaps(span2);
+            Console.WriteLine($"span1 overlaps span2: {overlaps}");
+            span1.Reverse();
+            Console.WriteLine($"span1 reversed: {string.Join(", ", span1.ToArray())}");
+            Console.WriteLine($"span2 (a slice) after reversing span1: {string.Join(", ", span2.ToArray())}");
+            int index = span1.IndexOf(span2);
+            
+            Console.WriteLine($"index of span2 in span1: {index}");
             Console.WriteLine();
         }
     }

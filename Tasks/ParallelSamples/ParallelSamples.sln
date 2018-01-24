@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelSamples", "ParallelSamples\ParallelSamples.csproj", "{4C4AE31B-0FA7-4A55-BA04-DD81B19BC497}"
 EndProject
@@ -144,6 +144,8 @@ Global
 		{8B1F79BC-6545-4677-9707-75FCAAFC1B1F}.Release|x86.ActiveCfg = Release|Any CPU
 		{8B1F79BC-6545-4677-9707-75FCAAFC1B1F}.Release|x86.Build.0 = Release|Any CPU
 		{E734B5A0-B380-4466-B0D4-CF6FA3DC27FE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E734B5A0-B380-4466-B0D4-CF6FA3DC27FE}.Debug|Any CPU.Build.0 = Debug|x86
+		{E734B5A0-B380-4466-B0D4-CF6FA3DC27FE}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{E734B5A0-B380-4466-B0D4-CF6FA3DC27FE}.Debug|ARM.ActiveCfg = Debug|ARM
 		{E734B5A0-B380-4466-B0D4-CF6FA3DC27FE}.Debug|ARM.Build.0 = Debug|ARM
 		{E734B5A0-B380-4466-B0D4-CF6FA3DC27FE}.Debug|ARM.Deploy.0 = Debug|ARM

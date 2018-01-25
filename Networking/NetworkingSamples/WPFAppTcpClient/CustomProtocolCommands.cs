@@ -11,17 +11,17 @@ namespace WPFAppTcpClient
         {
 
         }
+
         public CustomProtocolCommand(string name, string action)
         {
             Name = name;
             Action = action;
         }
+
         public string Name { get; }
         public string Action { get; set; }
 
-
         public override string ToString() => Name;
-
     }
 
     public class CustomProtocolCommands : IEnumerable<CustomProtocolCommand>
@@ -29,7 +29,6 @@ namespace WPFAppTcpClient
         private readonly List<CustomProtocolCommand> _commands = new List<CustomProtocolCommand>();
         public CustomProtocolCommands()
         {
-
             string[] commands = { "HELO", "BYE", "SET", "GET", "ECO", "REV" };
             foreach (var command in commands)
             {
@@ -40,8 +39,6 @@ namespace WPFAppTcpClient
 
         public IEnumerator<CustomProtocolCommand> GetEnumerator() => _commands.GetEnumerator();
 
-
         IEnumerator IEnumerable.GetEnumerator() => _commands.GetEnumerator();
-
     }
 }

@@ -21,10 +21,7 @@ namespace WinAppTcpClient
         private TcpClient _client = new TcpClient();
         private readonly CustomProtocolCommands _commands = new CustomProtocolCommands();
 
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
+        public MainPage() => InitializeComponent();
 
         private async void OnConnect(object sender, RoutedEventArgs e)
         {

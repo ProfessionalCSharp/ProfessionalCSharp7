@@ -41,13 +41,11 @@ namespace TcpServer
 
         public void CleanupSession(string sessionId)
         {
-            Dictionary<string, string> removed;
-            if (_sessionData.TryRemove(sessionId, out removed))
+            if (_sessionData.TryRemove(sessionId, out Dictionary<string, string> removed))
             {
                 Console.WriteLine($"removed {sessionId} from session data");
             }
-            Session header;
-            if (_sessions.TryRemove(sessionId, out header))
+            if (_sessions.TryRemove(sessionId, out Session header))
             {
                 Console.WriteLine($"removed {sessionId} from sessions");
             }
@@ -55,9 +53,7 @@ namespace TcpServer
 
         public void SetSessionData(string sessionId, string key, string value)
         {
-            Dictionary<string, string> data;
-
-            if (!_sessionData.TryGetValue(sessionId, out data))
+            if (!_sessionData.TryGetValue(sessionId, out Dictionary<string, string> data))
             {
                 data = new Dictionary<string, string>();
                 data.Add(key, value);
@@ -76,8 +72,7 @@ namespace TcpServer
 
         public string GetSessionData(string sessionId, string key)
         {
-            Dictionary<string, string> data;
-            if (_sessionData.TryGetValue(sessionId, out data))
+            if (_sessionData.TryGetValue(sessionId, out Dictionary<string, string> data))
             {
                 string value;
                 if (data.TryGetValue(key, out value))
@@ -100,8 +95,7 @@ namespace TcpServer
 
         public bool TouchSession(string sessionId)
         {
-            Session oldHeader;
-            if (!_sessions.TryGetValue(sessionId, out oldHeader))
+            if (!_sessions.TryGetValue(sessionId, out Session oldHeader))
             {
                 return false;
             }

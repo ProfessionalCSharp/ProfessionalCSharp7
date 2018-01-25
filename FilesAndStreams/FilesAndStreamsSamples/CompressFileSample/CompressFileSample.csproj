@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IO.Compression.Brotli" Version="0.1.0-e170901-1" />
-    <PackageReference Include="System.Memory" Version="4.5.0-preview2-25701-02" />
+    <PackageReference Include="System.IO.Compression.Brotli" Version="0.1.0-e180119-3" />
+    <PackageReference Include="System.Memory" Version="4.5.0-preview2-26125-06" />
   </ItemGroup>
 
 

@@ -23,12 +23,17 @@ This chapter contains the following code samples:
     * SocketServer (using `Socket` to create a server)
     * SocketClient (using `Socket` to create a client)
 
-To build and run the .NET Core samples, please install
-* Visual Studio 2017 with the .NET Core workload
 
-> WinAppTcpClient needs Visual Studio 2017 Update 4 and Windows 10 Fall Creator Update
+To build and run the .NET Core samples, please install one of these tools:
 
-Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core#windows).
+* Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio for Mac
+* Visual Studio Code
+
+The WinAppTcpClient sample needs Windows 10 and Visual Studio 2017 with the Universal Windows Platform development workload. The other samples can be used on other platforms.
+The WPFAppTcpClient needs a Windows system.
+
+Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
  
 For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7)
 

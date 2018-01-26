@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Collections;
 
 namespace ConnectionSamples
 {
@@ -89,17 +90,48 @@ namespace ConnectionSamples
             {
                 connection.InfoMessage += (sender, e) =>
                 {
-                    Console.WriteLine($"warning or info {e.Message}");
+                    Console.WriteLine($"warning or info: {e.Message}");
                 };
                 connection.StateChange += (sender, e) =>
                 {
                     Console.WriteLine($"current state: {e.CurrentState}, before: {e.OriginalState}");
                 };
-                connection.Open();
 
-                Console.WriteLine("connection opened");
-                // Do something useful
+                try
+                {
+                    connection.StatisticsEnabled = true;
+                    connection.FireInfoMessageEventOnUserErrors = true;
+                    connection.Open();
+
+                    Console.WriteLine("connection opened");
+
+                    // Do something useful
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandText = "SELECT Titl, Publisher FROM [ProCSharp].[Books]";
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Console.WriteLine($"{reader.GetString(0)} {reader.GetString(1)}");
+                    }
+                    IDictionary statistics = connection.RetrieveStatistics();
+                    ShowStatistics(statistics);
+                    connection.ResetStatistics();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
+        }
+
+        private static void ShowStatistics(IDictionary statistics)
+        {
+            Console.WriteLine("Statistics");
+            foreach (var key in statistics.Keys)
+            {
+                Console.WriteLine($"{key}, value: {statistics[key]}");
+            }
+            Console.WriteLine();
         }
 
         public static void Transactions()

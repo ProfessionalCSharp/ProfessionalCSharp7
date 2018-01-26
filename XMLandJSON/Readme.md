@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 27, XML and JSON
+# Readme - Code Samples for Chapter 26, XML and JSON
 
 This chapter contains the following code samples:
 
@@ -10,10 +10,13 @@ This chapter contains the following code samples:
 * LinqToXmlSample (creating, querying, transforming XML using LINQ to XML)
 * JsonSample (creating, converting serializing, and deserializing with JSON.NET)
 
-To build and run the .NET Core samples, please install
-* Visual Studio 2017 Update 4 with the .NET Core workload
+To build and run the .NET Core samples, please install one of these tools:
 
-Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core#windows).
+* Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio for Mac
+* Visual Studio Code
+
+Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core#).
  
 For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7)
 

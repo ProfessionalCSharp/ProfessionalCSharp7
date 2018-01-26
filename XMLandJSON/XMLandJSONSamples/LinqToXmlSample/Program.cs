@@ -111,7 +111,7 @@ namespace LinqToXmlSample
 
         public static void WithNamespace()
         {
-            XNamespace ns = "http://www.cninnovation.com/samples/2015";
+            XNamespace ns = "http://www.cninnovation.com/samples/2018";
 
             var company = new XElement(ns + "Company",
                 new XElement("CompanyName", "Microsoft Corporation"),
@@ -127,8 +127,8 @@ namespace LinqToXmlSample
 
         public static void With2Namespace()
         {
-            XNamespace ns1 = "http://www.cninnovation.com/samples/2015";
-            XNamespace ns2 = "http://www.cninnovation.com/samples/2015/address";
+            XNamespace ns1 = "http://www.cninnovation.com/samples/2018";
+            XNamespace ns2 = "http://www.cninnovation.com/samples/2018/address";
 
             var company = new XElement(ns1 + "Company",
                 new XElement(ns2 + "CompanyName", "Microsoft Corporation"),
@@ -279,4 +279,3 @@ namespace LinqToXmlSample
         }
     }
 }
-

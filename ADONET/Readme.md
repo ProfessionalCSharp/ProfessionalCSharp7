@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 29, ADO.NET
+# Readme - Code Samples for Chapter 27, ADO.NET and Transactions
 
 This chapter contains these samples:
 
@@ -10,8 +10,12 @@ This chapter contains these samples:
 
 The database that is used with these samples is Books. This database is available as a SQL Server backup file, and as a SQL script. Check the CreateDatabase folder for these files.
 
-To build and run the .NET Core samples, please install
-* Visual Studio 2017 Update 4 with the .NET Core workload
+To build and run the .NET Core samples, please install one of these tools:
+
+* Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio for Mac
+* Visual Studio Code
+
 
 Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
 

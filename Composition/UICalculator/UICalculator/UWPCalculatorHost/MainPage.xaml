@@ -25,7 +25,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="comp:ExtensionViewModel">
-                        <AppBarButton Label="{x:Bind Extension.Metadata.Title, Mode=OneTime}" ToolTipService.ToolTip="{x:Bind Extension.Metadata.Description, Mode=OneTime}" Command="{x:Bind ActivateCommand}" IsCompact="False" >
+                        <AppBarButton Label="{x:Bind Extension.Metadata.Title, Mode=OneTime}" Width="120" ToolTipService.ToolTip="{x:Bind Extension.Metadata.Description, Mode=OneTime}" Command="{x:Bind ActivateCommand}" IsCompact="False" >
                             <AppBarButton.Icon>
                                 <BitmapIcon UriSource="{x:Bind Extension.Metadata.ImageUri, Mode=OneTime}" />
                             </AppBarButton.Icon>

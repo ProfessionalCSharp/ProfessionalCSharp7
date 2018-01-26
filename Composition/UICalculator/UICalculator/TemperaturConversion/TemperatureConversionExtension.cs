@@ -4,7 +4,7 @@ namespace Wrox.ProCSharp.Composition
 {
     [Export(typeof(ICalculatorExtension))]
     [CalculatorExtensionMetadata(
-      Title = "Temperature Conversion",
+      Title = "Temperature",
       Description = "Temperature conversion",
       ImageUri = "ms-appx:///TemperaturConversion/Images/Temperature.png")]
     public class TemperatureConversionExtension : ICalculatorExtension

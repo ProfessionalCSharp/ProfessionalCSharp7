@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26906.1
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorContract", "CalculatorContract\CalculatorContract.csproj", "{E5EB6788-11EB-4344-B523-A41A5A37A6E3}"
 EndProject
@@ -20,8 +20,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddIns", "AddIns", "{9C3B3DED-82FC-4634-A911-318C7ED9234E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelEconomy", "FuelEconomy\FuelEconomy.csproj", "{A367CC88-8F60-4D0C-9438-8AC515122E93}"
-EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "DependencyValidation1", "DependencyValidation1\DependencyValidation1.modelproj", "{DE70492D-6601-4C43-A865-EC1E411DA4BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,22 +167,6 @@ Global
 		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|x64.Build.0 = Release|x64
 		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|x86.ActiveCfg = Release|x86
 		{A367CC88-8F60-4D0C-9438-8AC515122E93}.Release|x86.Build.0 = Release|x86
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Debug|ARM.Build.0 = Debug|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Debug|x64.Build.0 = Debug|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Debug|x86.Build.0 = Debug|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Release|ARM.ActiveCfg = Release|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Release|ARM.Build.0 = Release|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Release|x64.ActiveCfg = Release|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Release|x64.Build.0 = Release|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Release|x86.ActiveCfg = Release|Any CPU
-		{DE70492D-6601-4C43-A865-EC1E411DA4BF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

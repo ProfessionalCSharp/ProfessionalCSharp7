@@ -2,27 +2,25 @@
 
 This chapter contains the following code samples:
 
-* HTTP
-    * HttpServer (HTTP server using `WebListener`)
-    * HttpClientSample (HTTP client using `HttpClient`)
-    * WinAppHttpClient (HTTP client with UWP app where `HttpClient` supports HTTP 2.0) 
-* Utilities
-    * Utilities (using `Uri` and `IPAddress`)
-* DnsLookup
-    * DnsLookup (showing IP Addresses using `Dns`)
-* TCP
-    * HttpClientUsingTcp (using `TcpClient` to access a HTTP Server)
-    * TcpServer (TCP server using `TcpListener` and a custom protocol)
-    * TcpClientSample (TCP client using `TcpClient`)
-    * WinAppTcpClient (UWP client application managing the custom protocol form TcpServer)
-    * WPFAppTcpClient (WPF client application managing the custom protocol from TcpServer)
-* UDP
-    * UdpSender (UDP sender using `UdpClient`)
-    * UdpReceiver (UDP receiver using `UdpClient`)
-* Sockets
-    * SocketServer (using `Socket` to create a server)
-    * SocketClient (using `Socket` to create a client)
-
+* AttributeBasedSample
+    * SimpleHost (hosting the add-in)
+    * CalculatorContract (contract-library)
+    * SimpleCalculator (add-in)
+    * AdvancedCalculator (add-in)
+* ConventionBasedSample
+    * SimpleHost (hosting the add-in)
+    * CalculatorContract (contract-library)
+    * SimpleCalculator (add-in)
+* UICalculator
+    * AddIns
+        * AdvancedOperations (.NET Standard)
+        * CalculatorContract (.NET Standard)
+        * CalculatorUtils (.NET Standard)
+        * FuelEconomy (Windows Library)
+        * SimpleCalculator (.NET Standard)
+        * TemperatureConversion (Windows Library)
+    * CalculatorViewModels (.NET Standard)
+    * UWPCalculatorHost (Windows App)
 
 To build and run the .NET Core samples, please install one of these tools:
 
@@ -30,7 +28,7 @@ To build and run the .NET Core samples, please install one of these tools:
 * Visual Studio for Mac
 * Visual Studio Code
 
-The WinAppTcpClient sample needs Windows 10 and Visual Studio 2017 with the Universal Windows Platform development workload. The other samples can be used on other platforms.
+The UICalculator sample needs Windows 10 and Visual Studio 2017 with the Universal Windows Platform development workload. The other samples can be used on other platforms.
 The WPFAppTcpClient needs a Windows system.
 
 Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).

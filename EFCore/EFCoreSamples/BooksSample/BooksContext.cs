@@ -8,7 +8,7 @@ using static BooksSample.ColumnNames;
 
 namespace BooksSample
 {
-    public class ColumnNames
+    internal class ColumnNames
     {
         public const string LastUpdated = nameof(LastUpdated);
         public const string IsDeleted = nameof(IsDeleted);

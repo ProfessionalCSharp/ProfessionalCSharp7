@@ -141,6 +141,7 @@ namespace MenusSample
 
         private static void ChangeUntracked()
         {
+            Console.WriteLine(nameof(ChangeUntracked));
             Menu GetMenu()
             {
                 using (var context = new MenusContext())

@@ -11,10 +11,16 @@ This chapter contains the following code samples:
 * ASPNETCoreMVCSample (localizing with controllers, views, and data annotations)
 * UWPLocalization (localizing with UWP and XLF)
 
-To build and run the .NET Core samples, please install
-* Visual Studio 2017 with the .NET Core workload
+To build and run the .NET Core samples, please install one of these tools:
 
-Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core#windows).
+* Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio for Mac
+* Visual Studio Code
+
+The UWPLocalization and UWPCultureDemo samples needs Windows 10 and Visual Studio 2017 with the Universal Windows Platform development workload. The other samples can be used on other platforms.
+The UWPCultureDemo uses a TreeView control built with C++. To compile this project, you need to install the C++ component with the Universal Windows Platform workload with the Visual Studio Installer.
+
+Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
  
 For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7)
 

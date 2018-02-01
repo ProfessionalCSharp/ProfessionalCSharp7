@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace MenusSample
@@ -12,6 +13,7 @@ namespace MenusSample
             AddRecords();
             ObjectTracking();
             UpdateRecords();
+            ChangeUntracked();
             AddHundredRecords();
             DeleteDatabase();
         }
@@ -31,8 +33,10 @@ namespace MenusSample
                         Price = 9.9m
                     });
                     context.Menus.AddRange(menus);
+                    Stopwatch stopwatch = Stopwatch.StartNew();
                     int records = context.SaveChanges();
-                    Console.WriteLine($"{records} added");
+                    stopwatch.Stop();
+                    Console.WriteLine($"{records} records added after {stopwatch.ElapsedMilliseconds} milliseconds");
                 }
             }
             Console.WriteLine();

@@ -1,6 +1,4 @@
-﻿using BooksApp.Views;
-using BooksLib.Services;
-using Framework.Services;
+﻿using Framework.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +30,7 @@ namespace BooksApp.Services
         {
             PageStackEntry stackEntry = Frame.BackStack.Last();
             Type backPageType = stackEntry.SourcePageType;
-            KeyValuePair<string, Type> pageEntry = Pages.Where(pair => pair.Value == backPageType).FirstOrDefault();
+            KeyValuePair<string, Type> pageEntry = Pages.FirstOrDefault(pair => pair.Value == backPageType);
             _currentPage = pageEntry.Key;
             
             Frame.GoBack();

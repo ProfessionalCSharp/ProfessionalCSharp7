@@ -44,7 +44,7 @@ namespace BooksLib.ViewModels
 
         }
 
-        public async override Task OnSaveAsync()
+        public override async Task OnSaveAsync()
         {
             try
             {
@@ -58,7 +58,7 @@ namespace BooksLib.ViewModels
             }
         }
 
-        public async override Task OnEndEditAsync()
+        public override async Task OnEndEditAsync()
         {
             if (UseNavigation)
             {

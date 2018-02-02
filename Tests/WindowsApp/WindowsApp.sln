@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsApp", "WindowsApp\WindowsApp.csproj", "{01CEC3E0-6E60-4116-8CB4-3457C0762F9A}"
 EndProject
@@ -20,6 +20,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{01CEC3E0-6E60-4116-8CB4-3457C0762F9A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{01CEC3E0-6E60-4116-8CB4-3457C0762F9A}.Debug|Any CPU.Build.0 = Debug|x86
+		{01CEC3E0-6E60-4116-8CB4-3457C0762F9A}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{01CEC3E0-6E60-4116-8CB4-3457C0762F9A}.Debug|ARM.ActiveCfg = Debug|ARM
 		{01CEC3E0-6E60-4116-8CB4-3457C0762F9A}.Debug|ARM.Build.0 = Debug|ARM
 		{01CEC3E0-6E60-4116-8CB4-3457C0762F9A}.Debug|ARM.Deploy.0 = Debug|ARM

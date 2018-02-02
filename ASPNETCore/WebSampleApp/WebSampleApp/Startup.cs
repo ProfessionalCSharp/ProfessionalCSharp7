@@ -58,7 +58,7 @@ namespace WebSampleApp
                 });
             });
 
-            PathString remainingPath; // out var is not possible when used in lambda expression following 
+            PathString remainingPath; // out var is not possible when used in lambda expression that follows with the next parameter
             app.MapWhen(context => context.Request.Path.StartsWithSegments("/Configuration", out remainingPath), configurationApp =>
             {
                 configurationApp.Run(async context =>
@@ -95,6 +95,7 @@ namespace WebSampleApp
             {
                 app1.Run(async context =>
                 {
+                    context.Response.ContentType = "text/html";
                     string result = string.Empty;
 
                     switch (context.Request.Path.Value.ToLower())

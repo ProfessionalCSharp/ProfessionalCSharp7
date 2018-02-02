@@ -5,6 +5,7 @@ This chapter contains these samples:
 * Simple Host (custom host )
 * WebSampleApp (showing ASP.NET Core features)
 * CustomConfiguration (more configuration samples with `Microsoft.Extensions.Configuration`)
+* AngularWithDotnetCore (using Angular with ASP.NET Core)
 
 Building this sample starts with an empty ASP.NET Core Web project, and adds many features of ASP.NET Core.
 

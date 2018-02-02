@@ -23,8 +23,6 @@ namespace WebSampleApp
         public static string GetHeaderInformation(HttpRequest request)
         {
             var sb = new StringBuilder();
-
-            IHeaderDictionary headers = request.Headers;
             foreach (var header in request.Headers)
             {
                 sb.Append(header.Key.Div(string.Join("; ", header.Value)));

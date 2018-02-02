@@ -7,9 +7,11 @@ This chapter contains these samples:
 * AzureADB2CSample (authentication with Azure AD B2C)
 * RazorPagesSample (Razor Pages)
 
-To build and run the .NET Core samples, please install
+To build and run the .NET Core samples, please install one of these tools:
 
 * Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio for Mac
+* Visual Studio Code
 
 Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
 

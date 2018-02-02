@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -15,6 +16,15 @@ namespace LayoutSamples.Views
         public VariableSizedWrapGridPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+              Frame.CanGoBack ? AppViewBackButtonVisibility.Visible :
+              AppViewBackButtonVisibility.Collapsed;
+
+            base.OnNavigatedTo(e);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

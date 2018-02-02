@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using System.Text;
 
 namespace ChatServer
 {
@@ -30,7 +31,11 @@ namespace ChatServer
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("SignalR Sample");
+                var sb = new StringBuilder();
+                sb.Append("<h1>SignalR Sample</h1>");
+                sb.Append("<div>Open <a href='/ChatWindow.html'>ChatWindow</a> for communication</div>");
+                await context.Response.WriteAsync(sb.ToString());
+                
             });
         }
     }

@@ -20,7 +20,7 @@ namespace LoggingConfigurationSample
             var configurationBuilder = new ConfigurationBuilder();
             configurationBuilder.AddJsonFile("appsettings.json");
             IConfiguration configuration = configurationBuilder.Build();
-            RegisterServices(configuration.GetSection("Logging"));
+            RegisterServices(configuration);
             await RunSampleAsync();
             Console.WriteLine("Completed");
             Console.ReadLine();
@@ -37,7 +37,7 @@ namespace LoggingConfigurationSample
             var services = new ServiceCollection();
             services.AddLogging(builder =>
             {
-                builder.AddConfiguration(configuration)
+                builder.AddConfiguration(configuration.GetSection("Logging"))
                 .AddConsole();
 #if DEBUG
                 builder.AddDebug();

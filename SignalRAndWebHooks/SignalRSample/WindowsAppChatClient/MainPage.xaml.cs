@@ -9,7 +9,7 @@ namespace WindowsAppChatClient
     {
         public MainPage() => InitializeComponent();
 
-        public ChatViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<ChatViewModel>();
+        public ChatViewModel ViewModel { get; } = ApplicationServices.Instance.ServiceProvider.GetService<ChatViewModel>();
 
         private void OnGotoGroupChat(object sender, RoutedEventArgs e)
         {

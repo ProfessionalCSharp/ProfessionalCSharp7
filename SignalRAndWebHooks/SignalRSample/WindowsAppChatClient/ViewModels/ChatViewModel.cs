@@ -13,11 +13,12 @@ namespace WindowsAppChatClient.ViewModels
 {
     public class ChatViewModel
     {
-        private const string ServerURI = "http://localhost:13773/chat";
         private readonly IDialogService _dialogService;
-        public ChatViewModel(IDialogService dialogService)
+        private readonly UrlService _urlService;
+        public ChatViewModel(IDialogService dialogService, UrlService urlService)
         {
             _dialogService = dialogService;
+            _urlService = urlService;
 
             ConnectCommand = new RelayCommand(OnConnect);
             SendCommand = new RelayCommand(OnSendMessage);
@@ -38,7 +39,7 @@ namespace WindowsAppChatClient.ViewModels
         {
             await CloseConnectionAsync();
             _hubConnection = new HubConnectionBuilder()
-                .WithUrl(ServerURI)
+                .WithUrl(_urlService.ChatAddress)
                 .WithLogger(loggerFactory =>
                 {
                     loggerFactory.AddDebug();

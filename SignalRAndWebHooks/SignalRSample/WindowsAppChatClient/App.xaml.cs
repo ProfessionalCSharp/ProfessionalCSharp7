@@ -1,12 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using WindowsAppChatClient.Services;
-using WindowsAppChatClient.ViewModels;
 
 namespace WindowsAppChatClient
 {
@@ -32,8 +29,6 @@ namespace WindowsAppChatClient
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            RegisterServices();
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -91,18 +86,6 @@ namespace WindowsAppChatClient
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-
-        private void RegisterServices()
-        {
-            IServiceCollection services = new ServiceCollection();
-            services.AddTransient<ChatViewModel>();
-            services.AddTransient<GroupChatViewModel>();
-            services.AddSingleton<IDialogService, DialogService>();
-            services.AddLogging();
-            AppServices = services.BuildServiceProvider();
-        }
-        public IServiceProvider AppServices { get; private set; }
     }
-
 }
 

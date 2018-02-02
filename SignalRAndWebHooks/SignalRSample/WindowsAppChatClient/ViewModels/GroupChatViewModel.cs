@@ -17,11 +17,12 @@ namespace WindowsAppChatClient.ViewModels
 {
     public sealed class GroupChatViewModel : INotifyPropertyChanged
     {
-        private const string ServerURI = "http://localhost:13773/groupchat";
         private readonly IDialogService _dialogService;
-        public GroupChatViewModel(IDialogService dialogService)
+        private readonly UrlService _urlService;
+        public GroupChatViewModel(IDialogService dialogService, UrlService urlService)
         {
             _dialogService = dialogService;
+            _urlService = urlService;
 
             ConnectCommand = new RelayCommand(OnConnect);
             SendCommand = new RelayCommand(OnSendMessage);
@@ -64,7 +65,7 @@ namespace WindowsAppChatClient.ViewModels
         {
             await CloseConnectionAsync();
             _hubConnection = new HubConnectionBuilder()
-                .WithUrl(ServerURI)
+                .WithUrl(_urlService.GroupAddress)
                 .WithLogger(loggerFactory =>
                 {
                     loggerFactory.AddDebug();
@@ -131,7 +132,7 @@ namespace WindowsAppChatClient.ViewModels
         {
             try
             {
-                await _hubConnection.InvokeAsync("RemoveGroup", SelectedGroup);
+                await _hubConnection.InvokeAsync("LeaveGroup", SelectedGroup);
                 Groups.Remove(SelectedGroup);
             }
             catch (Exception ex)
@@ -146,5 +147,4 @@ namespace WindowsAppChatClient.ViewModels
         private Task CloseConnectionAsync() =>
             _hubConnection?.DisposeAsync() ?? Task.CompletedTask;
     }
-
 }

@@ -1,26 +1,8 @@
-﻿using BooksApp.Services;
-using BooksApp.ViewModels;
-using BooksLib.Models;
-using BooksLib.Services;
-using BooksLib.ViewModels;
-using Framework.Services;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace BooksApp
@@ -47,8 +29,6 @@ namespace BooksApp
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            RegisterServices();
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -106,27 +86,5 @@ namespace BooksApp
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-
-        private void RegisterServices()
-        {
-            var services = new ServiceCollection();
-            services.AddSingleton<IBooksRepository, BooksSampleRepository>();
-            services.AddSingleton<IItemsService<Book>, BooksService>();
-            services.AddTransient<BooksViewModel>();
-            services.AddTransient<BookDetailViewModel>();
-            services.AddTransient<MainPageViewModel>();
-            services.AddSingleton<IMessageService, UWPMessageService>();
-            services.AddSingleton<INavigationService, UWPNavigationService>();
-            services.AddSingleton<UWPInitializeNavigationService>();
-            services.AddLogging(builder =>
-            {
-#if DEBUG
-                builder.AddDebug();
-#endif
-            });
-            AppServices = services.BuildServiceProvider();
-        }
-
-        public IServiceProvider AppServices { get; private set; }
     }
 }

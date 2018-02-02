@@ -12,7 +12,7 @@ namespace BooksApp
         public MainPage()
         {
             this.InitializeComponent();
-            ViewModel = (Application.Current as App).AppServices.GetService<MainPageViewModel>();
+            ViewModel = ApplicationServices.Instance.ServiceProvider.GetService<MainPageViewModel>();
             ViewModel.SetNavigationFrame(ContentFrame);
         }
 

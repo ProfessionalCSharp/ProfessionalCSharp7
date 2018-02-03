@@ -18,9 +18,9 @@ namespace BooksLib.ViewModels
         public BookDetailViewModel(IItemsService<Book> itemsService, INavigationService navigationService, IMessageService messageService, ILogger<BookDetailViewModel> logger)
             : base(itemsService)
         {
-            _itemsService = itemsService;
-            _navigationService = navigationService;
-            _messageService = messageService;
+            _itemsService = itemsService ?? throw new ArgumentNullException(nameof(itemsService));
+            _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
+            _messageService = messageService ?? throw new ArgumentNullException(nameof(messageService));
             _logger = logger;
 
             itemsService.SelectedItemChanged += (sender, book) =>
@@ -28,8 +28,6 @@ namespace BooksLib.ViewModels
                 Item = book;
             };
         }
-
-        public bool UseNavigation { get; set; }
 
         public override Book CreateCopy(Book item) =>
             new Book
@@ -49,7 +47,6 @@ namespace BooksLib.ViewModels
             try
             {
                 await _itemsService.AddOrUpdateAsync(EditItem);
-                throw new Exception("bah");
             }
             catch (Exception ex)
             {
@@ -60,11 +57,10 @@ namespace BooksLib.ViewModels
 
         public override async Task OnEndEditAsync()
         {
-            if (UseNavigation)
+            if (_navigationService.UseNavigation)
             {
                 await _navigationService.GoBackAsync();
             }
-        }
-        
+        }  
     }
 }

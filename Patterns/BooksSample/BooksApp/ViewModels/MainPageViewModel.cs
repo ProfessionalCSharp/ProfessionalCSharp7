@@ -21,11 +21,16 @@ namespace BooksApp.ViewModels
         private readonly UWPInitializeNavigationService _initializeNavigationService;
         public MainPageViewModel(INavigationService navigationService, UWPInitializeNavigationService initializeNavigationService)
         {
-            _navigationService = navigationService;
-            _initializeNavigationService = initializeNavigationService;
+            _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
+            _initializeNavigationService = initializeNavigationService ?? throw new ArgumentNullException(nameof(initializeNavigationService));
         }
 
         public void SetNavigationFrame(Frame frame) => _initializeNavigationService.Initialize(frame, _pages);
+
+        public void UseNavigation(bool navigation)
+        {
+            _navigationService.UseNavigation = navigation;
+        }
 
         public void OnNavigationSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {

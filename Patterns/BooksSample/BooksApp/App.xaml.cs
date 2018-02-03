@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Framework.Services;
+using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BooksApp
 {
@@ -61,6 +64,13 @@ namespace BooksApp
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+
+            var navigationService = ApplicationServices.Instance.ServiceProvider.GetService<INavigationService>();
+            SystemNavigationManager.GetForCurrentView().BackRequested += (sender, e1) =>
+            {
+                e1.Handled = true;
+                navigationService.GoBackAsync();
+            };
         }
 
         /// <summary>

@@ -17,6 +17,8 @@ namespace BooksApp.Services
             _initializeNavigation = initializeNavigation ?? throw new ArgumentNullException(nameof(initializeNavigation));
         }
 
+        public bool UseNavigation { get; set; }
+
         private Dictionary<string, Type> _pages;
         private Dictionary<string, Type> Pages => _pages ?? (_pages = _initializeNavigation.Pages);
 

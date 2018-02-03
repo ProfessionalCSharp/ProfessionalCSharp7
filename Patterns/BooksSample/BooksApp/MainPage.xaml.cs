@@ -20,7 +20,11 @@ namespace BooksApp
 
         private void OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            EventAggregator<NavigationInfoEvent>.Instance.Publish(this, new NavigationInfoEvent { UseNavigation = e.NewSize.Width < 1024 });
+            ViewModel.UseNavigation(e.NewSize.Width < 1024);
+            FireNavigation(e.NewSize.Width);
         }
+
+        private void FireNavigation(double width) =>
+            EventAggregator<NavigationInfoEvent>.Instance.Publish(this, new NavigationInfoEvent { UseNavigation = width < 1024 });
     }
 }

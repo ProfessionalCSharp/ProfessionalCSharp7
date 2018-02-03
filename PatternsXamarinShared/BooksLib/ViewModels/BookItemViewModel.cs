@@ -2,6 +2,7 @@
 using Framework;
 using Framework.Services;
 using Framework.ViewModels;
+using System;
 
 namespace BooksLib.ViewModels
 {
@@ -13,7 +14,7 @@ namespace BooksLib.ViewModels
         public BookItemViewModel(Book book, IItemsService<Book> booksService)
         {
             Item = book;
-            _booksService = booksService;
+            _booksService = booksService ?? throw new ArgumentNullException(nameof(booksService));
             DeleteBookCommand = new RelayCommand(OnDeleteBook);
         }
 

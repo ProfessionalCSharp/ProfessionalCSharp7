@@ -4,6 +4,7 @@ using BooksLib.Services;
 using Framework.Services;
 using Framework.ViewModels;
 using System;
+using System.Diagnostics;
 
 namespace BooksLib.ViewModels
 {
@@ -18,21 +19,14 @@ namespace BooksLib.ViewModels
             _booksService = booksService ?? throw new ArgumentNullException(nameof(booksService));
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
 
-            EventAggregator<NavigationInfoEvent>.Instance.Event += (sender, e) =>
-            {
-                UseNavigation = e.UseNavigation;
-            };
-
             PropertyChanged += async (sender, e) =>
             {
-                if (UseNavigation && e.PropertyName == nameof(SelectedItem) && _navigationService.CurrentPage == PageNames.BooksPage)
+                if (_navigationService.UseNavigation && e.PropertyName == nameof(SelectedItem) && _navigationService.CurrentPage == PageNames.BooksPage)
                 {
                     await _navigationService.NavigateToAsync(PageNames.BookDetailPage);
                 }
             };
         }
-
-        public bool UseNavigation { get; set; }
 
         public override void OnAdd()
         {

@@ -5,10 +5,7 @@ namespace CompiledBindingLifetime
 {
     public sealed partial class MainPage : Page
     {
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
+        public MainPage() => InitializeComponent();
 
         public Book Book { get; } = new Book { Title = "Professional C# 7", Publisher = "Wrox Press" };
 

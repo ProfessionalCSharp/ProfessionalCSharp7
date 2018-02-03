@@ -74,7 +74,6 @@ namespace MapSample.ViewModels
             }
         }
 
-
         private Geopoint _currentPosition;
         public Geopoint CurrentPosition
         {
@@ -143,6 +142,5 @@ namespace MapSample.ViewModels
             get => _positionStatus;
             set => SetProperty(ref _positionStatus, value);
         }
-
     }
 }

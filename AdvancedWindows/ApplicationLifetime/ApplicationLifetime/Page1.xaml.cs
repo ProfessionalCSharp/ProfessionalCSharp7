@@ -15,7 +15,6 @@ namespace ApplicationLifetime
             base.OnNavigatedTo(e);
             _backButtonManager = new BackButtonManager(Frame);
 
-
             ReceivedContent = e.Parameter?.ToString() ?? string.Empty;
             Bindings.Update();
         }

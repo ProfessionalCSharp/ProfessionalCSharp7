@@ -23,6 +23,7 @@ namespace BooksAppX
         protected override void OnStart()
         {
             // Handle when your app starts
+            AppServices.GetService<INavigationService>().UseNavigation = true; // always use navigation
         }
 
         protected override void OnSleep()

@@ -1,24 +1,34 @@
 # Readme - Code Samples for Chapter 37, Windows Apps
 
-This chapter contains the following code samples:
+The sample code for this chapter contains this solution:
 
-* Reflection
-    * LookupWhatsNew (Reading custom attributes dynamically)
-    * VectorClass (Library, custom attributes annotated)
-    * WhatsNewAttributes (Library, defines custom attributes)
-    * TypeView (Use reflection to get information about types)
-* Dynamic Programming
-    * CalculatorLib (Library that will be loaded dynamically)
-    * ClientApp (console app loading CalculatorLib dynamically)
-    * DecompileSample (*dynamic* keyword for checking the IL code differences
-    * DynamicFileReader (parsing a file and making use of *dynamic*)
-    * DynamicSample (a custom class using *DynamicObject*)
+* HelloWindows (Startup, MainPage, events)
+* IntroXAML
+    * DataLib (library used by Windows App)
+    * XAMLIntro (elements and attributes)
+    * DependencyObjectSample (dependency properties)
+    * RoutedEvents
+    * AttachedProperty
+    * MarkupExtensions
+    * CustomMarkupExtension
+    * ConditionalXAML
+* ControlsSamples (Viewbox, TextBox)
+* ParallaxViewSample
+* DateSelectionSample (CalendarView, CalendarDatePicker, DatePickerFlyout, ProgressBar, Slider)
+* DataBindingSamples (compiled binding)
+* PageNavigation
+* NavigationControls (Hub, Pivot, NavigationView)
+* LayoutSamples (Grid, VariableSizedWrapGrid, RelativePanel, Adaptive Trigger, deferred loading)
 
-To build and run the .NET Core samples, please install one of these tools:
+extra:
+* ReflectionDataBindingSamples (Binding)
 
-* Visual Studio 2017 Update 5 with the .NET Core workload
+All the samples of this chapter need Windows 10 and Visual Studio 2017.
 
-Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
+To build and run the Windows 10 samples, please install:
+
+* Visual Studio 2017 Update 5 with the .NET Core workload **Universal Windows Platform Development**.
+
  
 For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7)
 

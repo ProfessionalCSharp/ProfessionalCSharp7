@@ -46,6 +46,8 @@ namespace BooksAppX.Services
             }
         }
 
+        public bool UseNavigation { get; set; }
+
         private readonly XamarinInitializeNavigationService _initializeNavigation;
 
         public XamarinNavigationService(XamarinInitializeNavigationService initializeNavigation) =>

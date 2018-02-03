@@ -15,7 +15,6 @@ namespace BooksAppX
         public App()
         {
             InitializeComponent();
-            RegisterServices();
 
             MainPage = new BooksAppX.Views.MainPage();
         }
@@ -23,7 +22,7 @@ namespace BooksAppX
         protected override void OnStart()
         {
             // Handle when your app starts
-            AppServices.GetService<INavigationService>().UseNavigation = true; // always use navigation
+            ApplicationServices.Instance.ServiceProvider.GetService<INavigationService>().UseNavigation = true; // always use navigation
         }
 
         protected override void OnSleep()
@@ -35,22 +34,5 @@ namespace BooksAppX
         {
             // Handle when your app resumes
         }
-
-        private void RegisterServices()
-        {
-            var services = new ServiceCollection();
-            services.AddSingleton<IBooksRepository, BooksSampleRepository>();
-            services.AddSingleton<IItemsService<Book>, BooksService>();
-            services.AddTransient<BooksViewModel>();
-            services.AddTransient<BookDetailViewModel>();
-            services.AddTransient<AboutViewModel>();
-            services.AddSingleton<IMessageService, XamarinMessageService>();
-            services.AddSingleton<INavigationService, XamarinNavigationService>();
-            services.AddSingleton<XamarinInitializeNavigationService>();
-            services.AddLogging();
-            AppServices = services.BuildServiceProvider();
-        }
-
-        public IServiceProvider AppServices { get; private set; }
     }
 }

@@ -11,7 +11,7 @@ namespace BooksAppX.Views
         public AboutPage()
         {
             InitializeComponent();
-            ViewModel = (Application.Current as App).AppServices.GetService<AboutViewModel>();
+            ViewModel = ApplicationServices.Instance.ServiceProvider.GetService<AboutViewModel>();
             BindingContext = this;
         }
 

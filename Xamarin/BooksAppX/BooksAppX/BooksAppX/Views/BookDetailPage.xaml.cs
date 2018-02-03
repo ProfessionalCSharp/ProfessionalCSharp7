@@ -14,6 +14,6 @@ namespace BooksAppX.Views
             BindingContext = this;
         }
 
-        public BookDetailViewModel ViewModel { get; } = (Application.Current as App).AppServices.GetService<BookDetailViewModel>();
+        public BookDetailViewModel ViewModel { get; } = ApplicationServices.Instance.ServiceProvider.GetService<BookDetailViewModel>();
     }
 }

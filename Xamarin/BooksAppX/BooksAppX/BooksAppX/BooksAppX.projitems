@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ApplicationServices.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\XamarinInitializeNavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\XamarinMessageService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\XamarinNavigationService.cs" />

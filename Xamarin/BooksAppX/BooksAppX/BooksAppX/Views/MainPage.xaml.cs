@@ -16,7 +16,7 @@ namespace BooksAppX.Views
         {
             InitializeComponent();
 
-            (Application.Current as App).AppServices.GetService<XamarinInitializeNavigationService>().SetNavigation(navigationPage.Navigation, PageNames.BooksPage);
+            ApplicationServices.Instance.ServiceProvider.GetService<XamarinInitializeNavigationService>().SetNavigation(navigationPage.Navigation, PageNames.BooksPage);
         }
 
         protected override bool OnBackButtonPressed()
@@ -27,7 +27,7 @@ namespace BooksAppX.Views
 
         private async void OnBackButtonAsync()
         {
-            await (Application.Current as App).AppServices.GetService<INavigationService>().GoBackAsync();
+            await ApplicationServices.Instance.ServiceProvider.GetService<INavigationService>().GoBackAsync();
         }
     }
 }

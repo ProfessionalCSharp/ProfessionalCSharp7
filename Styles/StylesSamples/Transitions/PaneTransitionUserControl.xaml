@@ -1,0 +1,48 @@
+﻿<UserControl
+    x:Class="Transitions.PaneTransitionUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Transitions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Pane Transition" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Click="OnShow" Content="Show" Margin="5" />
+            <Button Click="OnHide" Content="Hide" Margin="5" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Popup  x:Name="popup1" Width="200" Height="90" Margin="60">
+                <Border  Background="Red" Width="100" Height="60">
+                </Border>
+                <Popup.ChildTransitions>
+                    <TransitionCollection>
+                        <PopupThemeTransition />
+                    </TransitionCollection>
+                </Popup.ChildTransitions>
+            </Popup>
+            <Popup  x:Name="popup2" Width="200" Height="90" Margin="60">
+                <Border  Background="Red" Width="100" Height="60">
+                </Border>
+                <Popup.ChildTransitions>
+                    <TransitionCollection>
+                        <PaneThemeTransition />
+                    </TransitionCollection>
+                </Popup.ChildTransitions>
+            </Popup>
+            <Popup x:Name="popup3" Margin="60" Width="200" Height="90">
+                <Border  Background="Green"  Width="100" Height="60">
+                </Border>
+            </Popup>
+        </StackPanel>
+    </Grid>
+</UserControl>

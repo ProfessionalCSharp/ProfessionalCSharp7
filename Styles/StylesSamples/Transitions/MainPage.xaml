@@ -7,7 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <RelativePanel>
 
-    </Grid>
+        <local:RepositionUserControl x:Name="repositionUC" />
+
+        <local:PaneTransitionUserControl RelativePanel.Below="repositionUC" x:Name="paneTransitionUC" />
+
+        <local:ListItemsUserControl RelativePanel.Below="paneTransitionUC" />
+
+    </RelativePanel>
 </Page>

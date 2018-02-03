@@ -14,7 +14,5 @@ namespace BooksApp.Views
         }
 
         public BooksViewModel ViewModel { get; } = ApplicationServices.Instance.ServiceProvider.GetService<BooksViewModel>();
-
-
     }
 }

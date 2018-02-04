@@ -159,16 +159,6 @@
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\PatternsXamarinShared\BooksLib\BooksLib.csproj">
-      <Project>{9ac976e5-7f63-4b0a-bd3c-4e3e9c070c3a}</Project>
-      <Name>BooksLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\PatternsXamarinShared\Framework\Framework.csproj">
-      <Project>{68d13ebc-595a-4145-88de-a34ca6d4beae}</Project>
-      <Name>Framework</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="..\BooksAppX\BooksAppX.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

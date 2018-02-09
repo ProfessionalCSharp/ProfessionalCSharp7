@@ -4,7 +4,6 @@ using static System.FormattableString;
 
 namespace StringFormats
 {
-
     public class Program
     {
         static void Main()
@@ -58,12 +57,9 @@ namespace StringFormats
             }
         }
 
-
         //public static string Invariant(FormattableString s) =>
         //    s.ToString(CultureInfo.InvariantCulture);
         
-
-
         public static void ShowDetails(FormattableString s)
         {
             Console.WriteLine($"argument count: {s.ArgumentCount}");

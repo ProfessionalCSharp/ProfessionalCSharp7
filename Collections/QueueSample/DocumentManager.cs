@@ -4,13 +4,13 @@ namespace QueueSample
 {
     public class DocumentManager
     {
-        private readonly object syncQueue = new object();
+        private readonly object _syncQueue = new object();
 
         private readonly Queue<Document> _documentQueue = new Queue<Document>();
 
         public void AddDocument(Document doc)
         {
-            lock (syncQueue)
+            lock (_syncQueue)
             {
                 _documentQueue.Enqueue(doc);
             }
@@ -19,7 +19,7 @@ namespace QueueSample
         public Document GetDocument()
         {
             Document doc = null;
-            lock (syncQueue)
+            lock (_syncQueue)
             {
                 doc = _documentQueue.Dequeue();
             }

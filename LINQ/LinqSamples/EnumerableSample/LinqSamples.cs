@@ -81,7 +81,7 @@ namespace EnumerableSample
             }
         } 
 
-        public void ConvertWithCast()
+        public static void ConvertWithCast()
         {
             var list = new System.Collections.ArrayList(Formula1.GetChampions() as System.Collections.ICollection);
 
@@ -95,7 +95,7 @@ namespace EnumerableSample
             }
         }
 
-        public void ZipOperation()
+        public static void ZipOperation()
         {
             var racerNames = from r in Formula1.GetChampions()
                              where r.Country == "Italy"
@@ -121,7 +121,7 @@ namespace EnumerableSample
             }
         }
 
-        public void ToLookup()
+        public static void ToLookup()
         {
             var racers = (from r in Formula1.GetChampions()
                           from c in r.Cars
@@ -140,7 +140,7 @@ namespace EnumerableSample
             }
         }
 
-        public void AggregateSum()
+        public static void AggregateSum()
         {
             var countries = (from c in
                                  from r in Formula1.GetChampions()

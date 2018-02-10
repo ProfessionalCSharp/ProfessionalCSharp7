@@ -2,8 +2,17 @@
 
 The sample code for this chapter contains this solution:
 
-* EFCoreSamples
+* HelloWindows (Startup, MainPage, events)
+* IntroXAML
+    * DataLib (library used by Windows App)
+    * XAMLIntro (elements and attributes)
+    * DependencyObjectSample (dependency properties)
+    * RoutedEvents
+    * AttachedProperty
+    * MarkupExtensions
+    * CustomMarkupExtension
 
+    
 consisting of these sample projects
 
 * Intro (introduction to EF Core with models, contexts, creating the database, read, write, update, delete, logging)
@@ -24,9 +33,11 @@ consisting of these sample projects
 * TransactionsSample (explicit transactions)
 * MigrationsLib/ConsoleApp/WebApp (migrations with dependency injection and a library)
 
+To build and run the .NET Core samples, please install one of these tools:
 
-To build and run the .NET Core samples, please install
 * Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio for Mac
+* Visual Studio Code
 
 Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
  

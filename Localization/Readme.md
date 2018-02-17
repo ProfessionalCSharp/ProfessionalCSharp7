@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 29, Localization
+# Readme - Code Samples for Chapter 27, Localization
 
 This chapter contains the following code samples:
 

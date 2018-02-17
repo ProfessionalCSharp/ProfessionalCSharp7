@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 36, Bots and Cognitive Services
+# Readme - Code Samples for Bonus Chapter 4, Bots and Cognitive Services
 
 This chapter contains the following code samples:
 

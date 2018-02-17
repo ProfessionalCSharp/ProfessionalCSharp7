@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 30, Testing
+# Readme - Code Samples for Chapter 28, Testing
 
 This chapter contains the following code samples:
 

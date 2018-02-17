@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 39, Styling Windows Apps
+# Readme - Code Samples for Chapter 35, Styling Windows Apps
 
 The sample code for this chapter contains this solution:
 

@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 26, XML and JSON
+# Readme - Code Samples for Bonus Chapter 2, XML and JSON
 
 This chapter contains the following code samples:
 

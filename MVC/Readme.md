@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 33, ASP.NET Core MVC
+# Readme - Code Samples for Chapter 31, ASP.NET Core MVC
 
 This chapter contains these samples:
 

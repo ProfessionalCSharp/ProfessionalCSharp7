@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 41, Xamarin.Forms
+# Readme - Code Samples for Chapter 37, Xamarin.Forms
 
 > You can build and run part of the samples if you have a Windows 10 system or a Mac. To build and run all of the samples, you need a Windows 10 system and a Mac.
 

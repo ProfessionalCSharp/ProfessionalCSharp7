@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 28, Entity Framework Core
+# Readme - Code Samples for Chapter 26, Entity Framework Core
 
 The sample code for this chapter contains this solution:
 

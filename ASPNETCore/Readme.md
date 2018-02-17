@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 32, ASP.NET Core
+# Readme - Code Samples for Chapter 30, ASP.NET Core
 
 This chapter contains these samples:
 

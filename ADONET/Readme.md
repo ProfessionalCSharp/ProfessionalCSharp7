@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 27, ADO.NET and Transactions
+# Readme - Code Samples for Chapter 25, ADO.NET and Transactions
 
 This chapter contains these samples:
 

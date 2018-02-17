@@ -1,12 +1,11 @@
-# Readme - Code Samples for Chapter 34, Patterns with XAML Apps
+# Readme - Code Samples for the bonus Chapter B5, More Windows Apps Features
 
-The sample code for this chapter contains this project:
+The sample code for this chapter contains this solution:
 
-* BooksApp
-* BooksLib (MVVM library - in the directory *PatternsXamarinShared*)
-* Framework (MVVM framework with generic view-models - in the directory *PatternsXamarinShared*)
-
-The libraries from the directory *PatternsXamarinShared* are shared with the Patterns and the Xamarin samples.
+* CameraSample (CameraCaptureUI, capability)
+* MapSample (MapControl, SplitView, Geolocator)
+* SensorSample (Accelerometer, Compass, Gyrometer, Inclinometer, LightSensor, OrientationSensor)
+* RollingMarble (Accelerometer)
 
 All the samples of this chapter need Windows 10 and Visual Studio 2017.
 

@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 34, Web API
+# Readme - Code Samples for Chapter 32, Web API
 
 This chapter contains these samples:
 

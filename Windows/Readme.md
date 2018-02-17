@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 37, Windows Apps
+# Readme - Code Samples for Chapter 33, Windows Apps
 
 The sample code for this chapter contains this solution:
 

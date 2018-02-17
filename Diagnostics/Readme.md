@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 31, Tracing, Logging, and Analytics
+# Readme - Code Samples for Chapter 29, Tracing, Logging, and Analytics
 
 This chapter contains the following code samples:
 

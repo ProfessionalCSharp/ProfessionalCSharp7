@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 40, Advanced Windows Apps
+# Readme - Code Samples for Chapter 36, Advanced Windows Apps
 
 The sample code for this chapter contains this solution:
 
@@ -16,10 +16,6 @@ The sample code for this chapter contains this solution:
 * TextOverflow (RichTextBlock, RichTextBlockOverflow, AdaptiveTrigger)
 * InkingSample (InkCanvas, InkToolbar)
 * AutoSuggestSample (AutoSuggestBox)
-* CameraSample (CameraCaptureUI, capability)
-* MapSample (MapControl, SplitView, Geolocator)
-* SensorSample (Accelerometer, Compass, Gyrometer, Inclinometer, LightSensor, OrientationSensor)
-* RollingMarble (Accelerometer)
 
 All the samples of this chapter need Windows 10 and Visual Studio 2017.
 

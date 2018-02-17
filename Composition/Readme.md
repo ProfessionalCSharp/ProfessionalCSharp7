@@ -1,4 +1,4 @@
-# Readme - Code Samples for Chapter 25, Composition
+# Readme - Code Samples for Bonus Chapter 1, Composition
 
 This chapter contains the following code samples:
 

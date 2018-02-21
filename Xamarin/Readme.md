@@ -24,6 +24,26 @@ To build and run the samples with Visual Studio, please install:
 
 * Visual Studio 2017 Update 5 with the workload **Mobile Development with .NET**.
 
+## Figures comparing Windows, Android, and iOS
+
+![About Windows](./images/01_About_Windows.png)
+
+![About Android](./images/02_About_Android.png)
+
+![About iOS](./images/03_About_iOS.png)
+
+![List Windows](./images/04_List_Windows.png)
+
+![List Android](./images/05_List_Android.png)
+
+![List iOS](./images/06_List_iOS.png)
+
+![Detail Windows](./images/07_Detail_Windows.png)
+
+![Detail Android](./images/08_Detail_Android.png)
+
+![Detail iOS](./images/09_Detail_iOS.png)
+
  
 For code comments and issues please check [Professional C#'s GitHub Repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7)
 

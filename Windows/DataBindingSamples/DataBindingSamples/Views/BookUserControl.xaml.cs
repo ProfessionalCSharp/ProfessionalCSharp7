@@ -6,19 +6,15 @@ namespace DataBindingSamples.Views
 {
     public sealed partial class BookUserControl : UserControl
     {
-        public BookUserControl()
-        {
-            this.InitializeComponent();
-        }
+        public BookUserControl() => InitializeComponent();
 
         public Book Book
         {
-            get { return (Book)GetValue(BookProperty); }
-            set { SetValue(BookProperty, value); }
+            get => (Book)GetValue(BookProperty);
+            set => SetValue(BookProperty, value);
         }
 
         public static readonly DependencyProperty BookProperty =
             DependencyProperty.Register("Book", typeof(Book), typeof(BookUserControl), new PropertyMetadata(null));
-
     }
 }

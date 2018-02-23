@@ -2,7 +2,6 @@
 using DataBindingSamples.Services;
 using System.Collections.Generic;
 using System.Linq;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace DataBindingSamples
@@ -10,15 +9,9 @@ namespace DataBindingSamples
     public sealed partial class MainPage : Page
     {
         private BooksService _booksService = new BooksService();
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
+        public MainPage() => InitializeComponent();
 
-        public void OnRefreshBooks()
-        {
-            _booksService.RefreshBooks();
-        }
+        public void OnRefreshBooks() => _booksService.RefreshBooks();
 
         public void OnAddBook() =>
             _booksService.AddBook(new Book(GetNextBookId(), $"Professional C# {GetNextBookId() + 3}", "Wrox Press"));

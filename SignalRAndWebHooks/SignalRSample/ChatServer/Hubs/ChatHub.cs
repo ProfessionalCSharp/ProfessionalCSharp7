@@ -6,7 +6,7 @@ namespace ChatServer.Hubs
     {
         public void Send(string name, string message)
         {
-            Clients.All.InvokeAsync("BroadcastMessage", name, message);
+            Clients.All.SendAsync("BroadcastMessage", name, message);
         }
     }
 }

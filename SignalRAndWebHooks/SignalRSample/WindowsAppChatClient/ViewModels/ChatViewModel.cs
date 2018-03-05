@@ -61,7 +61,7 @@ namespace WindowsAppChatClient.ViewModels
             await _dialogService.ShowMessageAsync("client connected");
         }
 
-        private Task HubConnectionClosed(Exception arg) =>
+        private void HubConnectionClosed(Exception arg) =>
             _dialogService.ShowMessageAsync("Hub connection closed");
 
         public async void OnSendMessage()

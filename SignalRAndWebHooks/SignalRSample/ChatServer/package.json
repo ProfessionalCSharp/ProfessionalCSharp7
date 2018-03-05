@@ -4,6 +4,6 @@
   "private": true,
   "devDependencies": {},
   "dependencies": {
-    "@aspnet/signalr-client": "^1.0.0-alpha2-final"
+    "@aspnet/signalr": "^1.0.0-preview1-final"
   }
 }

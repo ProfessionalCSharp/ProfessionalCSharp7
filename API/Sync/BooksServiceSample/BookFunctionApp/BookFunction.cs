@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using BooksServiceSample.Services;
+using BooksServiceSample.Models;
 
 namespace BookFunctionApp
 {
@@ -18,6 +19,7 @@ namespace BookFunctionApp
         {
             ConfigureServices();
             FeedSampleChapters();
+            GetRequiredServices();
         }
 
         private static void FeedSampleChapters()
@@ -34,6 +36,15 @@ namespace BookFunctionApp
             ApplicationServices = services.BuildServiceProvider();
         }
 
+        private static void GetRequiredServices()
+        {
+            s_bookChaptersService =
+              ApplicationServices.GetRequiredService<IBookChaptersService>();
+        }
+
+        private static IBookChaptersService s_bookChaptersService;
+
+
         public static IServiceProvider ApplicationServices { get; private set; }
 
         [FunctionName("BookFunction")]
@@ -48,8 +59,10 @@ namespace BookFunctionApp
                     result = DoGet(req);
                     break;
                 case "POST":
+                    result = DoPost(req);
                     break;
                 case "PUT":
+                    result = DoPut(req);
                     break;
                 default:
                     break;
@@ -73,5 +86,23 @@ namespace BookFunctionApp
             var chapters = bookChapterService.GetAll();
             return new OkObjectResult(chapters);
         }
+
+        private static IActionResult DoPost(HttpRequest req)
+        {
+            string json = new StreamReader(req.Body).ReadToEnd();
+            BookChapter chapter = JsonConvert.DeserializeObject<BookChapter>(json);
+            s_bookChaptersService.Add(chapter);
+            return new OkResult();
+        }
+
+
+        private static IActionResult DoPut(HttpRequest req)
+        {
+            string json = new StreamReader(req.Body).ReadToEnd();
+            BookChapter chapter = JsonConvert.DeserializeObject<BookChapter>(json);
+            s_bookChaptersService.Update(chapter);
+            return new OkResult();
+        }
+
     }
 }

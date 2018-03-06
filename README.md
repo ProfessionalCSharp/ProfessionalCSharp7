@@ -1,17 +1,27 @@
 
-# Professional C# 7
+# Professional C# 7 and .NET Core 2.0
 
-Code samples for Professional C# 7 and .NET Core 2
+Code samples for the Wrox Press book **Professional C# 7 and .NET Core 2.0**
 
-To compile and run the samples you need:
+To compile and run the samples, you need Visual Studio 2017, Visual Studio for Mac, or Visual Studio Code. 
+
+You can download these tools here: [Visual Studio](https://www.visualstudio.com/).
+
+The console app samples can be used on Windows, Linux, or Mac. Here is the installation procedure for .NET Core: [.NET on Linux](https://www.microsoft.com/net/core)
+
+If you're using Visual Studio, Update 5 or a later version of Visual Studio 2017 is needed. With the Visual Studio Installer you need to select this workload to compile most of the code samples: **.NET Core cross-platform development**.
+
+ASP.NET Core samples need this workload: **ASP.NET and web development**.
+
+Windows app samples require Windows 10, Windows 10 Fall Creators Update (build 16299) or a later version. With the Windows app samples, Visual Studio 2017 Update 5 is required with this workload: **Universal Windows Platform Development**.
+
+Compiling the Xamarin samples, you have different options using a Mac or a Windows system:
+* On the Mac, you can install Visual Studio for Mac to compile the Android and iOS samples.
+* On Windows 10, you can use Visual Studio 2017. To compile the iOS samples, you also need a Mac. Using only Windows 10, you can compile and run the Windows and Android code samples.
 
 * Visual Studio 2017 with the .NET Core workload
 
-UWP samples require Windows 10 and Visual Studio 2017 Update 4, and some of the UWP samples need Windows 10 Fall Creators Update
-
-To run many of the code samples on Linux, here is the installation procedure for .NET Core: [.NET on Linux](https://www.microsoft.com/net/core#linuxredhat)
-
-Samples available for these chapters (sample folders)
+Here's the list of chapters and the folders for the code samples:
 
 * Chapter 1 - .NET Applications and Tools (HelloWorld)
 * Chapter 2 - Core C# (CoreCsharp)
@@ -53,8 +63,14 @@ Samples available for these chapters (sample folders)
 
 ## Bonus Chapters
 
-* Chapter 1 - Composition (Composition)
-* Chapter 2 - XML and JSON (XMLandJSON)
-* Chapter 3 - SignalR and WebHooks (SignalRAndWebHooks)
-* Chapter 4 - Bots and Cognitive Services (BotAndCognitive)
-* Chapter 5 - More Windows Apps Features (MoreWindows)
+* Bonus Chapter 1 - Composition (Composition)
+* Bonus Chapter 2 - XML and JSON (XMLandJSON)
+* Bonus Chapter 3 - SignalR and WebHooks (SignalRAndWebHooks)
+* Bonus Chapter 4 - Bots and Cognitive Services (BotAndCognitive)
+* Bonus Chapter 5 - More Windows Apps Features (MoreWindows)
+
+In case you've some issues to compile and run the samples, create an issue in the [Professional C# 7 GitHub repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7).
+
+> Have fun coding and enjoy the book!
+
+Christian

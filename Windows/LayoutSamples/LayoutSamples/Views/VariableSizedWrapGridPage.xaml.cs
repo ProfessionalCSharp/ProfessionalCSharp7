@@ -13,23 +13,16 @@ namespace LayoutSamples.Views
 {
     public sealed partial class VariableSizedWrapGridPage : Page
     {
-        public VariableSizedWrapGridPage()
-        {
-            this.InitializeComponent();
-        }
+        public VariableSizedWrapGridPage() => InitializeComponent();
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
+
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
               Frame.CanGoBack ? AppViewBackButtonVisibility.Visible :
               AppViewBackButtonVisibility.Collapsed;
 
-            base.OnNavigatedTo(e);
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
             var r = new Random();
             Grid[] items =
                 Enumerable.Range(0, 30).Select(i =>

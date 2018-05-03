@@ -11,8 +11,8 @@
     <AssemblyName>UWPCultureDemo</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -96,10 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\CalendarTypeToCalenderInformationConverter.cs" />
-    <Compile Include="Converters\GlyphConverter.cs" />
-    <Compile Include="Converters\EmptyCollectionToVisibilityConverter.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
-    <Compile Include="Converters\TreeNodeToCultureDataConverter.cs" />
     <Compile Include="CultureData.cs" />
     <Compile Include="CultureDetailUC.xaml.cs">
       <DependentUpon>CultureDetailUC.xaml</DependentUpon>
@@ -144,12 +141,6 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.6</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TreeViewControl\TreeViewControl.vcxproj">
-      <Project>{003839ef-fc81-523c-90e7-4c549425e4eb}</Project>
-      <Name>TreeViewControl</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

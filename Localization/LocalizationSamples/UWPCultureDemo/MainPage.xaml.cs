@@ -1,45 +1,40 @@
 ﻿using System.Linq;
-using TreeViewControl;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace UWPCultureDemo
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
         {
             ViewModel = new CulturesViewModel();
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnSelectionChanged(TreeView sender, TreeViewItemInvokedEventArgs args)
         {
-            ViewModel.SelectedCulture =
-                (treeView1.SelectedItems?.FirstOrDefault() as TreeNode)?.Data as CultureData;
+            if (args.InvokedItem is TreeViewNode node && node.Content is CultureData cd)
+            {
+                ViewModel.SelectedCulture = cd;                
+            }
         }
 
         public CulturesViewModel ViewModel { get; }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            void AddSubNodes(TreeNode parent)
+            void AddSubNodes(TreeViewNode parent)
             {
-                if (parent.Data is CultureData cd && cd.SubCultures != null)
+                if (parent.Content is CultureData cd && cd.SubCultures != null)
                 {
                     foreach (var culture in cd.SubCultures)
                     {
-                        var node = new TreeNode
+                        var node = new TreeViewNode
                         {
-                            Data = culture,
-                            ParentNode = parent
+                            Content = culture
                         };
-                        parent.Add(node);
+                        parent.Children.Add(node);
 
                         foreach (var subCulture in culture.SubCultures)
                         {
@@ -50,14 +45,14 @@ namespace UWPCultureDemo
             }
 
             base.OnNavigatedTo(e);
-            var rootNodes = ViewModel.RootCultures.Select(cd => new TreeNode
+            var rootNodes = ViewModel.RootCultures.Select(cd => new TreeViewNode
             {
-                Data = cd
+                Content = cd
             });
 
             foreach (var node in rootNodes)
             {
-                treeView1.RootNode.Add(node);
+                treeView1.RootNodes.Add(node);
                 AddSubNodes(node);
             }
         }

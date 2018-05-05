@@ -5,7 +5,7 @@ This chapter contains the following code samples:
 * NumberAndDateFormatting (localized format strings)
 * SortingDemo (sorting with different cultures and using the invariant culture)
 * CreateResource (using `ResourceReader` and `ResourceWriter`)
-* UWPCultureDemo (showing all cultures and regions with a UWP application, this sample requires the C++ compiler installed with Visual Studio for the TreeView control that is used)
+* UWPCultureDemo (showing all cultures and regions with a UWP application)
 * ResourcesDemo (accessing resources using `ResourceManager`)
 * WebApplication (using `CultureInfo` and `IStringLocalizer` with ASP.NET Core)
 * ASPNETCoreMVCSample (localizing with controllers, views, and data annotations)
@@ -18,7 +18,7 @@ To build and run the .NET Core samples, please install one of these tools:
 * Visual Studio Code
 
 The UWPLocalization and UWPCultureDemo samples needs Windows 10 and Visual Studio 2017 with the Universal Windows Platform development workload. The other samples can be used on other platforms.
-The UWPCultureDemo uses a TreeView control built with C++. To compile this project, you need to install the C++ component with the Universal Windows Platform workload with the Visual Studio Installer.
+The UWPCultureDemo uses a TreeView control. This sample has been updated with Windows 10 April 2018 Update (version 1803) and no longer uses the C++ sample TreeView, but you need at least Windows 10 April 2018 Update.
 
 Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
  

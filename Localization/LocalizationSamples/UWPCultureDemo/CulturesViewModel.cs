@@ -9,10 +9,7 @@ namespace UWPCultureDemo
 {
     public class CulturesViewModel : INotifyPropertyChanged
     {
-        public CulturesViewModel()
-        {
-            SetupCultures();
-        }
+        public CulturesViewModel() => SetupCultures();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -39,11 +36,11 @@ namespace UWPCultureDemo
             var rootCultures = new List<CultureData>();
             foreach (var cd in cultureDataDict.Values)
             {
-                if (cd.CultureInfo.Parent.LCID == 127)
+                if (cd.CultureInfo.Parent.LCID == 0x7f)  // check for invariant culture
                 {
                     rootCultures.Add(cd);
                 }
-                else
+                else // add to parent culture
                 {
                     if (cultureDataDict.TryGetValue(cd.CultureInfo.Parent.Name, out CultureData parentCultureData))
                     {

@@ -298,34 +298,8 @@
         </Grid.ColumnDefinitions>
         <TreeView Style="{StaticResource TreeViewStyle1}" x:Name="treeView1"
                   ItemInvoked="{x:Bind OnSelectionChanged, Mode=OneTime}"
-        SelectionMode="Single">
+                  SelectionMode="Single">
         </TreeView>
-        <!--<tvc:TreeView x:Name="treeView1" 
-                      IsMultiSelectCheckBoxEnabled="False"
-                      IsItemClickEnabled="True" 
-                      SelectionChanged="{x:Bind OnSelectionChanged, Mode=OneTime}">
-            <tvc:TreeView.ItemTemplate>
-                <DataTemplate x:DataType="tvc:TreeNode">
-                    <StackPanel Orientation="Horizontal" Height="40" Margin="{Binding Depth, Converter={StaticResource IntegerToIndConverter}}">
-                        <FontIcon x:Name="expandCollapseChevron" 
-                          Glyph="{Binding IsExpanded, Converter={StaticResource ExpandCollapseGlyphConverter}}"
-                          Visibility="{Binding Data.SubCultures, Converter={StaticResource EmptyConverter}}"                           
-                          FontSize="12"
-                          Margin="12,8,12,8" 
-                          FontFamily="Segoe MDL2 Assets"                          
-                          />
-                        <TextBlock Text="{Binding Data.CultureInfo.EnglishName}" VerticalAlignment="Center" />
-                    </StackPanel>
-                </DataTemplate>
-            </tvc:TreeView.ItemTemplate>
-            <tvc:TreeView.ItemContainerTransitions>
-                <TransitionCollection>
-                    <ContentThemeTransition />
-                    <ReorderThemeTransition />
-                    <EntranceThemeTransition IsStaggeringEnabled="False" />
-                </TransitionCollection>
-            </tvc:TreeView.ItemContainerTransitions>
-        </tvc:TreeView>-->
         <local:CultureDetailUC Grid.Column="1" CultureData="{x:Bind ViewModel.SelectedCulture, Mode=OneWay}" />
     </Grid>
 </Page>

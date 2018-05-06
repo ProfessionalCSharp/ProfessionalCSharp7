@@ -6,11 +6,7 @@ namespace UWPCultureDemo
 {
     public sealed partial class MainPage : Page
     {
-        public MainPage()
-        {
-            ViewModel = new CulturesViewModel();
-            InitializeComponent();
-        }
+        public MainPage() => InitializeComponent();
 
         private void OnSelectionChanged(TreeView sender, TreeViewItemInvokedEventArgs args)
         {
@@ -20,7 +16,7 @@ namespace UWPCultureDemo
             }
         }
 
-        public CulturesViewModel ViewModel { get; }
+        public CulturesViewModel ViewModel { get; } = new CulturesViewModel();
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

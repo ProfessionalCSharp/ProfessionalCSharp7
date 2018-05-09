@@ -1,13 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.IO.Compression.Brotli" Version="0.1.0-e180119-3" />
-    <PackageReference Include="System.Memory" Version="4.5.0-preview2-26125-06" />
+    <PackageReference Include="System.Memory" Version="4.5.0-rc1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 

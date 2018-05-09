@@ -3,9 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net471</TargetFramework>
     <OutputType>Exe</OutputType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 

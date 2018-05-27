@@ -79,12 +79,12 @@ namespace WindowsAppChatClient.ViewModels
             try
             {
                 await _hubConnection.StartAsync();
+                await _dialogService.ShowMessageAsync("client connected");
             }
             catch (HttpRequestException ex)
             {
                 await _dialogService.ShowMessageAsync(ex.Message);
             }
-            await _dialogService.ShowMessageAsync("client connected");
         }
 
         public async void OnSendMessage()

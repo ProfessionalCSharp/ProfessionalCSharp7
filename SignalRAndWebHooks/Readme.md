@@ -6,8 +6,9 @@ This chapter contains these samples:
 * SignalR (ASP.NET Core App, HTML client, Windows App client)
 * WebHooksReceiver (with Dropbox and GitHub)
 
-For SignalR, currently preview packages are used - available from NuGet.
-The WebHooks packages for .NET Core are not alpha versions and not yet available from GitHub. To build and run the sample, create the WebHooks packages from the source code:
+The SignalR sample has been updated to the release candidate. Update to the release of .NET Core 2.1 will be done at a later stage.
+
+The .NET Core version of WebHooks will not be part of .NET Core 2.1, but will be released at a later time. The sample code makes use of source code from GitHub. To build and run the sample, create the WebHooks packages from the source code:
 
 1. Clone the WebHoooks packages from [WebHooks](https://github.com/aspnet/WebHooks)
 

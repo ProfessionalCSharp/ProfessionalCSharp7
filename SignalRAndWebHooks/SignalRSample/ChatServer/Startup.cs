@@ -21,7 +21,7 @@ namespace ChatServer
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();
+            app.UseFileServer();
 
             app.UseSignalR(routes =>
             {

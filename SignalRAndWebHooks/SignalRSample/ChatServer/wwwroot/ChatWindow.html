@@ -5,11 +5,14 @@
     <title>Chat Client</title>
 </head>
 <body>
-
-    <script src="js/signalr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@aspnet/signalr@1.0.0-rc1-update1/dist/browser/signalr.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            let connection = new signalR.HubConnection('/chat');
+            const connection = new signalR.HubConnectionBuilder()
+                    .configureLogging(signalR.LogLevel.Trace)
+                    .withUrl("/chat")
+                    .build();
+
             connection.on('broadcastMessage', (name, message) => {
                 console.log(message);
                 document.getElementById('output').innerHTML += `message from ${name}: ${message}<br />`;
@@ -33,8 +36,10 @@
     <input type="text" id="message" />
     <br />
     <input id="sendButton" type="button" value="send" />
-    <p />
-    <output id="output"></output>
+    <p>
+        <output id="output"></output>
+    </p>
+
 
 </body>
 </html>

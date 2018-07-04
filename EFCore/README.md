@@ -26,7 +26,7 @@ consisting of these sample projects
 
 To build and run the .NET Core samples, please install
 
-* Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio 2017 Update 7 with the .NET Core workload
 
 Please download and install the tools from [.NET Core downloads](https://www.microsoft.com/net/core).
  

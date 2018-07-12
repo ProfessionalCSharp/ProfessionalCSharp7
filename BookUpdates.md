@@ -3,6 +3,10 @@
 
 This document contains update information what has been changed after the book Professional C# 7 and .NET Core 2.0 was published, as well as typos.
 
+## Chapter 1 - .NET Applications and Tools
+
+Page 5 - Update for LTS and Current versions of .NET Core to include 2.1, see this blog article [.NET Core Current and Long Time Support Versions](https://csharp.christiannagel.com/2018/06/26/ltsandcurrent/).
+
 ## Chapter 23 - Networking
 
 ### Http Client Factory - Update with .NET Core 2.1

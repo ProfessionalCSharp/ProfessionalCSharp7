@@ -24,11 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsAppEditor", "WindowsAppEditor\WindowsAppEditor.csproj", "{DEDF55AC-95A1-47CE-B4DF-7891E5BCBA76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F640C0E3-0985-45AF-9E9B-AC2C2ACAF8C1}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet.config = NuGet.config
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithFilesAndDirectories", "WorkingWithFilesAndDirectories\WorkingWithFilesAndDirectories.csproj", "{2B37C581-8B0E-4D2D-89CA-41F9116E0C85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithFilesAndDirectories", "WorkingWithFilesAndDirectories\WorkingWithFilesAndDirectories.csproj", "{2B37C581-8B0E-4D2D-89CA-41F9116E0C85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

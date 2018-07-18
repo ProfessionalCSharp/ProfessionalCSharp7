@@ -8,7 +8,7 @@ This chapter contains the following code samples:
 
 To build and run the .NET Core samples, please install one of these tools:
 
-* Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio 2017 Update 7 with the .NET Core workload
 * Visual Studio for Mac
 * Visual Studio Code
 

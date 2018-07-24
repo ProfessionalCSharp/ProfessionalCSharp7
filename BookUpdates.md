@@ -7,6 +7,12 @@ This document contains update information what has been changed after the book P
 
 Page 5 - Update for LTS and Current versions of .NET Core to include 2.1, see this blog article [.NET Core Current and Long Time Support Versions](https://csharp.christiannagel.com/2018/06/26/ltsandcurrent/).
 
+## Chapter 8 - Delegates, Lambdas, and Events
+
+Page 233, last paragraph, text should be:
+
+**Inside the method `NewCar`, the event `NewCarInfo` is fired.** The implementation of this method verifies whether the delegate is not null and raises the event.
+
 ## Chapter 23 - Networking
 
 ### Http Client Factory - Update with .NET Core 2.1

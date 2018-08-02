@@ -1,10 +1,11 @@
 ﻿using System.Linq;
-using Windows.UI.Xaml.Controls;
+using Win = Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 namespace UWPCultureDemo
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Win.Page
     {
         public MainPage() => InitializeComponent();
 

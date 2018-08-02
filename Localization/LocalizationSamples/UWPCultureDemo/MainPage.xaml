@@ -7,6 +7,7 @@
     xmlns:tvc="using:TreeViewControl"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ms="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
     <Page.Resources>
         <Style x:Key="BaseTextBlockStyle" TargetType="TextBlock">
@@ -267,11 +268,11 @@
                 <TextBlock Text="{Binding Content.CultureInfo.EnglishName}" VerticalAlignment="Center" />
             </StackPanel>
         </DataTemplate>
-        <Style x:Key="TreeViewStyle1" TargetType="TreeView">
+        <Style x:Key="TreeViewStyle1" TargetType="ms:TreeView">
             <Setter Property="IsTabStop" Value="False"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="TreeView">
+                    <ControlTemplate TargetType="ms:TreeView">
                         <TreeViewList x:Name="ListControl" AllowDrop="False" 
                                       CanReorderItems="False" 
                                       CanDragItems="False" 
@@ -296,10 +297,13 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TreeView Style="{StaticResource TreeViewStyle1}" x:Name="treeView1"
+        <ms:TreeView Style="{StaticResource TreeViewStyle1}" x:Name="treeView1"
+                     ItemInvoked="{x:Bind OnSelectionChanged, Mode=OneTime}"
+                     SelectionMode="Single" />
+      <!--  <TreeView Style="{StaticResource TreeViewStyle1}" x:Name="treeView1"
                   ItemInvoked="{x:Bind OnSelectionChanged, Mode=OneTime}"
                   SelectionMode="Single">
-        </TreeView>
+        </TreeView> -->
         <local:CultureDetailUC Grid.Column="1" CultureData="{x:Bind ViewModel.SelectedCulture, Mode=OneWay}" />
     </Grid>
 </Page>

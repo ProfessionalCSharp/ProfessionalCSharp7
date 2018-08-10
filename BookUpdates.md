@@ -26,3 +26,9 @@ Page 233, last paragraph, text should be:
 When the book was released, Windows 10 Fall Creators Update (build 16299) was used to build the sample. The sample app uses a TreeView control available from a Microsoft sample. Windows 10 April 2018 Update (version 1803, build 17134) includes a TreeView control. The sample app was updated to use this new TreeView control.
 
 See the article [TreeView Control with Windows Apps](https://csharp.christiannagel.com/2018/05/05/treeview/) for more information.
+
+## Chapter 31 - ASP.NET Core MVC
+
+Page 981, referencing the source code file (Typo)
+
+The correct file name is: MVCSampleApp/Controllers/ViewsDemoController.cs (instead of ViewDemoController.cs)

@@ -29,6 +29,8 @@ See the article [TreeView Control with Windows Apps](https://csharp.christiannag
 
 ## Chapter 31 - ASP.NET Core MVC
 
+Page 973, in the first paragraph - the base class is `RazorPage`, as also explained in page 974.
+
 Page 981, referencing the source code file (Typo)
 
 The correct file name is: MVCSampleApp/Controllers/ViewsDemoController.cs (instead of ViewDemoController.cs)

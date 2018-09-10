@@ -51,8 +51,6 @@ namespace BooksODataService
             app.UseMvc(routeBuilder =>
             {
                 routeBuilder.MapODataServiceRoute("ODataRoute", "odata", builder.GetEdmModel());
-
-                routeBuilder.EnableDependencyInjection(); // workaround for Beta 1
             });
         }
     }

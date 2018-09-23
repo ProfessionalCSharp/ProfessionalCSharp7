@@ -11,7 +11,7 @@ namespace ChatServer
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSignalR();
+            services.AddSignalR().AddAzureSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -23,7 +23,12 @@ namespace ChatServer
 
             app.UseFileServer();
 
-            app.UseSignalR(routes =>
+            //app.UseSignalR(routes =>
+            //{
+            //    routes.MapHub<ChatHub>("/chat");
+            //    routes.MapHub<GroupChatHub>("/groupchat");
+            //});
+            app.UseAzureSignalR(routes =>
             {
                 routes.MapHub<ChatHub>("/chat");
                 routes.MapHub<GroupChatHub>("/groupchat");

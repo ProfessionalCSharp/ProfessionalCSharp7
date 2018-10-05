@@ -10,8 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OData.Edm;
 
-// OData Beta 1 docu http://odata.github.io/WebApi/#14-01-netcore-beta1
-
 namespace BooksODataService
 {
     public class Startup

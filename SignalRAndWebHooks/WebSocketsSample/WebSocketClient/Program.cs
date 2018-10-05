@@ -12,7 +12,7 @@ namespace WebSocketClient
         {
             Console.WriteLine("Client - wait for server");
             Console.ReadLine();
-            await InitiateWebSocketCommunication("ws://localhost:6295/samplesockets");
+            await InitiateWebSocketCommunication("ws://localhost:2858/samplesockets");
             Console.WriteLine("Program end");
             Console.ReadLine();          
         }
@@ -51,11 +51,15 @@ namespace WebSocketClient
             do
             {
                 result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-                string dataReceived = Encoding.UTF8.GetString(buffer, 0, result.Count);
-                Console.WriteLine($"received {dataReceived}");
-                if (dataReceived.Contains("EOS"))
+                string[] dataReceived = Encoding.UTF8.GetString(buffer, 0, result.Count).Split(Environment.NewLine);
+                foreach (var line in dataReceived)
                 {
-                    sequenceEnd = true;
+                    Console.WriteLine($"received {line}");
+                    if (line.StartsWith("EOS"))
+                    {
+                        sequenceEnd = true;
+                        Console.WriteLine("...ending sequence");
+                    }
                 }
 
             } while (!(result?.CloseStatus.HasValue ?? false) && !sequenceEnd);

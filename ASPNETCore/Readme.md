@@ -11,7 +11,7 @@ Building this sample starts with an empty ASP.NET Core Web project, and adds man
 
 To build and run the .NET Core samples, please install one of these tools:
 
-* Visual Studio 2017 Update 5 with the .NET Core workload
+* Visual Studio 2017 Update 8 with the .NET Core workload
 * Visual Studio for Mac
 * Visual Studio Code
 

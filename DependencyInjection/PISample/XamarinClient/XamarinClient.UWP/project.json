@@ -1,8 +1,8 @@
 ﻿{
   "dependencies": {
-    "Microsoft.Extensions.DependencyInjection": "2.0.0",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
-    "Xamarin.Forms": "2.5.0.122203"
+    "Microsoft.Extensions.DependencyInjection": "2.1.1",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5",
+    "Xamarin.Forms": "2.5.1.527436"
   },
   "frameworks": {
     "uap10.0.16299": {}

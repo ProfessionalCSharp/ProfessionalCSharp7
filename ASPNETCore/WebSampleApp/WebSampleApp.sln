@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27102.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSampleApp", "WebSampleApp\WebSampleApp.csproj", "{7DAE1F89-C1EB-44BE-8398-6DD6A99AE60F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularWithDotnetCore", "AngularWithDotnetCore\AngularWithDotnetCore.csproj", "{9A1C01CD-8E64-40D6-A200-7281FA12695A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleHost", "SimpleHost\SimpleHost.csproj", "{12DD6F4E-4B93-439A-AF68-A838E4E0FBE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomConfiguration", "CustomConfiguration\CustomConfiguration.csproj", "{5A78CF99-7E62-489E-9CC5-EA9FC4FA307A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomConfiguration", "CustomConfiguration\CustomConfiguration.csproj", "{5A78CF99-7E62-489E-9CC5-EA9FC4FA307A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularWithDotnetCore", "AngularWithDotnetCore\AngularWithDotnetCore.csproj", "{4E23DA1D-79B3-461E-B832-833FF7DB4C56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{7DAE1F89-C1EB-44BE-8398-6DD6A99AE60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DAE1F89-C1EB-44BE-8398-6DD6A99AE60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DAE1F89-C1EB-44BE-8398-6DD6A99AE60F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A1C01CD-8E64-40D6-A200-7281FA12695A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A1C01CD-8E64-40D6-A200-7281FA12695A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A1C01CD-8E64-40D6-A200-7281FA12695A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A1C01CD-8E64-40D6-A200-7281FA12695A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12DD6F4E-4B93-439A-AF68-A838E4E0FBE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12DD6F4E-4B93-439A-AF68-A838E4E0FBE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12DD6F4E-4B93-439A-AF68-A838E4E0FBE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{5A78CF99-7E62-489E-9CC5-EA9FC4FA307A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A78CF99-7E62-489E-9CC5-EA9FC4FA307A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A78CF99-7E62-489E-9CC5-EA9FC4FA307A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E23DA1D-79B3-461E-B832-833FF7DB4C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E23DA1D-79B3-461E-B832-833FF7DB4C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E23DA1D-79B3-461E-B832-833FF7DB4C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E23DA1D-79B3-461E-B832-833FF7DB4C56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

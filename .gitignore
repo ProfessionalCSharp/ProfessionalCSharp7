@@ -42,6 +42,9 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
+# NPM
+package-lock.json
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json

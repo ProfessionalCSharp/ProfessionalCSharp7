@@ -14,7 +14,7 @@ namespace WebHooksReceiver.Controllers
             _storageQueueService = storageQueueService;
         }
 
-        [GitHubWebHook(AcceptFormData = false, EventName = "push")]
+        [GitHubWebHook(EventName = "push")]
         public async Task<IActionResult> GitHubPushHandler(string id, JObject data)
         {
             if (!ModelState.IsValid)

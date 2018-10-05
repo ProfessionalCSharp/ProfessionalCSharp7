@@ -6,9 +6,9 @@ This chapter contains these samples:
 * SignalR (ASP.NET Core App, HTML client, Windows App client)
 * WebHooksReceiver (with Dropbox and GitHub)
 
-The WebHooks packages for .NET Core are early versions available on NuGet.
+The WebHooks packages for .NET Core are early versions available on NuGet, this is not part of .NET Core 2.1.
 
-You need to configure the myget server to get the early packages:
+For WebHooks you need to configure the myget server to get the early packages:
 
 * [.NET Core MyGet](https://dotnet.myget.org/F/dotnet-core/api/v3/index.json)
 * [ASP.NET Core MyGet](https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json)

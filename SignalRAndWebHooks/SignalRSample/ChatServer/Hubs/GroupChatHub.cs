@@ -11,11 +11,11 @@ namespace ChatServer.Hubs
 
     public class GroupChatHub : Hub<IGroupClient>
     {
-        public Task AddGroup(string groupName) =>
-            Groups.AddAsync(Context.ConnectionId, groupName);
+        public Task AddGroup(string groupName)
+            => Groups.AddToGroupAsync(Context.ConnectionId, groupName);
 
-        public Task LeaveGroup(string groupName) =>
-            Groups.RemoveAsync(Context.ConnectionId, groupName);
+        public Task LeaveGroup(string groupName)
+            => Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
 
         public void Send(string group, string name, string message) =>
             Clients.Group(group).MessageToGroup(group, name, message);

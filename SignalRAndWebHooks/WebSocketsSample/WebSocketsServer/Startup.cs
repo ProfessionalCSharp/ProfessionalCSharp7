@@ -67,10 +67,10 @@ namespace WebSocketsServer
                         string message = content.Substring("REQUESTMESSAGES:".Length);
                         for (int i = 0; i < 10; i++)
                         {
-                            string messageToSend = $"{message} - {i}";
+                            string messageToSend = $"MESSAGE:{message} - {i}";
                             if (i == 9)
                             {
-                                messageToSend += ";EOS"; // send end of sequence to not let the client wait for another message
+                                messageToSend += "\r\nEOS"; // send end of sequence to not let the client wait for another message
                             }
                             byte[] sendBuffer = Encoding.UTF8.GetBytes(messageToSend);
                             await webSocket.SendAsync(new ArraySegment<byte>(sendBuffer), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);

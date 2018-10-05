@@ -66,9 +66,9 @@ namespace WindowsAppChatClient.ViewModels
             await CloseConnectionAsync();
             _hubConnection = new HubConnectionBuilder()
                 .WithUrl(_urlService.GroupAddress)
-                .WithLogger(loggerFactory =>
+                .ConfigureLogging(loggingBuilder =>
                 {
-                    loggerFactory.AddDebug();
+                    loggingBuilder.AddDebug();
                 })
                 .Build();
 
@@ -79,12 +79,12 @@ namespace WindowsAppChatClient.ViewModels
             try
             {
                 await _hubConnection.StartAsync();
+                await _dialogService.ShowMessageAsync("client connected");
             }
             catch (HttpRequestException ex)
             {
                 await _dialogService.ShowMessageAsync(ex.Message);
             }
-            await _dialogService.ShowMessageAsync("client connected");
         }
 
         public async void OnSendMessage()
@@ -141,8 +141,8 @@ namespace WindowsAppChatClient.ViewModels
             }
         }
 
-        private void HubConnectionClosed(Exception arg) =>
-            _dialogService.ShowMessageAsync("Hub connection closed");
+        private Task HubConnectionClosed(Exception arg) 
+            => _dialogService.ShowMessageAsync("Hub connection closed");
 
         private Task CloseConnectionAsync() =>
             _hubConnection?.DisposeAsync() ?? Task.CompletedTask;

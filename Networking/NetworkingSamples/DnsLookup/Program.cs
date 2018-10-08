@@ -6,7 +6,7 @@ namespace DnsLookup
 {
     class Program
     {
-        static void Main()
+        static async Task Main()
         {
             do
             {
@@ -17,7 +17,7 @@ namespace DnsLookup
                     Console.WriteLine("bye!");
                     return;
                 }
-                OnLookupAsync(hostname).Wait();
+                await OnLookupAsync(hostname);
                 Console.WriteLine();
             } while (true);
         }

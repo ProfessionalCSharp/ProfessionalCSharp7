@@ -116,3 +116,5 @@ Page 973, in the first paragraph - the base class is `RazorPage`, as also explai
 Page 981, referencing the source code file (Typo)
 
 The correct file name is: MVCSampleApp/Controllers/ViewsDemoController.cs (instead of ViewDemoController.cs)
+
+Page 1007 and later, using ASP.NET Core 2.1 the AccountController and views are no longer created with the project. Instead, a UI library is used. Read [ASP.NET Core Identity Pages with ASP.NET Core 2.1](https://csharp.christiannagel.com/2018/07/18/identitypages/) for more information.

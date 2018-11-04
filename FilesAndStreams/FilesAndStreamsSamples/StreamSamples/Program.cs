@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -13,7 +12,7 @@ namespace StreamSamples
         const int RECORDSIZE = 44;
         const string SampleFileDataPath = "./SampleFile.data";
 
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             if (args.Length == 2 && args[0] == "-rs")
             {
@@ -33,7 +32,7 @@ namespace StreamSamples
             }
             else if (args.Length == 1 && args[0] == "-sample")
             {
-                CreateSampleFileAsync(1500000).Wait();
+                await CreateSampleFileAsync(1500000);
             }
             else if (args.Length == 1 && args[0] == "-r")
             {

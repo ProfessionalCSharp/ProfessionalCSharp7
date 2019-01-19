@@ -6,7 +6,7 @@ namespace ChatServer.Hubs
 {
     public interface IGroupClient
     {
-        void MessageToGroup(string groupName, string name, string message);
+        Task MessageToGroup(string groupName, string name, string message);
     }
 
     public class GroupChatHub : Hub<IGroupClient>
@@ -17,7 +17,7 @@ namespace ChatServer.Hubs
         public Task LeaveGroup(string groupName)
             => Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
 
-        public void Send(string group, string name, string message) =>
+        public Task Send(string group, string name, string message) =>
             Clients.Group(group).MessageToGroup(group, name, message);
 
         public override Task OnConnectedAsync() => base.OnConnectedAsync();

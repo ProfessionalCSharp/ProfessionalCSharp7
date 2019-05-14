@@ -1,0 +1,26 @@
+﻿<Window x:Class="RoutedEventsWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoutedEventsWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid MouseMove="OnGridMouseMove" PreviewMouseMove="OnGridPreviewMouseMove">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <CheckBox x:Name="CheckStopPreview" Margin="20">Stop Preview</CheckBox>
+            <CheckBox x:Name="CheckStopBubbling" Margin="20">Stop Bubbling</CheckBox>
+            <CheckBox x:Name="CheckIgnoreGridMove" Margin="20">Ignore Grid Move</CheckBox>
+            <Button Margin="20" Click="OnCleanStatus">Clean Status</Button>
+        </StackPanel>
+        <Button x:Name="button1" Grid.Row="1" Margin="20" MouseMove="OnButtonMouseMove" PreviewMouseMove="OnButtonPreviewMouseMove">Move</Button>
+        <ScrollViewer Grid.Row="2">
+            <TextBlock Margin="20" x:Name="textStatus" />
+        </ScrollViewer>
+    </Grid>
+</Window>

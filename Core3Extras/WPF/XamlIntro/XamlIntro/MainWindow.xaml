@@ -1,0 +1,21 @@
+﻿<Window x:Class="XamlIntroWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:datalib="clr-namespace:DataLib;assembly=DataLib"
+        Title="XAML Demo" Height="350" Width="525">
+    <Window.Resources>
+        <x:Array Type="datalib:Person" x:Key="personArray">
+            <datalib:Person FirstName="Stephanie" LastName="Nagel" />
+            <datalib:Person FirstName="Matthias" LastName="Nagel" />
+        </x:Array>
+
+    </Window.Resources>
+    <StackPanel>
+        <Button x:Name="button1" Click="OnButtonClick" Content="Click Me!" />
+        <ListBox>
+            <datalib:Person FirstName="Stephanie" LastName="Nagel" />
+            <datalib:Person FirstName="Matthias" LastName="Nagel" />
+        </ListBox>
+    </StackPanel>
+
+</Window>

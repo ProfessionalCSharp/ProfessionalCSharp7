@@ -1,0 +1,19 @@
+﻿<Window x:Class="DependencyObjectWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DependencyObjectWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:MyDependencyObject x:Key="dep1" Value="10" Minimum="0" Maximum="50" ValueChanged="OnValueChanged" />
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <Slider x:Name="slider1" Minimum="0" Maximum="70" Value="{Binding Source={StaticResource dep1}, Path=Value, Mode=TwoWay}" />
+            <TextBlock Text="{Binding Source={StaticResource dep1}, Path=Value, Mode=OneWay}" />
+        </StackPanel>
+
+    </Grid>
+</Window>

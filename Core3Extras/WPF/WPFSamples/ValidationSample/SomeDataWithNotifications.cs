@@ -15,10 +15,10 @@ namespace ValidationSample
             }
         }
         private async void CheckVal1(int oldValue, int newValue,
-            [CallerMemberName] string propertyName = null)
+            [CallerMemberName] string? propertyName = null)
         {
             ClearErrors(propertyName);
-            string result = await ValidationSimulator.Validate(newValue, propertyName);
+            string? result = await ValidationSimulator.Validate(newValue, propertyName);
             if (result != null)
             {
                 SetError(result, propertyName);

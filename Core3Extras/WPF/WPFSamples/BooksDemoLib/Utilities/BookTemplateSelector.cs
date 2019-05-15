@@ -6,21 +6,18 @@ namespace BooksDemo.Utilities
 {
     public class BookTemplateSelector : DataTemplateSelector
     {
-        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        public override DataTemplate? SelectTemplate(object? item, DependencyObject? container)
         {
-            if (item != null && item is Book)
+            if (item != null && item is Book book && container is FrameworkElement cont)
             {
-                var book = item as Book;
-                switch (book.Publisher)
+                return book switch
                 {
-                    case "Wrox Press":
-                        return (container as FrameworkElement).FindResource("wroxTemplate") as DataTemplate;
-                    case "For Dummies":
-                        return (container as FrameworkElement).FindResource("dummiesTemplate") as DataTemplate;
-                    default:
-                        return (container as FrameworkElement).FindResource("bookTemplate") as DataTemplate;
-                }
+                    { Publisher: "Wrox Press" } => cont.FindResource("wroxTemplate") as DataTemplate,
+                    { Publisher: "For Dummies" } => cont.FindResource("dummiesTemplate") as DataTemplate,
+                    _ => cont.FindResource("bookTemplate") as DataTemplate
+                };
             }
+
             return null;          
         }
     }

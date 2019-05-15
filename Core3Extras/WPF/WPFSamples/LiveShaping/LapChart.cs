@@ -10,10 +10,11 @@ namespace LiveShaping
         private int _currentLap = 0;
         private const int PostionOut = 99;
         private int _maxLaps;
+
         public LapChart()
         {
             FillPositions();
-            SetLapInfoForStart();
+            _lapInfo = SetLapInfoForStart();
         }
 
         private Dictionary<int, List<int>> _positions = new Dictionary<int, List<int>>();
@@ -47,20 +48,12 @@ namespace LiveShaping
             _maxLaps = _positions.Select(p => p.Value.Count).Max() - 1;
         }
 
-        private void SetLapInfoForStart()
-        {
-            _lapInfo = _positions.Select(x => new LapRacerInfo
-            {
-                Racer = _f1.Racers.Where(r => r.Number == x.Key).Single(),
-                Lap = 0,
-                Position = x.Value.First(),
-                PositionChange = PositionChange.None
-            }).ToList();
-        }
-
+        private List<LapRacerInfo> SetLapInfoForStart()
+            => _positions.Select(x => new LapRacerInfo(
+                _f1.Racers.Where(r => r.Number == x.Key).Single(),
+                x.Value.First())).ToList();
 
         public IEnumerable<LapRacerInfo> GetLapInfo() => _lapInfo;
-
 
         public bool NextLap()
         {
@@ -86,6 +79,7 @@ namespace LiveShaping
             }
             return true;
         }
+
         private PositionChange GetPositionChange(int oldPosition, int newPosition)
         {
             if (oldPosition == PostionOut || newPosition == PostionOut)
@@ -97,6 +91,5 @@ namespace LiveShaping
             else
                 return PositionChange.Up;
         }
-
     }
 }

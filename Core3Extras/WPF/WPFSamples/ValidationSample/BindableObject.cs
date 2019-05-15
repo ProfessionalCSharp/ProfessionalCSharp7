@@ -12,12 +12,15 @@ namespace ValidationSample
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected bool SetProperty<T>(ref T item, T value, [CallerMemberName] string propertyName = null)
+        protected bool SetProperty<T>(ref T item, T value, [CallerMemberName] string? propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(item, value)) return false;
 
             item = value;
-            OnPropertyChanged(propertyName);
+            if (propertyName != null)
+            {
+                OnPropertyChanged(propertyName);
+            }
             return true;
         }
     }

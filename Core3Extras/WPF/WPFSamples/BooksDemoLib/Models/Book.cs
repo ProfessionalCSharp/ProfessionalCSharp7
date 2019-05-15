@@ -3,12 +3,7 @@
     public class Book : BindableObject
     {
         public Book(string title, string publisher, string isbn, params string[] authors)
-        {
-            Title = title;
-            Publisher = publisher;
-            Isbn = isbn;
-            Authors = authors;
-        }
+            => (_title, _publisher, _isbn, Authors) = (title, publisher, isbn, authors);
 
         public Book()
           : this("unknown", "unknown", "unknown")

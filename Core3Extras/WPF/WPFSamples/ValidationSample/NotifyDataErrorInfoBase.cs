@@ -13,10 +13,11 @@ namespace ValidationSample
             new Dictionary<string, List<string>>();
 
         public void SetError(string errorMessage,
-            [CallerMemberName] string propertyName = null)
+            [CallerMemberName] string? propertyName = null)
         {
-            List<string> errorList;
-            if (_errors.TryGetValue(propertyName, out errorList))
+            if (propertyName == null) return;
+
+            if (_errors.TryGetValue(propertyName, out List<string> errorList))
             {
                 errorList.Add(errorMessage);
             }
@@ -28,8 +29,11 @@ namespace ValidationSample
             HasErrors = true;
             OnErrorsChanged(propertyName);
         }
-        public void ClearErrors([CallerMemberName] string propertyName = null)
+
+        public void ClearErrors([CallerMemberName] string? propertyName = null)
         {
+            if (propertyName == null) return;
+
             if (hasErrors)
             {
                 List<string> errorList;
@@ -55,7 +59,7 @@ namespace ValidationSample
         }
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
-        public IEnumerable GetErrors(string propertyName)
+        public IEnumerable? GetErrors(string propertyName)
         {
             List<string> errorsForProperty;
             bool err = _errors.TryGetValue(propertyName, out errorsForProperty);
@@ -74,9 +78,8 @@ namespace ValidationSample
                 }
             }
         }
-        protected void OnErrorsChanged([CallerMemberName] string propertyName = null)
-        {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-        }
+        protected void OnErrorsChanged([CallerMemberName] string? propertyName = null)
+            => ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+
     }
 }

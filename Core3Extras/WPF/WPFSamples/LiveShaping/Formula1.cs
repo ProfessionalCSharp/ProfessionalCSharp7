@@ -4,12 +4,11 @@ namespace LiveShaping
 {
     public class Formula1
     {
-        private List<Racer> _racers;
+        private List<Racer>? _racers;
         public IEnumerable<Racer> Racers => _racers ?? (_racers = GetRacers());
 
         private List<Racer> GetRacers()
-        {
-            return new List<Racer>()
+            => new List<Racer>()
               {
                 new Racer { Name="Sebastian Vettel", Team="Red Bull Racing", Number=1 },
                 new Racer { Name="Mark Webber", Team="Red Bull Racing", Number=2 },
@@ -36,6 +35,5 @@ namespace LiveShaping
                 new Racer { Name="Timo Glock", Team="Marussia", Number=24 },
                 new Racer { Name="Charles Pic", Team="Marussia", Number=25 }
               };
-        }
     }
 }

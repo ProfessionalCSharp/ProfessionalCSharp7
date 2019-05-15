@@ -20,20 +20,19 @@ namespace BooksDemo.Controls
 
         private void OnShowBook(object sender, RoutedEventArgs e)
         {
-            Book theBook = this.DataContext as Book;
-            if (theBook != null)
+            if (this.DataContext is Book theBook)
+            {
                 MessageBox.Show(theBook.Title, theBook.Isbn);
+            }
         }
 
         private void OnChangeBook(object sender, RoutedEventArgs e)
         {
-            Book theBook = this.DataContext as Book;
-            if (theBook != null)
+            if (this.DataContext is Book theBook)
             {
                 theBook.Title = "Professional C# 5";
                 theBook.Isbn = "978-0-470-31442-5";
-            }
-         
+            }         
         }
     }
 }

@@ -10,12 +10,15 @@ namespace BooksDemo.Models
         protected void OnPropertyChanged(string propertyName) 
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        protected void SetProperty<T>(ref T item, T value, [CallerMemberName] string propertyName = null)
+        protected void SetProperty<T>(ref T item, T value, [CallerMemberName] string? propertyName = null)
         {
             if (!EqualityComparer<T>.Default.Equals(item, value))
             {
                 item = value;
-                OnPropertyChanged(propertyName);
+                if (propertyName != null)
+                {
+                    OnPropertyChanged(propertyName);
+                }
             }
         }
     }

@@ -2,8 +2,8 @@
 {
     public class Book
     {
-        public string Title { get; set; }
-        public string Publisher { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Publisher { get; set; } = string.Empty;
 
         public override string ToString() => Title;
     }

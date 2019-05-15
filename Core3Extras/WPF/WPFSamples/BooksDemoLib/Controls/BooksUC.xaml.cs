@@ -11,14 +11,14 @@ namespace BooksDemo.Controls
     /// </summary>
     public partial class BooksUC : UserControl
     {
-        public BooksUC()
-        {
-            InitializeComponent();
-        }
+        public BooksUC() => InitializeComponent();
 
         private void OnAddBook(object sender, RoutedEventArgs e)
         {
-            ((this.FindResource("books") as ObjectDataProvider).Data as IList<Book>).Add(new Book("HTML and CSS: Design and Build Websites", "Wiley", "978-1118-00818-8", "John Ducket"));
+            if (this.FindResource("books") is ObjectDataProvider odp && odp is IList<Book> books)
+            {
+                books.Add(new Book("HTML and CSS: Design and Build Websites", "Wiley", "978-1118-00818-8", "John Ducket"));
+            }
         }
     }
 }

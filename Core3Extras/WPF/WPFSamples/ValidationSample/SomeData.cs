@@ -26,10 +26,9 @@ namespace ValidationSample
 
         public int Value2 { get; set; }
 
-        string IDataErrorInfo.Error => null;
+        string? IDataErrorInfo.Error => null;
 
-
-        string IDataErrorInfo.this[string columnName]
+        string? IDataErrorInfo.this[string columnName]
         {
             get
             {

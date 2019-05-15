@@ -5,8 +5,8 @@ namespace ValidationSample
 {
     public static class ValidationSimulator
     {
-        public static Task<string> Validate(int val,
-            [CallerMemberName] string propertyName = null)
+        public static Task<string?> Validate(int val,
+            [CallerMemberName] string? propertyName = null)
         {
             return Task.Run(async () =>
             {

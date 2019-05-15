@@ -23,11 +23,10 @@ namespace BooksDemo.Controls
 
         private void OnGroupChecked(object sender, RoutedEventArgs e)
         {
-            if (_view.CanGroup)
+            if (_view.CanGroup && _view.GroupDescriptions != null)
             {
-                if (_view.GroupDescriptions == null || _view.GroupDescriptions.Count == 0)
+                if (_view.GroupDescriptions.Count == 0)
                 {
-                    // view.GroupDescriptions = new System.Collections.ObjectModel.ObservableCollection<System.ComponentModel.GroupDescription>();
                     _view.GroupDescriptions.Add(new PropertyGroupDescription("Publisher"));
                 }
                 else
@@ -35,7 +34,6 @@ namespace BooksDemo.Controls
                     _view.GroupDescriptions.Clear();
                 }
             }
-
         }
     }
 }

@@ -1,0 +1,6 @@
+﻿<Window x:Class="ControlsSamples.FramesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Frames Sample" Height="500" Width="800">
+    <Frame Source="http://www.cninnovation.com" Grid.Row="1" />
+</Window>

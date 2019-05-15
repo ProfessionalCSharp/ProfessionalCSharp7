@@ -1,0 +1,28 @@
+﻿<Window x:Class="TriggerSamples.MultiTriggerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TriggerSamples"
+        mc:Ignorable="d"
+        Title="Multi Trigger" Height="300" Width="300">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsEnabled" Value="True" />
+                        <Condition Property="Text" Value="Test" />
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.Setters>
+                        <Setter Property="Foreground" Value="Red" />
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TextBox />
+    </Grid>
+
+</Window>

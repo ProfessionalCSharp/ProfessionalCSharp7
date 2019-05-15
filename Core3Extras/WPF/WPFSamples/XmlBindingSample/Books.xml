@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Books>
+  <Book isbn="978-1-118-31442-5">
+    <Title>Professional C# 2012</Title>
+    <Publisher>Wrox Press</Publisher>
+    <Author>Christian Nagel</Author>
+    <Author>Jay Glynn</Author>
+    <Author>Morgan Skinner</Author>
+  </Book>
+  <Book isbn="978-0-470-50226-6">
+    <Title>Beginning Visual C# 2010</Title>
+    <Publisher>Wrox Press</Publisher>
+    <Author>Karli Watson</Author>
+    <Author>Christian Nagel</Author>
+    <Author>Jacob Hammer Pedersen</Author>
+    <Author>Jon D. Reid</Author>
+    <Author>Morgan Skinner</Author>
+  </Book>
+</Books>
+

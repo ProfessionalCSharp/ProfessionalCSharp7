@@ -1,0 +1,60 @@
+﻿<Window x:Class="ValidationSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ValidationSample"
+        mc:Ignorable="d"
+        Title="Validation" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip" Value="{Binding Path=(Validation.Errors)[0].ErrorContent, RelativeSource={x:Static RelativeSource.Self}}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="40">!</TextBlock>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="8" />
+            </Style>
+        </Grid.Resources>
+        <Label Grid.Row="0" Grid.Column="0" >Value1:</Label>
+        <TextBox Grid.Row="0" Grid.Column="1"
+						Text="{Binding Path=Value1, ValidatesOnExceptions=True}"
+						Validation.ErrorTemplate="{StaticResource validationTemplate}" />
+
+        <Label Grid.Row="1" Grid.Column="0">Value2:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Value2, ValidatesOnDataErrors=True}" />
+
+        <Label Grid.Row="2" Grid.Column="0">Value3:</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Value3}" />
+
+        <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Show Value" Click="OnShowValue" Margin="5" />
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Show Notification" Click="OnShowNotification" Margin="5" />
+    </Grid>
+</Window>

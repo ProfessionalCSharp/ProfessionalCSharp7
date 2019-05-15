@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\books.png" />
+    <None Remove="Assets\books32.png" />
+    <None Remove="Assets\copy.png" />
+    <None Remove="Assets\cut.png" />
+    <None Remove="Assets\grid.png" />
+    <None Remove="Assets\list.png" />
+    <None Remove="Assets\one.png" />
+    <None Remove="Assets\paste.png" />
+    <None Remove="Assets\undo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BooksDemoLib\BooksDemoLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\books.png" />
+    <Resource Include="Assets\books32.png" />
+    <Resource Include="Assets\copy.png" />
+    <Resource Include="Assets\cut.png" />
+    <Resource Include="Assets\grid.png" />
+    <Resource Include="Assets\list.png" />
+    <Resource Include="Assets\one.png" />
+    <Resource Include="Assets\paste.png" />
+    <Resource Include="Assets\undo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

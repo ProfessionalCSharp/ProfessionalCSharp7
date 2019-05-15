@@ -1,0 +1,45 @@
+﻿<Window x:Class="XmlBindingSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XmlBindingSample"
+        mc:Ignorable="d"
+        Title="XML Binding" Height="350" Width="525">
+    <Window.Resources>
+        <XmlDataProvider x:Key="books" Source="Books.xml" XPath="Books" />
+        <DataTemplate x:Key="listTemplate">
+            <TextBlock Text="{Binding XPath=Title}" />
+        </DataTemplate>
+
+        <Style x:Key="labelStyle" TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="190" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Window.Resources>
+
+    <Grid DataContext="{Binding Source={StaticResource books}, XPath=Book}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListBox IsSynchronizedWithCurrentItem="True" Margin="5"
+        Grid.Column="0" Grid.RowSpan="4" ItemsSource="{Binding}"
+        ItemTemplate="{StaticResource listTemplate}" />
+
+        <Label Style="{StaticResource labelStyle}" 
+          Content="{Binding XPath=Title}" Grid.Row="0" Grid.Column="1" />
+        <Label Style="{StaticResource labelStyle}"     
+          Content="{Binding XPath=Publisher}" Grid.Row="1" Grid.Column="1" />
+        <Label Style="{StaticResource labelStyle}"
+          Content="{Binding XPath=@isbn}" Grid.Row="2" Grid.Column="1" />
+    </Grid>
+
+</Window>

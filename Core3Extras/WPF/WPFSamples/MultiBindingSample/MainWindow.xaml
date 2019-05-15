@@ -1,0 +1,39 @@
+﻿<Window x:Class="MultiBindingSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultiBindingSample"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Multi Binding" Height="350" Width="525">
+    <Window.Resources>
+        <local:Person x:Key="person1" FirstName="Tom" LastName="Turbo" />
+        <local:PersonNameConverter x:Key="personNameConverter" />
+    </Window.Resources>
+    <Grid DataContext="{StaticResource person1}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBox>
+            <TextBox.Text>
+                <MultiBinding Converter="{StaticResource personNameConverter}"  >
+                    <MultiBinding.ConverterParameter>
+                        <sys:String>FirstLast</sys:String>
+                    </MultiBinding.ConverterParameter>
+                    <Binding Path="FirstName" />
+                    <Binding Path="LastName" />
+                </MultiBinding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Grid.Row="1">
+            <TextBox.Text>
+                <MultiBinding StringFormat="{}{0}, {1}">
+                    <Binding Path="LastName" />
+                    <Binding Path="FirstName" />
+                </MultiBinding>
+            </TextBox.Text>
+        </TextBox>
+    </Grid>
+</Window>

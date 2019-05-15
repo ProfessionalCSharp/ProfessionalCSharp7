@@ -1,0 +1,81 @@
+﻿<RibbonWindow x:Class="BooksDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BooksDemo"
+        xmlns:commands="clr-namespace:BooksDemo.Commands;assembly=BooksDemoLib"
+    mc:Ignorable="d"
+        Title="Books Demo App" Height="400" Width="600">
+    <RibbonWindow.CommandBindings>
+        <CommandBinding Command="Close" Executed="OnClose" />
+        <CommandBinding Command="commands:BooksCommands.ShowBook" Executed="OnShowBook" />
+        <CommandBinding Command="commands:BooksCommands.ShowBooksList"  Executed="OnShowBooksList" />
+        <CommandBinding Command="commands:BooksCommands.ShowBooksGrid" Executed="OnShowBooksGrid" />
+    </RibbonWindow.CommandBindings>
+
+
+    <DockPanel>
+        <Ribbon DockPanel.Dock="Top">
+            <Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    <RibbonButton SmallImageSource="Assets/one.png" Command="commands:BooksCommands.ShowBook" />
+                    <RibbonButton SmallImageSource="Assets/list.png" Command="commands:BooksCommands.ShowBooksList"  />
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu SmallImageSource="Assets/books.png" >
+                    <RibbonApplicationMenuItem Header="Show _Book" />
+                    <RibbonSeparator />
+                    <RibbonApplicationMenuItem Header="Exit" Command="Close" />
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+            <RibbonTab Header="Home">
+                <RibbonGroup Header="Clipboard">
+                    <RibbonButton Command="Paste" Label="Paste" LargeImageSource="Assets/paste.png" />
+                    <RibbonButton Command="Cut" SmallImageSource="Assets/cut.png" />
+                    <RibbonButton Command="Copy" SmallImageSource="Assets/copy.png" />
+                    <RibbonButton Command="Undo" LargeImageSource="Assets/undo.png" />
+                </RibbonGroup>
+                <RibbonGroup Header="Show">
+                    <RibbonButton LargeImageSource="Assets/one.png" Label="Book" Command="commands:BooksCommands.ShowBook" />
+                    <RibbonButton LargeImageSource="Assets/list.png" Label="Book List" Command="commands:BooksCommands.ShowBooksList" />
+                    <RibbonButton LargeImageSource="Assets/grid.png" Label="Book Grid" Command="commands:BooksCommands.ShowBooksGrid" />
+                </RibbonGroup>
+            </RibbonTab>
+
+            <RibbonTab Header="Ribbon Controls">
+                <RibbonGroup Header="Sample">
+                    <RibbonButton Label="Button" />
+                    <RibbonCheckBox Label="Checkbox" />
+                    <RibbonComboBox Label="Combo1">
+                        <Label>One</Label>
+                        <Label>Two</Label>
+                    </RibbonComboBox>
+                    <RibbonTextBox>Text Box</RibbonTextBox>
+                    <RibbonSplitButton Label="Split Button">
+                        <RibbonMenuItem Header="One" />
+                        <RibbonMenuItem Header="Two" />
+                    </RibbonSplitButton>
+                    <RibbonComboBox Label="Combo2" IsEditable="False">
+                        <RibbonGallery SelectedValuePath="Content" MaxColumnCount="1" SelectedValue="Green">
+                            <RibbonGalleryCategory>
+                                <RibbonGalleryItem Content="Red" Foreground="Red" />
+                                <RibbonGalleryItem Content="Green" Foreground="Green" />
+                                <RibbonGalleryItem Content="Blue" Foreground="Blue" />
+                            </RibbonGalleryCategory>
+                        </RibbonGallery>
+                    </RibbonComboBox>
+                </RibbonGroup>
+            </RibbonTab>
+
+        </Ribbon>
+        <ListBox DockPanel.Dock="Left" Margin="5" MinWidth="120" Grid.Row="1">
+            <Hyperlink Command="commands:BooksCommands.ShowBook">Show Book</Hyperlink>
+            <Hyperlink Command="commands:BooksCommands.ShowBooksList">Show Books List</Hyperlink>
+        </ListBox>
+        <TabControl Margin="5" x:Name="tabControl1" Grid.Row="1">
+        </TabControl>
+
+    </DockPanel>
+</RibbonWindow>

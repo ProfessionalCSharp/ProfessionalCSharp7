@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="BooksDemo.Controls.BookUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:models="clr-namespace:BooksDemo.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <DockPanel.Resources>
+             <models:Book x:Key="theBook" Title="Professional C# 4 and .NET 4" Publisher="Wrox Press" Isbn="978-0-470-50225-9" />  
+            <!--<ObjectDataProvider x:Key="theBook" ObjectType="local:BookFactory" MethodName="GetTheBook" />-->
+        </DockPanel.Resources>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Label Content="Resize" />
+            <Slider x:Name="slider1" Value="1" Minimum="0.4" Maximum="3" Width="150" HorizontalAlignment="Right" />
+        </StackPanel>
+        <Grid x:Name="grid1"> <!-- DataContext="{StaticResource theBook}"> -->
+            <Grid.LayoutTransform>
+                <ScaleTransform x:Name="scale1" ScaleX="{Binding Path=Value, ElementName=slider1}" ScaleY="{Binding Path=Value, ElementName=slider1}" />
+            </Grid.LayoutTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="Title" Grid.Row="0" Grid.Column="0" Margin="10,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Label Content="Publisher" Grid.Row="1" Grid.Column="0" Margin="10,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Label Content="Isbn" Grid.Row="2" Grid.Column="0" Margin="10,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Text="{Binding Title}"  Grid.Row="0" Grid.Column="1" Margin="5" />
+            <TextBox Text="{Binding Publisher}" Grid.Row="1" Grid.Column="1" Margin="5" />
+            <TextBox Text="{Binding Isbn}" Grid.Row="2" Grid.Column="1" Margin="5" />
+            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Show Book" Margin="5" Click="OnShowBook" />
+                <Button Content="Change Book" Margin="5" Click="OnChangeBook" />
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>

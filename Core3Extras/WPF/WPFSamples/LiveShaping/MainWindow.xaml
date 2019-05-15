@@ -1,0 +1,63 @@
+﻿<Window x:Class="LiveShaping.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        xmlns:local="clr-namespace:LiveShaping"
+        mc:Ignorable="d"
+        Title="Live Shaping" Height="350" Width="525">
+    <Window.Resources>
+        <CollectionViewSource x:Key="cvs" Source="{Binding}" IsLiveSortingRequested="True">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="Position" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </Window.Resources>
+    <Grid>
+        <DataGrid IsReadOnly="True" ItemsSource="{Binding}" DataContext="{StaticResource cvs}" AutoGenerateColumns="False">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding PositionChange}" Value="None">
+                            <Setter Property="Background" Value="LightGray" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding PositionChange}" Value="Up">
+                            <Setter Property="Background" Value="LightGreen" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding PositionChange}" Value="Down">
+                            <Setter Property="Background" Value="Yellow" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding PositionChange}" Value="Out">
+                            <Setter Property="Background" Value="Red" />
+                        </DataTrigger>
+
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Position}" />
+                <DataGridTextColumn Binding="{Binding Racer.Number}" />
+                <DataGridTextColumn Binding="{Binding Racer.Name}" />
+                <DataGridTextColumn Binding="{Binding Racer.Team}" />
+                <DataGridTextColumn Binding="{Binding Lap}" />
+                <DataGridTextColumn Binding="{Binding PositionChange }" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

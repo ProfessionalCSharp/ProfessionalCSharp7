@@ -1,0 +1,28 @@
+﻿<Window x:Class="TriggerSamples.DataTriggerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TriggerSamples"
+        mc:Ignorable="d"
+        Title="Data Trigger" Height="300" Width="300">
+    <Window.Resources>
+        <Style TargetType="ListBoxItem">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Publisher}" Value="Wrox Press">
+                    <Setter Property="Background" Value="Red" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Publisher}" Value="Dummies">
+                    <Setter Property="Background" Value="Yellow" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Publisher}" Value="Wiley">
+                    <Setter Property="Background" Value="DarkGray" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <ListBox x:Name="list1" />
+    </Grid>
+
+</Window>

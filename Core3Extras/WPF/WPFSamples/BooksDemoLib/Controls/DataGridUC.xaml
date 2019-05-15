@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="BooksDemo.Controls.DataGridUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:models="clr-namespace:BooksDemo.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="books" ObjectType="models:BooksRepository" MethodName="GetBooks" />
+        <CollectionViewSource x:Key="booksView" Source="{StaticResource books}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Publisher" />
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource booksView}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <CheckBox Margin="5" x:Name="IsGroupStyle"  Checked="OnGroupChecked" Unchecked="OnGroupChecked">
+                Group Style
+            </CheckBox>
+        </StackPanel>
+        <DataGrid x:Name="grid1" Grid.Row="1" ItemsSource="{Binding}" CanUserAddRows="True" CanUserSortColumns="True" AutoGenerateColumns="False" AlternatingRowBackground="#FFD4D09E" AllowDrop="True" HeadersVisibility="All" GridLinesVisibility="All" >
+            <DataGrid.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="GroupItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="GroupItem">
+                                        <Expander IsExpanded="False" BorderBrush="AliceBlue">
+                                            <Expander.Header>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Label Content="{Binding Path=Name}" />
+                                                    <Label Content="{Binding Path=ItemCount}" />
+                                                </StackPanel>
+                                            </Expander.Header>
+                                            <Expander.Content>
+                                                <ItemsPresenter />
+                                            </Expander.Content>
+                                        </Expander>
+                                        
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                    
+                </GroupStyle>
+            </DataGrid.GroupStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Publisher}" />
+                <DataGridTextColumn Binding="{Binding Path=Title}" Header="Title" />
+                <DataGridTextColumn Binding="{Binding Path=Isbn}" Header="ISBN" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+            
+    </Grid>
+</UserControl>

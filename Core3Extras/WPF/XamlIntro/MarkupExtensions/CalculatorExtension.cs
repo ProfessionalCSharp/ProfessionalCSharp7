@@ -24,7 +24,7 @@ namespace MarkupExtensionsWPF
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            IProvideValueTarget provideValue =
+            IProvideValueTarget? provideValue =
                 serviceProvider.GetService(typeof(IProvideValueTarget))
                 as IProvideValueTarget;
             if (provideValue != null)
@@ -32,25 +32,14 @@ namespace MarkupExtensionsWPF
                 var host = provideValue.TargetObject as FrameworkElement;
                 var prop = provideValue.TargetProperty as DependencyProperty;
             }
-            double result = 0;
-            switch (Operation)
+            return Operation switch
             {
-                case Operation.Add:
-                    result = X + Y;
-                    break;
-                case Operation.Subtract:
-                    result = X - Y;
-                    break;
-                case Operation.Multiply:
-                    result = X * Y;
-                    break;
-                case Operation.Divide:
-                    result = X / Y;
-                    break;
-                default:
-                    throw new ArgumentException("invalid operation");
-            }
-            return result.ToString();
+                Operation.Add => (X + Y).ToString(),
+                Operation.Subtract => (X - Y).ToString(),
+                Operation.Multiply => (X * Y).ToString(),
+                Operation.Divide => (X / Y).ToString(),
+                _ => throw new ArgumentException("invalid operation")
+            };
         }
     }
 }

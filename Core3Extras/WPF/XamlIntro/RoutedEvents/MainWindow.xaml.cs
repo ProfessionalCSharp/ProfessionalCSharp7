@@ -14,8 +14,7 @@ namespace RoutedEventsWPF
         }
 
         private bool IsButton1Source(RoutedEventArgs e) => 
-            (e.Source as FrameworkElement).Name == nameof(button1);
-
+            (e.Source as FrameworkElement)?.Name == nameof(button1);
 
         private void OnButtonMouseMove(object sender, MouseEventArgs e)
         {

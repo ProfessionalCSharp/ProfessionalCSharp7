@@ -47,8 +47,8 @@ namespace CancellationSamples
                 Console.WriteLine($"exception: {ex.GetType().Name}, {ex.Message}");
                 foreach (var innerException in ex.InnerExceptions)
                 {
-                    Console.WriteLine($"inner exception: {ex.InnerException.GetType()}," +
-                      $"{ex.InnerException.Message}");
+                    Console.WriteLine($"inner exception: {innerException.GetType()}," +
+                      $"{innerException.Message}");
                 }
             }
             Console.WriteLine();

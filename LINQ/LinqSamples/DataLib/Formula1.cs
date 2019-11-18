@@ -37,10 +37,10 @@ namespace DataLib
                 new Racer("Mika", "Hakkinen", "Finland", 160, 20, new int[] { 1998, 1999 }, new string[] { "McLaren" }),
                 new Racer("Michael", "Schumacher", "Germany", 287, 91, new int[] { 1994, 1995, 2000, 2001, 2002, 2003, 2004 }, new string[] { "Benetton", "Ferrari" }),
                 new Racer("Fernando", "Alonso", "Spain", 314, 32, new int[] { 2005, 2006 }, new string[] { "Renault" }),
-                new Racer("Kimi", "Räikkönen", "Finland", 294, 21, new int[] { 2007 }, new string[] { "Ferrari" }),
-                new Racer("Lewis", "Hamilton", "UK", 229, 73, new int[] { 2008, 2014, 2015, 2017, 2018 }, new string[] { "McLaren", "Mercedes" }),
+                new Racer("Kimi", "Räikkönen", "Finland", 311, 22 , new int[] { 2007 }, new string[] { "Ferrari" }),
+                new Racer("Lewis", "Hamilton", "UK", 249, 83, new int[] { 2008, 2014, 2015, 2017, 2018, 2019 }, new string[] { "McLaren", "Mercedes" }),
                 new Racer("Jenson", "Button", "UK", 306, 16, new int[] { 2009 }, new string[] { "Brawn GP" }),
-                new Racer("Sebastian", "Vettel", "Germany", 220, 52, new int[] { 2010, 2011, 2012, 2013 }, new string[] { "Red Bull Racing" }),
+                new Racer("Sebastian", "Vettel", "Germany", 240, 53, new int[] { 2010, 2011, 2012, 2013 }, new string[] { "Red Bull Racing" }),
                 new Racer("Nico", "Rosberg", "Germany", 207, 24, new int[] { 2016 }, new string[] { "Mercedes" })
             };
 
@@ -67,7 +67,7 @@ namespace DataLib
                     new Team("Renault", 2005, 2006 ),
                     new Team("Brawn GP", 2009),
                     new Team("Red Bull Racing", 2010, 2011, 2012, 2013),
-                    new Team("Mercedes", 2014, 2015, 2016, 2017, 2018)
+                    new Team("Mercedes", 2014, 2015, 2016, 2017, 2018, 2019)
                 };
             }
             return s_teams;
@@ -148,7 +148,8 @@ namespace DataLib
                     new Championship(2015, "Lewis Hamilton", "Nico Rosberg", "Sebastian Vettel"),
                     new Championship(2016, "Nico Rosberg", "Lewis Hamilton", "Daniel Ricciardo"),
                     new Championship(2017, "Lewis Hamilton", "Sebastian Vettel", "Valtteri Bottas"),
-                    new Championship(2018, "Lewis Hamilton", "Sebastian Vettel", "Kimi Räikkönen")
+                    new Championship(2018, "Lewis Hamilton", "Sebastian Vettel", "Kimi Räikkönen"),
+                    new Championship(2019, "Lewis Hamilton", "Valtteri Bottas", "Max Verstappen")
                 };
             }
             return s_championships;
@@ -191,8 +192,9 @@ namespace DataLib
                 _moreRacers.Add(new Racer("Juan Pablo", "Montoya", "Columbia", starts: 94, wins: 7));
                 _moreRacers.Add(new Racer("Felipe", "Massa", "Brazil", starts: 269, wins: 11));
                 _moreRacers.Add(new Racer("Mark", "Webber", "Australia", starts: 215, wins: 9));
-                _moreRacers.Add(new Racer("Daniel", "Ricciardo", "Australia", starts: 150, wins: 7));
-                _moreRacers.Add(new Racer("Valtteri", "Bottas", "Finland", starts: 119, wins: 3));
+                _moreRacers.Add(new Racer("Daniel", "Ricciardo", "Australia", starts: 170, wins: 7));
+                _moreRacers.Add(new Racer("Valtteri", "Bottas", "Finland", starts: 139, wins: 7));
+                _moreRacers.Add(new Racer("Max", "Verstappen", "Netherlands", starts: 101, wins: 8));
             }
             return _moreRacers;
         }

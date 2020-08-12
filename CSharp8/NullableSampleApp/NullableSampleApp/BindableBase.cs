@@ -13,9 +13,7 @@ namespace NullableSampleApp
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         // https://github.com/dotnet/corefx/blob/d58a51f911efb3c98beca21b6cf08cc703424fdf/src/Common/src/CoreLib/System/Collections/Generic/EqualityComparer.cs
-#nullable disable
         public bool SetProperty<T>(ref T item, T value,
-#nullable restore
             [CallerMemberName] string propertyName = default!)
         {
             if (EqualityComparer<T>.Default.Equals(item, value)) return false;
@@ -25,5 +23,5 @@ namespace NullableSampleApp
             return true;
         }
     }
-#nullable restore
 }
+#nullable restore

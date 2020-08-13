@@ -16,8 +16,29 @@ namespace NullableSampleApp
 
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            
+        }
+
+        private Book? _book;
+        public Book GetBook1()
+        {
+            if (_book == null)
+            {
+                _book = new Book("4711", "Professional C# 9");
+            }
+            return _book;
+        }
+
+        public Book GetBook2()
+        {
+            return _book ?? (_book = new Book("4711", "Professional C# 9"));
+        }
+
+        public Book GetBook3()
+        {
+            return _book ??= new Book("4711", "Professional C# 9");
         }
 
         static void ShowBook(Book book)

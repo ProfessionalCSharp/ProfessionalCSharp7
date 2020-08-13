@@ -3,7 +3,6 @@ using System;
 
 namespace NullableSampleApp
 {
-#nullable enable
 
     public class Startup
     {
@@ -23,5 +22,4 @@ namespace NullableSampleApp
         }
     }
 
-#nullable restore
 }

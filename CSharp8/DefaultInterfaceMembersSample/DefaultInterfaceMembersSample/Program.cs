@@ -1,12 +1,15 @@
 ﻿using SampleLib;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DefaultInterfaceMembersSample
 {
     public class Position : IPosition
     {
         public int X { get; set; }
-        public int Y { get; set; }
+        public int Y { get; set; }        
     }
 
     public class Shape : IShape
@@ -16,6 +19,14 @@ namespace DefaultInterfaceMembersSample
         {
             get => _position;
             set => _position = value;
+        }
+
+        public IPosition Move(IPosition newPosition)
+        {
+            Console.WriteLine("Shape implementation");
+            _position.X = newPosition.X;
+            _position.Y = newPosition.Y;
+            return newPosition;
         }
 
         #region future feature
@@ -41,14 +52,39 @@ namespace DefaultInterfaceMembersSample
 
         static void Main()
         {
-            var shape = new Shape();
+            CustomCollectionSample();
+
+            IShape shape = new Shape();
             shape.Position = new Position { X = 33, Y = 22 };
             Console.WriteLine(shape);
+            shape.Move(new Position { X = 44, Y = 33 });
 
             Move(shape);
             Console.WriteLine(shape);
 
              UseADifferentBindableBase();
+        }
+
+        private static ICustomEnumerable<string> GetCustomCollection() =>
+            new CustomCollection<string> { "James", "John", "Michael", "Lewis", "Jochen", "Juan" };
+
+        private static void CustomCollectionSample()
+        {
+            var coll = GetCustomCollection();
+            
+            var subset = coll.Where(n => n.StartsWith("J"));
+            foreach (var name in subset)
+            {
+                Console.WriteLine(name);
+            }
+
+            var subset2 = from n in coll
+                          where n.StartsWith("J")
+                          select n;
+            foreach (var name in subset2)
+            {
+                Console.WriteLine(name);
+            }
         }
 
         #region BindableBase

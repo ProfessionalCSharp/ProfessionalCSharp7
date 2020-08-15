@@ -1,4 +1,6 @@
-﻿namespace SampleLib
+﻿using System;
+
+namespace SampleLib
 {
     public interface IPosition
     {
@@ -10,13 +12,14 @@
     {
         IPosition Position { get; set; }
 
-        IPosition Move(IPosition newPosition);
+        // IPosition Move(IPosition newPosition);
 
-        //public IPosition Move(IPosition newPosition)
-        //{
-        //    Position.X = newPosition.X;
-        //    Position.Y = newPosition.Y;
-        //    return Position;
-        //}
+        public IPosition Move(IPosition newPosition)
+        {
+            Console.WriteLine("Default interface implementation");
+            Position.X = newPosition.X;
+            Position.Y = newPosition.Y;
+            return Position;
+        }
     }
 }

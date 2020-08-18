@@ -10,37 +10,38 @@ namespace ReadonlyMembersSample
 
     public struct SomeData
     {
-        private readonly int _data4;
-        private int _data5;
+        private readonly int _data1;
+        private int _data2;
         public SomeData(int data1, int data2, int data3, int data4, int data5)
         {
-            Data1 = data1;
+            _data1 = data1;
             _data2 = data2;
-            Data3 = data3;
-            _data4 = 11;
-            _data5 = data5;
+            _data3 = data3;
+            Data4 = data4;
+            Data5 = data5;
         }
 
-        public int Data1 { get; set; }
-        private int _data2;
-        public int Data2
+        private int _data3;
+        public int Data3
         {
-            readonly get => _data2;
-            set => _data2 = value;
+            readonly get => _data3;
+            set => _data3 = value;
         }
-        public int Data3 { get; }
+        public int Data4 { get; set; }
+
+        public int Data5 { get; }
         private void PrivateMethod() // not declared readonly
         {
             Console.WriteLine("PrivateMethod");
         }
-
-        public readonly int GetData1() => Data1;
-
-        public readonly int GetData2() => Data2;
+        public readonly int GetData1() => _data1;
+        public readonly int GetData2() => _data2;
 
         public readonly int GetData3() => Data3;
-        public readonly int GetData4() => _data4;
-        public readonly int GetData5() => _data5;
+
+        public readonly int GetData4() => Data4;
+
+        public readonly int GetData5() => Data5;
 
         public readonly void DontChangeState()
         {
@@ -54,7 +55,7 @@ namespace ReadonlyMembersSample
         static void Main(string[] args)
         {
             var sd = new SomeData(11, 12, 13, 14, 15);
-            int x = sd.GetData2();
+            int x = sd.GetData4();
         }
     }
 }

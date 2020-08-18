@@ -9,15 +9,12 @@ namespace AsyncStreamsSample
     {
         static async Task Main()
         {
-            // await Demo1Async();
-            await Demo2Async();
-            //            await Demo4Async();
-            // await Demo3Async();
-            // await Demo2Async();
-            // await Demo1Async();
+            // await UseEnumeratorAsync();
+            // await WhileLoopAsync();
+            await WithCancellationAsync();
         }
 
-        private static async Task Demo1Async()
+        private static async Task UseEnumeratorAsync()
         {
             var aDevice = new ADevice();
 
@@ -27,7 +24,7 @@ namespace AsyncStreamsSample
             }
         }
 
-        private static async Task Demo2Async()
+        private static async Task WhileLoopAsync()
         {
             var aDevice = new ADevice();
 
@@ -40,7 +37,7 @@ namespace AsyncStreamsSample
             }
         }
 
-        private static async Task Demo4Async()
+        private static async Task WithCancellationAsync()
         {
             try
             {
@@ -48,7 +45,7 @@ namespace AsyncStreamsSample
                 cts.CancelAfter(5000);
                 var aDevice = new ADevice();
 
-                await foreach (var x in aDevice.GetSensorData3().WithCancellation(cts.Token))
+                await foreach (var x in aDevice.GetSensorData2().WithCancellation(cts.Token))
                 {
                     Console.WriteLine($"{x.Value1} {x.Value2}");
                 }
@@ -78,9 +75,5 @@ namespace AsyncStreamsSample
                 Console.WriteLine(ex.Message);
             }
         }
-
-
-
-
     }
 }

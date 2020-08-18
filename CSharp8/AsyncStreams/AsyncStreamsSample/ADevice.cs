@@ -18,7 +18,7 @@ namespace AsyncStreamsSample
             }
         }
 
-        public async IAsyncEnumerable<SensorData> GetSensorData3([EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public async IAsyncEnumerable<SensorData> GetSensorData2([EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
             var r = new Random();
             while (true)
@@ -28,7 +28,7 @@ namespace AsyncStreamsSample
             }
         }
 
-        public async IAsyncEnumerable<SensorData> GetSensorData2([EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public async IAsyncEnumerable<SensorData> GetSensorData3([EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
             bool cancel = false;
             using var registration = cancellationToken.Register(() => cancel = true);

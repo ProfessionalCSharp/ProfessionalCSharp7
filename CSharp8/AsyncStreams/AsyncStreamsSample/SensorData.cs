@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AsyncStreamsSample
 {
@@ -11,7 +10,7 @@ namespace AsyncStreamsSample
         public int Value2 { get; }
 
         public override bool Equals(object? obj) => obj is SensorData data && Equals(data);
-        public bool Equals([AllowNull] SensorData other) => Value1 == other.Value1 && Value2 == other.Value2;
+        public bool Equals(SensorData other) => Value1 == other.Value1 && Value2 == other.Value2;
         public override int GetHashCode() => HashCode.Combine(Value1, Value2);
 
         public static bool operator ==(SensorData left, SensorData right) => left.Equals(right);

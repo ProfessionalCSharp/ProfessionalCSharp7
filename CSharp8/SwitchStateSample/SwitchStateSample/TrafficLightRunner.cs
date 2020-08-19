@@ -7,6 +7,17 @@ namespace SwitchStateSample
     {
         private readonly TrafficLightSwitcher _switcher = new TrafficLightSwitcher();
 
+        public async Task SimpleLigthAsync()
+        {
+            LightState current = LightState.Red;
+            while (true)
+            {
+                current = _switcher.GetNextLight1(current);
+                Console.WriteLine($"new light: {current}");
+                await Task.Delay(2000);
+            }
+        }
+
         public async Task UseTuplesAsync()
         {
             LightState current = LightState.FlashingYellow;

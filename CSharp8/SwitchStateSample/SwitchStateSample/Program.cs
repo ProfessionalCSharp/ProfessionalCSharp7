@@ -5,6 +5,7 @@ namespace SwitchStateSample
 {
     public enum AppMode
     {
+        Simple,
         Tuple,
         TupleCount,
         Type
@@ -28,6 +29,9 @@ namespace SwitchStateSample
 
                 switch (mode)
                 {
+                    case AppMode.Simple:
+                        await runner.SimpleLigthAsync();
+                        break;
                     case AppMode.Tuple:
                         await runner.UseTuplesAsync();
                         break;

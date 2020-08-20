@@ -58,5 +58,9 @@ namespace NullableSampleApp
             string? publisher4 = b.Publisher;
         }
 
+        public string? GetPublisher2(Book book) => book.Publisher;
+
+        public string GetPublisher1(Book? book) => book?.Publisher ?? string.Empty;
+
     }
 }

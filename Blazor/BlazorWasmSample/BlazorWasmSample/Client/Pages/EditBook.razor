@@ -1,0 +1,46 @@
+﻿@page "/editbook"
+@page "/editbook/{Id:int}"
+
+@inject HttpClient Http
+
+@using BlazorWasmSample.Shared
+
+
+<h3>EditBook</h3>
+
+<EditForm Model="@book" OnValidSubmit="HandleValidSubmit" OnSubmit="OnSubmitBook">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="title" @bind-Value="book.Title" />
+    <br />
+    <InputText id="publisher" @bind-Value="book.Publisher" />
+    <br />
+
+    <button type="submit">Submit</button>
+
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private Book book = new Book();
+
+    private void HandleValidSubmit()
+    {
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        book = await Http.GetFromJsonAsync<Book>($"api/Books/{Id}");
+    }
+
+    protected async Task OnSubmitBook()
+    {
+        await Http.PutAsJsonAsync<Book>($"api/Books/{Id}", book);
+    }
+
+}

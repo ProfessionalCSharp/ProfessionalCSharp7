@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BlazorWasmSample.Shared
 {
-    poublic class Book
+    public class Book
     {
         public int BookId { get; set; }
+        [MaxLength(50)]
         public string Title { get; set; }
+        [MaxLength(30)]
         public string Publisher { get; set; }
     }
 }

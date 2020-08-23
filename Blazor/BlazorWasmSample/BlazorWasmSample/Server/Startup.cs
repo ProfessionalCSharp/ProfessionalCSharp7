@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using BlazorWasmSample.Server.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlazorWasmSample.Server
 {
@@ -23,6 +25,10 @@ namespace BlazorWasmSample.Server
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<BooksContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("BooksConnection"));
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

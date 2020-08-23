@@ -1,0 +1,44 @@
+﻿@page "/books"
+
+@using BlazorWasmSample.Shared
+@inject HttpClient Http
+
+<h3>Books</h3>
+
+
+@if (books == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title (C)</th>
+                <th>Publisher (F)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in books)
+            {
+                <tr>
+                    <td>@book.BookId</td>
+                    <td>@book.Title</td>
+                    <td>@book.Publisher</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Book[] books;
+
+    protected override async Task OnInitializedAsync()
+    {
+        books = await Http.GetFromJsonAsync<Book[]>("api/Books");
+    }
+
+}

@@ -2,10 +2,10 @@
 {
     public readonly struct LightStatus
     {
-        public LightStatus(LightState current, LightState previous, int seconds, int blinkCount) =>
-            (Current, Previous, Milliseconds, FlashCount) = (current, previous, seconds, blinkCount);
+        public LightStatus(LightState current, LightState previous, int milliSeconds, int blinkCount) =>
+            (Current, Previous, Milliseconds, FlashCount) = (current, previous, milliSeconds, blinkCount);
 
-        public LightStatus(LightState current, LightState previous, int seconds) : this(current, previous, seconds, 0) { }
+        public LightStatus(LightState current, LightState previous, int milliSeconds) : this(current, previous, milliSeconds, 0) { }
         public LightStatus(LightState current, LightState previous) : this(current, previous, 3) { }
 
         public LightState Current { get; }

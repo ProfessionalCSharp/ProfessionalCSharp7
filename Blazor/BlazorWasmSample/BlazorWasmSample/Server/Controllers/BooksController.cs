@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BlazorWasmSample.Server.Data;
 using BlazorWasmSample.Shared;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlazorWasmSample.Server.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize()]
     [ApiController]
     public class BooksController : ControllerBase
     {
@@ -20,6 +22,9 @@ namespace BlazorWasmSample.Server.Controllers
         {
             _context = context;
         }
+
+        [HttpGet("/user")]
+        public string GetUser() => User.Identity.Name;
 
         // GET: api/Books
         [HttpGet]

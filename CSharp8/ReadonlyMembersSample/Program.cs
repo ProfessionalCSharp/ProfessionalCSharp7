@@ -52,7 +52,7 @@ namespace ReadonlyMembersSample
 
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var sd = new SomeData(11, 12, 13, 14, 15);
             int x = sd.GetData4();

@@ -10,5 +10,4 @@ namespace UsingDeclarationSample
             Console.WriteLine($"ARefStructResource:Dipose");
         }
     }
-
 }

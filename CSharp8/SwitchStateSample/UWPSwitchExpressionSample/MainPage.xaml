@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="UWPSwitchExpressionSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPSwitchExpressionSample"
+    xmlns:utils="using:UWPSwitchExpressionSample.Utilities"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <utils:TrafficLightToBrushConverter x:Key="TrafficLightConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Canvas Background="DarkGray" Width="400" Height="900">
+            <Ellipse Canvas.Left="90" Canvas.Top="40" Width="220" Height="220" 
+                     Fill="{x:Bind LightState, 
+                        Mode=OneWay,
+                        Converter={StaticResource TrafficLightConverter}, 
+                        ConverterParameter='Red'}" />
+            <Ellipse Canvas.Left="90" Canvas.Top="280" Width="220" Height="220" 
+                     Fill="{x:Bind LightState, 
+                        Mode=OneWay,
+                        Converter={StaticResource TrafficLightConverter}, 
+                        ConverterParameter='Yellow'}" />
+            <Ellipse Canvas.Left="90" Canvas.Top="520" Width="220" Height="220" 
+                     Fill="{x:Bind LightState, 
+                        Mode=OneWay,
+                        Converter={StaticResource TrafficLightConverter}, 
+                        ConverterParameter='Green'}" />
+        </Canvas>
+
+    </Grid>
+</Page>

@@ -68,6 +68,7 @@ Here's the list of chapters and the folders for the code samples:
 * Bonus Chapter 3 - SignalR and WebHooks (SignalRAndWebHooks)
 * Bonus Chapter 4 - Bots and Cognitive Services (BotAndCognitive)
 * Bonus Chapter 5 - More Windows Apps Features (MoreWindows)
+* Bonus Chapter 6 - What's new with C# 8 (CSharp8)
 
 In case you've some issues to compile and run the samples, create an issue in the [Professional C# 7 GitHub repository](https://github.com/ProfessionalCSharp/ProfessionalCSharp7).
 

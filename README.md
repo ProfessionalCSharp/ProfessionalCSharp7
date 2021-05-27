@@ -1,6 +1,8 @@
 
 # Professional C# 7 and .NET Core 2.0
 
+> Check [Professional C# and .NET - 2021 Edition](https://github.com/ProfessionalCSharp/ProfessionalCSharp2021) for the code samples of the next edition of the book.
+
 Code samples for the Wrox Press book **Professional C# 7 and .NET Core 2.0**
 
 To compile and run the samples, you need Visual Studio 2017, Visual Studio for Mac, or Visual Studio Code. 
